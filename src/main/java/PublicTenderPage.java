@@ -9,6 +9,7 @@ import static org.testng.Assert.assertTrue;
 
 public class PublicTenderPage extends BasePage {
     private By tenderHeaderType = By.xpath("//div[@class='header_title' and @id='username']");
+    private By tenderAdminProfile = By.xpath("//td[@class='modulHeading']");
     private final static String TITLE = "Tenders";
 
     public PublicTenderPage(WebDriver driver) {
@@ -18,5 +19,14 @@ public class PublicTenderPage extends BasePage {
     public WebElement tenderHeaderType() {
         return driver.findElement(tenderHeaderType);
 
+    }
+    public WebElement tenderAdminProfile() {
+        return driver.findElement(tenderAdminProfile);
+
+    }
+    public void switchToNewWindow() {
+        for (String winHandle : driver.getWindowHandles()) {
+            driver.switchTo().window(winHandle);
+        }
     }
 }
