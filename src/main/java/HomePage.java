@@ -21,11 +21,11 @@ public class HomePage extends BasePage {
     private final static String TITLE = "Login page";
 
     public HomePage(WebDriver driver) {
-        super(driver, TITLE);
+        super(driver);
     }
 
     public HomePage(WebDriver driver, String title) {
-        super(driver, title);
+        super(driver);
     }
 
     public WebElement getLogo()

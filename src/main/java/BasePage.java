@@ -5,7 +5,7 @@ public class BasePage {
     protected WebDriverWait webDriverWait;
     //  protected Logger logger;
     private String title;
-    public BasePage(WebDriver driver, String title){
+    public BasePage(WebDriver driver){
         this.driver = driver;
         webDriverWait = new WebDriverWait(driver, 3);
         this.title = title;

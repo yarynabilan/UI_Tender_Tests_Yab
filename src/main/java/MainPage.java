@@ -1,10 +1,8 @@
 
-import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-import static com.codeborne.selenide.Selectors.byXpath;
 import static com.codeborne.selenide.Selenide.$;
 import static org.testng.Assert.assertTrue;
 public class
@@ -17,7 +15,7 @@ MainPage extends BasePage {
 
     public MainPage(WebDriver driver) {
 
-        super(driver, TITLE);
+        super(driver);
     }
 
     public WebElement getProfileLogoOnTheMainPage() {

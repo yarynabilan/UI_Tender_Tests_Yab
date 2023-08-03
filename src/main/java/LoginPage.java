@@ -1,7 +1,7 @@
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.testng.Assert;
+
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
@@ -17,7 +17,7 @@ public class LoginPage extends BasePage {
     private final static String TITLE = "Login page";
 
     public LoginPage(WebDriver driver) {
-        super(driver, TITLE);
+        super(driver);
     }
 
     public WebElement getLogo()

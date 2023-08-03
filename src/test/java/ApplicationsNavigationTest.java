@@ -6,12 +6,13 @@ public class ApplicationsNavigationTest extends LoginTest {
 
 
     @Test
-    public void applicationNavigation() {
+    public void applicationNavigationTest() {
  //       LoginPage loginPage = new LoginPage(driver);
 //        loginPage.loginSuccessful("ribtestuser@gmail.com", "TestPassword#1");
         MainPage mainPage = new MainPage(driver);
         mainPage.navigateToApplications().applications().click();
- //       assertTrue(mainPage.getApp().isDisplayed());
+        ApplicationsPage applicationsPage = new ApplicationsPage(driver);
+        assertTrue(applicationsPage.tenderLink().isDisplayed());
     }
 }
 
