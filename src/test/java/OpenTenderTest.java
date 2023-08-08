@@ -32,7 +32,7 @@ public class OpenTenderTest extends ApplicationsNavigationTest {
             }
         }
         driver.switchTo().window(newWindowHandle);
-        //Знайдіть елемент, який вказує на фрейм на новій сторінці, наприклад, <iframe> або <frame>
+        //елемент, який вказує на фрейм на новій сторінці, наприклад, <iframe> або <frame>
         WebElement iframeElement = driver.findElement(By.xpath("//frame[@name='functions']"));
         driver.switchTo().frame(iframeElement);
 
