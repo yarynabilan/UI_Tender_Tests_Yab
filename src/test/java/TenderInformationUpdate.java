@@ -6,17 +6,19 @@ import org.testng.annotations.Test;
 
 import java.util.Set;
 
+import static org.testng.Assert.assertTrue;
+
 public class TenderInformationUpdate extends ApplicationsNavigationTest {
 
     private TenderInformationUpdate tenderInformationUpdate;
 
     @Test
-    public void navigateThoughtMainPanels() throws InterruptedException {
+    public void UpdateTenderDescription() throws InterruptedException {
         MainPage mainPage = new MainPage(driver);
         mainPage.navigateToApplications().applications().click();
         ApplicationsPage applicationsPage = new ApplicationsPage(driver);
 
-        WebDriverWait wait = new WebDriverWait(driver, 7); // Змінна wait для очікування
+        WebDriverWait wait = new WebDriverWait(driver, 8); // Змінна wait для очікування
 
         // Очікування перед кліком на елемент
         wait.until(ExpectedConditions.elementToBeClickable(applicationsPage.tenderLink()));
@@ -43,10 +45,17 @@ public class TenderInformationUpdate extends ApplicationsNavigationTest {
         driver.switchTo().frame(iframeElement);
         PublicTenderPage publicTenderPage = new PublicTenderPage(driver);
         publicTenderPage.clickOnElement(publicTenderPage.getTenderInformationTab());
+
+
         TenderInformationPanel tenderInformationPanel = new TenderInformationPanel(driver);
-        tenderInformationPanel.navigateToTenderInformation();
-        tenderInformationPanel.navigateToTenderDescriptionSubTab();
-        tenderInformationPanel.clickOnEditTenderDescriptionButton();
+//        tenderInformationPanel.navigateToTenderInformation();
+        driver.switchTo().defaultContent();
+        WebElement frameDirectory = driver.findElement(By.xpath("//frame[@name='directory']"));
+        driver.switchTo().frame(frameDirectory);
+ //       tenderInformationPanel.clickOnTenderInformationExtendIcon();
+     //   tenderInformationPanel.navigateToTenderDescriptionSubTab();
+        assertTrue(tenderInformationPanel.tenderDescriptionSubTab().isDisplayed());
+  //      tenderInformationPanel.clickOnEditTenderDescriptionButton();
 
 
     }

@@ -13,14 +13,14 @@ import static com.codeborne.selenide.Selenide.$;
 @Getter
 public class TenderInformationPanel extends PublicTenderPage {
 
- // public TenderInformationTab tenderInformationTab;
- // public TenderDescriptionSubTab tenderDescriptionSubTab;
- //   private final SelenideElement TenderInformationPanel = $(byXpath("//*[@id=\"tender_information_node\"]/span"));
-    private final SelenideElement TenderDescriptionSubTab = $(byXpath("//*[@id=\"tender_description_node\"]/span"));
+    private final SelenideElement TenderInformationExtendIcon = $(byXpath("//*[@id=\"zpTreetree_tender_root_nodeNode2SignElement\"]/img"));
+
+    //    private final SelenideElement TenderDescriptionSubTab = $(byXpath("//*[@id=\"tender_description_node\"]/span"));
+//    private final SelenideElement tenderDescriptionSubTab = $(byXpath("//img[@src='/images/info/large_tender_description.png']"));
     private final SelenideElement editTenderDescriptionButton = $(byXpath("//*[@id=\"tender_description_node\"]/span"));
 
     private final SelenideElement DeadlinesAndConditionsSubTab = $(byXpath("//*[@id=\"tender_timelimits_node\"]/span"));
-    private final SelenideElement TenderSettingsSubTab = $(byXpath("//*[@id=\"tender_settings_node\"]/span"));
+  //  private final SelenideElement TenderSettingsSubTab = $(byXpath("//*[@id=\"tender_settings_node\"]/span"));
 
     private final static String TITLE = "Tender";
 
@@ -28,10 +28,14 @@ public class TenderInformationPanel extends PublicTenderPage {
         super(driver);
     }
 
-    public WebElement TenderDescriptionSubTab() {
-        return driver.findElement((By) TenderDescriptionSubTab);
-
-    }
+//    public WebElement TenderDescriptionSubTab() {
+//        return driver.findElement((By) TenderDescriptionSubTab);
+//
+//    }
+//    public WebElement TenderDescriptionSubTab() {
+//        return driver.findElement((By) TenderDescriptionSubTab);
+//
+//    }
     public WebElement TenderDescriptionEditButton() {
         return driver.findElement((By) editTenderDescriptionButton);
 
@@ -45,9 +49,14 @@ public class TenderInformationPanel extends PublicTenderPage {
         //     new TenderInformationPanel();
     }
     @Step
-    public void navigateToTenderDescriptionSubTab() {
-        TenderDescriptionSubTab.click();
-    } @Step
+    public void clickOnTenderInformationExtendIcon(){
+        TenderInformationExtendIcon.click();
+    }
+//    @Step
+//    public void navigateToTenderDescriptionSubTab() {
+//        TenderDescriptionSubTab.click();
+ //   }
+    @Step
     public void clickOnEditTenderDescriptionButton() {
         editTenderDescriptionButton.click();
     }

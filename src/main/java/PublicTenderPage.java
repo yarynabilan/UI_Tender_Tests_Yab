@@ -1,4 +1,5 @@
 
+import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -7,16 +8,20 @@ import lombok.Getter;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import static com.codeborne.selenide.Selectors.byXpath;
+import static com.codeborne.selenide.Selenide.$;
 import static org.testng.Assert.assertTrue;
 @Getter
 public class PublicTenderPage extends BasePage {
 
     public TenderInformationPanel tenderInformationPanel;
 //    public SubmissionRequirementsTab submissionRequirementsTab;
-    private By tenderHeaderType = By.xpath("//div[@class='header_title' and @id='username']");
+private final SelenideElement tenderHeaderType = $(byXpath("//div[@class='header_title' and @id='username']"));
     private By tenderAdminProfile = By.xpath("//td[@class='modulHeading']");
     private By publicTenderTab = By.xpath("//span[@style='font-size: 12px;; white-space: nowrap;']");
     private By tenderInformationTab = By.xpath("//*[@id=\"tender_information_node\"]/span");
+
+    private By tenderDescriptionSubTab = By.xpath("//img[@src='/images/info/large_tender_description.png']");
     private By submissionRequirementsTab = By.xpath("//*[@id=\"tender_requirements_node\"]/span");
     private By tenderSpecificationDocumentsTab = By.xpath("//*[@id=\"tender_doclisting_node\"]/span");
     private By questionsAndAnswersTab = By.xpath("//*[@id=\"tender_questions_node\"]/span");
@@ -36,14 +41,9 @@ public class PublicTenderPage extends BasePage {
     }
 
 
-//    @Step("Navigate to Tender Information")
-//    public void navigateToTenderInformation(){
-//        tenderInformationTab().click();
-//        tenderInformationTab = new TenderInformationPanel();
-//    }
 
     public WebElement tenderHeaderType() {
-        return driver.findElement(tenderHeaderType);
+        return driver.findElement((By) tenderHeaderType);
 
     }
 
@@ -73,9 +73,20 @@ public class PublicTenderPage extends BasePage {
         return driver.findElement(tenderInformationTab);
 
     }
+
+    public WebElement tenderDescriptionSubTab() {
+        return driver.findElement(tenderDescriptionSubTab);
+
+    }
     public void clickOnElement(By elementLocator){
         driver.findElement(elementLocator).click();
     }
+
+//    @Step
+//    public void navigateToTenderInformation(){
+//        tenderInformationTab().click();
+//        //     new TenderInformationPanel();
+
 
     @Step
     public void navigateToTenderInformation(){
