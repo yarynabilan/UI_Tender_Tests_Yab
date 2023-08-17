@@ -1,26 +1,16 @@
-
-import com.codeborne.selenide.SelenideElement;
-import io.qameta.allure.Step;
 import lombok.Getter;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selectors.byXpath;
-import static com.codeborne.selenide.Selenide.$;
-
 @Getter
 public class TenderInformationPanel extends PublicTenderPage {
 
-    private final SelenideElement TenderInformationExtendIcon = $(byXpath("//*[@id=\"zpTreetree_tender_root_nodeNode2SignElement\"]/img"));
-
-    //    private final SelenideElement TenderDescriptionSubTab = $(byXpath("//*[@id=\"tender_description_node\"]/span"));
-//    private final SelenideElement tenderDescriptionSubTab = $(byXpath("//img[@src='/images/info/large_tender_description.png']"));
-    private final SelenideElement editTenderDescriptionButton = $(byXpath("//*[@id=\"tender_description_node\"]/span"));
-
-    private final SelenideElement DeadlinesAndConditionsSubTab = $(byXpath("//*[@id=\"tender_timelimits_node\"]/span"));
-  //  private final SelenideElement TenderSettingsSubTab = $(byXpath("//*[@id=\"tender_settings_node\"]/span"));
+    private By tenderInformationExtendIcon = By.xpath("//*[@id=\"zpTreetree_tender_root_nodeNode2SignElement\"]/img");
+    private By tenderDescriptionSubTab = By.xpath("//img[contains(@src, '/images/info/large_tender_description.png')]");
+    private By editTenderDescriptionButton = By.xpath("//img[@src='https://testdociaweb.byggeweb.dk/images/buttons/edit_tender_on.png']");
+    private By deadlinesAndConditionsSubTab = By.xpath("//*[@id=\"tender_timelimits_node\"]/span");
+    private By projectNoInput = By.xpath("//input[@class='contentNormal' and @type='TEXT' and @name='pn']");
 
     private final static String TITLE = "Tender";
 
@@ -28,36 +18,29 @@ public class TenderInformationPanel extends PublicTenderPage {
         super(driver);
     }
 
-//    public WebElement TenderDescriptionSubTab() {
-//        return driver.findElement((By) TenderDescriptionSubTab);
-//
-//    }
-//    public WebElement TenderDescriptionSubTab() {
-//        return driver.findElement((By) TenderDescriptionSubTab);
-//
-//    }
-    public WebElement TenderDescriptionEditButton() {
-        return driver.findElement((By) editTenderDescriptionButton);
+    public WebElement getTenderDescriptionSubTabElement() {
+        return driver.findElement(tenderDescriptionSubTab);
+    }
 
+    public WebElement getEditTenderDescriptionButtonElement() {
+        return driver.findElement(editTenderDescriptionButton);
     }
-    public void clickOnElement(By elementLocator){
-        driver.findElement(elementLocator).click();
+    public WebElement getInputElement(){
+        return driver.findElement(projectNoInput);
     }
-    @Step
-    public void navigateToTenderInformation() {
-        tenderInformationTab().click();
-        //     new TenderInformationPanel();
+
+    public void clickOnTenderDescriptionSubTab() {
+        getTenderDescriptionSubTabElement().click();
     }
-    @Step
-    public void clickOnTenderInformationExtendIcon(){
-        TenderInformationExtendIcon.click();
-    }
-//    @Step
-//    public void navigateToTenderDescriptionSubTab() {
-//        TenderDescriptionSubTab.click();
- //   }
-    @Step
+
     public void clickOnEditTenderDescriptionButton() {
-        editTenderDescriptionButton.click();
+        getEditTenderDescriptionButtonElement().click();
     }
+    public TenderInformationPanel enterTextInInput(String test){
+        WebElement inputElement = getInputElement();
+        inputElement.clear();
+        inputElement.sendKeys(test);
+        return this;
+    }
+
 }

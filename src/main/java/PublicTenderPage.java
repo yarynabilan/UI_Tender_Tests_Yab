@@ -21,7 +21,7 @@ private final SelenideElement tenderHeaderType = $(byXpath("//div[@class='header
     private By publicTenderTab = By.xpath("//span[@style='font-size: 12px;; white-space: nowrap;']");
     private By tenderInformationTab = By.xpath("//*[@id=\"tender_information_node\"]/span");
 
-    private By tenderDescriptionSubTab = By.xpath("//img[@src='/images/info/large_tender_description.png']");
+//    private By tenderDescriptionSubTab = By.xpath("//img[@src='/images/info/large_tender_description.png']");
     private By submissionRequirementsTab = By.xpath("//*[@id=\"tender_requirements_node\"]/span");
     private By tenderSpecificationDocumentsTab = By.xpath("//*[@id=\"tender_doclisting_node\"]/span");
     private By questionsAndAnswersTab = By.xpath("//*[@id=\"tender_questions_node\"]/span");
@@ -74,10 +74,10 @@ private final SelenideElement tenderHeaderType = $(byXpath("//div[@class='header
 
     }
 
-    public WebElement tenderDescriptionSubTab() {
-        return driver.findElement(tenderDescriptionSubTab);
+ //       public WebElement tenderDescriptionSubTab() {
+  //      return driver.findElement(tenderDescriptionSubTab);
 
-    }
+  //  }
     public void clickOnElement(By elementLocator){
         driver.findElement(elementLocator).click();
     }
