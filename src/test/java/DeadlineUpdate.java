@@ -43,11 +43,11 @@ public class DeadlineUpdate extends ApplicationsNavigationTest {
         driver.switchTo().defaultContent();
 
         driver.switchTo().frame(frameDirectory);
+
+       tenderInformationPanel.submissionDeadlineInput().clear();
+       tenderInformationPanel.changeSubmissionDeadline("13:30");
         tenderInformationPanel.clickSaveButton();
         assertTrue(tenderInformationPanel.saveButton().isEnabled());
-     //  tenderInformationPanel.submissionDeadlineInput().clear();
-  //      tenderInformationPanel.changeSubmissionDeadline("13:30");
-
         driver.switchTo().defaultContent();
 
 
