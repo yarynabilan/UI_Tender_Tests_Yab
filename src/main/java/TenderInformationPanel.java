@@ -11,6 +11,11 @@ public class TenderInformationPanel extends PublicTenderPage {
     private By editTenderDescriptionButton = By.xpath("//img[@src='https://testdociaweb.byggeweb.dk/images/buttons/edit_tender_on.png']");
     private By deadlinesAndConditionsSubTab = By.xpath("//*[@id=\"tender_timelimits_node\"]/span");
     private By projectNoInput = By.xpath("//input[@class='contentNormal' and @type='TEXT' and @name='pn']");
+    private By okButton = By.xpath("//input[@type='button' and @name='x']");
+    //  private By deadlinesSubTab = By.xpath("//*[@id=\"tender_timelimits_node\"]/span");
+    private By deadlinesSubTab = By.xpath("//img[@src='/images/info/large_tender_deadlines.png']");
+    private By submissionDeadlineInput = By.xpath("//td[@class='value']//input[@type='text' and @class='time' and @name='PRI_endtime']");
+    private By saveButton = By.xpath("//button[text()='Save']");
 
     private final static String TITLE = "Tender";
 
@@ -21,6 +26,9 @@ public class TenderInformationPanel extends PublicTenderPage {
     public WebElement getTenderDescriptionSubTabElement() {
         return driver.findElement(tenderDescriptionSubTab);
     }
+    public WebElement getDeadlinesSubTab() {
+        return driver.findElement(deadlinesSubTab);
+    }
 
     public WebElement getEditTenderDescriptionButtonElement() {
         return driver.findElement(editTenderDescriptionButton);
@@ -28,9 +36,23 @@ public class TenderInformationPanel extends PublicTenderPage {
     public WebElement getInputElement(){
         return driver.findElement(projectNoInput);
     }
+    public WebElement okButton(){
+        return driver.findElement(okButton);
+    }
+    public WebElement submissionDeadlineInput(){
+        return driver.findElement(submissionDeadlineInput);
+    }public WebElement saveButton(){
+        return driver.findElement(saveButton);
+    }
 
     public void clickOnTenderDescriptionSubTab() {
         getTenderDescriptionSubTabElement().click();
+    }
+    public void clickOnDeadlineSubTab() {
+        getDeadlinesSubTab().click();
+    }
+    public void clickSaveButton() {
+        saveButton().click();
     }
 
     public void clickOnEditTenderDescriptionButton() {
@@ -42,5 +64,13 @@ public class TenderInformationPanel extends PublicTenderPage {
         inputElement.sendKeys(test);
         return this;
     }
+    public TenderInformationPanel changeSubmissionDeadline(String newTime) {
+        WebElement inputElementTime = submissionDeadlineInput(); // Виправлено тут
+        inputElementTime.clear();
+        inputElementTime.sendKeys(newTime); // Виправлено тут
+        return this;
+    }
 
-}
+    }
+
+

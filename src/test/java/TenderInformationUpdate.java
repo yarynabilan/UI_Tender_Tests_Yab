@@ -10,12 +10,9 @@ import static org.testng.Assert.assertTrue;
 
 public class TenderInformationUpdate extends ApplicationsNavigationTest {
 
-    private TenderInformationUpdate tenderInformationUpdate;
-
     @Test
     public void UpdateTenderDescription() throws InterruptedException {
         MainPage mainPage = new MainPage(driver);
-
         mainPage.navigateToApplications().applications().click();
         ApplicationsPage applicationsPage = new ApplicationsPage(driver);
 
@@ -47,10 +44,9 @@ public class TenderInformationUpdate extends ApplicationsNavigationTest {
         PublicTenderPage publicTenderPage = new PublicTenderPage(driver);
         publicTenderPage.clickOnElement(publicTenderPage.getTenderInformationTab());
 
-
         driver.switchTo().defaultContent(); // Повернення до головного вікна сторінки
 // Знову "прив'язка" вебдрайвера до поточного потоку
-        WebDriverWait driverWait = new WebDriverWait(driver, 10); // Зміна wait для очікування
+        WebDriverWait driverWait = new WebDriverWait(driver, 3); // Зміна wait для очікування
         driverWait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//frame[@name='directory']")));
         WebElement frameDirectory = driver.findElement(By.xpath("//frame[@name='directory']"));
         driver.switchTo().frame(frameDirectory);
@@ -66,7 +62,6 @@ public class TenderInformationUpdate extends ApplicationsNavigationTest {
         driver.switchTo().frame(frameNavigation);
         tenderInformationPanel.clickOnEditTenderDescriptionButton();
 
-// Переключитись на нове вікно або поп-ап
         Set<String> allWindowHandlestest = driver.getWindowHandles();
 
         for (String windowHandle2 : allWindowHandlestest) {
@@ -75,10 +70,9 @@ public class TenderInformationUpdate extends ApplicationsNavigationTest {
             }
         }
         Thread.sleep(3000);
-        //  WebDriverWait wait = new WebDriverWait(driver, 10);
-     //   wait.until(ExpectedConditions.visibilityOf(tenderInformationPanel.getInputElement()));
+        tenderInformationPanel.getInputElement().clear();
         tenderInformationPanel.enterTextInInput("test");
-
+        tenderInformationPanel.okButton().click();
 
     }
 }
