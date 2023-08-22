@@ -2,7 +2,7 @@
 <suite name="MyTestSuite">
     <test name="Regression">
         <classes>
-            <class name="LoginTest">
+            <class name="main.LoginTest">
                     <methods>
                     </methods>
             </class>
