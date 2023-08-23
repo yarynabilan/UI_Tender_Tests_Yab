@@ -29,9 +29,7 @@ public class SubmissionRequirements extends PublicTenderPage {
     public void clickOnCreateSubReqButton() {
         createSubReqButton().click();
     }
-    public void clickOnDataInputReqLink() {
-        dataInputReqLink().click();
-    }
+    public void clickOnDataInputReqLink() {dataInputReqLink().click();}
     public void clickOnFileUploadReqLink() {
         fileUploadReqLink().click();
     }

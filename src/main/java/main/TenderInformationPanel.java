@@ -20,6 +20,7 @@ public class TenderInformationPanel extends PublicTenderPage {
     private By deadlinesSubTab = By.xpath("//img[@src='/images/info/large_tender_deadlines.png']");
     private By submissionDeadlineInput = By.xpath("//td[@class='value']//input[@type='text' and @class='time' and @name='PRI_endtime']");
     private By saveButton = By.xpath("//button[text()='Save']");
+    private By directoryFrame = By.xpath("//frame[@name='directory']");
 
     private final static String TITLE = "Tender";
     public TenderInformationPanel(WebDriver driver) {
@@ -45,6 +46,7 @@ public class TenderInformationPanel extends PublicTenderPage {
     }
     public WebElement accessDocumentsBySubcontractorDropdown(){return driver.findElement(accessDocumentsBySubcontractorDropdown);}
     public WebElement onlyTenderersMayDownloadDropdownOption(){return driver.findElement(onlyTenderersMayDownloadDropdownOption);}
+    public WebElement directoryFrame(){return driver.findElement(directoryFrame);}
 
     public void clickOnTenderDescriptionSubTab() {
         getTenderDescriptionSubTabElement().click();
@@ -78,7 +80,13 @@ public class TenderInformationPanel extends PublicTenderPage {
         inputElementTime.sendKeys(newTime); // Виправлено тут
         return this;
     }
+    public void switchToDirectoryFrame() {
+        driver.switchTo().frame((WebElement) directoryFrame);
+    }
 
+    public void switchToDefaultContent() {
+        driver.switchTo().defaultContent();
+    }
     }
 
 
