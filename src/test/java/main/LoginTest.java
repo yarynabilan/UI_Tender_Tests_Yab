@@ -3,6 +3,7 @@ package main;
 import main.BaseTest;
 import main.LoginPage;
 import main.MainPage;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import static org.testng.Assert.assertEquals;
@@ -10,6 +11,11 @@ import static org.testng.Assert.assertTrue;
 
 public class LoginTest extends BaseTest {
     //protected Logger logger;
+    protected TendersPage tendersPage;
+    //@BeforeMethod(enabled = false) // Вимикаємо виконання setUp() в цьому класі
+//    public void setUp() throws InterruptedException {
+//
+//    }
     @Test
     public void checkLogoOnTheLoginPage() {
         LoginPage loginPage = new LoginPage(driver);

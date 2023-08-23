@@ -1,23 +1,16 @@
 package main;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import static org.testng.Assert.assertTrue;
 public class BasicTenderNavigation extends OpenTenderTest {
 
     private PublicTenderPage PublicTenderPage;
-
-
+@BeforeMethod
+public void setUpTestEnvironment() throws InterruptedException {
+}
     @Test
     public void navigationPublicTenderTab() throws InterruptedException {
-        MainPage mainPage = new MainPage(driver);
-        mainPage.navigateToApplications().applications().click();
-        ApplicationsPage applicationsPage = new ApplicationsPage(driver);
-        Thread.sleep(3000);
-        applicationsPage.tenderLink().click();
         TendersPage tendersPage = new TendersPage(driver);
-        tendersPage.openPublicTender();
-
-        String mainWindowHandle = driver.getWindowHandle();
-        tendersPage.switchToNewWindow(mainWindowHandle);
         tendersPage.switchToBrowserFrame();
 
         PublicTenderPage publicTenderPage = new PublicTenderPage(driver);
@@ -27,17 +20,8 @@ public class BasicTenderNavigation extends OpenTenderTest {
 
     @Test(description = "Navigation to First Tab- Tender Information")
     public void basicNavigation() throws InterruptedException {
-        MainPage mainPage = new MainPage(driver);
-        mainPage.navigateToApplications().applications().click();
-        ApplicationsPage applicationsPage = new ApplicationsPage(driver);
-        Thread.sleep(3000);
-        applicationsPage.tenderLink().click();
+
         TendersPage tendersPage = new TendersPage(driver);
-        tendersPage.openPublicTender();
-
-        String mainWindowHandle = driver.getWindowHandle();
-        tendersPage.switchToNewWindow(mainWindowHandle);
-
         tendersPage.switchToBrowserFrame();
 
         main.PublicTenderPage publicTenderPage = new PublicTenderPage(driver);
@@ -49,19 +33,8 @@ public class BasicTenderNavigation extends OpenTenderTest {
 
     @Test(description = "Navigation through all modules")
     public void navigateThoughtMainPanels() throws InterruptedException {
-        MainPage mainPage = new MainPage(driver);
-        mainPage.navigateToApplications().applications().click();
-        ApplicationsPage applicationsPage = new ApplicationsPage(driver);
-
-        Thread.sleep(3000);
-        applicationsPage.tenderLink().click();
 
         TendersPage tendersPage = new TendersPage(driver);
-        tendersPage.openPublicTender();
-
-        String mainWindowHandle = driver.getWindowHandle();
-        tendersPage.switchToNewWindow(mainWindowHandle);
-
         tendersPage.switchToBrowserFrame();
         PublicTenderPage publicTenderPage = new PublicTenderPage(driver);
         publicTenderPage.clickOnElement(publicTenderPage.getTenderInformationTab());

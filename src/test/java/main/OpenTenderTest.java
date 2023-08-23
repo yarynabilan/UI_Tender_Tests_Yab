@@ -9,6 +9,8 @@ import java.util.Set;
 import static org.testng.Assert.assertTrue;
 
 public class OpenTenderTest extends ApplicationsNavigationTest {
+    protected TendersPage tendersPage;
+
     @Test
     public void openTenderTest() throws InterruptedException {
         MainPage mainPage = new MainPage(driver);

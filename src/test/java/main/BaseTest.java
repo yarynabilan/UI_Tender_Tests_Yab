@@ -15,9 +15,10 @@ import static org.testng.Assert.assertTrue;
 public class BaseTest {
 
     protected WebDriver driver;
+
     //   protected Logger logger;
     @BeforeMethod
-    public void setUp() {
+    public void setUp() throws InterruptedException {
         System.setProperty("webdriver.chrome.driver", "/Users/yab/IdeaProjects/MyTestFramework/src/main/resources/drivers/chromedriver");
 
         driver = new ChromeDriver();
@@ -26,10 +27,23 @@ public class BaseTest {
         driver.get("https://testdociaweb.byggeweb.dk/controller?cmd=company7.login.form&language=English&extern=1");
         LoginPage loginPage = new LoginPage(driver);
         loginPage.loginSuccessful("ribtestuser@gmail.com", "TestPassword#1");
+
+        MainPage mainPage = new MainPage(driver);
+        mainPage.navigateToApplications().applications().click();
+        ApplicationsPage applicationsPage = new ApplicationsPage(driver);
+        Thread.sleep(3000);
+        applicationsPage.tenderLink().click();
+        TendersPage tendersPage = new TendersPage(driver);
+        tendersPage.openPublicTender();
+
+        String mainWindowHandle = driver.getWindowHandle();
+        tendersPage.switchToNewWindow(mainWindowHandle);
     }
 
     @AfterMethod
     public void tearDown() {
-        driver.quit();
+        if (driver != null) {
+            driver.quit();
+        }
     }
 }
