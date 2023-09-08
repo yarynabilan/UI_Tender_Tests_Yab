@@ -16,7 +16,7 @@ public abstract class BasePage {
         this.title = title;
     }
 
-    protected void switchToNewWindow(String mainWindowHandle) {
+    public void switchToNewWindow(String mainWindowHandle) {
         Set<String> allWindowHandles = driver.getWindowHandles();
         for (String windowHandle : allWindowHandles) {
             if (!windowHandle.equals(mainWindowHandle)) {
