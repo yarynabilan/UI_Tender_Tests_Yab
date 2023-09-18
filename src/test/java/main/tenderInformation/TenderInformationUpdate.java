@@ -71,12 +71,13 @@ public class TenderInformationUpdate extends ApplicationsNavigationTest {
         tenderInformationPanel.clickOnEditTenderDescriptionButton();
         tendersPage.switchToNewWindow();
 
-        WebElement iframeElement = driver.findElement(By.xpath("//frame[@name='browser']"));
-        driver.switchTo().frame(iframeElement);
-        publicTenderPage.clickOnElement(publicTenderPage.getTenderInformationTab());
-        driver.switchTo().defaultContent();
+//        WebElement iframeElement = driver.findElement(By.xpath("//frame[@name='browser']"));
+//        driver.switchTo().frame(iframeElement);
+//        publicTenderPage.clickOnElement(publicTenderPage.getTenderInformationTab());
+//        driver.switchTo().defaultContent();
 
         WebDriverWait driverWait = new WebDriverWait(driver, 3);
+
         driverWait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//frame[@name='directory']")));
         WebElement frameDirectory = driver.findElement(By.xpath("//frame[@name='directory']"));
         driver.switchTo().frame(frameDirectory);

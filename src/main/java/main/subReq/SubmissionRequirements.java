@@ -33,9 +33,7 @@ public class SubmissionRequirements extends PublicTenderPage {
     public void clickOnFileUploadReqLink() {
         fileUploadReqLink().click();
     }
-    public void clickOnEdpdReqLink() {
-        edpdReqLink().click();
-    }
+    public void clickOnEdpdReqLink() {edpdReqLink().click();}
     public void clickOnCopyReqFromPhaseOrRoundLink() {
         copyReqFromPhaseOrRoundLink().click();
     }
