@@ -50,12 +50,25 @@ public class CreateDataInputRequirement extends ApplicationsNavigationTest {
             }
         }
     dataInputReq.fillInfield1("test1");
+        dataInputReq.clickAddButton();
     dataInputReq.fillInfield2("test2");
+        dataInputReq.clickAddButton();
     dataInputReq.fillInfield3("test3");
+        dataInputReq.clickAddButton();
     dataInputReq.fillInfield4("test4");
+        dataInputReq.clickAddButton();
     dataInputReq.fillInfield5("test5");
+        dataInputReq.clickAddButton();
     dataInputReq.fillInfield6("test6");
-
+        dataInputReq.fillInGuidField1("Test1");
+        dataInputReq.fillInGuidField2("Test2");
+        dataInputReq.fillInGuidField3("Test3");
+        dataInputReq.fillInGuidField4("Test4");
+        dataInputReq.fillInGuidField5("Test5");
+        dataInputReq.fillInGuidField6("Test6");
+        dataInputReq.clickOkButton();
+        dataInputReq.clickOnlastOkButton();
+        Thread.sleep(4000);
     }
 }
 
