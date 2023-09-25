@@ -15,54 +15,24 @@ public class TenderInformationUpdate extends ApplicationsNavigationTest {
 
     @Test
     public void UpdateTenderDescription() throws InterruptedException {
-        MainPage mainPage = new MainPage(driver);
-        mainPage.navigateToApplications().applications().click();
-        ApplicationsPage applicationsPage = new ApplicationsPage(driver);
-
-        //       WebDriverWait wait = new WebDriverWait(driver, 8); // Змінна wait для очікування
-        //       wait.until(ExpectedConditions.elementToBeClickable(applicationsPage.tenderLink));
-        Thread.sleep(3000);
-        applicationsPage.tenderLink().click();
-
-
         TendersPage tendersPage = new TendersPage(driver);
-        tendersPage.openPublicTender();
-
-        // Переключитись на нову сторінку
-        String mainWindowHandle = driver.getWindowHandle(); // збереження ідентифікатора поточного вікна
+        String mainWindowHandle = driver.getWindowHandle();
         Set<String> allWindowHandles = driver.getWindowHandles();
         String newWindowHandle = null;
-
-        // ідентифікатор нового вікна (яке не є поточним вікном)
-        for (String windowHandle : allWindowHandles) {
-            if (!windowHandle.equals(mainWindowHandle)) {
-                newWindowHandle = windowHandle;
-                break;
-            }
-        }
-        driver.switchTo().window(newWindowHandle);
-        //елемент, який вказує на фрейм на новій сторінці, наприклад, <iframe> або <frame>
-        WebElement iframeElement = driver.findElement(By.xpath("//frame[@name='browser']"));
-        driver.switchTo().frame(iframeElement);
+        tendersPage.switchToBrowserFrame();
         PublicTenderPage publicTenderPage = new PublicTenderPage(driver);
         publicTenderPage.clickOnElement(publicTenderPage.getTenderInformationTab());
-
-        driver.switchTo().defaultContent(); // Повернення до головного вікна сторінки
-// Знову "прив'язка" вебдрайвера до поточного потоку
-        WebDriverWait driverWait = new WebDriverWait(driver, 3); // Зміна wait для очікування
-        driverWait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//frame[@name='directory']")));
-        WebElement frameDirectory = driver.findElement(By.xpath("//frame[@name='directory']"));
-        driver.switchTo().frame(frameDirectory);
+        driver.switchTo().defaultContent();
+        Thread.sleep(3000);
+        tendersPage.switchToDirectoryFrame();
         TenderInformationPanel tenderInformationPanel = new TenderInformationPanel(driver);
-// Продовження взаємодії з елементами в фреймі
-        tenderInformationPanel.clickOnTenderDescriptionSubTab();
-//        assertTrue(tenderInformationPanel.getTenderDescriptionSubTabElement().isDisplayed());
-        //      tenderInformationPanel.clickOnEditTenderDescriptionButton();
-        driver.switchTo().defaultContent(); // Повернення до головного вікна сторінки
-// Знову "прив'язка" вебдрайвера до поточного потоку
 
-        WebElement frameNavigation = driver.findElement(By.xpath("//frame[@name='navigation']"));
-        driver.switchTo().frame(frameNavigation);
+        tenderInformationPanel.clickOnTenderDescriptionSubTab();
+
+        driver.switchTo().defaultContent();
+        Thread.sleep(2000);
+
+        tendersPage.switchToNavigationFrame();
         tenderInformationPanel.clickOnEditTenderDescriptionButton();
 
         Set<String> allWindowHandlestest = driver.getWindowHandles();
@@ -78,4 +48,63 @@ public class TenderInformationUpdate extends ApplicationsNavigationTest {
         tenderInformationPanel.okButton().click();
 
     }
-}
+
+
+    @Test
+    public void TestUpdateTenderDescription() throws InterruptedException {
+        TendersPage tendersPage = new TendersPage(driver);
+
+        String mainWindowHandle = driver.getWindowHandle(); // збереження ідентифікатора поточного вікна
+
+        // Ваш код
+        tendersPage.switchToBrowserFrame();
+        PublicTenderPage publicTenderPage = new PublicTenderPage(driver);
+        publicTenderPage.clickOnElement(publicTenderPage.getTenderInformationTab());
+        driver.switchTo().defaultContent();
+        Thread.sleep(3000);
+        tendersPage.switchToDirectoryFrame();
+        TenderInformationPanel tenderInformationPanel = new TenderInformationPanel(driver);
+        tenderInformationPanel.clickOnTenderDescriptionSubTab();
+        driver.switchTo().defaultContent();
+        Thread.sleep(2000);
+        tendersPage.switchToNavigationFrame();
+        tenderInformationPanel.clickOnEditTenderDescriptionButton();
+        tendersPage.switchToNewWindow();
+
+//        WebElement iframeElement = driver.findElement(By.xpath("//frame[@name='browser']"));
+//        driver.switchTo().frame(iframeElement);
+//        publicTenderPage.clickOnElement(publicTenderPage.getTenderInformationTab());
+//        driver.switchTo().defaultContent();
+
+        WebDriverWait driverWait = new WebDriverWait(driver, 3);
+
+        driverWait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//frame[@name='directory']")));
+        WebElement frameDirectory = driver.findElement(By.xpath("//frame[@name='directory']"));
+        driver.switchTo().frame(frameDirectory);
+        tenderInformationPanel.clickOnTenderDescriptionSubTab();
+        driver.switchTo().defaultContent();
+        // Ваш код
+
+        // Повернутися до попереднього вікна
+        tendersPage.switchToNewWindow(mainWindowHandle);
+
+        // Ваш код
+        WebElement frameNavigation = driver.findElement(By.xpath("//frame[@name='navigation']"));
+        driver.switchTo().frame(frameNavigation);
+        tenderInformationPanel.clickOnEditTenderDescriptionButton();
+
+        Set<String> allWindowHandlestest = driver.getWindowHandles();
+
+        for (String windowHandle2 : allWindowHandlestest) {
+            if (!windowHandle2.equals(mainWindowHandle)) {
+                driver.switchTo().window(windowHandle2);
+            }
+        }
+        Thread.sleep(3000);
+        tenderInformationPanel.getInputElement().clear();
+        tenderInformationPanel.enterTextInInput("test");
+        tenderInformationPanel.okButton().click();
+        // Ваш код
+
+    }
+        }

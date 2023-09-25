@@ -4,7 +4,6 @@ import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import io.qameta.allure.Step;
 import lombok.Getter;
 
 import static com.codeborne.selenide.Selectors.byXpath;
@@ -30,16 +29,13 @@ private final SelenideElement tenderHeaderType = $(byXpath("//div[@class='header
     private By guidanceTab = By.xpath("//*[@id=\"tender_log_root_node\"]/span");
     private By submittedTenderOffersTab = By.xpath("//*[@id=\"tender_submitted_offer_root_node\"]/span");
     private By tenderResultTab = By.xpath("//*[@id=\"tender_result\"]/span");
-
-
+    private By browserFrame = By.xpath("//frame[@name='browser']\"");
 
     private final static String TITLE = "Tender";
 
     public PublicTenderPage(WebDriver driver) {
         super(driver);
     }
-
-
 
     public WebElement tenderHeaderType() {
         return driver.findElement((By) tenderHeaderType);
@@ -51,7 +47,7 @@ private final SelenideElement tenderHeaderType = $(byXpath("//div[@class='header
 
     }
 
-    public void switchToNewWindow() {
+    public void switchToNewWindow(String mainWindowHandle) {
         for (String winHandle : driver.getWindowHandles()) {
             driver.switchTo().window(winHandle);
         }
@@ -63,24 +59,19 @@ private final SelenideElement tenderHeaderType = $(byXpath("//div[@class='header
     }
     public WebElement tenderInformationTab() {
         return driver.findElement(tenderInformationTab);
-
     }
-
- //       public WebElement tenderDescriptionSubTab() {
-  //      return driver.findElement(tenderDescriptionSubTab);
-
-  //  }
+    public WebElement browserFrame() {
+        return driver.findElement(browserFrame);
+    }
     public void clickOnElement(By elementLocator){
         driver.findElement(elementLocator).click();
     }
 
-    @Step
-    public void navigateToTenderInformation(){
-        tenderInformationTab().click();
-        //     new main.TenderInformationPanel();
+    public void switchToBrowserFrame() {
+        driver.switchTo().frame(driver.findElement(browserFrame));
 
     }
+    }
 
-}
 
 

@@ -12,45 +12,82 @@ import static org.testng.Assert.assertTrue;
 public class DeadlineUpdate extends ApplicationsNavigationTest {
 
     @Test
-    public void UpdateTenderDescription() throws InterruptedException {
-        MainPage mainPage = new MainPage(driver);
-        mainPage.navigateToApplications().applications().click();
-        ApplicationsPage applicationsPage = new ApplicationsPage(driver);
-        Thread.sleep(3000);
-        applicationsPage.tenderLink().click();
-        TendersPage tendersPage = new TendersPage(driver);
-        tendersPage.openPublicTender();
-        String mainWindowHandle = driver.getWindowHandle(); // збереження ідентифікатора поточного вікна
-        Set<String> allWindowHandles = driver.getWindowHandles();
-        String newWindowHandle = null;
-        for (String windowHandle : allWindowHandles) {    // ідентифікатор нового вікна (яке не є поточним вікном)
-            if (!windowHandle.equals(mainWindowHandle)) {
-                newWindowHandle = windowHandle;
-                break;}}
+    public void UpdateSubmissionDeadline() throws InterruptedException {
 
-        driver.switchTo().window(newWindowHandle);
-        //елемент, який вказує на фрейм на новій сторінці, наприклад, <iframe> або <frame>
-        WebElement iframeElement = driver.findElement(By.xpath("//frame[@name='browser']"));
-        driver.switchTo().frame(iframeElement);
+        TendersPage tendersPage = new TendersPage(driver);
+        tendersPage.switchToBrowserFrame();
+
         PublicTenderPage publicTenderPage = new PublicTenderPage(driver);
         publicTenderPage.clickOnElement(publicTenderPage.getTenderInformationTab());
 
+
         driver.switchTo().defaultContent(); // Повернення до головного вікна сторінки
-        WebElement frameDirectory = driver.findElement(By.xpath("//frame[@name='directory']"));
-        driver.switchTo().frame(frameDirectory);
+        tendersPage.switchToDirectoryFrame();
         TenderInformationPanel tenderInformationPanel = new TenderInformationPanel(driver);
 
         tenderInformationPanel.clickOnDeadlineSubTab();
         driver.switchTo().defaultContent();
 
-        driver.switchTo().frame(frameDirectory);
+        tendersPage.switchToDirectoryFrame();
 
-       tenderInformationPanel.submissionDeadlineInput().clear();
-       tenderInformationPanel.changeSubmissionDeadline("13:30");
+        tenderInformationPanel.submissionDeadlineHoursInput().clear();
+        tenderInformationPanel.changeSubmissionDeadline("13:30");
         tenderInformationPanel.clickSaveButton();
         assertTrue(tenderInformationPanel.saveButton().isEnabled());
         driver.switchTo().defaultContent();
 
 
+    }
+
+    @Test
+    public void UpdateDeadlineForReceivingQuestions() throws InterruptedException {
+
+        TendersPage tendersPage = new TendersPage(driver);
+        tendersPage.switchToBrowserFrame();
+
+        PublicTenderPage publicTenderPage = new PublicTenderPage(driver);
+        publicTenderPage.clickOnElement(publicTenderPage.getTenderInformationTab());
+
+
+        driver.switchTo().defaultContent();
+        tendersPage.switchToDirectoryFrame();
+        TenderInformationPanel tenderInformationPanel = new TenderInformationPanel(driver);
+
+        tenderInformationPanel.clickOnDeadlineSubTab();
+        driver.switchTo().defaultContent();
+
+        tendersPage.switchToDirectoryFrame();
+
+        tenderInformationPanel.deadlineForReceivingQuestionsHoursInput().clear();
+        tenderInformationPanel.changeDeadlineForReceivingQuestions("12:30");
+        tenderInformationPanel.clickSaveButton();
+        assertTrue(tenderInformationPanel.saveButton().isEnabled());
+        driver.switchTo().defaultContent();
+    }
+
+    @Test
+    public void UpdateStartDate() throws InterruptedException {
+
+        TendersPage tendersPage = new TendersPage(driver);
+        tendersPage.switchToBrowserFrame();
+
+        PublicTenderPage publicTenderPage = new PublicTenderPage(driver);
+        publicTenderPage.clickOnElement(publicTenderPage.getTenderInformationTab());
+
+
+        driver.switchTo().defaultContent();
+        tendersPage.switchToDirectoryFrame();
+        TenderInformationPanel tenderInformationPanel = new TenderInformationPanel(driver);
+
+        tenderInformationPanel.clickOnDeadlineSubTab();
+        driver.switchTo().defaultContent();
+
+        tendersPage.switchToDirectoryFrame();
+
+        tenderInformationPanel.startDateHoursInput().clear();
+        tenderInformationPanel.changeStartDateHours("10:30");
+        tenderInformationPanel.clickSaveButton();
+        assertTrue(tenderInformationPanel.saveButton().isEnabled());
+        driver.switchTo().defaultContent();
     }
 }

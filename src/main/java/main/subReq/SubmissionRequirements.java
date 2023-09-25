@@ -29,17 +29,13 @@ public class SubmissionRequirements extends PublicTenderPage {
     public void clickOnCreateSubReqButton() {
         createSubReqButton().click();
     }
-    public void clickOnDataInputReqLink() {
-        dataInputReqLink().click();
-    }
+    public void clickOnDataInputReqLink() {dataInputReqLink().click();}
     public void clickOnFileUploadReqLink() {
         fileUploadReqLink().click();
     }
-    public void clickOnEdpdReqLink() {
-        edpdReqLink().click();
-    }
+    public void clickOnEdpdReqLink() {edpdReqLink().click();}
     public void clickOnCopyReqFromPhaseOrRoundLink() {
-        createSubReqButton().click();
+        copyReqFromPhaseOrRoundLink().click();
     }
     public void clickOncopyReqFromAnotherTenderLink() {
         copyReqFromAnotherTenderLink().click();

@@ -18,8 +18,11 @@ public class TenderInformationPanel extends PublicTenderPage {
     private By projectNoInput = By.xpath("//input[@class='contentNormal' and @type='TEXT' and @name='pn']");
     private By okButton = By.xpath("//input[@type='button' and @name='x']");
     private By deadlinesSubTab = By.xpath("//img[@src='/images/info/large_tender_deadlines.png']");
+    private By startDateHoursInput = By.xpath("//td[@class='value']//input[@type='text' and @class='time' and @name='PRI_starttime']");
     private By submissionDeadlineInput = By.xpath("//td[@class='value']//input[@type='text' and @class='time' and @name='PRI_endtime']");
+    private By deadlineForReceivingQuestionsInput = By.xpath("//td[@class='value']//input[@type='text' and @class='time' and @name='PRI_qatime']");
     private By saveButton = By.xpath("//button[text()='Save']");
+    private By directoryFrame = By.xpath("//frame[@name='directory']");
 
     private final static String TITLE = "Tender";
     public TenderInformationPanel(WebDriver driver) {
@@ -39,12 +42,15 @@ public class TenderInformationPanel extends PublicTenderPage {
     public WebElement okButton(){
         return driver.findElement(okButton);
     }
-    public WebElement submissionDeadlineInput(){return driver.findElement(submissionDeadlineInput);}
+    public WebElement startDateHoursInput(){return driver.findElement(startDateHoursInput);}
+    public WebElement submissionDeadlineHoursInput(){return driver.findElement(submissionDeadlineInput);}
+    public WebElement deadlineForReceivingQuestionsHoursInput(){return driver.findElement(deadlineForReceivingQuestionsInput);}
     public WebElement saveButton(){
         return driver.findElement(saveButton);
     }
     public WebElement accessDocumentsBySubcontractorDropdown(){return driver.findElement(accessDocumentsBySubcontractorDropdown);}
     public WebElement onlyTenderersMayDownloadDropdownOption(){return driver.findElement(onlyTenderersMayDownloadDropdownOption);}
+    public WebElement directoryFrame(){return driver.findElement(directoryFrame);}
 
     public void clickOnTenderDescriptionSubTab() {
         getTenderDescriptionSubTabElement().click();
@@ -73,12 +79,29 @@ public class TenderInformationPanel extends PublicTenderPage {
         return this;
     }
     public TenderInformationPanel changeSubmissionDeadline(String newTime) {
-        WebElement inputElementTime = submissionDeadlineInput(); // Виправлено тут
+        WebElement inputElementTime = submissionDeadlineHoursInput(); // Виправлено тут
         inputElementTime.clear();
         inputElementTime.sendKeys(newTime); // Виправлено тут
         return this;
     }
+    public TenderInformationPanel changeDeadlineForReceivingQuestions(String newTime) {
+        WebElement inputElementTime = deadlineForReceivingQuestionsHoursInput();
+        inputElementTime.clear();
+        inputElementTime.sendKeys(newTime);
+        return this;
+    }public TenderInformationPanel changeStartDateHours(String newTime) {
+        WebElement inputElementTime = startDateHoursInput();
+        inputElementTime.clear();
+        inputElementTime.sendKeys(newTime);
+        return this;
+    }
+    public void switchToDirectoryFrame() {
+        driver.switchTo().frame((WebElement) directoryFrame);
+    }
 
+    public void switchToDefaultContent() {
+        driver.switchTo().defaultContent();
+    }
     }
 
 
