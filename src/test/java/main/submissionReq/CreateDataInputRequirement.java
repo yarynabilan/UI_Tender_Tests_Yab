@@ -23,20 +23,13 @@ public class CreateDataInputRequirement extends ApplicationsNavigationTest {
         PublicTenderPage publicTenderPage = new PublicTenderPage(driver);
         publicTenderPage.clickOnElement(publicTenderPage.getSubmissionRequirementsTab());
 
-        // Переключаємося на новий фрейм або сторінку
         driver.switchTo().defaultContent(); // Якщо потрібно, відключаємося від фреймів
         tendersPage.switchToNavigationFrame();
         SubmissionRequirements submissionRequirements = new SubmissionRequirements(driver);
         submissionRequirements.clickOnCreateSubReqButton();
 
         Thread.sleep(3000);
-        Set<String> allWindowHandlestest = driver.getWindowHandles();
-
-        for (String windowHandle2 : allWindowHandlestest) {
-            if (!windowHandle2.equals(allWindowHandlestest)) {
-                driver.switchTo().window(windowHandle2);
-            }
-        }
+        submissionRequirements.switchToNewWindowTest();
 
         submissionRequirements.clickOnDataInputReqLink();
         DataInputReq dataInputReq = new DataInputReq(driver);
@@ -44,11 +37,7 @@ public class CreateDataInputRequirement extends ApplicationsNavigationTest {
         dataInputReq.fillInNameOfDataInputReq("Data Input Requirement test");
         dataInputReq.fillInDescriptionFiled("test description");
     dataInputReq.clickEditButton();
-        for (String windowHandle2 : allWindowHandlestest) {
-            if (!windowHandle2.equals(allWindowHandlestest)) {
-                driver.switchTo().window(windowHandle2);
-            }
-        }
+    dataInputReq.switchToNewWindowTest();
     dataInputReq.fillInfield1("test1");
         dataInputReq.clickAddButton();
     dataInputReq.fillInfield2("test2");
@@ -68,7 +57,7 @@ public class CreateDataInputRequirement extends ApplicationsNavigationTest {
         dataInputReq.fillInGuidField6("Test6");
         dataInputReq.clickOkButton();
         dataInputReq.clickOnlastOkButton();
-        Thread.sleep(4000);
+        Thread.sleep(2000);
     }
 }
 
