@@ -30,18 +30,9 @@ public class TenderSettingsUpdate extends ApplicationsNavigationTest {
       driver.switchTo().defaultContent(); // Повернення до головного вікна сторінки
         tendersPage.switchToNavigationFrame();
         tenderInformationPanel.clickOnEditTenderSettingsButton();
-        //       tendersPage.switchToNewWindow();
         Thread.sleep(3000);
 
-        String mainWindowHandle = driver.getWindowHandle();
-        Set<String> allWindowHandlestest = driver.getWindowHandles();
-        for (String windowHandle2 : allWindowHandlestest) {
-            if (!windowHandle2.equals(mainWindowHandle)) {
-                driver.switchTo().window(windowHandle2);
-            }
-        }
-
-
+      tenderInformationPanel.switchToNewWindowTest();
         tenderInformationPanel.clickOnAccessDocumentsBySubcontractorDropdown();
         tenderInformationPanel.clickOnlyTenderersMayDownloadDropdownOption();
         tenderInformationPanel.okButton().click();
@@ -50,8 +41,6 @@ public class TenderSettingsUpdate extends ApplicationsNavigationTest {
     public void UpdateTenderSettings2() throws InterruptedException {
 
         TendersPage tendersPage = new TendersPage(driver);
-
-     //   String mainWindowHandle = driver.getWindowHandle(); // збереження ідентифікатора поточного вікна
 
         WebElement iframeElement = driver.findElement(By.xpath("//frame[@name='browser']"));
         driver.switchTo().frame(iframeElement);
@@ -69,12 +58,7 @@ public class TenderSettingsUpdate extends ApplicationsNavigationTest {
         WebElement frameNavigation = driver.findElement(By.xpath("//frame[@name='navigation']"));
         driver.switchTo().frame(frameNavigation);
         tenderInformationPanel.clickOnEditTenderSettingsButton();
-        Set<String> allWindowHandlestest = driver.getWindowHandles();
-        for (String windowHandle2 : allWindowHandlestest) {
-            if (!windowHandle2.equals(allWindowHandlestest)) {
-                driver.switchTo().window(windowHandle2);
-            }
-        }
+       tenderInformationPanel.switchToNewWindowTest();
         Thread.sleep(3000);
         tenderInformationPanel.clickOnAccessDocumentsBySubcontractorDropdown();
         tenderInformationPanel.clickOnlyTenderersMayDownloadDropdownOption();

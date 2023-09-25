@@ -19,7 +19,7 @@ public class CreateFileUploadRequirement  extends ApplicationsNavigationTest {
         tendersPage.switchToNavigationFrame();
         SubmissionRequirements submissionRequirements = new SubmissionRequirements(driver);
         submissionRequirements.clickOnCreateSubReqButton();
-        Thread.sleep(3000);
+        Thread.sleep(2000);
         submissionRequirements.switchToNewWindowTest();
         submissionRequirements.clickOnFileUploadReqLink();
         FileUploadReq fileUploadReq = new FileUploadReq(driver);
