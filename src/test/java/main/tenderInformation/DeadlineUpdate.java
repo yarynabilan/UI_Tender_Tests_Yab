@@ -1,11 +1,7 @@
 package main.tenderInformation;
 
 import main.*;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
-
-import java.util.Set;
 
 import static org.testng.Assert.assertTrue;
 
@@ -23,7 +19,7 @@ public class DeadlineUpdate extends ApplicationsNavigationTest {
 
         driver.switchTo().defaultContent(); // Повернення до головного вікна сторінки
         tendersPage.switchToDirectoryFrame();
-        TenderInformationPanel tenderInformationPanel = new TenderInformationPanel(driver);
+        TenderDescription tenderInformationPanel = new TenderDescription(driver);
 
         tenderInformationPanel.clickOnDeadlineSubTab();
         driver.switchTo().defaultContent();
@@ -51,7 +47,7 @@ public class DeadlineUpdate extends ApplicationsNavigationTest {
 
         driver.switchTo().defaultContent();
         tendersPage.switchToDirectoryFrame();
-        TenderInformationPanel tenderInformationPanel = new TenderInformationPanel(driver);
+        TenderDescription tenderInformationPanel = new TenderDescription(driver);
 
         tenderInformationPanel.clickOnDeadlineSubTab();
         driver.switchTo().defaultContent();
@@ -77,17 +73,17 @@ public class DeadlineUpdate extends ApplicationsNavigationTest {
 
         driver.switchTo().defaultContent();
         tendersPage.switchToDirectoryFrame();
-        TenderInformationPanel tenderInformationPanel = new TenderInformationPanel(driver);
+        TenderDescription tenderDescription = new TenderDescription(driver);
 
-        tenderInformationPanel.clickOnDeadlineSubTab();
+        tenderDescription.clickOnDeadlineSubTab();
         driver.switchTo().defaultContent();
 
         tendersPage.switchToDirectoryFrame();
 
-        tenderInformationPanel.startDateHoursInput().clear();
-        tenderInformationPanel.changeStartDateHours("10:30");
-        tenderInformationPanel.clickSaveButton();
-        assertTrue(tenderInformationPanel.saveButton().isEnabled());
+        tenderDescription.startDateHoursInput().clear();
+        tenderDescription.changeStartDateHours("10:30");
+        tenderDescription.clickSaveButton();
+        assertTrue(tenderDescription.saveButton().isEnabled());
         driver.switchTo().defaultContent();
     }
 }

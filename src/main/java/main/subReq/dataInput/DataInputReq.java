@@ -1,12 +1,9 @@
 package main.subReq.dataInput;
 
-import main.TenderInformationPanel;
 import main.subReq.SubmissionRequirements;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-
-import java.util.Set;
 
 public class DataInputReq extends SubmissionRequirements {
     public DataInputReq(WebDriver driver) {

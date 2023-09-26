@@ -48,5 +48,6 @@ public abstract class BasePage {
         for (String winHandle : driver.getWindowHandles()) {
             driver.switchTo().window(winHandle);
         }
+
     }
 }
