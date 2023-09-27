@@ -1,110 +1,140 @@
 package main.tenderInformation;
 
 import main.*;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
-
-import java.util.Set;
 
 import static org.testng.Assert.assertTrue;
 
 public class TenderInformationUpdate extends ApplicationsNavigationTest {
 
     @Test
-    public void UpdateTenderDescription() throws InterruptedException {
+    public void UpdateTenderDescriptionProjectNo() throws InterruptedException {
         TendersPage tendersPage = new TendersPage(driver);
-        String mainWindowHandle = driver.getWindowHandle();
-        Set<String> allWindowHandles = driver.getWindowHandles();
-        String newWindowHandle = null;
         tendersPage.switchToBrowserFrame();
         PublicTenderPage publicTenderPage = new PublicTenderPage(driver);
         publicTenderPage.clickOnElement(publicTenderPage.getTenderInformationTab());
         driver.switchTo().defaultContent();
         Thread.sleep(3000);
         tendersPage.switchToDirectoryFrame();
-        TenderInformationPanel tenderInformationPanel = new TenderInformationPanel(driver);
-
-        tenderInformationPanel.clickOnTenderDescriptionSubTab();
-
+        TenderDescription tenderDescription = new TenderDescription(driver);
+        tenderDescription.clickOnTenderDescriptionSubTab();
         driver.switchTo().defaultContent();
         Thread.sleep(2000);
-
         tendersPage.switchToNavigationFrame();
-        tenderInformationPanel.clickOnEditTenderDescriptionButton();
-
-        Set<String> allWindowHandlestest = driver.getWindowHandles();
-
-        for (String windowHandle2 : allWindowHandlestest) {
-            if (!windowHandle2.equals(mainWindowHandle)) {
-                driver.switchTo().window(windowHandle2);
-            }
-        }
+        tenderDescription.clickOnEditTenderDescriptionButton();
+        tenderDescription.switchToNewWindowTest();
         Thread.sleep(3000);
-        tenderInformationPanel.getInputElement().clear();
-        tenderInformationPanel.enterTextInInput("test");
-        tenderInformationPanel.okButton().click();
+        tenderDescription.projectNoInput().clear();
+        tenderDescription.fillInProjectNo("test");
+        tenderDescription.okButton().click();
 
     }
-
-
     @Test
-    public void TestUpdateTenderDescription() throws InterruptedException {
+    public void UpdateDescription() throws InterruptedException {
         TendersPage tendersPage = new TendersPage(driver);
-
-        String mainWindowHandle = driver.getWindowHandle(); // збереження ідентифікатора поточного вікна
-
-        // Ваш код
         tendersPage.switchToBrowserFrame();
         PublicTenderPage publicTenderPage = new PublicTenderPage(driver);
         publicTenderPage.clickOnElement(publicTenderPage.getTenderInformationTab());
         driver.switchTo().defaultContent();
         Thread.sleep(3000);
         tendersPage.switchToDirectoryFrame();
-        TenderInformationPanel tenderInformationPanel = new TenderInformationPanel(driver);
-        tenderInformationPanel.clickOnTenderDescriptionSubTab();
+        TenderDescription tenderDescription = new TenderDescription(driver);
+        tenderDescription.clickOnTenderDescriptionSubTab();
         driver.switchTo().defaultContent();
         Thread.sleep(2000);
         tendersPage.switchToNavigationFrame();
-        tenderInformationPanel.clickOnEditTenderDescriptionButton();
-        tendersPage.switchToNewWindow();
-
-//        WebElement iframeElement = driver.findElement(By.xpath("//frame[@name='browser']"));
-//        driver.switchTo().frame(iframeElement);
-//        publicTenderPage.clickOnElement(publicTenderPage.getTenderInformationTab());
-//        driver.switchTo().defaultContent();
-
-        WebDriverWait driverWait = new WebDriverWait(driver, 3);
-
-        driverWait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//frame[@name='directory']")));
-        WebElement frameDirectory = driver.findElement(By.xpath("//frame[@name='directory']"));
-        driver.switchTo().frame(frameDirectory);
-        tenderInformationPanel.clickOnTenderDescriptionSubTab();
-        driver.switchTo().defaultContent();
-        // Ваш код
-
-        // Повернутися до попереднього вікна
-        tendersPage.switchToNewWindow(mainWindowHandle);
-
-        // Ваш код
-        WebElement frameNavigation = driver.findElement(By.xpath("//frame[@name='navigation']"));
-        driver.switchTo().frame(frameNavigation);
-        tenderInformationPanel.clickOnEditTenderDescriptionButton();
-
-        Set<String> allWindowHandlestest = driver.getWindowHandles();
-
-        for (String windowHandle2 : allWindowHandlestest) {
-            if (!windowHandle2.equals(mainWindowHandle)) {
-                driver.switchTo().window(windowHandle2);
-            }
-        }
+        tenderDescription.clickOnEditTenderDescriptionButton();
+        tenderDescription.switchToNewWindowTest();
         Thread.sleep(3000);
-        tenderInformationPanel.getInputElement().clear();
-        tenderInformationPanel.enterTextInInput("test");
-        tenderInformationPanel.okButton().click();
-        // Ваш код
+        tenderDescription.descriptionInput().clear();
+        tenderDescription.fillInDescriptionInput("Description ø Input TEST_YAB");
+        tenderDescription.okButton().click();
 
     }
-        }
+    @Test
+    public void UpdateContractingAuthority() throws InterruptedException {
+        TendersPage tendersPage = new TendersPage(driver);
+        tendersPage.switchToBrowserFrame();
+        PublicTenderPage publicTenderPage = new PublicTenderPage(driver);
+        publicTenderPage.clickOnElement(publicTenderPage.getTenderInformationTab());
+        driver.switchTo().defaultContent();
+        Thread.sleep(3000);
+        tendersPage.switchToDirectoryFrame();
+        TenderDescription tenderDescription = new TenderDescription(driver);
+        tenderDescription.clickOnTenderDescriptionSubTab();
+        driver.switchTo().defaultContent();
+        Thread.sleep(2000);
+        tendersPage.switchToNavigationFrame();
+        tenderDescription.clickOnEditTenderDescriptionButton();
+        tenderDescription.switchToNewWindowTest();
+        Thread.sleep(3000);
+        tenderDescription.contractingAuthorityInput().clear();
+        tenderDescription.fillInContractingAuthorityInput("contractingAuthorityInputTEST_YAB");
+        tenderDescription.okButton().click();
+
+    }
+    @Test
+    public void UpdateContractType() throws InterruptedException {
+        TendersPage tendersPage = new TendersPage(driver);
+        tendersPage.switchToBrowserFrame();
+        PublicTenderPage publicTenderPage = new PublicTenderPage(driver);
+        publicTenderPage.clickOnElement(publicTenderPage.getTenderInformationTab());
+        driver.switchTo().defaultContent();
+        Thread.sleep(3000);
+        tendersPage.switchToDirectoryFrame();
+        TenderDescription tenderDescription = new TenderDescription(driver);
+        tenderDescription.clickOnTenderDescriptionSubTab();
+        driver.switchTo().defaultContent();
+        Thread.sleep(2000);
+        tendersPage.switchToNavigationFrame();
+        tenderDescription.clickOnEditTenderDescriptionButton();
+        tenderDescription.switchToNewWindowTest();
+        Thread.sleep(3000);
+        tenderDescription.contractTypeInput().clear();
+        tenderDescription.fillInContractTypeInput("contractType_InputTEST_YAB");
+        tenderDescription.okButton().click();
+
+    }@Test
+    public void UpdateContactPersonData() throws InterruptedException {
+        TendersPage tendersPage = new TendersPage(driver);
+        tendersPage.switchToBrowserFrame();
+        PublicTenderPage publicTenderPage = new PublicTenderPage(driver);
+        publicTenderPage.clickOnElement(publicTenderPage.getTenderInformationTab());
+        driver.switchTo().defaultContent();
+        Thread.sleep(3000);
+        tendersPage.switchToDirectoryFrame();
+        TenderDescription tenderDescription = new TenderDescription(driver);
+        tenderDescription.clickOnTenderDescriptionSubTab();
+        driver.switchTo().defaultContent();
+        Thread.sleep(2000);
+        tendersPage.switchToNavigationFrame();
+        tenderDescription.clickOnEditTenderDescriptionButton();
+        tenderDescription.switchToNewWindowTest();
+        Thread.sleep(3000);
+        tenderDescription.contactPersonInput().clear();
+        tenderDescription.fillInContactPersonInput("new Contact Person data ribtestuser@gmail.com +380683363xxx");
+        tenderDescription.okButton().click();
+
+    }@Test
+    public void UpdateAwardCriteria() throws InterruptedException {
+        TendersPage tendersPage = new TendersPage(driver);
+        tendersPage.switchToBrowserFrame();
+        PublicTenderPage publicTenderPage = new PublicTenderPage(driver);
+        publicTenderPage.clickOnElement(publicTenderPage.getTenderInformationTab());
+        driver.switchTo().defaultContent();
+        Thread.sleep(3000);
+        tendersPage.switchToDirectoryFrame();
+        TenderDescription tenderDescription = new TenderDescription(driver);
+        tenderDescription.clickOnTenderDescriptionSubTab();
+        driver.switchTo().defaultContent();
+        Thread.sleep(2000);
+        tendersPage.switchToNavigationFrame();
+        tenderDescription.clickOnEditTenderDescriptionButton();
+        tenderDescription.switchToNewWindowTest();
+        Thread.sleep(3000);
+        tenderDescription.clickOnAwardCriteriaDropdown();
+        tenderDescription.bestQualityOption().click();
+        tenderDescription.okButton().click();
+        Thread.sleep(3000);
+    }
+}

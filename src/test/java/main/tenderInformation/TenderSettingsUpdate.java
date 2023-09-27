@@ -7,8 +7,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
-import java.util.Set;
-
 import static org.testng.Assert.assertTrue;
 
 public class TenderSettingsUpdate extends ApplicationsNavigationTest {
@@ -25,23 +23,14 @@ public class TenderSettingsUpdate extends ApplicationsNavigationTest {
         WebDriverWait driverWait = new WebDriverWait(driver, 3); // Зміна wait для очікування
         driverWait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//frame[@name='directory']")));
         tendersPage.switchToDirectoryFrame();
-        TenderInformationPanel tenderInformationPanel = new TenderInformationPanel(driver);
+        TenderDescription tenderInformationPanel = new TenderDescription(driver);
         tenderInformationPanel.clickOnTenderSettingsSubTab(); // Продовження взаємодії з елементами в фреймі
       driver.switchTo().defaultContent(); // Повернення до головного вікна сторінки
         tendersPage.switchToNavigationFrame();
         tenderInformationPanel.clickOnEditTenderSettingsButton();
-        //       tendersPage.switchToNewWindow();
         Thread.sleep(3000);
 
-        String mainWindowHandle = driver.getWindowHandle();
-        Set<String> allWindowHandlestest = driver.getWindowHandles();
-        for (String windowHandle2 : allWindowHandlestest) {
-            if (!windowHandle2.equals(mainWindowHandle)) {
-                driver.switchTo().window(windowHandle2);
-            }
-        }
-
-
+      tenderInformationPanel.switchToNewWindowTest();
         tenderInformationPanel.clickOnAccessDocumentsBySubcontractorDropdown();
         tenderInformationPanel.clickOnlyTenderersMayDownloadDropdownOption();
         tenderInformationPanel.okButton().click();
@@ -50,8 +39,6 @@ public class TenderSettingsUpdate extends ApplicationsNavigationTest {
     public void UpdateTenderSettings2() throws InterruptedException {
 
         TendersPage tendersPage = new TendersPage(driver);
-
-     //   String mainWindowHandle = driver.getWindowHandle(); // збереження ідентифікатора поточного вікна
 
         WebElement iframeElement = driver.findElement(By.xpath("//frame[@name='browser']"));
         driver.switchTo().frame(iframeElement);
@@ -63,21 +50,16 @@ public class TenderSettingsUpdate extends ApplicationsNavigationTest {
         driverWait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//frame[@name='directory']")));
         WebElement frameDirectory = driver.findElement(By.xpath("//frame[@name='directory']"));
         driver.switchTo().frame(frameDirectory);
-        TenderInformationPanel tenderInformationPanel = new TenderInformationPanel(driver);
-        tenderInformationPanel.clickOnTenderSettingsSubTab(); // Продовження взаємодії з елементами в фреймі
+        TenderDescription tenderDescription = new TenderDescription(driver);
+        tenderDescription.clickOnTenderSettingsSubTab(); // Продовження взаємодії з елементами в фреймі
         driver.switchTo().defaultContent(); // Повернення до головного вікна сторінки
         WebElement frameNavigation = driver.findElement(By.xpath("//frame[@name='navigation']"));
         driver.switchTo().frame(frameNavigation);
-        tenderInformationPanel.clickOnEditTenderSettingsButton();
-        Set<String> allWindowHandlestest = driver.getWindowHandles();
-        for (String windowHandle2 : allWindowHandlestest) {
-            if (!windowHandle2.equals(allWindowHandlestest)) {
-                driver.switchTo().window(windowHandle2);
-            }
-        }
+        tenderDescription.clickOnEditTenderSettingsButton();
+        tenderDescription.switchToNewWindowTest();
         Thread.sleep(3000);
-        tenderInformationPanel.clickOnAccessDocumentsBySubcontractorDropdown();
-        tenderInformationPanel.clickOnlyTenderersMayDownloadDropdownOption();
-        tenderInformationPanel.okButton().click();
+        tenderDescription.clickOnAccessDocumentsBySubcontractorDropdown();
+        tenderDescription.clickOnlyTenderersMayDownloadDropdownOption();
+        tenderDescription.okButton().click();
     }
 }

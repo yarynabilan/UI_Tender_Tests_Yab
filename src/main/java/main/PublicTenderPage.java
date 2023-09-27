@@ -1,6 +1,7 @@
 package main;
 
 import com.codeborne.selenide.SelenideElement;
+import main.tenderInformation.TenderDescription;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -12,7 +13,7 @@ import static org.testng.Assert.assertTrue;
 @Getter
 public class PublicTenderPage extends BasePage {
 
-    public TenderInformationPanel tenderInformationPanel;
+    public TenderDescription tenderInformationPanel;
 //    public SubmissionRequirementsTab submissionRequirementsTab;
 private final SelenideElement tenderHeaderType = $(byXpath("//div[@class='header_title' and @id='username']"));
     private By tenderAdminProfile = By.xpath("//td[@class='modulHeading']");

@@ -2,14 +2,10 @@ package main.submissionReq;
 
 import main.ApplicationsNavigationTest;
 import main.PublicTenderPage;
-import main.TenderInformationPanel;
 import main.TendersPage;
 import main.subReq.SubmissionRequirements;
 import main.subReq.dataInput.DataInputReq;
-import org.openqa.selenium.WebDriver;
 import org.testng.annotations.Test;
-
-import java.util.Set;
 
 import static org.testng.Assert.assertTrue;
 
