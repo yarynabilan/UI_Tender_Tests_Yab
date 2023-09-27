@@ -30,6 +30,9 @@ public class TenderDescription extends PublicTenderPage {
     private By directoryFrame = By.xpath("//frame[@name='directory']");
     private By awardCriteria = By.xpath("//select[@name='awardcriteria']");
     private By bestQualityOption = By.xpath("//option[@value='2' and text()='Best price/quality ratio']");
+    private By tenderType = By.xpath("//select[@name='tendertype']");
+    private By secretTypeOption = By.xpath("//select[@name='tendertype']/option[@value='4' and @data-procedure='7']");
+    private By publicTypeOption = By.xpath("//select[@name='tendertype']/option[@value='1' and @data-procedure='1']");
 
     private final static String TITLE = "Tender";
     public TenderDescription(WebDriver driver) {
@@ -64,14 +67,23 @@ public class TenderDescription extends PublicTenderPage {
     public WebElement directoryFrame(){return driver.findElement(directoryFrame);}
     public WebElement awardCriteria(){return driver.findElement(awardCriteria);}
     public WebElement bestQualityOption(){return driver.findElement(bestQualityOption);}
+    public WebElement tenderType(){return driver.findElement(tenderType);}
+    public WebElement secretTypeOption(){return driver.findElement(secretTypeOption);}
+    public WebElement publicTypeOption(){return driver.findElement(publicTypeOption);}
 
     public void clickOnTenderDescriptionSubTab() {
         getTenderDescriptionSubTabElement().click();
     }
     public void clickOnAwardCriteriaDropdown() {
         awardCriteria().click();  }
+    public void clickOnTenderTypeDropdown() {
+        tenderType().click();  }
+    public void changeTenderTypeToSecret() {
+        secretTypeOption().click();  }
+    public void changeTenderTypeToPublic() {
+        publicTypeOption().click();  }
 
-        public void clickOnBestQualityOption() {
+    public void clickOnBestQualityOption() {
             bestQualityOption().click();
     }
     public void clickOnDeadlineSubTab() {
