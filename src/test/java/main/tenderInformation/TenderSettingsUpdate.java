@@ -12,31 +12,32 @@ import static org.testng.Assert.assertTrue;
 public class TenderSettingsUpdate extends ApplicationsNavigationTest {
 
     @Test
-    public void UpdateTenderSettings() throws InterruptedException {
+    public void UpdateSubcontractorsSettings() throws InterruptedException {
         TendersPage tendersPage = new TendersPage(driver);
         tendersPage.switchToBrowserFrame();
 
         PublicTenderPage publicTenderPage = new PublicTenderPage(driver);
         publicTenderPage.clickOnElement(publicTenderPage.getTenderInformationTab());
-        driver.switchTo().defaultContent(); // Повернення до головного вікна сторінки
-// Знову "прив'язка" вебдрайвера до поточного потоку
-        WebDriverWait driverWait = new WebDriverWait(driver, 3); // Зміна wait для очікування
-        driverWait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//frame[@name='directory']")));
+        driver.switchTo().defaultContent();
         tendersPage.switchToDirectoryFrame();
-        TenderDescription tenderInformationPanel = new TenderDescription(driver);
-        tenderInformationPanel.clickOnTenderSettingsSubTab(); // Продовження взаємодії з елементами в фреймі
-      driver.switchTo().defaultContent(); // Повернення до головного вікна сторінки
+        TenderDescription tenderDescription = new TenderDescription(driver);
+        tenderDescription.clickOnTenderSettingsSubTab();
+        driver.switchTo().defaultContent();
         tendersPage.switchToNavigationFrame();
-        tenderInformationPanel.clickOnEditTenderSettingsButton();
+        tenderDescription.clickOnEditTenderSettingsButton();
         Thread.sleep(3000);
-
-      tenderInformationPanel.switchToNewWindowTest();
-        tenderInformationPanel.clickOnAccessDocumentsBySubcontractorDropdown();
-        tenderInformationPanel.clickOnlyTenderersMayDownloadDropdownOption();
-        tenderInformationPanel.okButton().click();
+        tenderDescription.switchToNewWindowTest();
+        TenderSettings tenderSettings = new TenderSettings(driver);
+        tenderSettings.clickOnAccessDocumentsBySubcontractorDropdown();
+        tenderSettings.clickOnlyTenderersMayDownloadDropdownOption();
+       tenderSettings.clickOnAllowTendersPartnerToAccessDropdownOption();
+        tenderSettings.subcontractorQAdropdown();
+        tenderSettings.setNotifyAboutAnswersNo();
+      tenderSettings.setNotifyAboutAnswersYes();
+        tenderDescription.okButton().click();
     }
     @Test
-    public void UpdateTenderSettings2() throws InterruptedException {
+    public void UpdateTenderSettingsOLD() throws InterruptedException {
 
         TendersPage tendersPage = new TendersPage(driver);
 
@@ -58,8 +59,11 @@ public class TenderSettingsUpdate extends ApplicationsNavigationTest {
         tenderDescription.clickOnEditTenderSettingsButton();
         tenderDescription.switchToNewWindowTest();
         Thread.sleep(3000);
-        tenderDescription.clickOnAccessDocumentsBySubcontractorDropdown();
-        tenderDescription.clickOnlyTenderersMayDownloadDropdownOption();
+        TenderSettings tenderSettings = new TenderSettings(driver);
+        tenderSettings.clickOnAccessDocumentsBySubcontractorDropdown();
+        tenderSettings.clickOnlyTenderersMayDownloadDropdownOption();
         tenderDescription.okButton().click();
     }
+
+
 }

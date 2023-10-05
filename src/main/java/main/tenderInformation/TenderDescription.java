@@ -14,8 +14,6 @@ public class TenderDescription extends PublicTenderPage {
     private By deadlinesAndConditionsSubTab = By.xpath("//*[@id=\"tender_timelimits_node\"]/span");
     private By editTenderSettingsButton = By.xpath("//img[@src=\"https://testdociaweb.byggeweb.dk/images/buttons/edit_tender_settings_on.png\" and @title=\"Edit tender settings\"]\n");
     private By tenderSettingsSubTab = By.xpath("//img[@src=\"/images/info/large_tender_settings.png\"]\n");
-    private By accessDocumentsBySubcontractorDropdown = By.xpath("//select[@class=\"contentNormal\" and @name=\"subcontractor\"]");
-    private By onlyTenderersMayDownloadDropdownOption = By.xpath("//option[@value=\"0\" and text()=\"Only tenderers may download\"]\n");
     private By projectNoInput = By.xpath("//input[@class='contentNormal' and @type='TEXT' and @name='pn']");
     private By contractingAuthorityInput = By.xpath("//input[@name='tenderowner']");
     private By contractTypeInput = By.xpath("//input[@name='contracttype']");
@@ -30,6 +28,9 @@ public class TenderDescription extends PublicTenderPage {
     private By directoryFrame = By.xpath("//frame[@name='directory']");
     private By awardCriteria = By.xpath("//select[@name='awardcriteria']");
     private By bestQualityOption = By.xpath("//option[@value='2' and text()='Best price/quality ratio']");
+    private By tenderType = By.xpath("//select[@name='tendertype']");
+    private By secretTypeOption = By.xpath("//select[@name='tendertype']/option[@value='4' and @data-procedure='7']");
+    private By publicTypeOption = By.xpath("//select[@name='tendertype']/option[@value='1' and @data-procedure='1']");
 
     private final static String TITLE = "Tender";
     public TenderDescription(WebDriver driver) {
@@ -59,19 +60,26 @@ public class TenderDescription extends PublicTenderPage {
     public WebElement saveButton(){
         return driver.findElement(saveButton);
     }
-    public WebElement accessDocumentsBySubcontractorDropdown(){return driver.findElement(accessDocumentsBySubcontractorDropdown);}
-    public WebElement onlyTenderersMayDownloadDropdownOption(){return driver.findElement(onlyTenderersMayDownloadDropdownOption);}
     public WebElement directoryFrame(){return driver.findElement(directoryFrame);}
     public WebElement awardCriteria(){return driver.findElement(awardCriteria);}
     public WebElement bestQualityOption(){return driver.findElement(bestQualityOption);}
+    public WebElement tenderType(){return driver.findElement(tenderType);}
+    public WebElement secretTypeOption(){return driver.findElement(secretTypeOption);}
+    public WebElement publicTypeOption(){return driver.findElement(publicTypeOption);}
 
     public void clickOnTenderDescriptionSubTab() {
         getTenderDescriptionSubTabElement().click();
     }
     public void clickOnAwardCriteriaDropdown() {
         awardCriteria().click();  }
+    public void clickOnTenderTypeDropdown() {
+        tenderType().click();  }
+    public void changeTenderTypeToSecret() {
+        secretTypeOption().click();  }
+    public void changeTenderTypeToPublic() {
+        publicTypeOption().click();  }
 
-        public void clickOnBestQualityOption() {
+    public void clickOnBestQualityOption() {
             bestQualityOption().click();
     }
     public void clickOnDeadlineSubTab() {
@@ -85,11 +93,6 @@ public class TenderDescription extends PublicTenderPage {
 
     public void clickOnEditTenderDescriptionButton() {
         getEditTenderDescriptionButtonElement().click();
-    }
-    public void clickOnAccessDocumentsBySubcontractorDropdown() {
-        accessDocumentsBySubcontractorDropdown().click();
-    }public void clickOnlyTenderersMayDownloadDropdownOption() {
-        onlyTenderersMayDownloadDropdownOption().click();
     }
     public TenderDescription fillInProjectNo(String test) {
         WebElement projectNoInput = projectNoInput();

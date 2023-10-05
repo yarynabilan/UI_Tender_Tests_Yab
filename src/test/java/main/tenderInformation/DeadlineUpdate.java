@@ -36,7 +36,7 @@ public class DeadlineUpdate extends ApplicationsNavigationTest {
     }
 
     @Test
-    public void UpdateDeadlineForReceivingQuestions() throws InterruptedException {
+    public void UpdateDeadlineForReceivingQuestions() throws NullPointerException {
 
         TendersPage tendersPage = new TendersPage(driver);
         tendersPage.switchToBrowserFrame();
@@ -62,7 +62,7 @@ public class DeadlineUpdate extends ApplicationsNavigationTest {
     }
 
     @Test
-    public void UpdateStartDate() throws InterruptedException {
+    public void UpdateStartDate() throws NullPointerException {
 
         TendersPage tendersPage = new TendersPage(driver);
         tendersPage.switchToBrowserFrame();
@@ -77,13 +77,15 @@ public class DeadlineUpdate extends ApplicationsNavigationTest {
 
         tenderDescription.clickOnDeadlineSubTab();
         driver.switchTo().defaultContent();
+        TenderDeadlines tenderDeadlines = new TenderDeadlines(driver);
 
         tendersPage.switchToDirectoryFrame();
-
-        tenderDescription.startDateHoursInput().clear();
-        tenderDescription.changeStartDateHours("10:30");
-        tenderDescription.clickSaveButton();
+        tenderDeadlines.startDateInput().clear();
+        tenderDeadlines.changeStartDate("22.11.2023");
+        tenderDeadlines.saveButton().click();
         assertTrue(tenderDescription.saveButton().isEnabled());
         driver.switchTo().defaultContent();
     }
+
+
 }
