@@ -4,13 +4,12 @@ import main.ApplicationsNavigationTest;
 import main.PublicTenderPage;
 import main.TendersPage;
 import main.subReq.SubmissionRequirements;
-import main.subReq.dataInput.DataInputReq;
-import main.subReq.dataInput.FileUploadReq;
 import org.testng.annotations.Test;
+import main.subReq.allRequirements.espdRequirement;
 
-public class CreateFileUploadRequirement  extends ApplicationsNavigationTest {
+public class EspdRequirementTests extends ApplicationsNavigationTest {
     @Test
-    public void CreateDataInputRequirement() throws InterruptedException {
+    public void CreateEspdRequirement() throws InterruptedException {
         TendersPage tendersPage = new TendersPage(driver);
         tendersPage.switchToBrowserFrame();
         PublicTenderPage publicTenderPage = new PublicTenderPage(driver);
@@ -21,12 +20,12 @@ public class CreateFileUploadRequirement  extends ApplicationsNavigationTest {
         submissionRequirements.clickOnCreateSubReqButton();
         Thread.sleep(2000);
         submissionRequirements.switchToNewWindowTest();
-        submissionRequirements.clickOnFileUploadReqLink();
-        FileUploadReq fileUploadReq = new FileUploadReq(driver);
-        fileUploadReq.fillInNameOfFileUploadReq("Test File Upload Requirement Name");
-        fileUploadReq.fillInDescriptionField("Test Description of File Upload Requirement ");
-        fileUploadReq.clickOkButton();
+        submissionRequirements.clickOnEdpdReqLink();
+        espdRequirement espdRequirement = new espdRequirement(driver);
+
+        espdRequirement.fillInNameOfFileUploadReq("Test File Upload Requirement Name");
+        espdRequirement.fillInDescriptionField("Test Description of File Upload Requirement ");
+        espdRequirement.clickOkButton();
         Thread.sleep(2000);
     }
-    }
-
+}

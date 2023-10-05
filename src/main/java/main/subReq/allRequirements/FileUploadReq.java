@@ -1,4 +1,4 @@
-package main.subReq.dataInput;
+package main.subReq.allRequirements;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;

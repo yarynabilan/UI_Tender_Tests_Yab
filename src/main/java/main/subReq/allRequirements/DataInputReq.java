@@ -1,4 +1,4 @@
-package main.subReq.dataInput;
+package main.subReq.allRequirements;
 
 import main.subReq.SubmissionRequirements;
 import org.openqa.selenium.By;
