@@ -14,8 +14,6 @@ public class TenderDescription extends PublicTenderPage {
     private By deadlinesAndConditionsSubTab = By.xpath("//*[@id=\"tender_timelimits_node\"]/span");
     private By editTenderSettingsButton = By.xpath("//img[@src=\"https://testdociaweb.byggeweb.dk/images/buttons/edit_tender_settings_on.png\" and @title=\"Edit tender settings\"]\n");
     private By tenderSettingsSubTab = By.xpath("//img[@src=\"/images/info/large_tender_settings.png\"]\n");
-    private By accessDocumentsBySubcontractorDropdown = By.xpath("//select[@class=\"contentNormal\" and @name=\"subcontractor\"]");
-    private By onlyTenderersMayDownloadDropdownOption = By.xpath("//option[@value=\"0\" and text()=\"Only tenderers may download\"]\n");
     private By projectNoInput = By.xpath("//input[@class='contentNormal' and @type='TEXT' and @name='pn']");
     private By contractingAuthorityInput = By.xpath("//input[@name='tenderowner']");
     private By contractTypeInput = By.xpath("//input[@name='contracttype']");
@@ -62,8 +60,6 @@ public class TenderDescription extends PublicTenderPage {
     public WebElement saveButton(){
         return driver.findElement(saveButton);
     }
-    public WebElement accessDocumentsBySubcontractorDropdown(){return driver.findElement(accessDocumentsBySubcontractorDropdown);}
-    public WebElement onlyTenderersMayDownloadDropdownOption(){return driver.findElement(onlyTenderersMayDownloadDropdownOption);}
     public WebElement directoryFrame(){return driver.findElement(directoryFrame);}
     public WebElement awardCriteria(){return driver.findElement(awardCriteria);}
     public WebElement bestQualityOption(){return driver.findElement(bestQualityOption);}
@@ -97,11 +93,6 @@ public class TenderDescription extends PublicTenderPage {
 
     public void clickOnEditTenderDescriptionButton() {
         getEditTenderDescriptionButtonElement().click();
-    }
-    public void clickOnAccessDocumentsBySubcontractorDropdown() {
-        accessDocumentsBySubcontractorDropdown().click();
-    }public void clickOnlyTenderersMayDownloadDropdownOption() {
-        onlyTenderersMayDownloadDropdownOption().click();
     }
     public TenderDescription fillInProjectNo(String test) {
         WebElement projectNoInput = projectNoInput();
