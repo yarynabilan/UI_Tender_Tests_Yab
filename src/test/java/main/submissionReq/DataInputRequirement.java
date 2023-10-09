@@ -4,12 +4,12 @@ import main.ApplicationsNavigationTest;
 import main.PublicTenderPage;
 import main.TendersPage;
 import main.subReq.SubmissionRequirements;
-import main.subReq.dataInput.DataInputReq;
+import main.subReq.allRequirements.DataInputReq;
 import org.testng.annotations.Test;
 
 import static org.testng.Assert.assertTrue;
 
-public class CreateDataInputRequirement extends ApplicationsNavigationTest {
+public class DataInputRequirement extends ApplicationsNavigationTest {
 
     @Test
     public void CreateDataInputRequirement() throws InterruptedException {
