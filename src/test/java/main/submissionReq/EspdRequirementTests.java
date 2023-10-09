@@ -7,6 +7,8 @@ import main.subReq.SubmissionRequirements;
 import org.testng.annotations.Test;
 import main.subReq.allRequirements.espdRequirement;
 
+import static org.testng.Assert.assertTrue;
+
 public class EspdRequirementTests extends ApplicationsNavigationTest {
     @Test
     public void CreateEspdRequirement() throws InterruptedException {
@@ -22,10 +24,16 @@ public class EspdRequirementTests extends ApplicationsNavigationTest {
         submissionRequirements.switchToNewWindowTest();
         submissionRequirements.clickOnEdpdReqLink();
         espdRequirement espdRequirement = new espdRequirement(driver);
-
-        espdRequirement.fillInNameOfFileUploadReq("Test File Upload Requirement Name");
-        espdRequirement.fillInDescriptionField("Test Description of File Upload Requirement ");
-        espdRequirement.clickOkButton();
+        espdRequirement.fillInESPDName("Test ESPD Requirement Name");
+        espdRequirement.fillInESPDdescriptionField("Test Description of ESPD Requirement ");
+        espdRequirement.selectMainAuthorityRadioButton();
+        espdRequirement.clickOnOk();
+        espdRequirement.clickOnNext();
+        espdRequirement.clickOnNext2();
+        espdRequirement.clickOnNext3();
+        espdRequirement.clickOnSave();
         Thread.sleep(2000);
+//        tendersPage.switchToDirectoryFrame();
+//        assertTrue(espdRequirement.createdESPD().isDisplayed());
     }
 }
