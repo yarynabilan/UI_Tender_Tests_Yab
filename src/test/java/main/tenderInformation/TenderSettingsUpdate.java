@@ -64,6 +64,128 @@ public class TenderSettingsUpdate extends ApplicationsNavigationTest {
         tenderSettings.clickOnlyTenderersMayDownloadDropdownOption();
         tenderDescription.okButton().click();
     }
+    @Test
+    public void selectSupplementaryFilesAcceptedTest() throws InterruptedException {
+        TendersPage tendersPage = new TendersPage(driver);
+        tendersPage.switchToBrowserFrame();
+        PublicTenderPage publicTenderPage = new PublicTenderPage(driver);
+        publicTenderPage.clickOnElement(publicTenderPage.getTenderInformationTab());
+        driver.switchTo().defaultContent();
+        tendersPage.switchToDirectoryFrame();
+        TenderDescription tenderDescription = new TenderDescription(driver);
+        tenderDescription.clickOnTenderSettingsSubTab();
+        driver.switchTo().defaultContent();
+        tendersPage.switchToNavigationFrame();
+        tenderDescription.clickOnEditTenderSettingsButton();
+        Thread.sleep(3000);
+        tenderDescription.switchToNewWindowTest();
+        TenderSettings tenderSettings = new TenderSettings(driver);
+        tenderSettings.selectSupplementaryFilesAccepted();
+        tenderDescription.okButton().click();
+    }
+    @Test
+    public void selectSupplementaryFilesNotAcceptedTest() throws InterruptedException {
+        TendersPage tendersPage = new TendersPage(driver);
+        tendersPage.switchToBrowserFrame();
+        PublicTenderPage publicTenderPage = new PublicTenderPage(driver);
+        publicTenderPage.clickOnElement(publicTenderPage.getTenderInformationTab());
+        driver.switchTo().defaultContent();
+        tendersPage.switchToDirectoryFrame();
+        TenderDescription tenderDescription = new TenderDescription(driver);
+        tenderDescription.clickOnTenderSettingsSubTab();
+        driver.switchTo().defaultContent();
+        tendersPage.switchToNavigationFrame();
+        tenderDescription.clickOnEditTenderSettingsButton();
+        Thread.sleep(3000);
+        tenderDescription.switchToNewWindowTest();
+        TenderSettings tenderSettings = new TenderSettings(driver);
+        tenderSettings.selectSupplementaryFilesNoAccepted();
+        Thread.sleep(5000);
+        tenderDescription.okButton().click();
+    }
+    @Test
+    public void UpdateSecuritySettings() throws InterruptedException {
+        TendersPage tendersPage = new TendersPage(driver);
+        tendersPage.switchToBrowserFrame();
 
+        PublicTenderPage publicTenderPage = new PublicTenderPage(driver);
+        publicTenderPage.clickOnElement(publicTenderPage.getTenderInformationTab());
+        driver.switchTo().defaultContent();
+        tendersPage.switchToDirectoryFrame();
+        TenderDescription tenderDescription = new TenderDescription(driver);
+        tenderDescription.clickOnTenderSettingsSubTab();
+        driver.switchTo().defaultContent();
+        tendersPage.switchToNavigationFrame();
+        tenderDescription.clickOnEditTenderSettingsButton();
+        Thread.sleep(3000);
+        tenderDescription.switchToNewWindowTest();
+        TenderSettings tenderSettings = new TenderSettings(driver);
+        tenderSettings.updateSecuritySettings();
+        tenderDescription.okButton().click();
+    }
+    @Test
+    public void UpdateOpeningAndPublicationSettings() throws InterruptedException {
+        TendersPage tendersPage = new TendersPage(driver);
+        tendersPage.switchToBrowserFrame();
 
+        PublicTenderPage publicTenderPage = new PublicTenderPage(driver);
+        publicTenderPage.clickOnElement(publicTenderPage.getTenderInformationTab());
+        driver.switchTo().defaultContent();
+        tendersPage.switchToDirectoryFrame();
+        TenderDescription tenderDescription = new TenderDescription(driver);
+        tenderDescription.clickOnTenderSettingsSubTab();
+        driver.switchTo().defaultContent();
+        tendersPage.switchToNavigationFrame();
+        tenderDescription.clickOnEditTenderSettingsButton();
+        Thread.sleep(3000);
+        tenderDescription.switchToNewWindowTest();
+        TenderSettings tenderSettings = new TenderSettings(driver);
+        tenderSettings.clickOnAccessDocumentsBySubcontractorDropdown();
+        tenderSettings.clickOnlyTenderersMayDownloadDropdownOption();
+        tenderSettings.clickOnAllowTendersPartnerToAccessDropdownOption();
+        tenderSettings.subcontractorQAdropdown();
+        tenderSettings.setNotifyAboutAnswersNo();
+        tenderSettings.setNotifyAboutAnswersYes();
+        tenderDescription.okButton().click();
+    }
+    @Test
+    public void UpdateQandAHadlingSetting() throws InterruptedException {
+        TendersPage tendersPage = new TendersPage(driver);
+        tendersPage.switchToBrowserFrame();
+
+        PublicTenderPage publicTenderPage = new PublicTenderPage(driver);
+        publicTenderPage.clickOnElement(publicTenderPage.getTenderInformationTab());
+        driver.switchTo().defaultContent();
+        tendersPage.switchToDirectoryFrame();
+        TenderDescription tenderDescription = new TenderDescription(driver);
+        tenderDescription.clickOnTenderSettingsSubTab();
+        driver.switchTo().defaultContent();
+        tendersPage.switchToNavigationFrame();
+        tenderDescription.clickOnEditTenderSettingsButton();
+        Thread.sleep(3000);
+        tenderDescription.switchToNewWindowTest();
+        TenderSettings tenderSettings = new TenderSettings(driver);
+        tenderSettings.updateQAhandlingNoYes();
+        tenderDescription.okButton().click();
+    }
+    @Test
+    public void UpdateSendersVisibilitySettings() throws InterruptedException {
+        TendersPage tendersPage = new TendersPage(driver);
+        tendersPage.switchToBrowserFrame();
+
+        PublicTenderPage publicTenderPage = new PublicTenderPage(driver);
+        publicTenderPage.clickOnElement(publicTenderPage.getTenderInformationTab());
+        driver.switchTo().defaultContent();
+        tendersPage.switchToDirectoryFrame();
+        TenderDescription tenderDescription = new TenderDescription(driver);
+        tenderDescription.clickOnTenderSettingsSubTab();
+        driver.switchTo().defaultContent();
+        tendersPage.switchToNavigationFrame();
+        tenderDescription.clickOnEditTenderSettingsButton();
+        Thread.sleep(3000);
+        tenderDescription.switchToNewWindowTest();
+        TenderSettings tenderSettings = new TenderSettings(driver);
+        tenderSettings.updateSendersVisibilitySettings();
+        tenderDescription.okButton().click();
+    }
 }
