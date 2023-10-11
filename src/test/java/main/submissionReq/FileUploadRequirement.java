@@ -4,11 +4,10 @@ import main.ApplicationsNavigationTest;
 import main.PublicTenderPage;
 import main.TendersPage;
 import main.subReq.SubmissionRequirements;
-import main.subReq.dataInput.DataInputReq;
-import main.subReq.dataInput.FileUploadReq;
+import main.subReq.allRequirements.FileUploadReq;
 import org.testng.annotations.Test;
 
-public class CreateFileUploadRequirement  extends ApplicationsNavigationTest {
+public class FileUploadRequirement extends ApplicationsNavigationTest {
     @Test
     public void CreateDataInputRequirement() throws InterruptedException {
         TendersPage tendersPage = new TendersPage(driver);
