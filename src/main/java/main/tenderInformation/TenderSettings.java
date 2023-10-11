@@ -24,8 +24,8 @@ public class TenderSettings {
     private By publicationDisabled = By.xpath("//select[@class='contentNormal' and @name='multiplefilespublication']/option[@selected='' and @value='0']\n");
     private By publicationAnabled = By.xpath("//select[@class='contentNormal' and @name='multiplefilespublication']/option[@value='1']\n");
     private By securityDropdown = By.xpath("//select[@class='contentNormal' and @name='tenderoffer']");
-    private By seeTheStatusYes = By.xpath("//select[@class='contentNormal' and @name='tenderoffer']/option[@selected='' and @value='4']");
-    private By seeTheStatusNo = By.xpath("//select[@class='contentNormal' and @name='tenderoffer']/option[@value='5']");
+    private By seeTheStatusYes = By.xpath("//select[@class='contentNormal' and @name='tenderoffer']/option[contains(text(), 'See status of submitted')]\n");
+    private By seeTheStatusNo = By.xpath("//option[contains(text(), 'Not see status of submitted')]");
     private By qaHandlingDropdown = By.xpath("//select[@class='contentNormal' and @name='tender_questions']\n");
     private By QAmoduleUsedYes = By.xpath("//select[@class='contentNormal' and @name='tender_questions']/option[contains(text(), 'RIB Q&A module is used')]\n");
     private By QAmoduleUsedNo = By.xpath("//select[@class='contentNormal' and @name='tender_questions']/option[contains(text(), 'Q&A is handled otherwise')]");
