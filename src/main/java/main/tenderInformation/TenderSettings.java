@@ -1,9 +1,14 @@
 package main.tenderInformation;
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.WebDriver;
 import lombok.Getter;
 import main.PublicTenderPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+
 @Getter
 public class TenderSettings {
     private WebDriver driver;
@@ -74,6 +79,12 @@ public class TenderSettings {
         securityDropdown.click();
         WebElement seeTheStatusYes = driver.findElement(this.seeTheStatusYes);
         seeTheStatusYes.click();
+        WebDriverWait wait = new WebDriverWait(driver, 5);
+        Alert alert = wait.until(ExpectedConditions.alertIsPresent());
+        String expectedTextPart = "Warning!";
+        String actualText = alert.getText();
+        Assert.assertTrue(actualText.contains(expectedTextPart));
+        alert.accept();
         securityDropdown.click();
         WebElement seeTheStatusNo = driver.findElement(this.seeTheStatusNo);
         seeTheStatusNo.click();
