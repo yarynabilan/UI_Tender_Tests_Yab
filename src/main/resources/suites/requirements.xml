@@ -1,0 +1,11 @@
+<suite name="requirement" preserve-order="true">
+    <test name="Update Tender Description">
+        <classes>
+            <class name="main.submissionReq.DataInputRequirement">
+                <methods>
+                    <include name="CreateDataInputRequirement" />
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

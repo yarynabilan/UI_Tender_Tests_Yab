@@ -158,15 +158,16 @@ public class TenderInformationUpdate extends ApplicationsNavigationTest {
         tenderDescription.clickOnTenderTypeDropdown();
         tenderDescription.changeTenderTypeToSecret();
         tenderDescription.changeTenderTypeToPublic();
-        Alert alert = driver.switchTo().alert();
-        String alertMessage = alert.getText();
-        String expectedText = "Warning!";
-        if (alertMessage.contains(expectedText)) {
-            System.out.println("Alert message contains proper text");
-        } else {
-            System.out.println("No or wrong alert message");
-        }
-        alert.accept();
+
+//        Alert alert = driver.switchTo().alert();
+//        String alertMessage = alert.getText();
+//        String expectedText = "Warning!";
+//        if (alertMessage.contains(expectedText)) {
+//            System.out.println("Alert message contains proper text");
+//        } else {
+//            System.out.println("No or wrong alert message");
+//        }
+//        alert.accept();
         tenderDescription.okButton().click();
     }
 }

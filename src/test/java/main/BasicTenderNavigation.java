@@ -31,7 +31,8 @@ public void setUpTestEnvironment() throws InterruptedException {
     }
 
 
-    @Test(description = "Navigation through all modules")
+
+    @Test(description = "Navigation through all modules", groups = "navigateModules")
     public void navigateThoughtMainPanels() throws InterruptedException {
 
         TendersPage tendersPage = new TendersPage(driver);
