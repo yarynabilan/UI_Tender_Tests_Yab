@@ -24,13 +24,14 @@ public class DataInputReq extends SubmissionRequirements {
 
 
     private By fieldTypeTextShort = By.xpath("//select[@name=\"1_field_type\"]/option[text()=\"Text field (short)\"]");
-    private By fieldTypeTextLong = By.xpath("/select[@name=\"2_field_type\"]/option[text()=\"Text field (long)\"]");
+    private By fieldTypeTextLong = By.xpath("//select[@name=\"2_field_type\"]/option[text()=\"Text field (long)\"]");
     private By fieldTypeNumbers = By.xpath("//select[@name=\"3_field_type\"]/option[text()=\"Numbers\"]");
     private By fieldTypeCurrencyAmount = By.xpath("//select[@name=\"4_field_type\"]/option[text()=\"Currency amount\"]");
     private By fieldTypeDate = By.xpath("//select[@name=\"5_field_type\"]/option[text()=\"Date\"]");
+    private By fieldTypeBooleanValue = By.xpath("//select[@name=\"6_field_type\"]/option[text()=\"Boolean value\"]");
+
     private By currencyDropdown = By.xpath("//select[@id='4_currency_type']");
     private By currencyTypeDKK = By.xpath("//select[@id='4_currency_type']//option[text()='DKK']");
-    private By fieldTypeBooleanValue = By.xpath("//select[@name=\"6_field_type\"]/option[text()=\"Boolean value\"]");
 
     private By mandatoryForNumbersDropdown = By.xpath("//select[@name='3_data_input']");
     private By mandatoryForCurrencyDropdown = By.xpath("//select[@name='4_data_input']");

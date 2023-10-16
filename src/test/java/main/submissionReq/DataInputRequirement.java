@@ -19,7 +19,7 @@ public class DataInputRequirement extends ApplicationsNavigationTest {
         PublicTenderPage publicTenderPage = new PublicTenderPage(driver);
         publicTenderPage.clickOnElement(publicTenderPage.getSubmissionRequirementsTab());
 
-        driver.switchTo().defaultContent(); // Якщо потрібно, відключаємося від фреймів
+        driver.switchTo().defaultContent();
         tendersPage.switchToNavigationFrame();
         SubmissionRequirements submissionRequirements = new SubmissionRequirements(driver);
         submissionRequirements.clickOnCreateSubReqButton();
@@ -45,6 +45,24 @@ public class DataInputRequirement extends ApplicationsNavigationTest {
     dataInputReq.fillInfield5("test5");
         dataInputReq.clickAddButton();
     dataInputReq.fillInfield6("test6");
+    dataInputReq.clickOnFiledTypeDropdown1();
+    dataInputReq.selectFieldTypeTextShort();
+    dataInputReq.clickOnFiledTypeDropdown2();
+    dataInputReq.selectFieldTypeTextLong();
+    dataInputReq.clickOnFiledTypeDropdown3();
+    dataInputReq.selectFieldTypeNumbers();
+    dataInputReq.clickOnFiledTypeDropdown4();
+    dataInputReq.selectFieldTypeCurrencyAmount();
+    dataInputReq.clickOnFiledTypeDropdown5();
+    dataInputReq.selectFieldTypeDate();
+    dataInputReq.clickOnFiledTypeDropdown6();
+    dataInputReq.selectFieldTypeBooleanValue();
+    dataInputReq.clickOnCurrencyDropdown();
+    dataInputReq.selectCurrencyTypeDKK();
+    dataInputReq.clickOnMandatoryForCurrencyDropdown();
+    dataInputReq.selectMandatoryForCurrency();
+    dataInputReq.clickOnMandatoryForNumbersDropdown();
+    dataInputReq.selectMandatoryForNumbers();
         dataInputReq.fillInGuidField1("Test1");
         dataInputReq.fillInGuidField2("Test2");
         dataInputReq.fillInGuidField3("Test3");
