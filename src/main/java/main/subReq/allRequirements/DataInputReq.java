@@ -20,6 +20,34 @@ public class DataInputReq extends SubmissionRequirements {
     private By field5 = By.xpath("//*[@id=\"5_field_name\"]");
     private By field6 = By.xpath("//*[@id=\"6_field_name\"]");
     private By field7 = By.xpath("//*[@id=\"6_field_name\"]");
+
+
+
+    private By fieldTypeTextShort = By.xpath("//select[@name=\"1_field_type\"]/option[text()=\"Text field (short)\"]");
+    private By fieldTypeTextLong = By.xpath("/select[@name=\"2_field_type\"]/option[text()=\"Text field (long)\"]");
+    private By fieldTypeNumbers = By.xpath("//select[@name=\"3_field_type\"]/option[text()=\"Numbers\"]");
+    private By fieldTypeCurrencyAmount = By.xpath("//select[@name=\"4_field_type\"]/option[text()=\"Currency amount\"]");
+    private By fieldTypeDate = By.xpath("//select[@name=\"5_field_type\"]/option[text()=\"Date\"]");
+    private By currencyDropdown = By.xpath("//select[@id='4_currency_type']");
+    private By currencyTypeDKK = By.xpath("//select[@id='4_currency_type']//option[text()='DKK']");
+    private By fieldTypeBooleanValue = By.xpath("//select[@name=\"6_field_type\"]/option[text()=\"Boolean value\"]");
+
+    private By mandatoryForNumbersDropdown = By.xpath("//select[@name='3_data_input']");
+    private By mandatoryForCurrencyDropdown = By.xpath("//select[@name='4_data_input']");
+
+   private By mandatoryForNumbers = By.xpath("//select[@id='3_data_input']//option[text()='Mandatory']");
+   private By mandatoryForCurrency = By.xpath("//select[@id='4_data_input']//option[text()='Mandatory']");
+
+    private By fieldTypeDropdown1 = By.xpath("//select[@id=\"1_field_type\"]");
+    private By fieldTypeDropdown2 = By.xpath("//select[@id=\"2_field_type\"]");
+    private By fieldTypeDropdown3 = By.xpath("//select[@id=\"3_field_type\"]");
+    private By fieldTypeDropdown4 = By.xpath("//select[@id=\"4_field_type\"]");
+    private By fieldTypeDropdown5 = By.xpath("//select[@id=\"5_field_type\"]");
+    private By fieldTypeDropdown6 = By.xpath("//select[@id=\"6_field_type\"]");
+
+
+
+
     private By addButton = By.xpath("//input[@type='button' and @value='Add' and @onclick='add_datafield();']");
     private By guidingField1 = By.xpath("//input[@id='1_field_description']");
     private By guidingField2 = By.xpath("//input[@id='2_field_description']");
@@ -70,6 +98,9 @@ public class DataInputReq extends SubmissionRequirements {
     public WebElement field6() {
         return driver.findElement(field6);
     }
+
+
+
 
     public WebElement guidingField1() {
         return driver.findElement(guidingField1);
@@ -232,10 +263,90 @@ public class DataInputReq extends SubmissionRequirements {
         guidingField7.sendKeys(guidingField7Description);
         return this;
 
-//            public void switchToNewWindow () {
-//                for (String winHandle : driver.getWindowHandles()) {
-//                    driver.switchTo().window(winHandle);
-//                }
-//            }
         }
+
+    public void clickOnFiledTypeDropdown1() {
+        WebElement fieldTypeDropdown1 = driver.findElement(this.fieldTypeDropdown1);
+        fieldTypeDropdown1.click();
     }
+    public void clickOnFiledTypeDropdown2() {
+        WebElement fieldTypeDropdown2 = driver.findElement(this.fieldTypeDropdown2);
+        fieldTypeDropdown2.click();
+    }
+    public void clickOnFiledTypeDropdown3() {
+        WebElement fieldTypeDropdown3 = driver.findElement(this.fieldTypeDropdown3);
+        fieldTypeDropdown3.click();
+    }
+    public void clickOnFiledTypeDropdown4() {
+        WebElement fieldTypeDropdown4 = driver.findElement(this.fieldTypeDropdown4);
+        fieldTypeDropdown4.click();
+    }
+    public void clickOnFiledTypeDropdown5() {
+        WebElement fieldTypeDropdown5 = driver.findElement(this.fieldTypeDropdown5);
+        fieldTypeDropdown5.click();
+    }
+    public void clickOnFiledTypeDropdown6() {
+        WebElement fieldTypeDropdown6 = driver.findElement(this.fieldTypeDropdown6);
+        fieldTypeDropdown6.click();
+    }
+
+    public void selectFieldTypeTextShort() {
+        WebElement option = driver.findElement(this.fieldTypeTextShort);
+        option.click();
+    }
+
+    public void selectFieldTypeTextLong() {
+        WebElement option = driver.findElement(this.fieldTypeTextLong);
+        option.click();
+    }
+
+    public void selectFieldTypeNumbers() {
+        WebElement option = driver.findElement(this.fieldTypeNumbers);
+        option.click();
+    }
+
+    public void selectFieldTypeCurrencyAmount() {
+        WebElement option = driver.findElement(this.fieldTypeCurrencyAmount);
+        option.click();
+    }
+
+    public void selectFieldTypeDate() {
+        WebElement option = driver.findElement(this.fieldTypeDate);
+        option.click();
+    }
+
+    public void clickOnCurrencyDropdown() {
+        WebElement currencyDropdown = driver.findElement(this.currencyDropdown);
+        currencyDropdown.click();
+    }
+
+    public void selectCurrencyTypeDKK() {
+        WebElement option = driver.findElement(this.currencyTypeDKK);
+        option.click();
+    }
+
+    public void selectFieldTypeBooleanValue() {
+        WebElement option = driver.findElement(this.fieldTypeBooleanValue);
+        option.click();
+    }
+
+    public void clickOnMandatoryForNumbersDropdown() {
+        WebElement dropdown = driver.findElement(this.mandatoryForNumbersDropdown);
+        dropdown.click();
+    }
+
+    public void selectMandatoryForNumbers() {
+        WebElement option = driver.findElement(this.mandatoryForNumbers);
+        option.click();
+    }
+
+    public void clickOnMandatoryForCurrencyDropdown() {
+        WebElement dropdown = driver.findElement(this.mandatoryForCurrencyDropdown);
+        dropdown.click();
+    }
+
+    public void selectMandatoryForCurrency() {
+        WebElement option = driver.findElement(this.mandatoryForCurrency);
+        option.click();
+    }
+}

@@ -55,9 +55,9 @@ public class TenderDeadlines {
     }
 
     public TenderDeadlines changeSubmissionDeadline(String newTime) {
-        WebElement inputElementTime = submissionDeadlineHoursInput(); // Виправлено тут
+        WebElement inputElementTime = submissionDeadlineHoursInput();
         inputElementTime.clear();
-        inputElementTime.sendKeys(newTime); // Виправлено тут
+        inputElementTime.sendKeys(newTime);
         return this;
     }
     public TenderDeadlines changeDeadlineForReceivingQuestions(String newTime) {
