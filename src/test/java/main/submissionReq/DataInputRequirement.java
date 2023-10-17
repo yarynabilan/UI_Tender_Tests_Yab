@@ -15,18 +15,14 @@ public class DataInputRequirement extends ApplicationsNavigationTest {
     public void CreateDataInputRequirement() throws InterruptedException {
         TendersPage tendersPage = new TendersPage(driver);
         tendersPage.switchToBrowserFrame();
-
         PublicTenderPage publicTenderPage = new PublicTenderPage(driver);
         publicTenderPage.clickOnElement(publicTenderPage.getSubmissionRequirementsTab());
-
         driver.switchTo().defaultContent();
         tendersPage.switchToNavigationFrame();
         SubmissionRequirements submissionRequirements = new SubmissionRequirements(driver);
         submissionRequirements.clickOnCreateSubReqButton();
-
         Thread.sleep(3000);
         submissionRequirements.switchToNewWindowTest();
-
         submissionRequirements.clickOnDataInputReqLink();
         DataInputReq dataInputReq = new DataInputReq(driver);
         dataInputReq.dataInputNameFiled().clear();

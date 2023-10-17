@@ -1,0 +1,13 @@
+<suite name="tender_deadline" preserve-order="true">
+    <test name="Update Tender Deadlines">
+        <classes>
+            <class name="main.tenderInformation.DeadlineUpdate">
+                <methods>
+                    <include name="UpdateSubmissionDeadline" />
+                    <include name="UpdateDeadlineForReceivingQuestions" />
+                    <include name="UpdateStartDate" />
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

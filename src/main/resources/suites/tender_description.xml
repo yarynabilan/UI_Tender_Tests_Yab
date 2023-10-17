@@ -1,0 +1,13 @@
+<suite name="tender_description" preserve-order="true">
+    <test name="Update Tender Description">
+        <classes>
+            <class name="main.tenderInformation.TenderInformationUpdate">
+                <methods>
+<!--                    <include name="UpdateDescription" />-->
+<!--                    <include name="UpdateAwardCriteria" />-->
+                    <include name="UpdateTenderType" />
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
