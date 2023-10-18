@@ -3,17 +3,18 @@ package main.specificationDocuments;
 import io.qameta.allure.Step;
 import lombok.Getter;
 import main.PublicTenderPage;
-import main.subReq.allRequirements.FileUploadReq;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 @Getter
 
-public class Folders extends PublicTenderPage {
-        public Folders(WebDriver driver) {
-            super(driver);
-        }
+public class Folders {
+    private WebDriver driver;
+
+    public Folders(WebDriver driver) {
+        this.driver = driver;
+    }
     private By createFolderButton = By.xpath("//img[@title=\"Create folder\"]");
     private By renameFolderButton = By.xpath("//img[@title=\"Rename folder\"]");
     private By deleteFolderButton = By.xpath("//img[@title=\"Delete folder\"]");
