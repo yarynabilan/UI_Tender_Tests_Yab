@@ -4,6 +4,13 @@
             <class name="main.submissionReq.DataInputRequirement">
                 <methods>
                     <include name="CreateDataInputRequirement" />
+
+                    <include name="CreateEspdRequirement" />
+
+                    <include name="CreateFileUploadRequirement" />
+                    <include name="CreateToDeleteFileUploadRequirement" />
+                    <include name="EditFileUploadRequirement" />
+                    <include name="DeleteFileUploadRequirement" />
                 </methods>
             </class>
         </classes>
