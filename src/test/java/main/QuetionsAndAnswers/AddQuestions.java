@@ -3,8 +3,7 @@ package main.QuetionsAndAnswers;
 import main.ApplicationsNavigationTest;
 import main.PublicTenderPage;
 import main.TendersPage;
-import main.questionAndAnswers.Question;
-import main.tenderInformation.TenderDescription;
+import main.questionAndAnswers.NewQuestions;
 import org.testng.annotations.Test;
 
 public class AddQuestions extends ApplicationsNavigationTest {
@@ -16,13 +15,13 @@ public class AddQuestions extends ApplicationsNavigationTest {
         PublicTenderPage publicTenderPage = new PublicTenderPage(driver);
         publicTenderPage.clickOnElement(publicTenderPage.getQuestionsAndAnswersTab());
         driver.switchTo().defaultContent();
-        Question question = new Question(driver);
+        NewQuestions newQuestions = new NewQuestions(driver);
         tendersPage.switchToNavigationFrame();
-        question.addNewQuestion();
+        newQuestions.addNewQuestion();
 
        tendersPage.switchToNewWindowTest();
-        question.fillInQuestionTest("hefjlvkb;xk");
-        question.confirmQuestionOkSend();
+        newQuestions.fillInQuestionTest("hefjlvkb;xk");
+        newQuestions.confirmQuestionOkSend();
         Thread.sleep(5000);
     }
 }

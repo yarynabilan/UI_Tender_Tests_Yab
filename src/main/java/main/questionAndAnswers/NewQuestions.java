@@ -1,14 +1,13 @@
 package main.questionAndAnswers;
 
-import main.tenderInformation.TenderDescription;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-public class Question {
+public class NewQuestions {
         private WebDriver driver;
 
-        public Question(WebDriver driver) {
+        public NewQuestions(WebDriver driver) {
             this.driver = driver;
         }
         private By newQuestionButton = By.xpath("//img[@title='New question']");
@@ -20,7 +19,7 @@ public class Question {
         newQuestionButton.click();
     }
 
-    public Question fillInQuestionTest(String test) {
+    public NewQuestions fillInQuestionTest(String test) {
         WebElement textInputForQuestion = driver.findElement(this.textInputForQuestion);
         textInputForQuestion.clear();
         textInputForQuestion.sendKeys(test);
