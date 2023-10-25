@@ -23,7 +23,11 @@ public class SubmissionRequirements extends PublicTenderPage {
     private By edpdReqLink = By.xpath("//span[text()=\"European Single Procurement Document (ESPD)\"]");
     private By copyReqFromPhaseOrRoundLink = By.xpath("//span[text()=\"Copy requirements from phase or round\"]");
     private By copyReqFromAnotherTenderLink = By.xpath("//span[text()=\"Copy requirements from another tender\"]");
-    private By okButton = By.xpath("//input[@type='BUTTON' and @value='OK']");
+    private By okButton = By.xpath("//input[@value='OK']");
+
+
+    private By confirmDeletion = By.xpath("//input[@type='BUTTON' and @value='OK']");
+
 
     public WebElement createSubReqButton() {return driver.findElement(createSubReqButton);}
     public WebElement dataInputReqLink() {return driver.findElement(dataInputReqLink);}
@@ -58,5 +62,9 @@ public class SubmissionRequirements extends PublicTenderPage {
     } public void clickOnOkButton() {
         WebElement okButton = driver.findElement(this.okButton);
         okButton.click();
+    }
+    public void confirmDeletion() {
+        WebElement confirmDeletion = driver.findElement(this.confirmDeletion);
+        confirmDeletion.click();
     }
 }

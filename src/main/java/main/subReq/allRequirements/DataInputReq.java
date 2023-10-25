@@ -59,6 +59,7 @@ public class DataInputReq extends SubmissionRequirements {
     private By guidingField7 = By.xpath("//input[@id='7_field_description']");
     private By okButton = By.xpath("//input[@name='button_ok' and @type='button' and @value='OK' and @onclick='validate()']");
     private By lastOkButton = By.xpath("//input[@name='x' and @value='OK']");
+    private By reqToDelete = By.xpath("//span[text()='Data Input Requirement To Delete Test']\n");
 
     public WebElement dataInputNameFiled() {
         return driver.findElement(dataInputNameFiled);
@@ -350,4 +351,9 @@ public class DataInputReq extends SubmissionRequirements {
         WebElement option = driver.findElement(this.mandatoryForCurrency);
         option.click();
     }
-}
+        public void selectDataReqToDelete() {
+            WebElement dataReqToDelete = driver.findElement(this.reqToDelete);
+            dataReqToDelete.click();
+        }
+    }
+

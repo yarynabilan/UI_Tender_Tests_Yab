@@ -96,7 +96,7 @@ public class FileUploadRequirement extends ApplicationsNavigationTest {
         tendersPage.switchToNavigationFrame();
         submissionRequirements.clickOnDeleteSubReqButton();
         submissionRequirements.switchToNewWindowTest();
-        fileUploadReq.confirmDeletion();
+        submissionRequirements.confirmDeletion();
     }
 
 }

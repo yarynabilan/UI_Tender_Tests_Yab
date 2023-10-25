@@ -15,7 +15,6 @@ public class FileUploadReq {
     private By okButton = By.xpath("//input[@name='x' and @value='OK']");
     private By toDeteleFileUploadReq = By.xpath("//span[text()='To Delete Test File Upload Requirement']");
     private By fileUploadReq = By.xpath("//span[text()='Test File Upload Requirement Name']");
-    private By confirmDeletion = By.xpath("//input[@type='BUTTON' and @value='OK']");
     private By checkboxDocx = By.xpath("//input[@type='checkbox' and @value='docx']");
     private By checkboxDoc = By.xpath("//input[@type='checkbox' and @value='doc']");
     private By checkboxXlsx = By.xpath("//input[@type='checkbox' and @value='xlsx']");
@@ -57,10 +56,7 @@ public class FileUploadReq {
         WebElement fileUploadReq = driver.findElement(this.fileUploadReq);
         fileUploadReq.click();
     }
-    public void confirmDeletion() {
-        WebElement confirmDeletion = driver.findElement(this.confirmDeletion);
-        confirmDeletion.click();
-    }
+
     public void editFileUploadReq() {
         WebElement fileUploadReq = driver.findElement(this.fileUploadReq);
         fileUploadReq.click();
