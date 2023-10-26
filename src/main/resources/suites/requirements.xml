@@ -23,6 +23,16 @@
                     <include name="DeleteFileUploadRequirement" />
                 </methods>
             </class>
+            <class name="main.submissionReq.CopyReqFromPhaseTests">
+                <methods>
+                    <include name="CopyFileUploadReqFromPhase" />
+                </methods>
+            </class>
+            <class name="main.submissionReq.CopyReqFromAnotherTenderTest">
+                <methods>
+                    <include name="CopyDataReqFromAnotherTender" />
+                </methods>
+            </class>
         </classes>
     </test>
 </suite>

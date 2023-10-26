@@ -4,13 +4,14 @@ import main.ApplicationsNavigationTest;
 import main.PublicTenderPage;
 import main.TendersPage;
 import main.subReq.SubmissionRequirements;
-import main.subReq.allRequirements.CopyReqFromPhase;
-import main.subReq.allRequirements.FileUploadReq;
+import main.subReq.allRequirements.CopyReqFromAnotherTender;
+import org.openqa.selenium.WebDriver;
 import org.testng.annotations.Test;
 
-    public class CopyReqFromPhaseTests extends ApplicationsNavigationTest{
-            @Test
-    public void CopyFileUploadReqFromPhase() throws InterruptedException {
+public class CopyReqFromAnotherTenderTest extends ApplicationsNavigationTest {
+
+    @Test
+    public void CopyDataReqFromAnotherTender() throws InterruptedException {
         TendersPage tendersPage = new TendersPage(driver);
         tendersPage.switchToBrowserFrame();
         PublicTenderPage publicTenderPage = new PublicTenderPage(driver);
@@ -21,10 +22,11 @@ import org.testng.annotations.Test;
         submissionRequirements.clickOnCreateSubReqButton();
         Thread.sleep(2000);
         submissionRequirements.switchToNewWindowTest();
-        submissionRequirements.clickOnCopyReqFromPhaseOrRoundLink();
-        CopyReqFromPhase copyReqFromPhase = new CopyReqFromPhase(driver);
-        copyReqFromPhase.checkBoxOfFileReqToCopy();
-        copyReqFromPhase.fillInCopyReqFromPhaseNameInput("Copied From Phase File Upload");
-        copyReqFromPhase.clickCopyButton();
+        submissionRequirements.clickOncopyReqFromAnotherTenderLink();
+        CopyReqFromAnotherTender copyReqFromAnotherTender = new CopyReqFromAnotherTender(driver);
+        copyReqFromAnotherTender.selectTenderToCopyReqFrom();
+        copyReqFromAnotherTender.checkBoxOfDataReqToCopy();
+        copyReqFromAnotherTender.fillIncopyReqFromAnotherTenderNameInput("Copied from Another Tender Test Data InputReq");
+        copyReqFromAnotherTender.clickCopyButton();
     }
 }
