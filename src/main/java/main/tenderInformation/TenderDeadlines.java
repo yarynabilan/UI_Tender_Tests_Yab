@@ -28,13 +28,15 @@ public class TenderDeadlines {
 
     public WebElement startDateInput(){return driver.findElement(startDateInput);}
     public WebElement submissionDeadlineDateInput(){return driver.findElement(submissionDeadlineDateInput);}
-    public WebElement deadlineForReceivingQuestionsDateInput(){return driver.findElement(deadlineForReceivingQuestionsDateInput);}  public WebElement startDateHoursInput(){return driver.findElement(startDateHoursInput);}
+    public WebElement deadlineForReceivingQuestionsDateInput(){return driver.findElement(deadlineForReceivingQuestionsDateInput);}
+    public WebElement startDateHoursInput(){return driver.findElement(startDateHoursInput);}
     public WebElement submissionDeadlineHoursInput(){return driver.findElement(submissionDeadlineInput);}
     public WebElement deadlineForReceivingQuestionsHoursInput(){return driver.findElement(deadlineForReceivingQuestionsInput);}
-    public WebElement saveButton(){
-        return driver.findElement(saveButton);
-    }
 
+    public void clickSaveButton() {
+        WebElement saveButtonElement = driver.findElement(saveButton);
+        saveButtonElement.click();
+    }
     public TenderDeadlines changeStartDate (String newDate) {
         WebElement startDateInput = startDateInput();
         startDateInput.clear();

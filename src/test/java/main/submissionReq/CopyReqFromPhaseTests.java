@@ -10,7 +10,7 @@ import org.testng.annotations.Test;
 
     public class CopyReqFromPhaseTests extends ApplicationsNavigationTest{
             @Test
-    public void CopyFileUploadReqFromPhase() throws InterruptedException {
+    public void CopyFileUploadReqFromRound() throws InterruptedException {
         TendersPage tendersPage = new TendersPage(driver);
         tendersPage.switchToBrowserFrame();
         PublicTenderPage publicTenderPage = new PublicTenderPage(driver);
@@ -24,7 +24,7 @@ import org.testng.annotations.Test;
         submissionRequirements.clickOnCopyReqFromPhaseOrRoundLink();
         CopyReqFromPhase copyReqFromPhase = new CopyReqFromPhase(driver);
         copyReqFromPhase.checkBoxOfFileReqToCopy();
-        copyReqFromPhase.fillInCopyReqFromPhaseNameInput("Copied From Phase File Upload");
+        copyReqFromPhase.fillInCopyReqFromPhaseNameInput("Copied From Round File Upload");
         copyReqFromPhase.clickCopyButton();
     }
 }

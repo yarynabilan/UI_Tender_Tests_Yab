@@ -1,11 +1,14 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
 <suite name="tender_deadline" preserve-order="true">
     <test name="Update Tender Deadlines">
         <classes>
             <class name="main.tenderInformation.DeadlineUpdate">
                 <methods>
-                    <include name="UpdateSubmissionDeadline" />
-                    <include name="UpdateDeadlineForReceivingQuestions" />
+                    <include name="UpdateDeadlinesDates" />
                     <include name="UpdateStartDate" />
+                    <include name="UpdateStartDateHours" />
+                    <include name="UpdateStartDateBack" />
                 </methods>
             </class>
         </classes>

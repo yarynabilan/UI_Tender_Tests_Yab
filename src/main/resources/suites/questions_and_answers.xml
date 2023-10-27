@@ -14,7 +14,6 @@
                     <include name="ExportQandAinExceldAll" />
                     <include name="ExportQandAinExceldDrafts" />
                     <include name="ExportQandAinExceldUnanswered" />
-                    <!-- Виправте список методів, які ви хочете включити -->
                 </methods>
             </class>
         </classes>

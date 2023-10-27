@@ -57,15 +57,13 @@ public class TenderDescription extends PublicTenderPage {
     public WebElement startDateHoursInput(){return driver.findElement(startDateHoursInput);}
     public WebElement submissionDeadlineHoursInput(){return driver.findElement(submissionDeadlineInput);}
     public WebElement deadlineForReceivingQuestionsHoursInput(){return driver.findElement(deadlineForReceivingQuestionsInput);}
-    public WebElement saveButton(){
-        return driver.findElement(saveButton);
-    }
     public WebElement directoryFrame(){return driver.findElement(directoryFrame);}
     public WebElement awardCriteria(){return driver.findElement(awardCriteria);}
     public WebElement bestQualityOption(){return driver.findElement(bestQualityOption);}
     public WebElement tenderType(){return driver.findElement(tenderType);}
     public WebElement secretTypeOption(){return driver.findElement(secretTypeOption);}
     public WebElement publicTypeOption(){return driver.findElement(publicTypeOption);}
+    public WebElement saveButton(){return driver.findElement(saveButton);}
 
     public void clickOnTenderDescriptionSubTab() {
         getTenderDescriptionSubTabElement().click();
@@ -85,15 +83,19 @@ public class TenderDescription extends PublicTenderPage {
     public void clickOnDeadlineSubTab() {
         getDeadlinesSubTab().click();
     }
-    public void clickSaveButton() {
-        saveButton().click();
-    }
+
     public void clickOnTenderSettingsSubTab() { getTenderSettingsSubTab().click(); }
     public void clickOnEditTenderSettingsButton() { getEditTenderSettingsButton().click(); }
 
     public void clickOnEditTenderDescriptionButton() {
         getEditTenderDescriptionButtonElement().click();
     }
+
+    public void clickSaveButton() {
+        WebElement saveButtonElement = driver.findElement(saveButton);
+        saveButtonElement.click();
+    }
+
     public TenderDescription fillInProjectNo(String test) {
         WebElement projectNoInput = projectNoInput();
         projectNoInput.clear();
@@ -124,18 +126,13 @@ public class TenderDescription extends PublicTenderPage {
         return this;
     }
     public TenderDescription changeSubmissionDeadline(String newTime) {
-        WebElement inputElementTime = submissionDeadlineHoursInput(); // Виправлено тут
+        WebElement inputElementTime = submissionDeadlineHoursInput();
         inputElementTime.clear();
-        inputElementTime.sendKeys(newTime); // Виправлено тут
+        inputElementTime.sendKeys(newTime);
         return this;
     }
     public TenderDescription changeDeadlineForReceivingQuestions(String newTime) {
         WebElement inputElementTime = deadlineForReceivingQuestionsHoursInput();
-        inputElementTime.clear();
-        inputElementTime.sendKeys(newTime);
-        return this;
-    }public TenderDescription changeStartDateHours(String newTime) {
-        WebElement inputElementTime = startDateHoursInput();
         inputElementTime.clear();
         inputElementTime.sendKeys(newTime);
         return this;

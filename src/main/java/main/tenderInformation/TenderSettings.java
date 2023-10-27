@@ -37,7 +37,7 @@ public class TenderSettings {
     private By sendersSettingsDropdown = By.xpath("//select[@class='contentNormal' and @name='tender_questions']\n");
     private By sendersRevealed = By.xpath("//select[@class='contentNormal' and @name='questions_senders']/option[contains(text(), 'Are revealed to administrators') ]");
     private By sendersHidden = By.xpath("//select[@class='contentNormal' and @name='questions_senders']/option[contains(text(), 'Are hidden to all users')]\n");
-    private final static String TITLE = "Tender Deadlines";
+    private final static String TITLE = "Tender Settings";
 
     public TenderSettings(WebDriver driver) {this.driver = driver;}
 

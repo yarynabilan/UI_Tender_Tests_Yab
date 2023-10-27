@@ -14,12 +14,12 @@ public class NewQuestions {
         private By textInputForQuestion = By.xpath("//textarea[@id='question']");
         private By okButton = By.xpath("//input[@type='button' and @value='OK']\n");
         private By sendButton = By.xpath("//input[@type='button' and @value='Send']\n");
-    public void addNewQuestion() {
+    public void clickOnAddNewQuestionButton() {
         WebElement newQuestionButton = driver.findElement(this.newQuestionButton);
         newQuestionButton.click();
     }
 
-    public NewQuestions fillInQuestionTest(String test) {
+    public NewQuestions fillInQuestionText(String test) {
         WebElement textInputForQuestion = driver.findElement(this.textInputForQuestion);
         textInputForQuestion.clear();
         textInputForQuestion.sendKeys(test);
