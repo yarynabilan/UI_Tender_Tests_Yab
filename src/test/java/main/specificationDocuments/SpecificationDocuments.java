@@ -16,9 +16,9 @@ public class SpecificationDocuments extends ApplicationsNavigationTest {
         tendersPage.switchToNavigationFrame();
         Folders folders = new Folders(driver);
         folders.clickOnCreateFolderButton();
-        Thread.sleep(5000);
-   //     folders.switchToNewWindowTest();
-        //    folders.fillInFolderName("Folder A");
-  //      folders.clickOnOkButton();
+        Thread.sleep(10000);
+        tendersPage.switchToNewWindowTest();
+        folders.fillInFolderName("Folder A");
+        folders.clickOnOkButton();
     }
 }
