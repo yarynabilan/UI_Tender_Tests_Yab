@@ -13,6 +13,8 @@ public class TendersPage extends BasePage {
     //   List<WebElement> repositoriesList = driver.findElements(By.xpath("//td[text() = 'AutoTest Public Tender']"));
 
     private By publicTenderLink = By.xpath("//td[text() = 'AutoTest Public Tender']");
+    private By limitedTenderLink = By.xpath("//td[text() = 'Tender - Copy requirement (for Auto TestProject)']");
+
     private By browserFrame = By.xpath("//frame[@name='browser']");
     private By functionsFrame = By.xpath("//frame[@name='functions']");
     private By navigationFrame = By.xpath("//frame[@name='navigation']");
@@ -24,7 +26,11 @@ public class TendersPage extends BasePage {
     }
 
     public TendersPage openPublicTender() {
-        driver.findElement(publicTenderLink).click();
+        driver.findElement(limitedTenderLink).click();
+        return this;
+    }
+    public TendersPage openLimitedTender() {
+        driver.findElement(limitedTenderLink).click();
         return this;
     }
 

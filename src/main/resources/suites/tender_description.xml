@@ -6,11 +6,11 @@
             <class name="main.tenderInformation.TenderInformationUpdate">
                 <methods>
                     <include name="UpdateDescription" />
-<!--                    <include name="UpdateTenderDescriptionProjectNo" />-->
-<!--                    <include name="UpdateContractingAuthority" />-->
-<!--                    <include name="UpdateContractType" />-->
-<!--                    <include name="UpdateContactPersonData" />-->
-<!--                    <include name="UpdateAwardCriteria" />-->
+                    <include name="UpdateTenderDescriptionProjectNo" />
+                    <include name="UpdateContractingAuthority" />
+                    <include name="UpdateContractType" />
+                    <include name="UpdateContactPersonData" />
+                    <include name="UpdateAwardCriteria" />
 <!--                    <include name="UpdateTenderType" />-->
                 </methods>
             </class>

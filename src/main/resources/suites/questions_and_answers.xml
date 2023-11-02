@@ -5,7 +5,16 @@
         <classes>
             <class name="main.QuetionsAndAnswers.AddQuestions">
                 <methods>
-                    <include name="CreateNewQuestion" />
+                    <include name="CreateNewQuestionToPublish" />
+                    <include name="CreateNewQuestionToDraft" />
+                    <include name="CreateNewQuestionToUnanswer" />
+                </methods>
+            </class>
+            <class name="main.QuetionsAndAnswers.CategoriesTests">
+                <methods>
+                    <include name="addNewCategotyforQuestions" />
+                    <include name="addAnddeleteCategory" />
+                    <include name="deleteCategory" />
                 </methods>
             </class>
             <class name="main.QuetionsAndAnswers.ExportQandATest">
