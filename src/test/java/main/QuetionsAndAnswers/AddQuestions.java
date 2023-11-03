@@ -50,7 +50,6 @@ public class AddQuestions extends BaseTest {
             tendersPage.switchToNavigationFrame();
             newQuestions.clickOnAddNewQuestionButton();
             tendersPage.switchToNewWindowTest();
-            newQuestions.clickOnAddNewQuestionButton();
             newQuestions.fillInQuestionText("It will be draft 2.Admin");
             newQuestions.confirmQuestionOkSend();
 
@@ -66,7 +65,6 @@ public class AddQuestions extends BaseTest {
         tendersPage.switchToNavigationFrame();
         newQuestions.clickOnAddNewQuestionButton();
         tendersPage.switchToNewWindowTest();
-        newQuestions.clickOnAddNewQuestionButton();
         newQuestions.fillInQuestionText("It will be unanswered - 3 Admin");
         Thread.sleep(5000);
     }
