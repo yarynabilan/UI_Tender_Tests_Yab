@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 
 public class Administrators {
     private WebDriver driver;
-    public allUsers(WebDriver driver) {
+    public Administrators(WebDriver driver) {
         this.driver = driver;
     }
     private By addAdministratorLink = By.xpath("//span[@class=\"contentHeadingLink1\" and contains(text(), \"Tender administrator\") and contains(@onclick, \"document.data.usertype.value='4'\")]");
