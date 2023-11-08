@@ -10,20 +10,6 @@ import org.testng.annotations.Test;
 public class AddQuestions extends BaseTest {
     private NewQuestions newQuestions;
 
-//    @BeforeMethod
-//    public void setUpTest() throws InterruptedException, NullPointerException {
-//        super.setUp(); // Викликаємо setUp() базового класу
-//        TendersPage tendersPage = new TendersPage(driver);
-//        tendersPage.switchToBrowserFrame();
-//        PublicTenderPage publicTenderPage = new PublicTenderPage(driver);
-//        publicTenderPage.clickOnElement(publicTenderPage.getQuestionsAndAnswersTab());
-//        driver.switchTo().defaultContent();
-//        NewQuestions newQuestions = new NewQuestions(driver);
-//    tendersPage.switchToNavigationFrame();
-//        Thread.sleep(3000);
-//
-//    }
-
     @Test
     public void CreateNewQuestionToPublish() throws InterruptedException {
         TendersPage tendersPage = new TendersPage(driver);

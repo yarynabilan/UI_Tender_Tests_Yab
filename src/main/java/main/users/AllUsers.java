@@ -3,17 +3,16 @@ package main.users;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.Select;
 
-public class allUsers {
+public class AllUsers {
     private WebDriver driver;
-    public allUsers(WebDriver driver) {
+    public AllUsers(WebDriver driver) {
         this.driver = driver;
     }
     private By administratorsTab = By.xpath("//img[@src='/images/info/large_tender_administrators.png']");
     private By tenderersTab = By.xpath("//img[@src='/images/info/large_tender_tenderers.png']");
     private By clientVendorsTab = By.xpath("//img[@src='/images/info/large_tender_company_users.png']");
-    private By addUserButton = By.xpath("//option[contains(text(), 'to delete')]");
+    private By addUserButton = By.xpath("//img[@name='add_user']\n");
     private By removeUserButton = By.xpath("//input[@value='Delete']\n");
     private By okButton = By.xpath("//input[@value='OK']");
     private By selectPreviouslyInvitedUsersLink = By.xpath("//input[@value='OK']");
@@ -28,6 +27,9 @@ public class allUsers {
     public void clickVendorsTab() {
         WebElement vendorsTabElement = driver.findElement(clientVendorsTab);
         vendorsTabElement.click();
+    } public void clickAddUserButton() {
+        WebElement addUserButtonElement = driver.findElement(addUserButton);
+        addUserButtonElement.click();
     }
 
 

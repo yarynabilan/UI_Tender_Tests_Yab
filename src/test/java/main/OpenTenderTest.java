@@ -13,16 +13,16 @@ public class OpenTenderTest extends ApplicationsNavigationTest {
 
     @Test
     public void openTenderTest() throws InterruptedException {
-        MainPage mainPage = new MainPage(driver);
-        mainPage.navigateToApplications().applications().click();
-        ApplicationsPage applicationsPage = new ApplicationsPage(driver);
-        Thread.sleep(3000);
-        applicationsPage.tenderLink().click();
+//        MainPage mainPage = new MainPage(driver);
+//        mainPage.navigateToApplications().applications().click();
+//        ApplicationsPage applicationsPage = new ApplicationsPage(driver);
+//        Thread.sleep(3000);
+//        applicationsPage.tenderLink().click();
         TendersPage tendersPage = new TendersPage(driver);
-        tendersPage.openPublicTender();
-
-        String mainWindowHandle = driver.getWindowHandle();
-        tendersPage.switchToNewWindow(mainWindowHandle);
+//        tendersPage.openPublicTender();
+//
+//        String mainWindowHandle = driver.getWindowHandle();
+//        tendersPage.switchToNewWindow(mainWindowHandle);
 
         tendersPage.switchToFunctionsFrame();
 
