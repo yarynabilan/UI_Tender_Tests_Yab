@@ -17,6 +17,7 @@ public class Administrators {
     private By addDocumentCoordinatorLink = By.xpath("//span[contains(text(), 'Tender observer')][@class=\"contentHeadingLink1\"][@onclick=\"document.data.usertype.value='8';saction();\"]");
     private By previouslyInvitedLink = By.xpath("//a[contains(text(), 'Select previously invited users')][@class=\"contentHeading1\"][@onclick=\"select_invited();\"]");
     private By textFieldForEmail = By.xpath("//textarea[@name='emails']");
+    private By userToUpdateProfile = By.xpath("//td[text()='yaryna bilan']");
     public void clickAddAdministratorLink() {
         WebElement addAdministratorLinkElement = driver.findElement(addAdministratorLink);
         addAdministratorLinkElement.click();
@@ -30,6 +31,10 @@ public class Administrators {
     public void clickAddDocumentCoordinatorLink() {
         WebElement addDocumentCoordinatorLinkElement = driver.findElement(addDocumentCoordinatorLink);
         addDocumentCoordinatorLinkElement.click();
+    }
+    public void clickOnUserToUpdateProfile() {
+        WebElement userToUpdateProfileElement = driver.findElement(userToUpdateProfile);
+        userToUpdateProfileElement.click();
     }
 
     public void clickPreviouslyInvitedLink() {
