@@ -18,6 +18,9 @@ public class Administrators {
     private By previouslyInvitedLink = By.xpath("//a[contains(text(), 'Select previously invited users')][@class=\"contentHeading1\"][@onclick=\"select_invited();\"]");
     private By textFieldForEmail = By.xpath("//textarea[@name='emails']");
     private By userToUpdateProfile = By.xpath("//td[text()='yaryna bilan']");
+    private By tenderAdminProfileDropdown = By.xpath("//option[@selected and text()='Tender administrator']\n");
+    private By accessTypeDropdown = By.xpath("//option[@value='2' and text()='Limited access']\n");
+    private By okButton = By.xpath("//input[@name='button_ok']\n");
     public void clickAddAdministratorLink() {
         WebElement addAdministratorLinkElement = driver.findElement(addAdministratorLink);
         addAdministratorLinkElement.click();

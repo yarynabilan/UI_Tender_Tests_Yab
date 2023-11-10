@@ -22,7 +22,6 @@ public class DataInputReq extends SubmissionRequirements {
     private By field7 = By.xpath("//*[@id=\"6_field_name\"]");
 
 
-
     private By fieldTypeTextShort = By.xpath("//select[@name=\"1_field_type\"]/option[text()=\"Text field (short)\"]");
     private By fieldTypeTextLong = By.xpath("//select[@name=\"2_field_type\"]/option[text()=\"Text field (long)\"]");
     private By fieldTypeNumbers = By.xpath("//select[@name=\"3_field_type\"]/option[text()=\"Numbers\"]");
@@ -45,8 +44,6 @@ public class DataInputReq extends SubmissionRequirements {
     private By fieldTypeDropdown4 = By.xpath("//select[@id=\"4_field_type\"]");
     private By fieldTypeDropdown5 = By.xpath("//select[@id=\"5_field_type\"]");
     private By fieldTypeDropdown6 = By.xpath("//select[@id=\"6_field_type\"]");
-
-
 
 
     private By addButton = By.xpath("//input[@type='button' and @value='Add' and @onclick='add_datafield();']");

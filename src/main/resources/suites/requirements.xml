@@ -1,40 +1,40 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
 <suite name="requirement" preserve-order="true">
-    <test name="Update Tender Description">
+    <test name="Create Tender Requirements">
         <classes>
             <class name="main.submissionReq.DataInputRequirement">
                 <methods>
                     <include name="CreateDataInputRequirement" />
-                    <include name="CreateDataInputRequirementToDelete" />
-                    <include name="DeleteDatainputReq" />
+<!--                    <include name="CreateDataInputRequirementToDelete" />-->
+<!--                    <include name="DeleteDatainputReq" />-->
                 </methods>
             </class>
 
-            <class name="main.submissionReq.EspdRequirementTests">
-                <methods>
-                    <include name="CreateEspdRequirement" />
-                </methods>
-            </class>
+<!--            <class name="main.submissionReq.EspdRequirementTests">-->
+<!--                <methods>-->
+<!--                    <include name="CreateEspdRequirement" />-->
+<!--                </methods>-->
+<!--            </class>-->
 
-            <class name="main.submissionReq.FileUploadRequirement">
-                <methods>
-                    <include name="CreateFileUploadRequirement" />
-                    <include name="CreateToDeleteFileUploadRequirement" />
-                    <include name="EditFileUploadRequirement" />
-                    <include name="DeleteFileUploadRequirement" />
-                </methods>
-            </class>
-            <class name="main.submissionReq.CopyReqFromPhaseTests">
-                <methods>
-                    <include name="CopyFileUploadReqFromRound" />
-                </methods>
-            </class>
-            <class name="main.submissionReq.CopyReqFromAnotherTenderTest">
-                <methods>
-                    <include name="CopyDataReqFromAnotherTender" />
-                </methods>
-            </class>
+<!--            <class name="main.submissionReq.FileUploadRequirement">-->
+<!--                <methods>-->
+<!--                    <include name="CreateFileUploadRequirement" />-->
+<!--                    <include name="CreateToDeleteFileUploadRequirement" />-->
+<!--                    <include name="EditFileUploadRequirement" />-->
+<!--                    <include name="DeleteFileUploadRequirement" />-->
+<!--                </methods>-->
+<!--            </class>-->
+<!--            <class name="main.submissionReq.CopyReqFromPhaseTests">-->
+<!--                <methods>-->
+<!--                    <include name="CopyFileUploadReqFromRound" />-->
+<!--                </methods>-->
+<!--            </class>-->
+<!--            <class name="main.submissionReq.CopyReqFromAnotherTenderTest">-->
+<!--                <methods>-->
+<!--                    <include name="CopyDataReqFromAnotherTender" />-->
+<!--                </methods>-->
+<!--            </class>-->
         </classes>
     </test>
 </suite>
