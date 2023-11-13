@@ -15,7 +15,7 @@ public class UploadFiles extends ApplicationsNavigationTest {
         driver.switchTo().defaultContent();
         tendersPage.switchToNavigationFrame();
         FileUpload fileUpload = new FileUpload(driver);
-    fileUpload.clickUploadFileButton();
+        fileUpload.clickUploadFileButton();
         Thread.sleep(5000);
 
         fileUpload.clickEnhancedUploadTab();
@@ -37,9 +37,14 @@ public class UploadFiles extends ApplicationsNavigationTest {
         driver.switchTo().defaultContent();
         tendersPage.switchToNavigationFrame();
         fileUpload.clickUploadFileButton();
+        driver.switchTo().defaultContent();
+
         Thread.sleep(5000);
+        tendersPage.switchToNewWindowTest();
+        driver.manage().window().maximize(); // Максимізує вікно
         fileUpload.clickEnhancedUploadTab();
-    fileUpload.inputDestinationFolder("Test1");
+        Thread.sleep(5000);
+
     fileUpload.clickOkButton();
     fileUpload.clickAddFilesButton();
     }

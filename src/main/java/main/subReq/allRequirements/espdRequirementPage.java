@@ -32,9 +32,14 @@ public class espdRequirementPage {
     private By reuseESPDRadioButton = By.xpath("//input[@value='1']");
     private By uploadESPDButton = By.xpath("//span[text()='Upload ESPD Request']");
     private static By confirmUpload = By.xpath("//input[@name='x']");
+    private static By fileInput = By.xpath("//input[@type='file' and @name='file1']");
 
     public static WebElement createdESPD() {
         return driver.findElement(createdESPD);
+    }
+
+    public static WebElement fileInput() {
+        return driver.findElement(fileInput);
     }
 
     public void fillInESPDName(String espdName) {
@@ -96,9 +101,10 @@ public class espdRequirementPage {
         WebElement uploadEspdElement = driver.findElement(uploadESPDButton);
         uploadEspdElement.click();
     }
+
     private By fileUploadButtonLocator = By.xpath("//span[text()='Upload ESPD Request']");
 
-//    public void uploadFileFromResourcesToProject(String fileName) throws AWTException {
+    //    public void uploadFileFromResourcesToProject(String fileName) throws AWTException {
 //        WebElement fileUploadButtonElement = driver.findElement(fileUploadButtonLocator);
 //        fileUploadButtonElement.sendKeys("/src/main/resources/");
 //    }
@@ -108,18 +114,13 @@ public class espdRequirementPage {
         WebElement fileUploadButtonElement = driver.findElement(fileUploadButtonLocator);
         fileUploadButtonElement.sendKeys(filePath);
     }
+
     public void uploadFileFromResourcesToProject2() throws AWTException {
-        try {
-            WebElement fileUploadButtonElement = driver.findElement(fileUploadButtonLocator);
-            fileUploadButtonElement.sendKeys("src/main/resources/espd_request.xml" );
+        File uploadFile = new File("src/main/resources/espd_request.xml");
+        WebElement fileInput = driver.findElement(espdRequirementPage.fileInput);
+        fileInput.sendKeys(uploadFile.getAbsolutePath());
 
-
-            System.out.println("File successfully loaded from resources.");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
     }
-
 
 }
 

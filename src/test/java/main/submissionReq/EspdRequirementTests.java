@@ -5,10 +5,13 @@ import main.PublicTenderPage;
 import main.TendersPage;
 import main.specificationDocuments.FileUpload;
 import main.subReq.SubmissionRequirements;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 import main.subReq.allRequirements.espdRequirementPage;
 
 import java.awt.*;
+import java.io.File;
 import java.io.IOException;
 
 import static org.testng.Assert.assertTrue;
@@ -59,14 +62,12 @@ public class EspdRequirementTests extends ApplicationsNavigationTest {
             espdRequirementPage.fillInESPDdescriptionField("Test Description of ESPD Requirement ");
             espdRequirementPage.selectReuseESPDRadioButton();
           espdRequirementPage.selectMainAuthorityRadioButton();
-           espdRequirementPage.clickUploadESPDButton();
-            espdRequirementPage.uploadFileFromResourcesToProject2();
+     //      espdRequirementPage.clickUploadESPDButton();
+           espdRequirementPage.uploadFileFromResourcesToProject2();
+        Thread.sleep(5000);
 
-            Thread.sleep(10000);
-
-            espdRequirementPage.clickUploadOK();
-            Thread.sleep(10000);
-            // assertTrue(espdRequirementPage.createdESPD().isDisplayed());
+       espdRequirementPage.clickUploadOK();
+        //     assertTrue(espdRequirementPage.createdESPD().isDisplayed());
 
 }
     }

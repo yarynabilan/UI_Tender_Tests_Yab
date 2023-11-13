@@ -26,7 +26,7 @@ public class FileUpload {
     private By OkButton = By.xpath("//input[@name='OK']");
     private By addFilesButton = By.xpath("//span[text()='Add more files']");
     private By fileInput = By.xpath("");
-    private By pdfFileLocator1 = By.xpath("");
+
     private By folderLocator = By.xpath("//span[text()='Test']");
 
     public void clickUploadFileButton() {
