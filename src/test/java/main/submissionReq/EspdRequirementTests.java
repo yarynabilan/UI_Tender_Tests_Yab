@@ -3,6 +3,7 @@ package main.submissionReq;
 import main.ApplicationsNavigationTest;
 import main.PublicTenderPage;
 import main.TendersPage;
+import main.specificationDocuments.FileUpload;
 import main.subReq.SubmissionRequirements;
 import org.testng.annotations.Test;
 import main.subReq.allRequirements.espdRequirementPage;
@@ -39,8 +40,9 @@ public class EspdRequirementTests extends ApplicationsNavigationTest {
 //        tendersPage.switchToDirectoryFrame();
 //        assertTrue(espdRequirement.createdESPD().isDisplayed());
     }
-        @Test
-        public void testUploadFileFromResources() throws InterruptedException, IOException, AWTException {
+
+    @Test
+    public void testUploadFileFromResources() throws InterruptedException, IOException, AWTException {
             TendersPage tendersPage = new TendersPage(driver);
             tendersPage.switchToBrowserFrame();
             PublicTenderPage publicTenderPage = new PublicTenderPage(driver);
@@ -55,19 +57,20 @@ public class EspdRequirementTests extends ApplicationsNavigationTest {
             espdRequirementPage espdRequirementPage = new espdRequirementPage(driver);
             espdRequirementPage.fillInESPDName("Test ESPD Requirement Name");
             espdRequirementPage.fillInESPDdescriptionField("Test Description of ESPD Requirement ");
-espdRequirementPage.selectReuseESPDRadioButton();
-            espdRequirementPage.selectMainAuthorityRadioButton();
+            espdRequirementPage.selectReuseESPDRadioButton();
+          espdRequirementPage.selectMainAuthorityRadioButton();
+           espdRequirementPage.clickUploadESPDButton();
+            espdRequirementPage.uploadFileFromResourcesToProject2();
 
-espdRequirementPage.clickUploadESPDButton();
+            Thread.sleep(10000);
 
-            // Викликаємо метод, який завантажує файл з ресурсів
-espdRequirementPage.uploadFileFromResources2();
-            Thread.sleep(8000);
-espdRequirementPage.clickUploadOK();
-    //        Thread.sleep(10000);
+            espdRequirementPage.clickUploadOK();
+            Thread.sleep(10000);
+            // assertTrue(espdRequirementPage.createdESPD().isDisplayed());
 
-            // Можливо, вам потрібно додати додаткові перевірки або assert-оператори, щоб переконатися, що завантаження пройшло успішно
-        }
+}
     }
+
+
 
 

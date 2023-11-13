@@ -1,24 +1,20 @@
 package main.subReq.allRequirements;
 
+import main.specificationDocuments.FileUpload;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-import java.io.*;
-import java.net.URISyntaxException;
-import java.net.URL;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.nio.file.StandardCopyOption;
-import java.awt.AWTException;
-import java.awt.Robot;
-import java.awt.event.KeyEvent;
+import java.awt.*;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.StandardCopyOption;
+
 public class espdRequirementPage {
-    private WebDriver driver;
+    private static WebDriver driver;
 
     public espdRequirementPage(WebDriver driver) {
         this.driver = driver;
@@ -32,12 +28,12 @@ public class espdRequirementPage {
     private By nextButton3 = By.xpath("//span[@id='button-1372-btnInnerEl']\n");
     private By saveButton = By.xpath("//span[@id='espdsavebutton-btnInnerEl']");
     private By okButton = By.xpath("//input[@name='x' and @value='OK']");
-    private By createdESPD = By.xpath("//img[@src='/images/info/large_tender_datamandatory.png' and @title='Test ESPD Requirement Name']");
+    private static By createdESPD = By.xpath("//img[@src='/images/info/large_tender_datamandatory.png' and @title='Test ESPD Requirement Name']");
     private By reuseESPDRadioButton = By.xpath("//input[@value='1']");
     private By uploadESPDButton = By.xpath("//span[text()='Upload ESPD Request']");
-    private By confirmUpload = By.xpath("//input[@name='x']");
+    private static By confirmUpload = By.xpath("//input[@name='x']");
 
-    public WebElement createdESPD() {
+    public static WebElement createdESPD() {
         return driver.findElement(createdESPD);
     }
 
@@ -65,10 +61,11 @@ public class espdRequirementPage {
         okButton.click();
     }
 
-    public void clickUploadOK() {
-        WebElement confirmUploadButton = driver.findElement(this.confirmUpload);
+    public static void clickUploadOK() {
+        WebElement confirmUploadButton = driver.findElement(confirmUpload);
         confirmUploadButton.click();
     }
+
 
     public void clickOnNext() {
         WebElement nextButton = driver.findElement(this.nextButton);
@@ -99,96 +96,31 @@ public class espdRequirementPage {
         WebElement uploadEspdElement = driver.findElement(uploadESPDButton);
         uploadEspdElement.click();
     }
+    private By fileUploadButtonLocator = By.xpath("//span[text()='Upload ESPD Request']");
 
-    public void uploadFileFromResources() throws InterruptedException {
-        Thread.sleep(3000);
-
-        // Знайти елемент для завантаження файлу
-        WebElement uploadElement = driver.findElement(uploadESPDButton);
-
-        // Вказати шлях до файлу у ресурсах
-        String filePath = "src/main/resources/files/espd_request.xml";
-
-        // Завантажити файл за допомогою методу sendKeys
-        uploadElement.sendKeys(filePath);
-
-        // Додати паузу або очікування, щоб забезпечити завантаження файлу перед подальшими діями
-        // Наприклад: Thread.sleep(3000);
-
-        // Тут можна додати код для подальших дій після завантаження файлу
-        // Наприклад, клікнути на інші елементи чи натискати кнопку
-        // Наприклад: WebElement uploadButton = driver.findElement(By.xpath("//button[@id='uploadButton']"));
-        // uploadButton.click();
+//    public void uploadFileFromResourcesToProject(String fileName) throws AWTException {
+//        WebElement fileUploadButtonElement = driver.findElement(fileUploadButtonLocator);
+//        fileUploadButtonElement.sendKeys("/src/main/resources/");
+//    }
+    public void uploadFileFromResourcesToProject(String fileName) throws AWTException {
+        String projectPath = System.getProperty("user.dir");
+        String filePath = projectPath + "/src/main/resources/" + fileName;
+        WebElement fileUploadButtonElement = driver.findElement(fileUploadButtonLocator);
+        fileUploadButtonElement.sendKeys(filePath);
     }
-
-    public void uploadTest() {
+    public void uploadFileFromResourcesToProject2() throws AWTException {
         try {
-            // Specify the file name and destination path
-            String fileName = "espd_request.xml";
-            String destinationPath = "src/main/resources/files";
+            WebElement fileUploadButtonElement = driver.findElement(fileUploadButtonLocator);
+            fileUploadButtonElement.sendKeys("src/main/resources/espd_request.xml" );
 
-            // Load the file from the classpath
-            InputStream inputStream = espdRequirementPage.class.getClassLoader().getResourceAsStream(fileName);
 
-            if (inputStream != null) {
-                // Save the file to the destination directory
-                Path destinationFilePath = Path.of(destinationPath, fileName);
-                Files.copy(inputStream, destinationFilePath, StandardCopyOption.REPLACE_EXISTING);
-
-                System.out.println("File successfully loaded to: " + destinationFilePath);
-            } else {
-                System.err.println("File not found in resources.");
-            }
-        } catch (IOException e) {
+            System.out.println("File successfully loaded from resources.");
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    public void uploadFileFromResources2() {
-        try {
-            // Ім'я файлу, яке міститься в ресурсах
-            String fileName = "espd_request.xml";
 
-            // Отримуємо InputStream для файла з ресурсів
-            InputStream inputStream = getClass().getClassLoader().getResourceAsStream(fileName);
-
-            if (inputStream != null) {
-                // Завантажуємо файл з ресурсів безпосередньо
-                uploadFile(inputStream);
-
-                System.out.println("File successfully loaded from resources.");
-            } else {
-                System.err.println("File not found in resources.");
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    // Метод для завантаження файлу із InputStream
-    private void uploadFile(InputStream inputStream) throws IOException {
-        // Код для завантаження файлу, використовуючи ваш спосіб завантаження
-        // Наприклад, виклик методу uploadFile(inputStream)
-        // ...
-
-        // Додатково, якщо вам потрібно, ви можете використовувати WebDriver для взаємодії з елементами на сторінці
-        // Наприклад:
-        // WebElement uploadButton = driver.findElement(By.xpath("//button[@id='uploadButton']"));
-        // uploadButton.click();
-
-        // Пауза або очікування, щоб забезпечити завантаження файлу перед подальшими діями
-        // Наприклад: Thread.sleep(3000);
-    }
-
-
-
-    // Отримати абсолютний шлях до ресурсу
-    private String getAbsolutePathFromResource(String resource) throws IOException, URISyntaxException {
-        URL resourceUrl = getClass().getClassLoader().getResource(resource);
-        if (resourceUrl != null) {
-            return Paths.get(resourceUrl.toURI()).toAbsolutePath().toString();
-        } else {
-            throw new FileNotFoundException("Resource not found: " + resource);
-        }
-    }
 }
+
+
