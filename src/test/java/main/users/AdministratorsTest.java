@@ -90,6 +90,7 @@ public class AdministratorsTest extends ApplicationsNavigationTest {
         Thread.sleep(3000);
         administrators.fillInTextFieldForEmailInput("yarynabilan@gmail.com");
         allUsers.confirmOK();
+        allUsers.confirmOK();
         Thread.sleep(3000);
     }
     @Test
@@ -104,13 +105,14 @@ public class AdministratorsTest extends ApplicationsNavigationTest {
         allUsers.clickAdmTab();
         Administrators administrators = new Administrators(driver);
         driver.switchTo().defaultContent();
-        tendersPage.switchToNavigationFrame();
-        allUsers.clickAddUserButton();
+        tendersPage.switchToDirectoryFrame();
+        administrators.clickOnUserToUpdateProfile();
         tendersPage.switchToNewWindowTest();
-        administrators.clickAddObserverLink();
-        Thread.sleep(3000);
-        administrators.fillInTextFieldForEmailInput("yarynabilan@gmail.com");
+        administrators.clickOnAdminProfileDropdown();
+        administrators.selectTenderAdminProfile();
+        administrators.selectFullAccessType();
         allUsers.confirmOK();
         Thread.sleep(3000);
+
     }
 }

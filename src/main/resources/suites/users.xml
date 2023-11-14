@@ -1,13 +1,16 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
 <suite name="requirement" preserve-order="true">
-    <test name="Create Tender Requirements">
+    <test name="Users">
         <classes>
-            <class name="main.submissionReq.DataInputRequirement">
+            <class name="main.users.all.Administrators">
                 <methods>
-                    <include name="CreateDataInputRequirement" />
-                    <include name="CreateDataInputRequirementToDelete" />
-                    <include name="DeleteDatainputReq" />
+                    <include name="AddTenderAdministrator" />
+                    <include name="AddDocCoordinatorTest" />
+                    <include name="AddObserverTest" />
+                    <include name="AddObserverTest2" />
+                    <include name="UpdateProfile" />
+<!--                   <include name="UpdateProfile - написати тест до add user через previosly invited users" />-->
                 </methods>
             </class>
 
@@ -38,3 +41,4 @@
         </classes>
     </test>
 </suite>
+
