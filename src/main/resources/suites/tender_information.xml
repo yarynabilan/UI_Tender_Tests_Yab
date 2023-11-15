@@ -1,0 +1,39 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="TenderInformation" preserve-order="true">
+    <test name="Update Tender Settings">
+        <classes>
+            <class name="main.tenderInformation.TenderInformationUpdate">
+                <methods>
+                    <include name="UpdateDescription" />
+                    <include name="UpdateTenderDescriptionProjectNo" />
+                    <include name="UpdateContractingAuthority" />
+                    <include name="UpdateContractType" />
+                    <include name="UpdateContactPersonData" />
+                    <include name="UpdateAwardCriteria" />
+                                        <include name="UpdateTenderType" />
+                </methods>
+            </class>
+            <class name="main.tenderInformation.DeadlineUpdate">
+                <methods>
+                    <include name="UpdateDeadlinesDates" />
+                    <include name="UpdateStartDate" />
+                    <include name="UpdateStartDateHours" />
+                    <include name="UpdateStartDateBack" />
+                </methods>
+            </class>
+
+            <class name="main.tenderInformation.TenderSettingsUpdate">
+                <methods>
+                    <include name="UpdateSubcontractorsSettings" />
+                    <include name="selectSupplementaryFilesAcceptedTest" />
+                    <include name="selectSupplementaryFilesNotAcceptedTest" />
+                    <include name="UpdateSecuritySettings" />
+                    <include name="UpdateOpeningAndPublicationSettings" />
+                    <include name="UpdateQandAHadlingSetting" />
+                    <include name="UpdateSendersVisibilitySettings" />
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
