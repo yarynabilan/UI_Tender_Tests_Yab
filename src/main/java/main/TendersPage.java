@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import java.util.Iterator;
 import java.util.Set;
 
 import static org.testng.Assert.assertTrue;
@@ -63,9 +64,22 @@ public class TendersPage extends BasePage {
             }
         }
 
-        // Переключитися на нове вікно
         driver.switchTo().window(newWindowHandle);
+    }
+        public void switchToPreviousWindow() {
+            Set<String> windowHandles = driver.getWindowHandles();
 
-}}
+            // Якщо є більше одного вікна, то можна повернутися до попереднього
+            if (windowHandles.size() > 1) {
+                Iterator<String> iterator = windowHandles.iterator();
+                String currentWindow = iterator.next();
+                String previousWindow = iterator.next();
+
+                driver.switchTo().window(previousWindow);
+            } else {
+                System.out.println("Немає попереднього вікна.");
+            }
+        }
+}
 
 

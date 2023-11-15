@@ -13,7 +13,7 @@ public class AllUsers {
     private By tenderersTab = By.xpath("//img[@src='/images/info/large_tender_tenderers.png']");
     private By clientVendorsTab = By.xpath("//img[@src='/images/info/large_tender_company_users.png']");
     private By addUserButton = By.xpath("//img[@name='add_user']\n");
-    private By removeUserButton = By.xpath("//input[@value='Delete']\n");
+    private By removeUserButton = By.xpath("//img[@title='Remove user']\n");
     private By okButton = By.xpath("//input[@value='OK']");
     private By selectPreviouslyInvitedUsersLink = By.xpath("//input[@value='OK']");
     public void clickAdmTab() {
@@ -30,6 +30,10 @@ public class AllUsers {
     } public void clickAddUserButton() {
         WebElement addUserButtonElement = driver.findElement(addUserButton);
         addUserButtonElement.click();
+    }
+    public void clickRemoveUserButton() {
+        WebElement removeUserButtonElement = driver.findElement(removeUserButton);
+        removeUserButtonElement.click();
     }
 
 

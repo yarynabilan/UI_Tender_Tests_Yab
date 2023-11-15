@@ -13,10 +13,11 @@ public class ClientVendors {
     private By nameField = By.xpath("//input[@name=\"name\"]");
     private By emailField = By.xpath("//input[@name=\"email\"]");
     private By messageField = By.xpath("//textarea[@name=\"message\"]");
-    private By danskDropdown = By.xpath("//textarea[@name=\"message\"]");
+    private By danskDropdown = By.xpath("//select[@name='language']");
     private By vendorProfile = By.xpath("//td[text()='Client Vendor 1 Test']");
     private By resendInvitationButton = By.xpath("//input[@type='button' and @value='Send']");
     private By okButton = By.xpath("//input[@value=\"OK\"]\n");
+    private By closeButton = By.xpath("//input[@type='button' and @value='Close window']");
 
     public void enterName(String name) {
         WebElement nameElement = driver.findElement(nameField);
@@ -40,7 +41,7 @@ public class ClientVendors {
         WebElement danskDropdownElement = driver.findElement(danskDropdown);
         new Select(danskDropdownElement).selectByVisibleText("Dansk");
     }
-    public void clickVendorProfile() {
+    public void selectVendorProfile() {
         WebElement vendorProfileElement = driver.findElement(vendorProfile);
         vendorProfileElement.click();
     }
@@ -52,6 +53,10 @@ public class ClientVendors {
     public void clickOkButton() {
         WebElement okButtonElement = driver.findElement(okButton);
         okButtonElement.click();
+    } public void clickCloseButton() {
+        WebElement closeButtonElement = driver.findElement(closeButton);
+        closeButtonElement.click();
     }
+
 }
 

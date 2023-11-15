@@ -10,34 +10,18 @@
                     <include name="AddObserverTest" />
                     <include name="AddObserverTest2" />
                     <include name="UpdateProfile" />
-<!--                   <include name="UpdateProfile - написати тест до add user через previosly invited users" />-->
+<!--                   <include name="UpdateProfile - написати тест до add user через previously invited users" />-->
                 </methods>
             </class>
 
-            <class name="main.submissionReq.EspdRequirementTests">
+            <class name="main.users.all.ClientVendors">
                 <methods>
-                    <include name="CreateEspdRequirement" />
+                    <include name="AddClientVendorTest" />
+                    <include name="AddVendorAndResendInvitation" />
+                    <include name="DeleteClientVendor" />
                 </methods>
             </class>
 
-            <class name="main.submissionReq.FileUploadRequirement">
-                <methods>
-                    <include name="CreateFileUploadRequirement" />
-                    <include name="CreateToDeleteFileUploadRequirement" />
-                    <include name="EditFileUploadRequirement" />
-                    <include name="DeleteFileUploadRequirement" />
-                </methods>
-            </class>
-            <class name="main.submissionReq.CopyReqFromPhaseTests">
-                <methods>
-                    <include name="CopyFileUploadReqFromRound" />
-                </methods>
-            </class>
-            <class name="main.submissionReq.CopyReqFromAnotherTenderTest">
-                <methods>
-                    <include name="CopyDataReqFromAnotherTender" />
-                </methods>
-            </class>
         </classes>
     </test>
 </suite>
