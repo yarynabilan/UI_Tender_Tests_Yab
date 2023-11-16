@@ -15,10 +15,12 @@ public class SpecificationDocuments extends ApplicationsNavigationTest {
         driver.switchTo().defaultContent();
         tendersPage.switchToNavigationFrame();
         Folders folders = new Folders(driver);
+        Thread.sleep(5000);
         folders.clickOnCreateFolderButton();
-        Thread.sleep(10000);
+        Thread.sleep(5000);
         tendersPage.switchToNewWindowTest();
-        folders.fillInFolderName("Folder A");
+        Thread.sleep(5000);
+        folders.fillInFolderName("Folder B");
         folders.clickOnOkButton();
     }
 }

@@ -19,6 +19,7 @@ public class Folders {
     private By renameFolderButton = By.xpath("//img[@title=\"Rename folder\"]");
     private By deleteFolderButton = By.xpath("//img[@title=\"Delete folder\"]");
     private By inputFolderName = By.xpath("//input[@name=\"name\"]");
+    private By popUpFrame = By.xpath("//iframe[@title='No content']");
     private By okButton  = By.xpath("//input[@name='OK']");
     public void clickOnCreateFolderButton() {
         WebElement createFolderButton = driver.findElement(this.createFolderButton);
@@ -41,6 +42,9 @@ public class Folders {
         WebElement inputFolderName = driver.findElement(this.inputFolderName);
         inputFolderName.clear();
         inputFolderName.sendKeys(folderName);
+    }
+    public void switchToPopUpFrame() {
+        driver.switchTo().frame(driver.findElement(popUpFrame));
     }
 
 }
