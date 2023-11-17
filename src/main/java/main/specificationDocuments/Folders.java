@@ -2,10 +2,13 @@ package main.specificationDocuments;
 
 import io.qameta.allure.Step;
 import lombok.Getter;
+import main.LoginPage;
 import main.PublicTenderPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+
+import static org.testng.Assert.assertTrue;
 
 @Getter
 
@@ -21,6 +24,7 @@ public class Folders {
     private By inputFolderName = By.xpath("//input[@name=\"name\"]");
     private By popUpFrame = By.xpath("//iframe[@title='No content']");
     private By okButton  = By.xpath("//input[@name='OK']");
+    private By errorMessageLocator  = By.xpath("//td[@class='content' and contains(text(), 'Error! The folder name is already in use. Please choose a different name.')]\n");
     public void clickOnCreateFolderButton() {
         WebElement createFolderButton = driver.findElement(this.createFolderButton);
         createFolderButton.click();
@@ -45,6 +49,12 @@ public class Folders {
     }
     public void switchToPopUpFrame() {
         driver.switchTo().frame(driver.findElement(popUpFrame));
+    }
+
+    public Folders validateErrorMessage(String expectedMessage) {
+        String actualMessage = driver.findElement(errorMessageLocator).getText();
+        assertTrue(actualMessage.contains(expectedMessage));
+        return this;
     }
 
 }
