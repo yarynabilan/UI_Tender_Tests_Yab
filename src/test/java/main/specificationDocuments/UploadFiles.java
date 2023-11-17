@@ -5,6 +5,8 @@ import main.PublicTenderPage;
 import main.TendersPage;
 import org.testng.annotations.Test;
 
+import java.awt.*;
+
 public class UploadFiles extends ApplicationsNavigationTest {
     @Test
     public void UploadFile1() throws InterruptedException {
@@ -25,7 +27,7 @@ public class UploadFiles extends ApplicationsNavigationTest {
     }
 
     @Test
-    public void UploadFileToExistingFolder() throws InterruptedException {
+    public void UploadFileToExistingFolder() throws InterruptedException, AWTException {
         TendersPage tendersPage = new TendersPage(driver);
         tendersPage.switchToBrowserFrame();
         PublicTenderPage publicTenderPage = new PublicTenderPage(driver);
@@ -36,16 +38,25 @@ public class UploadFiles extends ApplicationsNavigationTest {
         fileUpload.selectFolder();
         driver.switchTo().defaultContent();
         tendersPage.switchToNavigationFrame();
+
+        Thread.sleep(3000);
+
         fileUpload.clickUploadFileButton();
-        driver.switchTo().defaultContent();
+        Thread.sleep(3000);
 
-        Thread.sleep(5000);
         tendersPage.switchToNewWindowTest();
-        driver.manage().window().maximize(); // Максимізує вікно
-        fileUpload.clickEnhancedUploadTab();
         Thread.sleep(5000);
 
-    fileUpload.clickOkButton();
-    fileUpload.clickAddFilesButton();
+        fileUpload.clickEnhancedUploadTab();
+        Thread.sleep(3000);
+        fileUpload.uploadFirstFileVersion();
+        fileUpload.uploadFileToMove();
+        Thread.sleep(2000);
+        fileUpload.confirmUpload();
+        Thread.sleep(4000);
+tendersPage.switchToNewWindowTest();
+fileUpload.clickOkButton();
+        Thread.sleep(4000);
+
     }
     }

@@ -1,8 +1,12 @@
 package main.specificationDocuments;
 
+import main.subReq.allRequirements.espdRequirementPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+
+import java.awt.*;
+import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -24,10 +28,11 @@ public class FileUpload {
     private By uploadFoldersTab = By.xpath("//nobr[text()='Upload folders']");
     private By inputForDestinationFolder = By.xpath("//input[@name='name']");
     private By OkButton = By.xpath("//input[@name='OK']");
+    private By confirmUpload = By.xpath("//input[@value='OK']");
     private By addFilesButton = By.xpath("//span[text()='Add more files']");
-    private By fileInput = By.xpath("");
+    private static By fileInput = By.xpath("//input[@type='file']");
 
-    private By folderLocator = By.xpath("//span[text()='Test']");
+    private By folderLocator = By.xpath("//span[text()='Folder A']");
 
     public void clickUploadFileButton() {
         WebElement uploadFileElement = driver.findElement(uploadFileButton);
@@ -58,27 +63,24 @@ public class FileUpload {
         folderElement.click();
     }
 
-    public void addFileFromResources() {
-
-    }
-
-    public void uploadFile() {
-
-    }
-
-
-        public static void uploadFileFromResources(String fileName, String destinationPath) throws IOException {
-            // Отримати InputStream для файла з ресурсів
-            InputStream inputStream = FileUpload.class.getClassLoader().getResourceAsStream(fileName);
-
-            if (inputStream != null) {
-                // Зберегти файл у вказаний шлях
-                Path destinationFilePath = Path.of(destinationPath, fileName);
-                Files.copy(inputStream, destinationFilePath, StandardCopyOption.REPLACE_EXISTING);
-                System.out.println("File successfully loaded to: " + destinationFilePath);
-            } else {
-                System.err.println("File not found in resources.");
-            }
+    public void uploadFirstFileVersion() throws AWTException {
+        File uploadFile = new File("src/main/resources/files/Test File.pdf");
+        WebElement fileInputElement = driver.findElement(FileUpload.fileInput);
+        fileInputElement.sendKeys(uploadFile.getAbsolutePath());
         }
+        public void uploadSecondFileVersion() throws AWTException {
+        File uploadFile = new File("src/main/resources/files/filesVersion2/Test File.pdf");
+        WebElement fileInputElement = driver.findElement(FileUpload.fileInput);
+        fileInputElement.sendKeys(uploadFile.getAbsolutePath());
+        }
+        public void uploadFileToMove() throws AWTException {
+        File uploadFile = new File("src/main/resources/files/File To Move.png");
+        WebElement fileInputElement = driver.findElement(FileUpload.fileInput);
+        fileInputElement.sendKeys(uploadFile.getAbsolutePath());
+        }
+    public void confirmUpload() {
+        WebElement confirmUploadElement = driver.findElement(confirmUpload);
+        confirmUploadElement.click();
+    }
 
 }
