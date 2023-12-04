@@ -61,11 +61,9 @@ public class EspdRequirementTests extends ApplicationsNavigationTest {
             espdRequirementPage.fillInESPDName("Test ESPD Requirement Name");
             espdRequirementPage.fillInESPDdescriptionField("Test Description of ESPD Requirement ");
             espdRequirementPage.selectReuseESPDRadioButton();
-          espdRequirementPage.selectMainAuthorityRadioButton();
-     //      espdRequirementPage.clickUploadESPDButton();
-           espdRequirementPage.uploadFileFromResourcesToProject2();
-        Thread.sleep(5000);
-
+            espdRequirementPage.selectMainAuthorityRadioButton();
+            espdRequirementPage.uploadFileFromResourcesToProject2();
+            Thread.sleep(5000);
        espdRequirementPage.clickUploadOK();
         //     assertTrue(espdRequirementPage.createdESPD().isDisplayed());
 

@@ -1,6 +1,6 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
-<suite name="requirement" preserve-order="true">
+<suite name="users" preserve-order="true">
     <test name="Users">
         <classes>
             <class name="main.users.all.Administrators">
@@ -14,7 +14,7 @@
                 </methods>
             </class>
 
-            <class name="main.users.all.ClientVendors">
+            <class name="main.users.ClientVendorTest">
                 <methods>
                     <include name="AddClientVendorTest" />
                     <include name="AddVendorAndResendInvitation" />

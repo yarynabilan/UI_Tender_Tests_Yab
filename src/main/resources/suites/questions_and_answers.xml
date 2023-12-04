@@ -5,9 +5,10 @@
         <classes>
             <class name="main.QuetionsAndAnswers.AddQuestions">
                 <methods>
-                    <include name="CreateNewQuestionToPublish" />
-                    <include name="CreateNewQuestionToDraft" />
-                    <include name="CreateNewQuestionToUnanswer" />
+<!--                    <include name="CreateNewQuestionToPublish" />-->
+<!--                    <include name="CreateNewQuestionToDraft" />-->
+<!--                    <include name="CreateNewQuestionToUnanswer" />-->
+                    <include name="AddQuestions" />
                 </methods>
             </class>
             <class name="main.QuetionsAndAnswers.CategoriesTests">

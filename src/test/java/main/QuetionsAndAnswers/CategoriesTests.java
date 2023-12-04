@@ -17,25 +17,42 @@ public class CategoriesTests extends ApplicationsNavigationTest {
         driver.switchTo().defaultContent();
         tendersPage.switchToNavigationFrame();
         Categories categories = new Categories(driver);
+        String mainWindowHandle = driver.getWindowHandle();
         categories.clickManageCategoriesButton();
         tendersPage.switchToNewWindowTest();
-        categories.enterCategoryName("Test 1");
+        categories.enterCategoryName("reTest 1");
         categories.clickOkButton();
-    }
-    @Test
-    public void addAnddeleteCategory() throws InterruptedException {
-        TendersPage tendersPage = new TendersPage(driver);
-        tendersPage.switchToBrowserFrame();
-        PublicTenderPage publicTenderPage = new PublicTenderPage(driver);
-        publicTenderPage.clickOnElement(publicTenderPage.getQuestionsAndAnswersTab());
-        driver.switchTo().defaultContent();
+        driver.switchTo().window(mainWindowHandle);
         tendersPage.switchToNavigationFrame();
-        Categories categories = new Categories(driver);
+        Thread.sleep(3000);
         categories.clickManageCategoriesButton();
+        Thread.sleep(3000);
         tendersPage.switchToNewWindowTest();
-        categories.enterCategoryName("to delete");
+        categories.enterCategoryName("to Delete");
+        categories.clickOkButton();
+        driver.switchTo().window(mainWindowHandle);
+        tendersPage.switchToNavigationFrame();
+        Thread.sleep(3000);
+        categories.clickManageCategoriesButton();
+        Thread.sleep(3000);
+        tendersPage.switchToNewWindowTest();
+        categories.enterCategoryName("Test Categoty 2");
         categories.clickOkButton();
     }
+//    @Test
+//    public void addAnddeleteCategory() throws InterruptedException {
+//        TendersPage tendersPage = new TendersPage(driver);
+//        tendersPage.switchToBrowserFrame();
+//        PublicTenderPage publicTenderPage = new PublicTenderPage(driver);
+//        publicTenderPage.clickOnElement(publicTenderPage.getQuestionsAndAnswersTab());
+//        driver.switchTo().defaultContent();
+//        tendersPage.switchToNavigationFrame();
+//        Categories categories = new Categories(driver);
+//        categories.clickManageCategoriesButton();
+//        tendersPage.switchToNewWindowTest();
+//        categories.enterCategoryName("to delete");
+//        categories.clickOkButton();
+//    }
     @Test
     public void deleteCategory() throws InterruptedException {
         TendersPage tendersPage = new TendersPage(driver);

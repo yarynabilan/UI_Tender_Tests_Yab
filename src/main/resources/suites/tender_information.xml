@@ -11,7 +11,7 @@
                     <include name="UpdateContractType" />
                     <include name="UpdateContactPersonData" />
                     <include name="UpdateAwardCriteria" />
-                                        <include name="UpdateTenderType" />
+                    <include name="UpdateTenderType" />
                 </methods>
             </class>
             <class name="main.tenderInformation.DeadlineUpdate">

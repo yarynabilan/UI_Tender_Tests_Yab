@@ -41,17 +41,38 @@ public class AddQuestions extends BaseTest {
 
         }
     @Test
-    public void CreateNewQuestionToUnanswer() throws InterruptedException {
+    public void AddQuestions() throws InterruptedException {
         TendersPage tendersPage = new TendersPage(driver);
         tendersPage.switchToBrowserFrame();
         PublicTenderPage publicTenderPage = new PublicTenderPage(driver);
         publicTenderPage.clickOnElement(publicTenderPage.getQuestionsAndAnswersTab());
         driver.switchTo().defaultContent();
         NewQuestions newQuestions = new NewQuestions(driver);
+        String mainWindowHandle = driver.getWindowHandle();
         tendersPage.switchToNavigationFrame();
         newQuestions.clickOnAddNewQuestionButton();
         tendersPage.switchToNewWindowTest();
-        newQuestions.fillInQuestionText("It will be unanswered - 3 Admin");
+        newQuestions.fillInQuestionText("It will be unanswered - 1 Admin");
         Thread.sleep(5000);
+        newQuestions.confirmQuestionOkSend();
+        driver.switchTo().window(mainWindowHandle);
+        tendersPage.switchToNavigationFrame();
+        Thread.sleep(3000);
+        newQuestions.clickOnAddNewQuestionButton();
+        Thread.sleep(3000);
+        tendersPage.switchToNewWindowTest();
+        newQuestions.fillInQuestionText("It will be published - 2 Admin");
+        newQuestions.confirmQuestionOkSend();
+        driver.switchTo().window(mainWindowHandle);
+        tendersPage.switchToNavigationFrame();
+        Thread.sleep(3000);
+        newQuestions.clickOnAddNewQuestionButton();
+        Thread.sleep(3000);
+        tendersPage.switchToNewWindowTest();
+        newQuestions.fillInQuestionText("It will be draft 3 Admin");
+        newQuestions.confirmQuestionOkSend();
     }
+
+
 }
+

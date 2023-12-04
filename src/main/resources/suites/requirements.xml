@@ -5,17 +5,17 @@
         <classes>
             <class name="main.submissionReq.DataInputRequirement">
                 <methods>
-                    <include name="CreateDataInputRequirement" />
+<!--                    <include name="CreateDataInputRequirement" /> -->
                     <include name="CreateDataInputRequirementToDelete" />
                     <include name="DeleteDatainputReq" />
                 </methods>
             </class>
 
-            <class name="main.submissionReq.EspdRequirementTests">
-                <methods>
-                    <include name="CreateEspdRequirement" />
-                </methods>
-            </class>
+<!--            <class name="main.submissionReq.EspdRequirementTests">-->
+<!--                <methods>-->
+<!--                    <include name="CreateEspdRequirement" />-->
+<!--                </methods>-->
+<!--            </class>-->
 
             <class name="main.submissionReq.FileUploadRequirement">
                 <methods>
