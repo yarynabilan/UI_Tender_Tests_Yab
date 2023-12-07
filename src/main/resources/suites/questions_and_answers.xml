@@ -8,6 +8,8 @@
 <!--                    <include name="CreateNewQuestionToPublish" />-->
 <!--                    <include name="CreateNewQuestionToDraft" />-->
 <!--                    <include name="CreateNewQuestionToUnanswer" />-->
+
+
                     <include name="AddQuestions" />
                 </methods>
             </class>
