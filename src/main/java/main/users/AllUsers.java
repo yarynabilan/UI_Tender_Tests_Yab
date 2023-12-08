@@ -35,14 +35,6 @@ public class AllUsers {
         WebElement removeUserButtonElement = driver.findElement(removeUserButton);
         removeUserButtonElement.click();
     }
-
-
-//    public void selectCategoryToDelete() {
-//        Select checkBox = new Select(driver.findElement(deleteCategoryDropdown));
-//        checkBox.selectByVisibleText("to delete");
-//    }
-
-
     public void confirmOK() {
         WebElement okButtonElement = driver.findElement(okButton);
         okButtonElement.click();}

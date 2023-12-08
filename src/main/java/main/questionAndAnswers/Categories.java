@@ -15,6 +15,7 @@ public class Categories {
     private By categoryNameField = By.xpath("//td[@class='content']//input[@name='name']");
     private By deleteCategoryDropdown = By.xpath("//select[@name='id']");
     private By categoryToDelete = By.xpath("//option[contains(text(), 'to delete')]");
+    private By categoryToDeleteInUse = By.xpath("//option[contains(text(), 'Test Categoty 2')]");
     private By deleteCategoryButton = By.xpath("//input[@value='Delete']\n");
     private By okButton = By.xpath("//input[@value='OK']");
     public void clickManageCategoriesButton() {
@@ -30,6 +31,9 @@ public class Categories {
     public void selectCategoryToDelete() {
         Select dropdown = new Select(driver.findElement(deleteCategoryDropdown));
         dropdown.selectByVisibleText("to delete");
+    } public void selectCategoryInUse() {
+        Select dropdown = new Select(driver.findElement(deleteCategoryDropdown));
+        dropdown.selectByVisibleText("Test Categoty 2");
     }
 
     public void clickDelete() {

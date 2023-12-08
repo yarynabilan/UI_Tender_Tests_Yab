@@ -68,6 +68,22 @@ public class CategoriesTests extends ApplicationsNavigationTest {
         categories.clickDelete();
         Alert alert = driver.switchTo().alert();
         alert.accept();
+        Thread.sleep(3000);}
+@Test
+    public void deleteCategoryInUse() throws InterruptedException {
+        TendersPage tendersPage = new TendersPage(driver);
+        tendersPage.switchToBrowserFrame();
+        PublicTenderPage publicTenderPage = new PublicTenderPage(driver);
+        publicTenderPage.clickOnElement(publicTenderPage.getQuestionsAndAnswersTab());
+        driver.switchTo().defaultContent();
+        tendersPage.switchToNavigationFrame();
+        Categories categories = new Categories(driver);
+        categories.clickManageCategoriesButton();
+        tendersPage.switchToNewWindowTest();
+        categories.selectCategoryInUse();
+        categories.clickDelete();
+        Alert alert = driver.switchTo().alert();
+        alert.accept();
         Thread.sleep(3000);
 
     }

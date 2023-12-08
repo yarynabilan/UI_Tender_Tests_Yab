@@ -1,0 +1,22 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="tenderDocument" preserve-order="true">
+    <test name="Specification Documents">
+        <classes>
+            <class name="main.specificationDocuments.FoldersTest">
+                <methods>
+                    <include name="CreateFolder" />
+                    <include name="CreateFolderWithSubFolder" />
+                    <include name="CreateEditDeleteFolder" />
+                    <include name="CreateFolderWithAlreadyExistingName" />
+                </methods>
+            </class>
+
+<!--        <class name="  ">-->
+<!--            <methods>-->
+<!--                <include name="  " />-->
+<!--            </methods>-->
+<!--        </class>-->
+    </classes>
+</test>
+        </suite>
