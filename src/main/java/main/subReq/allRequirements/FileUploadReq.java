@@ -26,8 +26,6 @@ public class FileUploadReq {
     private By checkboxPng = By.xpath("//input[@type='checkbox' and @value='png']");
     private By checkboxJpg = By.xpath("//input[@type='checkbox' and @value='jpg']");
 
-
-
     public WebElement fileUploadInput() {return driver.findElement(fileUploadInput);}
     public WebElement descriptionFiled() {return driver.findElement(descriptionFiled);}
     public WebElement okButton() { return driver.findElement(okButton);}

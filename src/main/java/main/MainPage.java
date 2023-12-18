@@ -44,35 +44,3 @@ MainPage extends BasePage {
         return this;
     }
 }
-
-
-//import org.openqa.selenium.By;
-//        import com.codeborne.selenide.SelenideElement;
-//        import org.openqa.selenium.WebDriver;
-//        import org.openqa.selenium.WebElement;
-//
-//        import static com.codeborne.selenide.Selectors.byXpath;
-//        import static com.codeborne.selenide.Selenide.$;
-//        import static org.testng.Assert.assertTrue;
-
-//public class MySpace extends main.BasePage {
-//
-//    By signOutLocator = By.xpath("//span[@onclick=\"Company.User.LogOff();\"]");
-//    By userTopLabel = By.xpath("///div[@id = 'companypage-top-user']/p");
-//    By tenderLink = By.xpath("//li[@id='docia_tender']");
-//
-//    private final static String TITLE = "My space - Desktop";
-//    public MySpace(WebDriver driver) {
-//        super(driver, TITLE);
-//    }
-//
-
-//
-//    public main.TendersPage gotoAllTendersPage() {
-//        assertTrue(driver.findElement(tenderLink).isDisplayed());
-//        driver.findElement(tenderLink).click();
-//        return new main.TendersPage(driver);
-//    }
-//
-//
-//}

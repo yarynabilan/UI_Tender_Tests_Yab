@@ -6,9 +6,10 @@ import org.openqa.selenium.WebDriver;
 public class Messages {
     private WebDriver driver;
 
-    public Messages (WebDriver driver) {
+    public Messages(WebDriver driver) {
         this.driver = driver;
     }
+
     private By sendMessageButton = By.xpath("//img[@title='Send message']");
     private By exportMessagesButton = By.xpath("//img[@title='Export messages']");
     private By confirmExportButton = By.xpath("//input[@type='submit' and @value='OK']");
@@ -23,7 +24,7 @@ public class Messages {
     private By selectAllButton = By.xpath("//input[@value='Select all']");
     private By deselectAllButton = By.xpath("//input[@value='Deselect all']");
     private By individualUsersDropdown = By.xpath("//td[contains(@class, 'triangle') and contains(text(), '▶')]");
-    private By individualUserCheckbox= By.xpath("//td[contains(., 'Yab test, Byggeweb TEST')]/preceding-sibling::td/input[@type='checkbox']");
-    private By sendMessageButton= By.xpath("//input[@value='Send']");
-
+    private By individualUserCheckbox = By.xpath("//td[contains(., 'Yab test, Byggeweb TEST')]/preceding-sibling::td/input[@type='checkbox']");
+    private By confirmSendButton = By.xpath("//input[@value='Send']");
 }
+

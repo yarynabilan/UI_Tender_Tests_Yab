@@ -8,11 +8,6 @@ import static org.openqa.selenium.support.ui.ExpectedConditions.elementToBeClick
 import static org.testng.Assert.assertTrue;
 
 public class HomePage extends BasePage {
- //   private By signInByggewebTest = By.xpath("//button[@class='accountButton firstButton' and @id='Byggeweb-OpenIdConnect-TEST']");
-
-//    private By signInButton = By.xpath("//input[@id='submit']");
-   // private By userTopLabel = By.xpath("///div[@id = 'companypage-top-user']/p");
-
     private By logoLocator = By.xpath("//img[@src='images/rib-logo-app.png']");
     private By usernameInputLocator = By.xpath("//input[@id='user']");
     private By passwordInputLocator = By.xpath("//input[@id='password']");
@@ -55,14 +50,4 @@ public class HomePage extends BasePage {
         return this;
     }
 }
-//    private final static String TITLE = "Home page";
-//    public main.HomePage(WebDriver driver) {
-//        super(driver, TITLE);
-//    }
-//
-//    public main.LoginPage goToLoginPage() {
-//        webDriverWait.until(elementToBeClickable(driver.findElement(signInByggewebTest)));
-//        driver.findElement(signInByggewebTest).click();
-//        return new main.LoginPage(driver);
-//    }
-//}
+

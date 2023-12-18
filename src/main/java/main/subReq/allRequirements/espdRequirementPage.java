@@ -101,7 +101,6 @@ public class espdRequirementPage {
         WebElement uploadEspdElement = driver.findElement(uploadESPDButton);
         uploadEspdElement.click();
     }
-
     private By fileUploadButtonLocator = By.xpath("//span[text()='Upload ESPD Request']");
 
     //    public void uploadFileFromResourcesToProject(String fileName) throws AWTException {

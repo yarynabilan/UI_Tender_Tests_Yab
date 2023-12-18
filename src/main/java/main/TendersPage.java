@@ -15,8 +15,7 @@ public class TendersPage extends BasePage {
 
     private By publicTenderLink = By.xpath("//td[text() = 'AutoTest Public Tender']");
 //    private By limitedTenderLink = By.xpath("//td[text() = 'Limited Test rib']");
-    private By limitedTenderLink = By.xpath("//td[text() = 'Limited 109 regression']");
-
+    private By limitedTenderLink = By.xpath("//td[text() = 'Limited Q&A TEST ']");
     private By browserFrame = By.xpath("//frame[@name='browser']");
     private By functionsFrame = By.xpath("//frame[@name='functions']");
     private By navigationFrame = By.xpath("//frame[@name='navigation']");
