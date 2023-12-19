@@ -9,7 +9,6 @@
 <!--                    <include name="CreateNewQuestionToDraft" />-->
 <!--                    <include name="CreateNewQuestionToUnanswer" />-->
 
-
                     <include name="AddQuestions" />
                 </methods>
             </class>
@@ -18,6 +17,13 @@
                     <include name="addNewCategotyforQuestions" />
                     <include name="addAnddeleteCategory" />
                     <include name="deleteCategory" />
+                </methods>
+            </class>
+            <class name="main.QuetionsAndAnswers.AnswersTests">
+                <methods>
+                    <include name="publishAnswer" />
+                    <include name="makeDraft" />
+                    <include name="answerFromDraft" />
                 </methods>
             </class>
             <class name="main.QuetionsAndAnswers.ExportQandATest">

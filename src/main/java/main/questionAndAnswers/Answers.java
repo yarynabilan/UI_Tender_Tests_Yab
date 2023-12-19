@@ -17,11 +17,13 @@ public class Answers {
     }
 //    private By questionToAnswer = By.xpath("//div[contains(text(), 'It will be published - 2 Admin')]");
     private By questionToAnswer = By.xpath("//tr[@class='rowNormal']/td[@class='vline' and text()='2']\n");
+    private By answerToDraft = By.xpath("//tr[@class='rowNormal']/td[@class='vline' and text()='3']\n");
     private By unAnsweredQuestionsTab = By.xpath("//img[@src='/images/info/large_quanda_questions.png']");
     private By draftsTab = By.xpath("//img[@src='/images/info/large_quanda_drafts.png']");
     private By answerToPublishButton = By.xpath("//div[@class='contentNormalLimited' and contains(text(),'It will be published - 2 Admin')]/following-sibling::div[@class='contentNormal']/input[@type='button' and @value='Answer']");
-    private By answerToDraft = By.xpath("");
+    private By answerToDraftButton = By.xpath("//input[@type='button' and @onclick='answer(2056)' and @value='Answer']");
     private By saveAsDraftButton = By.xpath("//input[@type='button' and @value='Save as draft']");
+    private By editDraftButton = By.xpath("//input[@value='Edit']");
     private By publishButton = By.xpath("//input[@type='button' and @value='Publish']");
     private By anonymizeLink = By.xpath("//div[@id='anonymize_link']");
     private static By fileInput = By.xpath("//input[@type='file']");
@@ -43,9 +45,16 @@ public class Answers {
         WebElement questionToAnswer = driver.findElement(this.questionToAnswer);
         questionToAnswer.click();
     }
+    public void selectQuestionToDraft() {
+        WebElement answerToDraft = driver.findElement(this.answerToDraft);
+        answerToDraft.click();
+    }
     public void clickAnswerToPublishButton() {
         WebElement answerToPublishButton = driver.findElement(this.answerToPublishButton);
         answerToPublishButton.click();
+    } public void clickAnswerToDraftButton() {
+        WebElement answerToDraftButton = driver.findElement(this.answerToDraftButton);
+        answerToDraftButton.click();
     }
     public void clickSaveAsDraftButton() {
         WebElement saveAsDraftButton = driver.findElement(this.saveAsDraftButton);
@@ -54,6 +63,9 @@ public class Answers {
     public void clickPublishButton() {
         WebElement publishButton = driver.findElement(this.publishButton);
         publishButton.click();
+    }  public void clickEditDraftButton() {
+        WebElement editDraftButton = driver.findElement(this.editDraftButton);
+        editDraftButton.click();
     }
     public void clickAnonymizeLink() {
         WebElement anonymizeLink = driver.findElement(this.anonymizeLink);
