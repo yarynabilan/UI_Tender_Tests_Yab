@@ -18,6 +18,8 @@ public class Categories {
     private By categoryToDeleteInUse = By.xpath("//option[contains(text(), 'Test Categoty 2')]");
     private By deleteCategoryButton = By.xpath("//input[@value='Delete']\n");
     private By okButton = By.xpath("//input[@value='OK']");
+    private By editCategoryButton = By.xpath("//input[@value='Edit category']\n");
+    private By changeCategoryButton = By.xpath("//input[@value='Change category']]");
     public void clickManageCategoriesButton() {
         driver.findElement(manageCategoriesButton).click();
     }
@@ -31,7 +33,8 @@ public class Categories {
     public void selectCategoryToDelete() {
         Select dropdown = new Select(driver.findElement(deleteCategoryDropdown));
         dropdown.selectByVisibleText("to delete");
-    } public void selectCategoryInUse() {
+    }
+    public void selectCategoryInUse() {
         Select dropdown = new Select(driver.findElement(deleteCategoryDropdown));
         dropdown.selectByVisibleText("Test Categoty 2");
     }
@@ -42,6 +45,8 @@ public class Categories {
     public void clickOkButton() {
         driver.findElement(okButton).click();
     }
+    public void clickEditCategoryButton() {driver.findElement(editCategoryButton).click();}
+    public void clickChangeCategoryButton() {driver.findElement(changeCategoryButton).click(); }
 
 }
 

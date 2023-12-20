@@ -74,8 +74,9 @@ public class AnswersTests extends BaseTest {
         answers.clickEditDraftButton();
         tendersPage.switchToNewWindowTest();
         answers.writeAnswer("draft");
-        answers.selectCategory();
-  //      answers.clickPublishButton();
-        Thread.sleep(3000);
+        answers.selectCategoryToDeleteIt();
+        answers.clickPublishButton();
+        answers.clickOKButtonPublishFromDraft();
+        Thread.sleep(7000);
     }
 }
