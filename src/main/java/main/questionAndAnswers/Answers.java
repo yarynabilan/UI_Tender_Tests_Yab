@@ -33,6 +33,8 @@ public class Answers {
     //private By categoryDropdownLocator = By.xpath("//option[text()='Not categorized']");
     private By categoryDropdownLocator = By.xpath("//select[@name='category']");
     private By confirmOKButtonPublishFromDraft = By.xpath("//input[@value='OK']");
+    private By editPublishedAnswerButton = By.xpath("//input[@value='Edit']");
+    private By okButton = By.xpath("//input[@value='OK']");
 
 
     public void goToUnAnsweredQuestionsTab() {
@@ -43,6 +45,8 @@ public class Answers {
         confirmOKButtonPublishFromDraft.click();
     }
     public void goToDraftsTab() {WebElement draftsTab = driver.findElement(this.draftsTab);draftsTab.click();}
+    public void clickEditPublishedAnswerButton() {WebElement editPublishedAnswerButton = driver.findElement(this.editPublishedAnswerButton);editPublishedAnswerButton.click();}
+
     public void goToPublishedAnswersTab() {WebElement publishedAnswersTab = driver.findElement(this.publishedAnswersTab);publishedAnswersTab.click();}
     public void selectQuestionToAnswer() {
         WebElement questionToAnswer = driver.findElement(this.questionToAnswer);
@@ -96,9 +100,12 @@ public class Answers {
         categoryDropdown.selectByVisibleText("Not categorized");
 
     }
-    public void selectCategoryToDeleteIt(){
+    public void selectCategoryToDeleteIt() {
         Select categoryDropdown = new Select(driver.findElement(categoryDropdownLocator));
         categoryDropdown.selectByVisibleText("to Delete");
+    }
+        public void clickOkButton() {
+            driver.findElement(okButton).click();
 
     }
     }

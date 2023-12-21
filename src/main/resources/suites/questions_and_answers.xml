@@ -17,6 +17,10 @@
                     <include name="addNewCategotyforQuestions" />
                     <include name="addAnddeleteCategory" />
                     <include name="deleteCategory" />
+                    <include name="deleteCategoryInUse" />
+                    <include name="editCategoryNameInPublishedAnswers" />
+                    <include name="deleteCategoryWithPublishedAnswers" />
+                    <include name="changeCategoryForPublishedAnswers" />
                 </methods>
             </class>
             <class name="main.QuetionsAndAnswers.AnswersTests">
@@ -24,6 +28,7 @@
                     <include name="publishAnswer" />
                     <include name="makeDraft" />
                     <include name="answerFromDraft" />
+                    <include name="editPublishedAnswer" />
                 </methods>
             </class>
             <class name="main.QuetionsAndAnswers.ExportQandATest">

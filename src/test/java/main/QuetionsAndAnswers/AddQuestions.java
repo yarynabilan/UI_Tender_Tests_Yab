@@ -63,6 +63,7 @@ public class AddQuestions extends BaseTest {
         tendersPage.switchToNewWindowTest();
         newQuestions.fillInQuestionText("It will be published - 2 Admin");
         newQuestions.confirmQuestionOkSend();
+
         driver.switchTo().window(mainWindowHandle);
         tendersPage.switchToNavigationFrame();
         Thread.sleep(3000);
@@ -70,6 +71,15 @@ public class AddQuestions extends BaseTest {
         Thread.sleep(3000);
         tendersPage.switchToNewWindowTest();
         newQuestions.fillInQuestionText("It will be draft 3 Admin");
+        newQuestions.confirmQuestionOkSend();
+
+        driver.switchTo().window(mainWindowHandle);
+        tendersPage.switchToNavigationFrame();
+        Thread.sleep(3000);
+        newQuestions.clickOnAddNewQuestionButton();
+        Thread.sleep(3000);
+        tendersPage.switchToNewWindowTest();
+        newQuestions.fillInQuestionText("test");
         newQuestions.confirmQuestionOkSend();
     }
 

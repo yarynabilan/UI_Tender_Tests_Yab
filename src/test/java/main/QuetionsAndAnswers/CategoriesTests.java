@@ -39,6 +39,14 @@ public class CategoriesTests extends ApplicationsNavigationTest {
         tendersPage.switchToNewWindowTest();
         categories.enterCategoryName("Test Categoty 2");
         categories.clickOkButton();
+        driver.switchTo().window(mainWindowHandle);
+        tendersPage.switchToNavigationFrame();
+        Thread.sleep(3000);
+        categories.clickManageCategoriesButton();
+        Thread.sleep(3000);
+        tendersPage.switchToNewWindowTest();
+        categories.enterCategoryName("category TO Change");
+        categories.clickOkButton();
     }
     @Test
     public void deleteCategory() throws InterruptedException {
@@ -92,8 +100,6 @@ public void editCategoryNameInPublishedAnswers() throws InterruptedException {
     tendersPage.switchToNewWindowTest();
     categories.enterCategoryName("edited category name");
     categories.clickOkButton();
-//        Alert alert = driver.switchTo().alert();
-//        alert.accept();
     Thread.sleep(3000);
 
 }
@@ -115,11 +121,29 @@ public void editCategoryNameInPublishedAnswers() throws InterruptedException {
         categories.clickEditCategoryButton();
         tendersPage.switchToNewWindowTest();
         categories.clickDelete();
-        categories.clickOkButton();
         Alert alert = driver.switchTo().alert();
         alert.accept();
         Thread.sleep(3000);
 
     }
+    @Test
+    public void changeCategoryForPublishedAnswers() throws InterruptedException {
+        TendersPage tendersPage = new TendersPage(driver);
+        tendersPage.switchToBrowserFrame();
+        PublicTenderPage publicTenderPage = new PublicTenderPage(driver);
+        publicTenderPage.clickOnElement(publicTenderPage.getQuestionsAndAnswersTab());
+        driver.switchTo().defaultContent();
+        tendersPage.switchToNavigationFrame();
+        Categories categories = new Categories(driver);
+        Answers answers = new Answers(driver);
+        driver.switchTo().defaultContent();
+        tendersPage.switchToDirectoryFrame();
+        answers.goToPublishedAnswersTab();
+        Thread.sleep(3000);
+        answers.selectQuestionToAnswer();
+        categories.clickChangeCategoryButton();
+        tendersPage.switchToNewWindowTest();
+        categories.changeCategoryForPublishedAnswer();
+        categories.clickOkButton();
 
-}
+    }}
