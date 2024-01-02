@@ -30,7 +30,7 @@ public class FileUpload {
     private By OkButton = By.xpath("//input[@name='OK']");
     private By confirmUpload = By.xpath("//input[@value='OK']");
     private By addFilesButton = By.xpath("//span[text()='Add more files']");
-    private static By fileInput = By.xpath("//input[@type='file']");
+    public static By fileInput = By.xpath("//input[@type='file']");
 
     private By folderLocator = By.xpath("//span[text()='Folder A']");
 

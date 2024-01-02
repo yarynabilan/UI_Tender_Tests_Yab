@@ -1,7 +1,12 @@
 package main.messages;
 
+import main.specificationDocuments.FileUpload;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+import java.awt.*;
+import java.io.File;
 
 public class Messages {
     private WebDriver driver;
@@ -26,5 +31,92 @@ public class Messages {
     private By individualUsersDropdown = By.xpath("//td[contains(@class, 'triangle') and contains(text(), '▶')]");
     private By individualUserCheckbox = By.xpath("//td[contains(., 'Yab test, Byggeweb TEST')]/preceding-sibling::td/input[@type='checkbox']");
     private By confirmSendButton = By.xpath("//input[@value='Send']");
-}
+
+    public void clickSendMessageButton() {
+        driver.findElement(sendMessageButton).click();
+    }
+
+    public void clickExportMessagesButton() {
+        driver.findElement(exportMessagesButton).click();
+    }
+
+    public void clickConfirmExportButton() {
+        driver.findElement(confirmExportButton).click();
+    }
+
+    public void clickGeneratedReportLink() {
+        driver.findElement(generatedReportLink).click();
+    }
+    public void enterSubjectText(String subject) {
+        enterText(inputSubjectText, subject);
+    }
+
+    public void enterMessageText(String message) {
+        enterText(inputMessageText, message);
+    }
+
+    public void uploadFile(String filePath) {
+        enterText(fileInput, filePath);
+    }
+    public void uploadFileToMessage() throws AWTException {
+        File uploadFile = new File("src/main/resources/files/MessageFileAttachment.pdf");
+        WebElement fileInputElement = driver.findElement(FileUpload.fileInput);
+        fileInputElement.sendKeys(uploadFile.getAbsolutePath());
+    }
+
+    public void checkAdministratorsCheckbox() {
+        checkCheckbox(administratorsCheckBox);
+    }
+
+    public void checkTenderersAllCheckbox() {
+        checkCheckbox(tenderersAllCheckBox);
+    }
+
+    public void checkTenderersAcceptedCheckbox() {
+        checkCheckbox(tenderersAcceptedCheckBox);
+    }
+
+    public void checkTenderersRejectedCheckbox() {
+        checkCheckbox(tenderersRejectedCheckBox);
+    }
+
+    public void clickSelectAllButton() {
+        clickElement(selectAllButton);
+    }
+
+    public void clickDeselectAllButton() {
+        clickElement(deselectAllButton);
+    }
+
+    public void clickIndividualUsersDropdown() {
+        clickElement(individualUsersDropdown);
+    }
+
+    public void checkIndividualUserCheckbox() {
+        checkCheckbox(individualUserCheckbox);
+    }
+
+    public void clickConfirmSendButton() {
+        clickElement(confirmSendButton);
+    }
+
+    private void enterText(By locator, String text) {
+        WebElement element = (WebElement) driver.findElement(locator);
+        element.sendKeys(text);
+    }
+
+
+    private void checkCheckbox(By locator) {
+        WebElement checkbox = driver.findElement(locator);
+        if (!checkbox.isSelected()) {
+            checkbox.click();
+        }
+    }
+    private void clickElement(By locator) {
+        WebElement element = driver.findElement(locator);
+        element.click();
+    }
+
+
+    }
 

@@ -8,7 +8,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 public class AddQuestions extends BaseTest {
-    private NewQuestions newQuestions;
+    private AddQuestions addQuestions;
 
     @Test
     public void CreateNewQuestionToPublish() throws InterruptedException {
