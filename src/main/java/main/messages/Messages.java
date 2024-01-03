@@ -31,6 +31,9 @@ public class Messages {
     private By individualUsersDropdown = By.xpath("//td[contains(@class, 'triangle') and contains(text(), '▶')]");
     private By individualUserCheckbox = By.xpath("//td[contains(., 'Yab test, Byggeweb TEST')]/preceding-sibling::td/input[@type='checkbox']");
     private By confirmSendButton = By.xpath("//input[@value='Send']");
+    private By exportingMessagesLink = By.xpath("//a[@id='filelink']");
+
+    public WebElement link(){return driver.findElement(exportingMessagesLink);}
 
     public void clickSendMessageButton() {
         driver.findElement(sendMessageButton).click();
@@ -54,6 +57,7 @@ public class Messages {
     public void enterMessageText(String message) {
         enterText(inputMessageText, message);
     }
+
 
     public void uploadFile(String filePath) {
         enterText(fileInput, filePath);

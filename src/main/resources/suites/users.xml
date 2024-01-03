@@ -3,7 +3,7 @@
 <suite name="users" preserve-order="true">
     <test name="Users">
         <classes>
-            <class name="main.users.all.Administrators">
+            <class name="main.users.AdministratorsTest">
                 <methods>
                     <include name="AddTenderAdministrator" />
                     <include name="AddDocCoordinatorTest" />
@@ -14,13 +14,19 @@
                 </methods>
             </class>
 
-            <class name="main.users.ClientVendorTest">
-                <methods>
-                    <include name="AddClientVendorTest" />
-                    <include name="AddVendorAndResendInvitation" />
-                    <include name="DeleteClientVendor" />
-                </methods>
-            </class>
+<!--            <class name="main.users.ClientVendorTest">-->
+<!--                <methods>-->
+<!--                    <include name="AddClientVendorTest" />-->
+<!--                    <include name="AddVendorAndResendInvitation" />-->
+<!--                    <include name="DeleteClientVendor" />-->
+<!--                </methods>-->
+<!--            </class>-->
+<!--            <class name="main.users.TenderersTest">-->
+<!--                <methods>-->
+<!--                    <include name="addTenderers" />-->
+<!--                   -->
+<!--                </methods>-->
+<!--            </class>-->
 
         </classes>
     </test>

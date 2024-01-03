@@ -16,13 +16,13 @@ public class Answers {
         this.driver = driver;
     }
 //    private By questionToAnswer = By.xpath("//div[contains(text(), 'It will be published - 2 Admin')]");
-    private By questionToAnswer = By.xpath("//tr[@class='rowNormal']/td[@class='vline' and text()='4']\n");
-    private By answerToDraft = By.xpath("//tr[@class='rowNormal']/td[@class='vline' and text()='2']\n");
+    private By questionToAnswer = By.xpath("//tr[@class='rowNormal']/td[@class='vline' and text()='2']\n");
+    private By answerToDraft = By.xpath("//tr[@class='rowNormal']/td[@class='vline' and text()='3']\n");
     private By unAnsweredQuestionsTab = By.xpath("//img[@src='/images/info/large_quanda_questions.png']");
     private By publishedAnswersTab = By.xpath("//img[@src='/images/info/large_quanda_answers.png']\n");
     private By draftsTab = By.xpath("//img[@src='/images/info/large_quanda_drafts.png']");
     private By answerToPublishButton = By.xpath("//div[@class='contentNormalLimited' and contains(text(),'It will be published - 2 Admin')]/following-sibling::div[@class='contentNormal']/input[@type='button' and @value='Answer']");
-    private By answerToDraftButton = By.xpath("//input[@type='button' and @onclick='answer(2056)' and @value='Answer']");
+    private By answerToDraftButton = By.xpath("//input[@type='button' and @onclick='answer(2060)' and @value='Answer']");
     private By saveAsDraftButton = By.xpath("//input[@type='button' and @value='Save as draft']");
     private By editDraftButton = By.xpath("//input[@value='Edit']");
     private By publishButton = By.xpath("//input[@type='button' and @value='Publish']");

@@ -33,7 +33,7 @@ public class Categories {
 
     public void selectCategoryToDelete() {
         Select dropdown = new Select(driver.findElement(deleteCategoryDropdown));
-        dropdown.selectByVisibleText("to delete");
+        dropdown.selectByVisibleText("to Delete");
     } public void changeCategoryForPublishedAnswer() {
         Select dropdown = new Select(driver.findElement(changeCategoryDropdown));
         dropdown.selectByVisibleText("category TO Change");

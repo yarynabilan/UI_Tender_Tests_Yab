@@ -27,6 +27,7 @@ public class AdministratorsTest extends ApplicationsNavigationTest {
         Thread.sleep(3000);
         administrators.fillInTextFieldForEmailInput("yarynatest2@gmail.com");
         allUsers.confirmOK();
+        allUsers.confirmOK();
         Thread.sleep(3000);
     }
     @Test
@@ -48,6 +49,7 @@ public class AdministratorsTest extends ApplicationsNavigationTest {
         Thread.sleep(3000);
         administrators.fillInTextFieldForEmailInput("yarynatest1@ukr.net");
         allUsers.confirmOK();
+        allUsers.confirmOK();
         Thread.sleep(3000);
     }
     @Test
@@ -68,6 +70,7 @@ public class AdministratorsTest extends ApplicationsNavigationTest {
         administrators.clickAddObserverLink();
         Thread.sleep(3000);
         administrators.fillInTextFieldForEmailInput("yarynatest@yahoo.com");
+        allUsers.confirmOK();
         allUsers.confirmOK();
         Thread.sleep(3000);
     }

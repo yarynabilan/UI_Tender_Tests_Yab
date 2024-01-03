@@ -11,11 +11,11 @@
                 </methods>
             </class>
 
-<!--            <class name="main.submissionReq.EspdRequirementTests">-->
-<!--                <methods>-->
-<!--                    <include name="CreateEspdRequirement" />-->
-<!--                </methods>-->
-<!--            </class>-->
+            <class name="main.submissionReq.EspdRequirementTests">
+                <methods>
+                    <include name="CreateEspdRequirement" />
+                </methods>
+            </class>
 
             <class name="main.submissionReq.FileUploadRequirement">
                 <methods>
