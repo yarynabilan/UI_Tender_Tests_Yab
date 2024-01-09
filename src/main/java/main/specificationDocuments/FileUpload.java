@@ -25,6 +25,12 @@ public class FileUpload {
     private By enhancedUploadTab = By.xpath("//nobr[text()='Enhanced upload']");
     private By standartUploadTab = By.xpath("//nobr[text()='Standard upload']");
     private By transferralUploadTab = By.xpath("//nobr[text()='Transferral']");
+    private By tenderPhasesTab = By.xpath("//img[@src='/images/info/tender_phases.png']");
+    private By myFoldersTab = By.xpath("//img[@src='/images/info/large_desktop_personal_folders.png']\n");
+    private By sharedFoldersTab = By.xpath("//img[@src='/images/info/large_desktop_company_folders.png']\n");
+    private By ribProjectTab = By.xpath("//img[@src='/images/info/large_desktop_projects.png']\n");
+    private By ribArchivesTab = By.xpath("//img[@src='/images/info/large_desktop_archives.png']\n");
+    private By ribTendersTab = By.xpath("//img[@src='/images/info/large_desktop_tenders.png']\n");
     private By uploadFoldersTab = By.xpath("//nobr[text()='Upload folders']");
     private By inputForDestinationFolder = By.xpath("//input[@name='name']");
     private By OkButton = By.xpath("//input[@name='OK']");
@@ -42,6 +48,13 @@ public class FileUpload {
     public void clickEnhancedUploadTab() {
         WebElement enhancedUploadElement = driver.findElement(enhancedUploadTab);
         enhancedUploadElement.click();
+    }
+  public void clickStandardUploadTab() {
+        WebElement standartUploadTablement = driver.findElement(standartUploadTab);
+      standartUploadTablement.click();
+    }public void clickTransferralUploadTab() {
+        WebElement transferralUploadTabElement = driver.findElement(transferralUploadTab);
+        transferralUploadTabElement.click();
     }
 
     public void inputDestinationFolder(String folderName) {
@@ -77,7 +90,40 @@ public class FileUpload {
         File uploadFile = new File("src/main/resources/files/File To Move.png");
         WebElement fileInputElement = driver.findElement(FileUpload.fileInput);
         fileInputElement.sendKeys(uploadFile.getAbsolutePath());
+        } public void uploadFileToDelete() throws AWTException {
+        File uploadFile = new File("src/main/resources/files/fileToDelete.xlsx");
+        WebElement fileInputElement = driver.findElement(FileUpload.fileInput);
+        fileInputElement.sendKeys(uploadFile.getAbsolutePath());
+        }public void standardUpload() throws AWTException {
+        File uploadFile = new File("src/main/resources/files/fstandardUpload.txt");
+        WebElement fileInputElement = driver.findElement(FileUpload.fileInput);
+        fileInputElement.sendKeys(uploadFile.getAbsolutePath());
         }
+    public void clickTenderPhasesTab() {
+        WebElement tenderPhasesTabElement = driver.findElement(tenderPhasesTab);
+        tenderPhasesTabElement.click();
+    }
+    public void clickMyFoldersTab() {
+        WebElement myFoldersTabElement = driver.findElement(myFoldersTab);
+        myFoldersTabElement.click();
+    }
+    public void clickSharedFoldersTab() {
+        WebElement sharedFoldersTabElement = driver.findElement(sharedFoldersTab);
+        sharedFoldersTabElement.click();
+    }
+    public void clickRibProjectTab() {
+        WebElement ribProjectTabElement = driver.findElement(ribProjectTab);
+        ribProjectTabElement.click();
+    }
+    public void clickRibArchivesTab() {
+        WebElement ribArchivesTabElement = driver.findElement(ribArchivesTab);
+        ribArchivesTabElement.click();
+    }
+    public void clickRibTendersTab() {
+        WebElement ribTendersTabElement = driver.findElement(ribTendersTab);
+        ribTendersTabElement.click();
+    }
+
     public void confirmUpload() {
         WebElement confirmUploadElement = driver.findElement(confirmUpload);
         confirmUploadElement.click();
