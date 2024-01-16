@@ -91,7 +91,7 @@ public class UploadFiles extends ApplicationsNavigationTest {
         Thread.sleep(4000);
     }
     @Test
-    public void transfferalUploadMyFolder() throws InterruptedException, AWTException {
+    public void transferralUploadMyFolder() throws InterruptedException, AWTException {
         TendersPage tendersPage = new TendersPage(driver);
         tendersPage.switchToBrowserFrame();
         PublicTenderPage publicTenderPage = new PublicTenderPage(driver);
@@ -107,14 +107,24 @@ public class UploadFiles extends ApplicationsNavigationTest {
         Thread.sleep(3000);
         tendersPage.switchToNewWindowTest();
         Thread.sleep(5000);
-        fileUpload.clickStandardUploadTab();
+        fileUpload.clickTransferralUploadTab();
         Thread.sleep(3000);
-        fileUpload.uploadSecondFileVersion();
-        Thread.sleep(2000);
-        fileUpload.confirmUpload();
-        Thread.sleep(4000);
-        tendersPage.switchToNewWindowTest();
-        fileUpload.clickOkButton();
+        fileUpload.clickMyFoldersTab();
+        Thread.sleep(3000);
+
+        fileUpload.selectFileFromMyFolder();
+fileUpload.clickTransferButton();
+fileUpload.confirmUpload();
         Thread.sleep(4000);
     }
+    @Test
+    public void transferralUploadSharedFolder() throws InterruptedException, AWTException {
+//    public void transferralUploadProjectWS() throws InterruptedException, AWTException {
+//    public void transferralUploadProjectPS() throws InterruptedException, AWTException {
+//    public void transferralUploadProjectDS() throws InterruptedException, AWTException {
+//    public void transferralUploadProjectVS_WS() throws InterruptedException, AWTException {
+//    public void transferralUploadProjectWS_PS() throws InterruptedException, AWTException {
+//
+
+                }
     }

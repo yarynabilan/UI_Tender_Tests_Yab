@@ -26,7 +26,7 @@ public class FileUpload {
     private By standartUploadTab = By.xpath("//nobr[text()='Standard upload']");
     private By transferralUploadTab = By.xpath("//nobr[text()='Transferral']");
     private By tenderPhasesTab = By.xpath("//img[@src='/images/info/tender_phases.png']");
-    private By myFoldersTab = By.xpath("//img[@src='/images/info/large_desktop_personal_folders.png']\n");
+    private By myFoldersTab = By.xpath("//div[@class='WMP_trans_pers_folders large_icon' and contains(@onclick, 'urn:transfer:personal:0')]/img[@src='/images/info/large_desktop_personal_folders.png']");
     private By sharedFoldersTab = By.xpath("//img[@src='/images/info/large_desktop_company_folders.png']\n");
     private By ribProjectTab = By.xpath("//img[@src='/images/info/large_desktop_projects.png']\n");
     private By ribArchivesTab = By.xpath("//img[@src='/images/info/large_desktop_archives.png']\n");
@@ -39,6 +39,8 @@ public class FileUpload {
     public static By fileInput = By.xpath("//input[@type='file']");
 
     private By folderLocator = By.xpath("//span[text()='Folder A']");
+    private By fileFromMyFolder = By.xpath("//input[@type='checkbox' and @name='file']\n");
+    private By transferButton = By.xpath("//input[@type='button' and @value='Transfer']\n");
 
     public void clickUploadFileButton() {
         WebElement uploadFileElement = driver.findElement(uploadFileButton);
@@ -106,6 +108,14 @@ public class FileUpload {
     public void clickMyFoldersTab() {
         WebElement myFoldersTabElement = driver.findElement(myFoldersTab);
         myFoldersTabElement.click();
+    } public void selectFileFromMyFolder() {
+        WebElement fileFromMyFolderCheckBox = driver.findElement(fileFromMyFolder);
+        fileFromMyFolderCheckBox.click();
+
+    }
+    public void clickTransferButton() {
+        WebElement transferButtonElement = driver.findElement(transferButton);
+            transferButtonElement.click();
     }
     public void clickSharedFoldersTab() {
         WebElement sharedFoldersTabElement = driver.findElement(sharedFoldersTab);
