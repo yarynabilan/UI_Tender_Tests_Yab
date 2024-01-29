@@ -70,7 +70,7 @@ public class ExportQandATest extends ApplicationsNavigationTest {
         exportQandA.selectDrafts();
         exportQandA.confirmOK();
         Thread.sleep(15000);
-        assertTrue(exportQandA.link().isDisplayed());
+         assertTrue(exportQandA.link().isDisplayed());
     }  @Test
     public void ExportQandAinExceldUnanswered() throws InterruptedException {
         TendersPage tendersPage = new TendersPage(driver);

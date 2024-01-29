@@ -52,7 +52,6 @@ public class ClientVendorTest  extends ApplicationsNavigationTest {
         allUsers.confirmOK();
         driver.switchTo().window(mainWindowHandle);
 
-     //   driver.switchTo().defaultContent();
         Thread.sleep(3000);
 
         tendersPage.switchToDirectoryFrame();

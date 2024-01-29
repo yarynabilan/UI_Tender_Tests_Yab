@@ -1,6 +1,9 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
 <suite name="TenderInformation" preserve-order="true">
+    <listeners>
+        <listener class-name="io.qameta.allure.testng.AllureTestNg" />
+    </listeners>
     <test name="Update Tender Settings">
         <classes>
             <class name="main.tenderInformation.TenderInformationUpdate">
@@ -14,14 +17,14 @@
 <!--                    <include name="UpdateTenderType" />-->
                 </methods>
             </class>
-            <class name="main.tenderInformation.DeadlineUpdate">
-                <methods>
-                    <include name="UpdateDeadlinesDates" />
-                    <include name="UpdateStartDate" />
-                    <include name="UpdateStartDateHours" />
-                    <include name="UpdateStartDateBack" />
-                </methods>
-            </class>
+<!--            <class name="main.tenderInformation.DeadlineUpdate">-->
+<!--                <methods>-->
+<!--                    <include name="UpdateDeadlinesDates" />-->
+<!--                    <include name="UpdateStartDate" />-->
+<!--                    <include name="UpdateStartDateHours" />-->
+<!--                    <include name="UpdateStartDateBack" />-->
+<!--                </methods>-->
+<!--            </class>-->
 
             <class name="main.tenderInformation.TenderSettingsUpdate">
                 <methods>

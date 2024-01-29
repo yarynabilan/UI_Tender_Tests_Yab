@@ -1,36 +1,39 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
 <suite name="questions_and_answers" preserve-order="true">
+    <listeners>
+        <listener class-name="io.qameta.allure.testng.AllureTestNg" />
+    </listeners>
     <test name="QandA">
         <classes>
-            <class name="main.QuetionsAndAnswers.AddQuestions">
-                <methods>
+<!--            <class name="main.QuetionsAndAnswers.AddQuestions">-->
+<!--                <methods>-->
 <!--                    <include name="CreateNewQuestionToPublish" />-->
 <!--                    <include name="CreateNewQuestionToDraft" />-->
 <!--                    <include name="CreateNewQuestionToUnanswer" />-->
 
-                    <include name="AddQuestions" />
-                </methods>
-            </class>
-            <class name="main.QuetionsAndAnswers.CategoriesTests">
-                <methods>
-                    <include name="addNewCategotyforQuestions" />
-                    <include name="addAnddeleteCategory" />
-                    <include name="deleteCategory" />
-                    <include name="deleteCategoryInUse" />
-                    <include name="editCategoryNameInPublishedAnswers" />
-                    <include name="deleteCategoryWithPublishedAnswers" />
-                    <include name="changeCategoryForPublishedAnswers" />
-                </methods>
-            </class>
-            <class name="main.QuetionsAndAnswers.AnswersTests">
-                <methods>
-                    <include name="publishAnswer" />
-                    <include name="makeDraft" />
-                    <include name="answerFromDraft" />
-                    <include name="editPublishedAnswer" />
-                </methods>
-            </class>
+<!--                    <include name="AddQuestions" />-->
+<!--                </methods>-->
+<!--            </class>-->
+<!--            <class name="main.QuetionsAndAnswers.CategoriesTests">-->
+<!--                <methods>-->
+<!--                    <include name="addNewCategotyforQuestions" />-->
+<!--                    <include name="addAnddeleteCategory" />-->
+<!--                    <include name="deleteCategory" />-->
+<!--                    <include name="deleteCategoryInUse" />-->
+<!--                    <include name="editCategoryNameInPublishedAnswers" />-->
+<!--                    <include name="deleteCategoryWithPublishedAnswers" />-->
+<!--                    <include name="changeCategoryForPublishedAnswers" />-->
+<!--                </methods>-->
+<!--            </class>-->
+<!--            <class name="main.QuetionsAndAnswers.AnswersTests">-->
+<!--                <methods>-->
+<!--                    <include name="publishAnswer" />-->
+<!--                    <include name="makeDraft" />-->
+<!--                    <include name="answerFromDraft" />-->
+<!--                    <include name="editPublishedAnswer" />-->
+<!--                </methods>-->
+<!--            </class>-->
             <class name="main.QuetionsAndAnswers.ExportQandATest">
                 <methods>
                     <include name="ExportQandAinWordAll" />

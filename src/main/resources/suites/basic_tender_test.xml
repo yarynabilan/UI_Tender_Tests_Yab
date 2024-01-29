@@ -1,6 +1,10 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="basic_tender_test">
+    <listeners>
+    <listener class-name="io.qameta.allure.testng.AllureTestNg" />
+</listeners>
         <test name="BasicTenderNavigationTest">
+
     <classes>
         <class name="main.BasicTenderNavigation">
             <methods>

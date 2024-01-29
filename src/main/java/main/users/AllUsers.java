@@ -17,8 +17,11 @@ public class AllUsers {
     private By removeUserButton = By.xpath("//img[@title='Remove user']\n");
     private By okButton = By.xpath("//input[@value='OK']");
     private By selectPreviouslyInvitedUsersLink = By.xpath("//input[@value='OK']");
-    private By emailField = By.xpath("//textarea[@name='emails']");
+    public By emailField = By.xpath("//textarea[@name='emails']");
     private By closeWindowButton = By.xpath("//input[@value='Close window']");
+
+    public AllUsers() {
+    }
 
 
     private WebElement textFieldForEmailInput() {

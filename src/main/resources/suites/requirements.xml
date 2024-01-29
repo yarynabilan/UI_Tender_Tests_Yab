@@ -1,11 +1,14 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
 <suite name="requirement" preserve-order="true">
+    <listeners>
+        <listener class-name="io.qameta.allure.testng.AllureTestNg" />
+    </listeners>
     <test name="Create Tender Requirements">
         <classes>
             <class name="main.submissionReq.DataInputRequirement">
                 <methods>
-<!--                    <include name="CreateDataInputRequirement" /> -->
+                    <include name="CreateDataInputRequirement" />
                     <include name="CreateDataInputRequirementToDelete" />
                     <include name="DeleteDatainputReq" />
                 </methods>

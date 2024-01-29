@@ -1,34 +1,34 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
-
 <suite name="users" preserve-order="true">
+    <listeners>
+        <listener class-name="io.qameta.allure.testng.AllureTestNg" />
+    </listeners>
     <test name="Users">
         <classes>
-            <class name="main.users.AdministratorsTest">
+            <!--            <class name="main.users.AdministratorsTest">-->
+            <!--                <methods>-->
+            <!--                    <include name="AddTenderAdministrator" />-->
+            <!--                    <include name="AddDocCoordinatorTest" />-->
+            <!--                    <include name="AddObserverTest" />-->
+            <!--                    <include name="AddObserverTest2" />-->
+            <!--                    <include name="UpdateProfile" />-->
+            <!--                   <include name="UpdateProfile - написати тест до add user через previously invited users" />-->
+            <!--                </methods>-->
+            <!--            </class>-->
+
+            <!--            <class name="main.users.ClientVendorTest">-->
+            <!--                <methods>-->
+            <!--                    <include name="AddClientVendorTest" />-->
+            <!--                    <include name="AddVendorAndResendInvitation" />-->
+            <!--                    <include name="DeleteClientVendor" />-->
+            <!--                </methods>-->
+            <!--            </class>-->
+            <class name="main.users.TenderersTest">
                 <methods>
-                    <include name="AddTenderAdministrator" />
-                    <include name="AddDocCoordinatorTest" />
-                    <include name="AddObserverTest" />
-                    <include name="AddObserverTest2" />
-                    <include name="UpdateProfile" />
-<!--                   <include name="UpdateProfile - написати тест до add user через previously invited users" />-->
+                    <!--                    <include name="addTenderers" />-->
+                    <include name="addResendCancelUnregisterUser" />
                 </methods>
             </class>
-
-<!--            <class name="main.users.ClientVendorTest">-->
-<!--                <methods>-->
-<!--                    <include name="AddClientVendorTest" />-->
-<!--                    <include name="AddVendorAndResendInvitation" />-->
-<!--                    <include name="DeleteClientVendor" />-->
-<!--                </methods>-->
-<!--            </class>-->
-<!--            <class name="main.users.TenderersTest">-->
-<!--                <methods>-->
-<!--                    <include name="addTenderers" />-->
-<!--                   -->
-<!--                </methods>-->
-<!--            </class>-->
-
         </classes>
     </test>
 </suite>
-

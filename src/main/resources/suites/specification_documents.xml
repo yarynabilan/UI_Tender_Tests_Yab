@@ -1,6 +1,9 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
 <suite name="tenderDocument" preserve-order="true">
+    <listeners>
+        <listener class-name="io.qameta.allure.testng.AllureTestNg" />
+    </listeners>
     <test name="Specification Documents">
         <classes>
             <class name="main.specificationDocuments.FoldersTest">
@@ -12,11 +15,14 @@
                 </methods>
             </class>
 
-<!--        <class name="  ">-->
-<!--            <methods>-->
-<!--                <include name="  " />-->
-<!--            </methods>-->
-<!--        </class>-->
+        <class name="main.specificationDocuments.UploadFiles">
+            <methods>
+                <include name="createFolderAndUploadFileToDelete" />
+                <include name="UploadFileToExistingFolder" />
+                <include name="standardUploadOFSecondFileVersion" />
+                <include name="transferralUploadMyFolder" />
+            </methods>
+        </class>
     </classes>
 </test>
         </suite>
