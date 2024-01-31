@@ -1,18 +1,12 @@
 package main.specificationDocuments;
 
-import main.subReq.allRequirements.espdRequirementPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 import java.awt.*;
 import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.StandardCopyOption;
+
 public class FileUpload {
 
     private WebDriver driver;
@@ -20,13 +14,12 @@ public class FileUpload {
     public FileUpload(WebDriver driver) {
         this.driver = driver;
     }
-
     private By uploadFileButton = By.xpath("//img[@name='upload_file']");
     private By enhancedUploadTab = By.xpath("//nobr[text()='Enhanced upload']");
     private By standartUploadTab = By.xpath("//nobr[text()='Standard upload']");
     private By transferralUploadTab = By.xpath("//nobr[text()='Transferral']");
     private By tenderPhasesTab = By.xpath("//img[@src='/images/info/tender_phases.png']");
-    private By myFoldersTab = By.xpath("//div[@class='WMP_trans_pers_folders large_icon' and contains(@onclick, 'urn:transfer:personal:0')]/img[@src='/images/info/large_desktop_personal_folders.png']");
+    private By myFoldersTab = By.xpath("//div[@class='WMP_trans_pers_folders large_icon']//span[text()='My folders']");
     private By sharedFoldersTab = By.xpath("//img[@src='/images/info/large_desktop_company_folders.png']\n");
     private By ribProjectTab = By.xpath("//img[@src='/images/info/large_desktop_projects.png']\n");
     private By ribArchivesTab = By.xpath("//img[@src='/images/info/large_desktop_archives.png']\n");
@@ -39,14 +32,23 @@ public class FileUpload {
     public static By fileInput = By.xpath("//input[@type='file']");
 
     private By folderLocator = By.xpath("//span[text()='Folder A']");
-    private By fileFromMyFolder = By.xpath("//input[@type='checkbox' and @name='file']\n");
+    private By fileFromMyFolder = By.xpath("//td[contains(text(), 'FileTøTransferFrom MyFolder.pdf')]/preceding-sibling::td/input[@type='checkbox' and @name='file']\n");
     private By transferButton = By.xpath("//input[@type='button' and @value='Transfer']\n");
+    private By selectAllButton = By.xpath("//input[@value='Select all']");
 
     public void clickUploadFileButton() {
         WebElement uploadFileElement = driver.findElement(uploadFileButton);
         uploadFileElement.click();
     }
-
+    public void clickSelectAllButton() {
+        WebElement selectAllElement = driver.findElement(selectAllButton);
+        selectAllElement.click();
+    }
+    public WebElement sharedFoldersTab() {
+        return driver.findElement(sharedFoldersTab);
+    } public WebElement myFoldersTab() {
+        return driver.findElement(myFoldersTab);
+    }
     public void clickEnhancedUploadTab() {
         WebElement enhancedUploadElement = driver.findElement(enhancedUploadTab);
         enhancedUploadElement.click();
@@ -105,10 +107,13 @@ public class FileUpload {
         WebElement tenderPhasesTabElement = driver.findElement(tenderPhasesTab);
         tenderPhasesTabElement.click();
     }
-    public void clickMyFoldersTab() {
+    public By clickMyFoldersTab() {
         WebElement myFoldersTabElement = driver.findElement(myFoldersTab);
         myFoldersTabElement.click();
-    } public void selectFileFromMyFolder() {
+        return myFoldersTab;
+    }
+
+public void selectFileFromMyFolder() {
         WebElement fileFromMyFolderCheckBox = driver.findElement(fileFromMyFolder);
         fileFromMyFolderCheckBox.click();
 
