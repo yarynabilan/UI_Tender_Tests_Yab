@@ -150,23 +150,51 @@ public class UploadFiles extends ApplicationsNavigationTest {
         tendersPage.switchToNavigationFrame();
         Thread.sleep(3000);
         fileUpload.clickUploadFileButton();
-
         tendersPage.switchToNewWindowTest();
-        Thread.sleep(10000);
+        Thread.sleep(3000);
         fileUpload.clickTransferralUploadTab();
-        Thread.sleep(15000);
+        Thread.sleep(3000);
         fileUpload.clickSharedFoldersTab();
-        assertTrue(fileUpload.sharedFoldersTab().isEnabled());
-        fileUpload.clickSharedFoldersTab();
-        Thread.sleep(15000);
+        tendersPage.switchToNewWindowTest();
+        fileUpload.selectFileFromSharedFolder();
+        Thread.sleep(3000);
+        fileUpload.clickTransferButton();
+        fileUpload.confirmUpload();
+        Thread.sleep(4000);
+    }
+    @Test
+    public void transferralUploadFromFirstPhase() throws InterruptedException, AWTException {
+        TendersPage tendersPage = new TendersPage(driver);
+        tendersPage.switchToBrowserFrame();
+        PublicTenderPage publicTenderPage = new PublicTenderPage(driver);
+        publicTenderPage.clickOnElement(publicTenderPage.getTenderSpecificationDocumentsTab());
+        driver.switchTo().defaultContent();
+        FileUpload fileUpload = new FileUpload(driver);
+        tendersPage.switchToDirectoryFrame();
+        fileUpload.selectFolder();
+        driver.switchTo().defaultContent();
+        tendersPage.switchToNavigationFrame();
+        Thread.sleep(3000);
+        fileUpload.clickUploadFileButton();
+        tendersPage.switchToNewWindowTest();
+        Thread.sleep(3000);
+        fileUpload.clickTransferralUploadTab();
+        tendersPage.switchToNewWindowTest();
+        Thread.sleep(3000);
+        fileUpload.clickTenderPhasesTab();
+        tendersPage.switchToNewWindowTest();
+        fileUpload.clickOnPrequalificationTab();
+        tendersPage.switchToNewWindowTest();
+fileUpload.clickOnFolderA();
         tendersPage.switchToNewWindowTest();
 
+fileUpload.selectFileFromFirstPhase();
 
-//        fileUpload.clickTransferButton();
-//        fileUpload.confirmUpload();
-//        Thread.sleep(4000);
+        fileUpload.clickTransferButton();
+        fileUpload.confirmUpload();
+        Thread.sleep(4000);
     }
-}
+    }
 
 
 //    public void transferralUploadProjectWS() throws InterruptedException, AWTException {

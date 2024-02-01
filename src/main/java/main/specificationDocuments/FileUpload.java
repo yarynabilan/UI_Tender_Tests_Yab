@@ -11,30 +11,34 @@ public class FileUpload {
 
     private WebDriver driver;
 
-    public FileUpload(WebDriver driver) {
+     FileUpload(WebDriver driver) {
         this.driver = driver;
     }
-    private By uploadFileButton = By.xpath("//img[@name='upload_file']");
-    private By enhancedUploadTab = By.xpath("//nobr[text()='Enhanced upload']");
-    private By standartUploadTab = By.xpath("//nobr[text()='Standard upload']");
-    private By transferralUploadTab = By.xpath("//nobr[text()='Transferral']");
-    private By tenderPhasesTab = By.xpath("//img[@src='/images/info/tender_phases.png']");
-    private By myFoldersTab = By.xpath("//div[@class='WMP_trans_pers_folders large_icon']//span[text()='My folders']");
-    private By sharedFoldersTab = By.xpath("//img[@src='/images/info/large_desktop_company_folders.png']\n");
-    private By ribProjectTab = By.xpath("//img[@src='/images/info/large_desktop_projects.png']\n");
-    private By ribArchivesTab = By.xpath("//img[@src='/images/info/large_desktop_archives.png']\n");
-    private By ribTendersTab = By.xpath("//img[@src='/images/info/large_desktop_tenders.png']\n");
-    private By uploadFoldersTab = By.xpath("//nobr[text()='Upload folders']");
-    private By inputForDestinationFolder = By.xpath("//input[@name='name']");
-    private By OkButton = By.xpath("//input[@name='OK']");
-    private By confirmUpload = By.xpath("//input[@value='OK']");
-    private By addFilesButton = By.xpath("//span[text()='Add more files']");
+     By uploadFileButton = By.xpath("//img[@name='upload_file']");
+     By enhancedUploadTab = By.xpath("//nobr[text()='Enhanced upload']");
+     By standartUploadTab = By.xpath("//nobr[text()='Standard upload']");
+     By transferralUploadTab = By.xpath("//nobr[text()='Transferral']");
+     By tenderPhasesTab = By.xpath("//div[@class='WMP_trans_phases large_icon']//span[text()='Tender phases']");
+    By prequalificationTab = By.xpath("//div[@class='timelimit' and div[@class='phase']//span[@class='description' and text()='Prequalification']]");
+    By folderALocator = By.xpath("//td[contains(text(), 'Folder A')]");
+    By fileFromFirstPhase = By.xpath("//td[contains(text(), 'FileFromFirstPhase.png')]/preceding-sibling::td/input[@type='checkbox']");
+    By myFoldersTab = By.xpath("//div[@class='WMP_trans_pers_folders large_icon']//span[text()='My folders']");
+    By sharedFoldersTab = By.xpath("//div[@class='WMP_trans_shared_folders large_icon']//span[text()='Shared folders']");
+    By ribProjectTab = By.xpath("//div[@class='WMP_trans_projects large_icon']//span[text()='RIB projects']");
+    By ribArchivesTab = By.xpath("//div[@class='WMP_trans_archives large_icon']//span[text()='RIB archives']");
+    By ribTendersTab = By.xpath("//div[@class='WMP_trans_tenders large_icon']//span[text()='RIB Tenders']");
+     By uploadFoldersTab = By.xpath("//nobr[text()='Upload folders']");
+     By inputForDestinationFolder = By.xpath("//input[@name='name']");
+     By OkButton = By.xpath("//input[@name='OK']");
+     By confirmUpload = By.xpath("//input[@value='OK']");
+     By addFilesButton = By.xpath("//span[text()='Add more files']");
     public static By fileInput = By.xpath("//input[@type='file']");
 
-    private By folderLocator = By.xpath("//span[text()='Folder A']");
-    private By fileFromMyFolder = By.xpath("//td[contains(text(), 'FileTøTransferFrom MyFolder.pdf')]/preceding-sibling::td/input[@type='checkbox' and @name='file']\n");
-    private By transferButton = By.xpath("//input[@type='button' and @value='Transfer']\n");
-    private By selectAllButton = By.xpath("//input[@value='Select all']");
+     By folderLocator = By.xpath("//span[text()='Folder A']");
+     By fileFromMyFolder = By.xpath("//td[contains(text(), 'FileTøTransferFrom MyFolder.pdf')]/preceding-sibling::td/input[@type='checkbox' and @name='file']\n");
+     By fileFromSharedFolder = By.xpath("//td[contains(text(), 'From Shared Folder.pdf')]/preceding-sibling::td/input[@type='checkbox' and @name='file']");
+     By transferButton = By.xpath("//input[@type='button' and @value='Transfer']\n");
+     By selectAllButton = By.xpath("//input[@value='Select all']");
 
     public void clickUploadFileButton() {
         WebElement uploadFileElement = driver.findElement(uploadFileButton);
@@ -116,8 +120,13 @@ public class FileUpload {
 public void selectFileFromMyFolder() {
         WebElement fileFromMyFolderCheckBox = driver.findElement(fileFromMyFolder);
         fileFromMyFolderCheckBox.click();
-
     }
+    public void selectFileFromSharedFolder() {
+        WebElement fileFromSharedFolderCheckBox = driver.findElement(fileFromSharedFolder);
+        fileFromSharedFolderCheckBox.click();
+    }
+
+
     public void clickTransferButton() {
         WebElement transferButtonElement = driver.findElement(transferButton);
             transferButtonElement.click();
@@ -143,5 +152,19 @@ public void selectFileFromMyFolder() {
         WebElement confirmUploadElement = driver.findElement(confirmUpload);
         confirmUploadElement.click();
     }
+    public void clickOnPrequalificationTab() {
+            WebElement prequalificationTabElement = driver.findElement(prequalificationTab);
+            prequalificationTabElement.click();
+        }
 
-}
+        public void selectFileFromFirstPhase() {
+            WebElement fileFromFirstPhaseElement = driver.findElement(fileFromFirstPhase);
+            fileFromFirstPhaseElement.click();
+        }
+    public void clickOnFolderA() {
+        WebElement folderAElement = driver.findElement(folderALocator);
+        folderAElement.click();
+    }
+
+    }
+
