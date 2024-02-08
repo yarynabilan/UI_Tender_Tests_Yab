@@ -20,6 +20,7 @@ public class TendersPage extends BasePage {
     private By functionsFrame = By.xpath("//frame[@name='functions']");
     private By navigationFrame = By.xpath("//frame[@name='navigation']");
     private By directoryFrame = By.xpath("//frame[@name='directory']");
+    private By fileDetailsFrame = By.xpath("//frame[@name='filespec']");
     private final static String TITLE = "Tenders";
 
     public TendersPage(WebDriver driver) {
@@ -50,6 +51,8 @@ public class TendersPage extends BasePage {
     public void switchToDirectoryFrame() {
         driver.switchTo().frame(driver.findElement(directoryFrame));
     }
+    public void switchToFileDetailsFrame() {driver.switchTo().frame(driver.findElement(fileDetailsFrame));
+    }
 
     public void switchToNewWindow() {
         String mainWindowHandle = driver.getWindowHandle(); // Зберегти ідентифікатор поточного вікна
@@ -77,7 +80,7 @@ public class TendersPage extends BasePage {
 
                 driver.switchTo().window(previousWindow);
             } else {
-                System.out.println("Немає попереднього вікна.");
+                System.out.println("No previous window");
             }
         }
 }

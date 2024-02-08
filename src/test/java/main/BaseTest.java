@@ -19,7 +19,10 @@ public class BaseTest {
     //   protected Logger logger;
     @BeforeMethod
     public void setUp() throws InterruptedException {
-        System.setProperty("webdriver.chrome.driver", "/Users/yab/IdeaProjects/MyTestFramework/src/main/resources/drivers/chromedriver");
+//        System.setProperty("webdriver.chrome.driver", "/Users/yab/IdeaProjects/MyTestFramework/src/main/resources/drivers/chromedriver");
+//        System.setProperty("webdriver.chrome.driver", "/usr/local/bin/chromedriver");
+        System.setProperty("webdriver.chrome.driver", "/Users/yab/Desktop/chromedriver/chromedriver");
+//        System.setProperty("webdriver.chrome.driver", "/usr/local/Caskroom/chromedriver/121.0.6167.85/chromedriver-mac-x64/chromedriver");
 
         driver = new ChromeDriver();
         driver.manage().window().maximize();

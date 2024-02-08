@@ -11,7 +11,7 @@ public class FileUpload {
 
     private WebDriver driver;
 
-     FileUpload(WebDriver driver) {
+    FileUpload(WebDriver driver) {
         this.driver = driver;
     }
      By uploadFileButton = By.xpath("//img[@name='upload_file']");
@@ -39,6 +39,11 @@ public class FileUpload {
      By fileFromSharedFolder = By.xpath("//td[contains(text(), 'From Shared Folder.pdf')]/preceding-sibling::td/input[@type='checkbox' and @name='file']");
      By transferButton = By.xpath("//input[@type='button' and @value='Transfer']\n");
      By selectAllButton = By.xpath("//input[@value='Select all']");
+     By downloadFileButton = By.xpath("//img[@name='download_file']");
+     By fileToDownload = By.xpath("//nobr[contains(text(),'File To Move.png')]");
+     By previewFileButton = By.xpath("//img[@title='Preview file with RIB-viewer']");
+     By openFileButton = By.xpath("//img[@title='Open original file']");
+     By compareFileButton = By.xpath("//img[@title='Compare two file versions']");
 
     public void clickUploadFileButton() {
         WebElement uploadFileElement = driver.findElement(uploadFileButton);
@@ -98,12 +103,14 @@ public class FileUpload {
         File uploadFile = new File("src/main/resources/files/File To Move.png");
         WebElement fileInputElement = driver.findElement(FileUpload.fileInput);
         fileInputElement.sendKeys(uploadFile.getAbsolutePath());
-        } public void uploadFileToDelete() throws AWTException {
+        }
+        public void uploadFileToDelete() throws AWTException {
         File uploadFile = new File("src/main/resources/files/fileToDelete.xlsx");
         WebElement fileInputElement = driver.findElement(FileUpload.fileInput);
         fileInputElement.sendKeys(uploadFile.getAbsolutePath());
-        }public void standardUpload() throws AWTException {
-        File uploadFile = new File("src/main/resources/files/fstandardUpload.txt");
+        }
+        public void standardUpload() throws AWTException {
+        File uploadFile = new File("src/main/resources/files/standardUpload.txt");
         WebElement fileInputElement = driver.findElement(FileUpload.fileInput);
         fileInputElement.sendKeys(uploadFile.getAbsolutePath());
         }
@@ -164,6 +171,27 @@ public void selectFileFromMyFolder() {
     public void clickOnFolderA() {
         WebElement folderAElement = driver.findElement(folderALocator);
         folderAElement.click();
+    }
+    public void clickDownloadButton() {
+        WebElement downloadFileButtonElement = driver.findElement(downloadFileButton);
+        downloadFileButtonElement.click();
+    }    public void selectFileToDownload() {
+        WebElement fileToDownloadElement = driver.findElement(fileToDownload);
+        fileToDownloadElement.click();
+    }
+    public void clickOnPreviewFileButton() {
+        WebElement previewFileButtonElement = driver.findElement(previewFileButton);
+        previewFileButtonElement.click();
+    }
+
+    public void clickOnOpenFileButton() {
+        WebElement openFileButtonElement = driver.findElement(openFileButton);
+        openFileButtonElement.click();
+    }
+
+    public void clickOnCompareFileButton() {
+        WebElement compareFileButtonElement = driver.findElement(compareFileButton);
+        compareFileButtonElement.click();
     }
 
     }

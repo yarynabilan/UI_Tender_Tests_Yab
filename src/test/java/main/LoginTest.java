@@ -19,7 +19,7 @@ public class LoginTest extends BaseTest {
     @Test
     public void checkLogoOnTheLoginPage() {
         LoginPage loginPage = new LoginPage(driver);
-        assertTrue(loginPage.getLogo().isDisplayed(), "Logo is not displayed"); // додатковий меседж в дужках - виведеться тільки тоді коли перевірка зафейлиться
+        assertTrue(loginPage.getLogo().isDisplayed(), "Logo is not displayed");
     }
 
     @Test

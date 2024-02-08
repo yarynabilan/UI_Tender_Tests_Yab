@@ -88,6 +88,7 @@ public class UploadFiles extends ApplicationsNavigationTest {
         fileUpload.clickStandardUploadTab();
         Thread.sleep(3000);
         fileUpload.uploadSecondFileVersion();
+        fileUpload.uploadFileToMove();
         Thread.sleep(2000);
         fileUpload.confirmUpload();
         Thread.sleep(4000);
@@ -162,6 +163,7 @@ public class UploadFiles extends ApplicationsNavigationTest {
         fileUpload.confirmUpload();
         Thread.sleep(4000);
     }
+
     @Test
     public void transferralUploadFromFirstPhase() throws InterruptedException, AWTException {
         TendersPage tendersPage = new TendersPage(driver);
@@ -185,16 +187,72 @@ public class UploadFiles extends ApplicationsNavigationTest {
         tendersPage.switchToNewWindowTest();
         fileUpload.clickOnPrequalificationTab();
         tendersPage.switchToNewWindowTest();
-fileUpload.clickOnFolderA();
+        fileUpload.clickOnFolderA();
+
         tendersPage.switchToNewWindowTest();
 
-fileUpload.selectFileFromFirstPhase();
-
+        fileUpload.selectFileFromFirstPhase();
         fileUpload.clickTransferButton();
         fileUpload.confirmUpload();
         Thread.sleep(4000);
     }
+
+    @Test
+    public void downloadFile() throws InterruptedException, AWTException {
+        TendersPage tendersPage = new TendersPage(driver);
+        tendersPage.switchToBrowserFrame();
+        PublicTenderPage publicTenderPage = new PublicTenderPage(driver);
+        publicTenderPage.clickOnElement(publicTenderPage.getTenderSpecificationDocumentsTab());
+        driver.switchTo().defaultContent();
+        FileUpload fileUpload = new FileUpload(driver);
+        tendersPage.switchToDirectoryFrame();
+        fileUpload.selectFolder();
+        driver.switchTo().defaultContent();
+        tendersPage.switchToDirectoryFrame();
+        fileUpload.selectFileToDownload();
+        tendersPage.switchToNavigationFrame();
+        fileUpload.clickDownloadButton();
+        Thread.sleep(3000);
     }
+
+    @Test
+    public void previewFile() throws InterruptedException, AWTException {
+        TendersPage tendersPage = new TendersPage(driver);
+        tendersPage.switchToBrowserFrame();
+        PublicTenderPage publicTenderPage = new PublicTenderPage(driver);
+        publicTenderPage.clickOnElement(publicTenderPage.getTenderSpecificationDocumentsTab());
+        driver.switchTo().defaultContent();
+        FileUpload fileUpload = new FileUpload(driver);
+        tendersPage.switchToDirectoryFrame();
+        fileUpload.selectFolder();
+        driver.switchTo().defaultContent();
+        tendersPage.switchToDirectoryFrame();
+        fileUpload.selectFileToDownload();
+        driver.switchTo().defaultContent();
+        tendersPage.switchToFileDetailsFrame();
+        fileUpload.clickOnPreviewFileButton();
+        Thread.sleep(10000);
+    }
+ @Test
+    public void openFile() throws InterruptedException, AWTException {
+        TendersPage tendersPage = new TendersPage(driver);
+        tendersPage.switchToBrowserFrame();
+        PublicTenderPage publicTenderPage = new PublicTenderPage(driver);
+        publicTenderPage.clickOnElement(publicTenderPage.getTenderSpecificationDocumentsTab());
+        driver.switchTo().defaultContent();
+        FileUpload fileUpload = new FileUpload(driver);
+        tendersPage.switchToDirectoryFrame();
+        fileUpload.selectFolder();
+        driver.switchTo().defaultContent();
+        tendersPage.switchToDirectoryFrame();
+        fileUpload.selectFileToDownload();
+        driver.switchTo().defaultContent();
+        tendersPage.switchToFileDetailsFrame();
+        fileUpload.clickOnOpenFileButton();
+        Thread.sleep(10000);
+
+    }
+}
 
 
 //    public void transferralUploadProjectWS() throws InterruptedException, AWTException {

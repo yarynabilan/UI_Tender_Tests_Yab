@@ -13,7 +13,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <junit.version>4.13.2</junit.version>
         <allure.maven.version>2.9</allure.maven.version>
-        <lombok.version>1.18.22</lombok.version>
+        <lombok.version>1.18.30</lombok.version>
         <allure.testng.version>2.16.1</allure.testng.version>
         <allure.selenide.version>2.16.1</allure.selenide.version>
     </properties>
