@@ -44,6 +44,7 @@ public class FileUpload {
      By previewFileButton = By.xpath("//img[@title='Preview file with RIB-viewer']");
      By openFileButton = By.xpath("//img[@title='Open original file']");
      By compareFileButton = By.xpath("//img[@title='Compare two file versions']");
+     By fileLink = By.xpath("//span[@class='contentHeading1']");
 
     public void clickUploadFileButton() {
         WebElement uploadFileElement = driver.findElement(uploadFileButton);
@@ -187,6 +188,10 @@ public void selectFileFromMyFolder() {
     public void clickOnOpenFileButton() {
         WebElement openFileButtonElement = driver.findElement(openFileButton);
         openFileButtonElement.click();
+    }
+   public void clickOnFileLink() {
+        WebElement fileLinkElement = driver.findElement(fileLink);
+       fileLinkElement.click();
     }
 
     public void clickOnCompareFileButton() {

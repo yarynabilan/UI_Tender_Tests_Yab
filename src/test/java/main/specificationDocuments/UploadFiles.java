@@ -249,6 +249,7 @@ public class UploadFiles extends ApplicationsNavigationTest {
         driver.switchTo().defaultContent();
         tendersPage.switchToFileDetailsFrame();
         fileUpload.clickOnOpenFileButton();
+        tendersPage.switchToNewWindowTest();
         Thread.sleep(10000);
 
     }
