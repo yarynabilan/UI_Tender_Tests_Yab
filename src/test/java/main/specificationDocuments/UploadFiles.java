@@ -250,12 +250,52 @@ public class UploadFiles extends ApplicationsNavigationTest {
         tendersPage.switchToFileDetailsFrame();
         fileUpload.clickOnOpenFileButton();
         tendersPage.switchToNewWindowTest();
+        fileUpload.clickOnFileLink();
         Thread.sleep(10000);
-
+    }
+@Test
+    public void compareTwoFilesVersion() throws InterruptedException, AWTException {
+        TendersPage tendersPage = new TendersPage(driver);
+        tendersPage.switchToBrowserFrame();
+        PublicTenderPage publicTenderPage = new PublicTenderPage(driver);
+        publicTenderPage.clickOnElement(publicTenderPage.getTenderSpecificationDocumentsTab());
+        driver.switchTo().defaultContent();
+        FileUpload fileUpload = new FileUpload(driver);
+        tendersPage.switchToDirectoryFrame();
+        fileUpload.selectFolder();
+        driver.switchTo().defaultContent();
+        tendersPage.switchToDirectoryFrame();
+        fileUpload.selectFileToDownload();
+        driver.switchTo().defaultContent();
+        tendersPage.switchToFileDetailsFrame();
+        fileUpload.clickOnCompareFileButton();
+        tendersPage.switchToNewWindowTest();
+        fileUpload.confirmCompareFile();
+        Thread.sleep(10000);
+    }
+    @Test
+    public void updateFileMetadataField() throws InterruptedException, AWTException {
+        TendersPage tendersPage = new TendersPage(driver);
+        tendersPage.switchToBrowserFrame();
+        PublicTenderPage publicTenderPage = new PublicTenderPage(driver);
+        publicTenderPage.clickOnElement(publicTenderPage.getTenderSpecificationDocumentsTab());
+        driver.switchTo().defaultContent();
+        FileUpload fileUpload = new FileUpload(driver);
+        tendersPage.switchToDirectoryFrame();
+        fileUpload.selectFolder();
+        driver.switchTo().defaultContent();
+        tendersPage.switchToDirectoryFrame();
+        fileUpload.selectFileToDownload();
+        driver.switchTo().defaultContent();
+        tendersPage.switchToFileDetailsFrame();
+        fileUpload.clickFileInfoButton();
+        fileUpload.updateSubjectMetadataFiled("Subject update AutoTEST");
+        fileUpload.clickUpdateButton();
+        Thread.sleep(10000);
     }
 }
 
-
+// TO DO:
 //    public void transferralUploadProjectWS() throws InterruptedException, AWTException {
 //    public void transferralUploadProjectPS() throws InterruptedException, AWTException {
 //    public void transferralUploadProjectDS() throws InterruptedException, AWTException {

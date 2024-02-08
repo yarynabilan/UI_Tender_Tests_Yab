@@ -7,6 +7,8 @@ import org.openqa.selenium.WebElement;
 import java.awt.*;
 import java.io.File;
 
+import static java.awt.SystemColor.text;
+
 public class FileUpload {
 
     private WebDriver driver;
@@ -45,6 +47,10 @@ public class FileUpload {
      By openFileButton = By.xpath("//img[@title='Open original file']");
      By compareFileButton = By.xpath("//img[@title='Compare two file versions']");
      By fileLink = By.xpath("//span[@class='contentHeading1']");
+     By confirmCompareFileButton = By.xpath("//input[@value='Compare']");
+     By fileInfoButton = By.xpath("//nobr[contains(text(),'File information')]");
+     By subjectMetadataField = By.xpath("//input[@name='metadata_566559_Ref']");
+     By updateButton = By.xpath("//input[@value='Update']");
 
     public void clickUploadFileButton() {
         WebElement uploadFileElement = driver.findElement(uploadFileButton);
@@ -197,6 +203,23 @@ public void selectFileFromMyFolder() {
     public void clickOnCompareFileButton() {
         WebElement compareFileButtonElement = driver.findElement(compareFileButton);
         compareFileButtonElement.click();
+    }
+    public void confirmCompareFile() {
+        WebElement confirmCompareFileButtonElement = driver.findElement(confirmCompareFileButton);
+        confirmCompareFileButtonElement.click();
+    }  public void clickFileInfoButton() {
+        WebElement fileInfoButtonElement = driver.findElement(fileInfoButton);
+        fileInfoButtonElement.click();
+    }
+    public void clickUpdateButton() {
+        WebElement updateButtonElement = driver.findElement(updateButton);
+        updateButtonElement.click();
+    }  public void updateSubjectMetadataFiled(String text) {
+        WebElement subjectMetadataFieldElement = driver.findElement(subjectMetadataField);
+        subjectMetadataFieldElement.click();
+        subjectMetadataFieldElement.sendKeys(text);
+
+
     }
 
     }
