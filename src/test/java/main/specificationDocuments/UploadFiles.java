@@ -291,7 +291,7 @@ public class UploadFiles extends ApplicationsNavigationTest {
         fileUpload.clickFileInfoButton();
         fileUpload.updateSubjectMetadataFiled("Subject update AutoTEST");
         fileUpload.clickUpdateButton();
-        Thread.sleep(10000);
+        Thread.sleep(5000);
     }
 }
 
