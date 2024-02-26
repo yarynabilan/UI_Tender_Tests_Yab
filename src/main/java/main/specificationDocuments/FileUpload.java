@@ -61,6 +61,20 @@ public class FileUpload {
      By fileDataDropdown = By.xpath("//select[@name='metadata_pos_1']/option[text()='File']");
      By uploadDateDataDropdown = By.xpath("//select[@name='metadata_pos_1']/option[text()='Upload-date']");
     By fileLinkByXPath = By.xpath("//a[@id='filelink']");
+    By project = By.xpath("//table[@class='directory standard']//td[contains(text(), 'Tender - file to transfer')]");
+    By projectWS = By.xpath("//img[@src='/images/info/large_workspace.png']");
+    By fileFromWS = By.xpath("//td[text()='file_WS.txt']");
+    By projectVS = By.xpath("//img[@src='/images/info/large_add_versions_latest.png']");
+    By projectPS = By.xpath("//img[@src='/images/info/large_publicationspace.png']");
+    By documentList = By.xpath("//td[text()='doc list 1']");
+    By docListFolder = By.xpath("//td[text()='PS_Folder_001']");
+    By docListFile = By.xpath("//td[contains(text(), 'file_PS.pdf')]");
+    By projectDS = By.xpath("//img[@src='/images/info/large_distributionspace.png']");
+
+    public void selectFileFromWS() {
+        WebElement fileFromWSElement = driver.findElement(fileFromWS);
+        fileFromWSElement.click();
+    }
 
     public void clickUploadFileButton() {
         WebElement uploadFileElement = driver.findElement(uploadFileButton);
@@ -162,6 +176,9 @@ public void selectFileFromMyFolder() {
     public void clickRibProjectTab() {
         WebElement ribProjectTabElement = driver.findElement(ribProjectTab);
         ribProjectTabElement.click();
+    } public void selectProject() {
+        WebElement projectElement = driver.findElement(project);
+        projectElement.click();
     }
     public void clickRibArchivesTab() {
         WebElement ribArchivesTabElement = driver.findElement(ribArchivesTab);

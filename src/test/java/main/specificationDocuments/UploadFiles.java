@@ -197,6 +197,39 @@ public class UploadFiles extends ApplicationsNavigationTest {
         Thread.sleep(4000);
     }
 
+    // TO FINISH
+    @Test
+    public void transferralUploadProjectWS() throws InterruptedException, AWTException {
+        TendersPage tendersPage = new TendersPage(driver);
+        tendersPage.switchToBrowserFrame();
+        PublicTenderPage publicTenderPage = new PublicTenderPage(driver);
+        publicTenderPage.clickOnElement(publicTenderPage.getTenderSpecificationDocumentsTab());
+        driver.switchTo().defaultContent();
+        FileUpload fileUpload = new FileUpload(driver);
+        String mainWindowHandle = driver.getWindowHandle();
+        tendersPage.switchToDirectoryFrame();
+        fileUpload.selectFolder();
+        driver.switchTo().defaultContent();
+        tendersPage.switchToNavigationFrame();
+        Thread.sleep(3000);
+        fileUpload.clickUploadFileButton();
+        Thread.sleep(2000);
+        tendersPage.switchToNewWindowTest();
+        fileUpload.clickTransferralUploadTab();
+        fileUpload.clickRibProjectTab();
+
+        fileUpload.selectProject();
+
+
+    }
+
+    // TO DO:
+//    public void transferralUploadProjectWS() throws InterruptedException, AWTException {
+//    public void transferralUploadProjectPS() throws InterruptedException, AWTException {
+//    public void transferralUploadProjectDS() throws InterruptedException, AWTException {
+//    public void transferralUploadProjectVS_WS() throws InterruptedException, AWTException {
+//    public void transferralUploadProjectWS_PS() throws InterruptedException, AWTException {
+//
     @Test
     public void downloadFile() throws InterruptedException, AWTException {
         TendersPage tendersPage = new TendersPage(driver);
@@ -350,11 +383,4 @@ public class UploadFiles extends ApplicationsNavigationTest {
     }
 }
 
-// TO DO:
-//    public void transferralUploadProjectWS() throws InterruptedException, AWTException {
-//    public void transferralUploadProjectPS() throws InterruptedException, AWTException {
-//    public void transferralUploadProjectDS() throws InterruptedException, AWTException {
-//    public void transferralUploadProjectVS_WS() throws InterruptedException, AWTException {
-//    public void transferralUploadProjectWS_PS() throws InterruptedException, AWTException {
-//
 
