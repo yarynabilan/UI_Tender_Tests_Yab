@@ -327,9 +327,27 @@ public class UploadFiles extends ApplicationsNavigationTest {
         Thread.sleep(3000);
 
     }
+    @Test
+    public void downloadFileListInExcel() throws InterruptedException, AWTException {
+        TendersPage tendersPage = new TendersPage(driver);
+        tendersPage.switchToBrowserFrame();
+        PublicTenderPage publicTenderPage = new PublicTenderPage(driver);
+        publicTenderPage.clickOnElement(publicTenderPage.getTenderSpecificationDocumentsTab());
+        driver.switchTo().defaultContent();
+        FileUpload fileUpload = new FileUpload(driver);
+        tendersPage.switchToNavigationFrame();
+        fileUpload.clickDownloadFileListInExcel();
+        tendersPage.switchToNewWindowTest();
+        fileUpload.clickNextButton();
+        fileUpload.selectFileFromDropdown();
+        fileUpload.selectUploadDateFromDropdown();
+        fileUpload.clickOkDownload();
+        Thread.sleep(7000);
+        fileUpload.clickFileLinkByXPath();
+        Thread.sleep(2000);
 
 
-
+    }
 }
 
 // TO DO:

@@ -3,6 +3,7 @@ package main.specificationDocuments;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 
 import java.awt.*;
 import java.io.File;
@@ -55,6 +56,11 @@ public class FileUpload {
      By okDownload = By.xpath("//input[@value='OK']\n");
      By generatedFilesLink = By.xpath("//a[contains(@href, '/download/')]");
      By sendToEmailButton = By.xpath("//input[@value='Send an e-mail with a download link']");
+     By downloadFileListInExcel = By.xpath("//img[@name='create_excel']\n");
+     By nextButton = By.xpath("//input[@value='Next']");
+     By fileDataDropdown = By.xpath("//select[@name='metadata_pos_1']/option[text()='File']");
+     By uploadDateDataDropdown = By.xpath("//select[@name='metadata_pos_1']/option[text()='Upload-date']");
+    By fileLinkByXPath = By.xpath("//a[@id='filelink']");
 
     public void clickUploadFileButton() {
         WebElement uploadFileElement = driver.findElement(uploadFileButton);
@@ -232,13 +238,31 @@ public void selectFileFromMyFolder() {
         WebElement sendToEmailButtonElement = driver.findElement(sendToEmailButton);
         sendToEmailButtonElement.click();
     }
+    public void clickDownloadFileListInExcel() {
+        WebElement downloadFileListinExcelButtonElement = driver.findElement(downloadFileListInExcel);
+        downloadFileListinExcelButtonElement.click();
+    } public void clickNextButton() {
+        WebElement nextButtonElement = driver.findElement(nextButton);
+        nextButtonElement.click();
+    }
     public void updateSubjectMetadataFiled(String text) {
         WebElement subjectMetadataFieldElement = driver.findElement(subjectMetadataField);
         subjectMetadataFieldElement.click();
-        subjectMetadataFieldElement.sendKeys(text);
+        subjectMetadataFieldElement.sendKeys(text);}
 
-
+    public void selectFileFromDropdown() {
+        WebElement fileOptionElement = driver.findElement(fileDataDropdown);
+        fileOptionElement.click();
     }
 
+    public void selectUploadDateFromDropdown() {
+        WebElement uploadDateOptionElement = driver.findElement(uploadDateDataDropdown);
+        uploadDateOptionElement.click();
+    }  public void clickFileLinkByXPath() {
+        WebElement fileLinkByXPathElement = driver.findElement(fileLinkByXPath);
+        fileLinkByXPathElement.click();
     }
+
+
+}
 
