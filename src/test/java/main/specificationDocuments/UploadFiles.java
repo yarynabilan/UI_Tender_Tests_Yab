@@ -13,7 +13,7 @@ import static org.testng.Assert.assertTrue;
 
 public class UploadFiles extends ApplicationsNavigationTest {
     @Test
-    public void createFolderAndUploadFileToDelete() throws InterruptedException, AWTException {
+    public void CreateFolderWithAlreadyExistingName() throws InterruptedException, AWTException {
         TendersPage tendersPage = new TendersPage(driver);
         tendersPage.switchToBrowserFrame();
         PublicTenderPage publicTenderPage = new PublicTenderPage(driver);
@@ -293,6 +293,43 @@ public class UploadFiles extends ApplicationsNavigationTest {
         fileUpload.clickUpdateButton();
         Thread.sleep(5000);
     }
+    @Test
+    public void downloadAllTenderFiles() throws InterruptedException, AWTException {
+        TendersPage tendersPage = new TendersPage(driver);
+        tendersPage.switchToBrowserFrame();
+        PublicTenderPage publicTenderPage = new PublicTenderPage(driver);
+        publicTenderPage.clickOnElement(publicTenderPage.getTenderSpecificationDocumentsTab());
+        driver.switchTo().defaultContent();
+        FileUpload fileUpload = new FileUpload(driver);
+        tendersPage.switchToDirectoryFrame();
+        fileUpload.clickDownloadAllTenderDocumentsIcon();
+        tendersPage.switchToNewWindowTest();
+        fileUpload.clickOkDownload();
+        tendersPage.switchToNewWindowTest();
+        Thread.sleep(3000);
+        fileUpload.clickOnGeneratedFilesLink();
+
+    }
+ @Test
+    public void sendAllTenderFileToEmail() throws InterruptedException, AWTException {
+        TendersPage tendersPage = new TendersPage(driver);
+        tendersPage.switchToBrowserFrame();
+        PublicTenderPage publicTenderPage = new PublicTenderPage(driver);
+        publicTenderPage.clickOnElement(publicTenderPage.getTenderSpecificationDocumentsTab());
+        driver.switchTo().defaultContent();
+        FileUpload fileUpload = new FileUpload(driver);
+        tendersPage.switchToDirectoryFrame();
+        fileUpload.clickDownloadAllTenderDocumentsIcon();
+        tendersPage.switchToNewWindowTest();
+        fileUpload.clickOkDownload();
+        tendersPage.switchToNewWindowTest();
+        fileUpload.clickSendToEmailButton();
+        Thread.sleep(3000);
+
+    }
+
+
+
 }
 
 // TO DO:

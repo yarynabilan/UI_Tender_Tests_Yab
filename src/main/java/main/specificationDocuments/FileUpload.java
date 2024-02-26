@@ -51,6 +51,10 @@ public class FileUpload {
      By fileInfoButton = By.xpath("//nobr[contains(text(),'File information')]");
      By subjectMetadataField = By.xpath("//input[@name='metadata_566559_Ref']");
      By updateButton = By.xpath("//input[@value='Update']");
+     By downloadAllTenderDocumentsIcon = By.xpath("//img[@src='/images/info/large_all_distribution_download.png']");
+     By okDownload = By.xpath("//input[@value='OK']\n");
+     By generatedFilesLink = By.xpath("//a[contains(@href, '/download/')]");
+     By sendToEmailButton = By.xpath("//input[@value='Send an e-mail with a download link']");
 
     public void clickUploadFileButton() {
         WebElement uploadFileElement = driver.findElement(uploadFileButton);
@@ -182,7 +186,8 @@ public void selectFileFromMyFolder() {
     public void clickDownloadButton() {
         WebElement downloadFileButtonElement = driver.findElement(downloadFileButton);
         downloadFileButtonElement.click();
-    }    public void selectFileToDownload() {
+    }
+    public void selectFileToDownload() {
         WebElement fileToDownloadElement = driver.findElement(fileToDownload);
         fileToDownloadElement.click();
     }
@@ -211,10 +216,23 @@ public void selectFileFromMyFolder() {
         WebElement fileInfoButtonElement = driver.findElement(fileInfoButton);
         fileInfoButtonElement.click();
     }
-    public void clickUpdateButton() {
-        WebElement updateButtonElement = driver.findElement(updateButton);
-        updateButtonElement.click();
-    }  public void updateSubjectMetadataFiled(String text) {
+    public void clickUpdateButton() {WebElement updateButtonElement = driver.findElement(updateButton);updateButtonElement.click();}
+    public void clickDownloadAllTenderDocumentsIcon() {
+        WebElement downloadAllTenderDocumentsIconElement = driver.findElement(downloadAllTenderDocumentsIcon);
+        downloadAllTenderDocumentsIconElement.click(); }
+
+        public void clickOkDownload() {
+        WebElement okButtonElement = driver.findElement(okDownload);
+            okButtonElement.click();
+    }
+    public void clickOnGeneratedFilesLink() {
+        WebElement generatedLinkElement = driver.findElement(generatedFilesLink);
+        generatedLinkElement.click();
+    }  public void clickSendToEmailButton() {
+        WebElement sendToEmailButtonElement = driver.findElement(sendToEmailButton);
+        sendToEmailButtonElement.click();
+    }
+    public void updateSubjectMetadataFiled(String text) {
         WebElement subjectMetadataFieldElement = driver.findElement(subjectMetadataField);
         subjectMetadataFieldElement.click();
         subjectMetadataFieldElement.sendKeys(text);
