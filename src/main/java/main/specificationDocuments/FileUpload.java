@@ -342,7 +342,6 @@ public class FileUpload {
 //        WebElement projectWSElement = driver.findElement(projectWS);
 //        projectWSElement.click();
 //
-
     public void transferFileFromProjectPS() {
         WebElement projectWSElement = driver.findElement(projectPS);
         projectWSElement.click();

@@ -220,7 +220,8 @@ public class UploadFiles extends ApplicationsNavigationTest {
         fileUpload.selectProject();
         tendersPage.switchToNewWindowTest();
         fileUpload.transferFileFromProjectWS();
-        Thread.sleep(3000);}
+        Thread.sleep(3000);
+    }
          @Test
     public void transferralUploadProjectPS() throws InterruptedException, AWTException {
         TendersPage tendersPage = new TendersPage(driver);
