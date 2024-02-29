@@ -126,7 +126,7 @@
             <plugin>
                 <groupId>io.qameta.allure</groupId>
                 <artifactId>allure-maven</artifactId>
-                <version>${allure.maven.version}</version>
+                <version>2.9</version>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -183,6 +183,26 @@
                     </suiteXmlFiles>
                 </configuration>
             </plugin>
+
+            <plugin>
+                <groupId>io.qameta.allure</groupId>
+                <artifactId>allure-maven</artifactId>
+                <version>${allure.maven.version}</version>
+                <configuration>
+                    <resultsDirectory>${project.build.directory}/allure-results</resultsDirectory>
+
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>generate-report</id>
+                        <phase>post-integration-test</phase>
+                        <goals>
+                            <goal>report</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
         </plugins>
     </build>
 </project>
