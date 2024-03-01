@@ -1,5 +1,6 @@
 package main.specificationDocuments;
 
+import io.qameta.allure.Step;
 import main.ApplicationsNavigationTest;
 import main.PublicTenderPage;
 import main.TendersPage;
@@ -38,7 +39,6 @@ public class UploadFiles extends ApplicationsNavigationTest {
         fileUpload.clickOkButton();
         Thread.sleep(4000);
     }
-
     @Test
     public void UploadFileToExistingFolder() throws InterruptedException, AWTException {
         TendersPage tendersPage = new TendersPage(driver);
@@ -234,6 +234,22 @@ public class UploadFiles extends ApplicationsNavigationTest {
         tendersPage.switchToDirectoryFrame();
         fileUpload.selectFolder();
         driver.switchTo().defaultContent();
+
+        tendersPage.switchToNavigationFrame();
+        Thread.sleep(3000);
+        fileUpload.clickUploadFileButton();
+        Thread.sleep(2000);
+        tendersPage.switchToNewWindowTest();
+        fileUpload.clickTransferralUploadTab();
+        fileUpload.clickRibProjectTab();
+        fileUpload.selectProject();
+        tendersPage.switchToNewWindowTest();
+        fileUpload.transferFileFromProjectWS();
+        Thread.sleep(2000);
+
+        driver.switchTo().window(mainWindowHandle);
+        driver.switchTo().defaultContent();
+
         tendersPage.switchToNavigationFrame();
         Thread.sleep(3000);
         fileUpload.clickUploadFileButton();
@@ -244,15 +260,27 @@ public class UploadFiles extends ApplicationsNavigationTest {
         fileUpload.selectProject();
         tendersPage.switchToNewWindowTest();
         fileUpload.transferFileFromProjectPS();
+             Thread.sleep(2000);
+
+        driver.switchTo().window(mainWindowHandle);
+        driver.switchTo().defaultContent();
+        tendersPage.switchToNavigationFrame();
         Thread.sleep(3000);
+        fileUpload.clickUploadFileButton();
+        tendersPage.switchToNewWindowTest();
+        fileUpload.clickTransferralUploadTab();
+        fileUpload.clickRibProjectTab();
+        fileUpload.selectProject();
+        tendersPage.switchToNewWindowTest();
+        fileUpload.transferFileFromProjectDS();
+             Thread.sleep(3000);
+
     }
 
     // TO DO:
-//    public void transferralUploadProjectWS() throws InterruptedException, AWTException {
-//    public void transferralUploadProjectPS() throws InterruptedException, AWTException {
-//    public void transferralUploadProjectDS() throws InterruptedException, AWTException {
+
 //    public void transferralUploadProjectVS_WS() throws InterruptedException, AWTException {
-//    public void transferralUploadProjectWS_PS() throws InterruptedException, AWTException {
+//    public void transferralUploadProjectVS_PS() throws InterruptedException, AWTException {
 //
     @Test
     public void downloadFile() throws InterruptedException, AWTException {
@@ -271,7 +299,6 @@ public class UploadFiles extends ApplicationsNavigationTest {
         fileUpload.clickDownloadButton();
         Thread.sleep(3000);
     }
-
     @Test
     public void previewFile() throws InterruptedException, AWTException {
         TendersPage tendersPage = new TendersPage(driver);

@@ -1,5 +1,6 @@
 package main.specificationDocuments;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -72,88 +73,62 @@ public class FileUpload {
     By docListFolder = By.xpath("//td[text()='PS_Folder_001']");
     By docListFileCheckbox = By.xpath("//input[@type='checkbox' and @name='file' and @value='143560']");
     By projectDS = By.xpath("//table[@class='page-content contentHeading1']//div[@class='WMP_transfer_area_ds large_icon']\n");
+    By distibutionList = By.xpath("//td[text()='dist list 1']");
 
     public void selectFileFromWS() {
         WebElement fileFromWSElement = driver.findElement(fileFromWS);
-        fileFromWSElement.click();
-    }
-
+        fileFromWSElement.click();}
     public void clickUploadFileButton() {
         WebElement uploadFileElement = driver.findElement(uploadFileButton);
-        uploadFileElement.click();
-    }
-
+        uploadFileElement.click();}
     public void clickSelectAllButton() {
         WebElement selectAllElement = driver.findElement(selectAllButton);
-        selectAllElement.click();
-    }
-
+        selectAllElement.click();}
     public WebElement sharedFoldersTab() {
-        return driver.findElement(sharedFoldersTab);
-    }
-
+        return driver.findElement(sharedFoldersTab);}
     public WebElement myFoldersTab() {
         return driver.findElement(myFoldersTab);
     }
-
     public void clickEnhancedUploadTab() {
         WebElement enhancedUploadElement = driver.findElement(enhancedUploadTab);
-        enhancedUploadElement.click();
-    }
-
+        enhancedUploadElement.click();}
     public void clickStandardUploadTab() {
         WebElement standartUploadTablement = driver.findElement(standartUploadTab);
-        standartUploadTablement.click();
-    }
-
+        standartUploadTablement.click();}
     public void clickTransferralUploadTab() {
         WebElement transferralUploadTabElement = driver.findElement(transferralUploadTab);
-        transferralUploadTabElement.click();
-    }
-
+        transferralUploadTabElement.click();}
     public void inputDestinationFolder(String folderName) {
         WebElement destinationFolderElement = driver.findElement(inputForDestinationFolder);
-        destinationFolderElement.sendKeys(folderName);
-    }
-
+        destinationFolderElement.sendKeys(folderName);}
     public void clickOkButton() {
         WebElement okButtonElement = driver.findElement(OkButton);
-        okButtonElement.click();
-    }
-
+        okButtonElement.click();}
     public void clickAddFilesButton() {
         WebElement addFilesElement = driver.findElement(addFilesButton);
-        addFilesElement.click();
-    }
-
+        addFilesElement.click();}
     public void selectFolder() {
         WebElement folderElement = driver.findElement(folderLocator);
-        folderElement.click();
-    }
-
+        folderElement.click();}
     public void uploadFirstFileVersion() throws AWTException {
         File uploadFile = new File("src/main/resources/files/Test File.pdf");
         WebElement fileInputElement = driver.findElement(FileUpload.fileInput);
-        fileInputElement.sendKeys(uploadFile.getAbsolutePath());
-    }
+        fileInputElement.sendKeys(uploadFile.getAbsolutePath());}
 
     public void uploadSecondFileVersion() throws AWTException {
         File uploadFile = new File("src/main/resources/files/filesVersion2/Test File.pdf");
         WebElement fileInputElement = driver.findElement(FileUpload.fileInput);
-        fileInputElement.sendKeys(uploadFile.getAbsolutePath());
-    }
+        fileInputElement.sendKeys(uploadFile.getAbsolutePath());}
 
     public void uploadFileToMove() throws AWTException {
         File uploadFile = new File("src/main/resources/files/File To Move.png");
         WebElement fileInputElement = driver.findElement(FileUpload.fileInput);
-        fileInputElement.sendKeys(uploadFile.getAbsolutePath());
-    }
+        fileInputElement.sendKeys(uploadFile.getAbsolutePath());}
 
     public void uploadFileToDelete() throws AWTException {
         File uploadFile = new File("src/main/resources/files/fileToDelete.xlsx");
         WebElement fileInputElement = driver.findElement(FileUpload.fileInput);
-        fileInputElement.sendKeys(uploadFile.getAbsolutePath());
-    }
+        fileInputElement.sendKeys(uploadFile.getAbsolutePath());}
 
     public void standardUpload() throws AWTException {
         File uploadFile = new File("src/main/resources/files/standardUpload.txt");
@@ -163,55 +138,44 @@ public class FileUpload {
 
     public void clickTenderPhasesTab() {
         WebElement tenderPhasesTabElement = driver.findElement(tenderPhasesTab);
-        tenderPhasesTabElement.click();
-    }
+        tenderPhasesTabElement.click();}
 
     public By clickMyFoldersTab() {
         WebElement myFoldersTabElement = driver.findElement(myFoldersTab);
         myFoldersTabElement.click();
-        return myFoldersTab;
-    }
+        return myFoldersTab;}
 
     public void selectFileFromMyFolder() {
         WebElement fileFromMyFolderCheckBox = driver.findElement(fileFromMyFolder);
-        fileFromMyFolderCheckBox.click();
-    }
+        fileFromMyFolderCheckBox.click();}
 
     public void selectFileFromSharedFolder() {
         WebElement fileFromSharedFolderCheckBox = driver.findElement(fileFromSharedFolder);
-        fileFromSharedFolderCheckBox.click();
-    }
-
+        fileFromSharedFolderCheckBox.click();}
 
     public void clickTransferButton() {
         WebElement transferButtonElement = driver.findElement(transferButton);
-        transferButtonElement.click();
-    }
+        transferButtonElement.click();}
 
     public void clickSharedFoldersTab() {
         WebElement sharedFoldersTabElement = driver.findElement(sharedFoldersTab);
-        sharedFoldersTabElement.click();
-    }
+        sharedFoldersTabElement.click();}
 
     public void clickRibProjectTab() {
         WebElement ribProjectTabElement = driver.findElement(ribProjectTab);
-        ribProjectTabElement.click();
-    }
+        ribProjectTabElement.click();}
 
     public void selectProject() {
         WebElement projectElement = driver.findElement(project);
-        projectElement.click();
-    }
+        projectElement.click();}
 
     public void clickRibArchivesTab() {
         WebElement ribArchivesTabElement = driver.findElement(ribArchivesTab);
-        ribArchivesTabElement.click();
-    }
+        ribArchivesTabElement.click();}
 
     public void clickRibTendersTab() {
         WebElement ribTendersTabElement = driver.findElement(ribTendersTab);
-        ribTendersTabElement.click();
-    }
+        ribTendersTabElement.click();}
 
     public void confirmUpload() {
         WebElement confirmUploadElement = driver.findElement(confirmUpload);
@@ -280,55 +244,44 @@ public class FileUpload {
 
     public void clickDownloadAllTenderDocumentsIcon() {
         WebElement downloadAllTenderDocumentsIconElement = driver.findElement(downloadAllTenderDocumentsIcon);
-        downloadAllTenderDocumentsIconElement.click();
-    }
+        downloadAllTenderDocumentsIconElement.click();}
 
     public void clickOkDownload() {
         WebElement okButtonElement = driver.findElement(okDownload);
-        okButtonElement.click();
-    }
+        okButtonElement.click();}
 
     public void clickOnGeneratedFilesLink() {
         WebElement generatedLinkElement = driver.findElement(generatedFilesLink);
-        generatedLinkElement.click();
-    }
+        generatedLinkElement.click();}
 
     public void clickSendToEmailButton() {
         WebElement sendToEmailButtonElement = driver.findElement(sendToEmailButton);
-        sendToEmailButtonElement.click();
-    }
+        sendToEmailButtonElement.click();}
 
     public void clickDownloadFileListInExcel() {
         WebElement downloadFileListinExcelButtonElement = driver.findElement(downloadFileListInExcel);
-        downloadFileListinExcelButtonElement.click();
-    }
+        downloadFileListinExcelButtonElement.click();}
 
     public void clickNextButton() {
         WebElement nextButtonElement = driver.findElement(nextButton);
-        nextButtonElement.click();
-    }
+        nextButtonElement.click();}
 
     public void updateSubjectMetadataFiled(String text) {
         WebElement subjectMetadataFieldElement = driver.findElement(subjectMetadataField);
         subjectMetadataFieldElement.click();
-        subjectMetadataFieldElement.sendKeys(text);
-    }
+        subjectMetadataFieldElement.sendKeys(text);}
 
     public void selectFileFromDropdown() {
         WebElement fileOptionElement = driver.findElement(fileDataDropdown);
-        fileOptionElement.click();
-    }
+        fileOptionElement.click();}
 
     public void selectUploadDateFromDropdown() {
         WebElement uploadDateOptionElement = driver.findElement(uploadDateDataDropdown);
-        uploadDateOptionElement.click();
-    }
+        uploadDateOptionElement.click();}
 
     public void clickFileLinkByXPath() {
         WebElement fileLinkByXPathElement = driver.findElement(fileLinkByXPath);
-        fileLinkByXPathElement.click();
-
-    }
+        fileLinkByXPathElement.click();}
 
     public void transferFileFromProjectWS() {
         WebElement projectWSElement = driver.findElement(projectWS);
@@ -342,6 +295,7 @@ public class FileUpload {
 //        WebElement projectWSElement = driver.findElement(projectWS);
 //        projectWSElement.click();
 //
+    @Step
     public void transferFileFromProjectPS() {
         WebElement projectWSElement = driver.findElement(projectPS);
         projectWSElement.click();
@@ -353,30 +307,32 @@ public class FileUpload {
         docListFileElement.click();
         clickTransferButton();
         clickOkButton();
+    }
+    @Step
+    public void transferFileFromProjectDS() {
+        WebElement projectDSElement = driver.findElement(projectDS);
+        projectDSElement.click();
+        WebElement distributionListElement = driver.findElement(distibutionList);
+        distributionListElement.click();
+        clickSelectAllButton();
+        clickTransferButton();
+        clickOkButton();
 
     }
     public void goToDocumentList() {
         WebElement documentListElement = driver.findElement(documentList);
-        documentListElement.click();
-    }
+        documentListElement.click();}
 
-    // Метод для клікання на елемент "Doc List Folder"
     public void goToDocListFolder() {
         WebElement docListFolderElement = driver.findElement(docListFolder);
-        docListFolderElement.click();
-    }
-
-    // Метод для клікання на елемент "Doc List File"
+        docListFolderElement.click();}
     public void selectDocListFile() {
         WebElement docListFileCheckboxElement = driver.findElement(docListFileCheckbox);
         docListFileCheckboxElement.click();}
 
-    public void transferFileFromProjectDS() {
-        WebElement projectWSElement = driver.findElement(projectDS);
-        projectWSElement.click();
-    } public void transferFileFromProjectVS() {
+
+    public void transferFileFromProjectVS() {
         WebElement projectWSElement = driver.findElement(projectVS);
-        projectWSElement.click();
-    }
+        projectWSElement.click();}
 
 }
