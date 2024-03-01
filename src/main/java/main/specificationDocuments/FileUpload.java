@@ -70,7 +70,7 @@ public class FileUpload {
     By projectPS = By.xpath("//table[@class='page-content contentHeading1']//div[@class='WMP_transfer_area_ps large_icon']\n");
     By documentList = By.xpath("//td[text()='doc list 1']");
     By docListFolder = By.xpath("//td[text()='PS_Folder_001']");
-    By docListFile = By.xpath("//td[contains(text(), 'file_PS.pdf')]");
+    By docListFileCheckbox = By.xpath("//input[@type='checkbox' and @name='file' and @value='143560']");
     By projectDS = By.xpath("//table[@class='page-content contentHeading1']//div[@class='WMP_transfer_area_ds large_icon']\n");
 
     public void selectFileFromWS() {
@@ -345,7 +345,32 @@ public class FileUpload {
     public void transferFileFromProjectPS() {
         WebElement projectWSElement = driver.findElement(projectPS);
         projectWSElement.click();
+        WebElement documentListElement = driver.findElement(documentList);
+        documentListElement.click();
+        WebElement docListFolderElement = driver.findElement(docListFolder);
+        docListFolderElement.click();
+        WebElement docListFileElement = driver.findElement(docListFileCheckbox);
+        docListFileElement.click();
+        clickTransferButton();
+        clickOkButton();
+
     }
+    public void goToDocumentList() {
+        WebElement documentListElement = driver.findElement(documentList);
+        documentListElement.click();
+    }
+
+    // Метод для клікання на елемент "Doc List Folder"
+    public void goToDocListFolder() {
+        WebElement docListFolderElement = driver.findElement(docListFolder);
+        docListFolderElement.click();
+    }
+
+    // Метод для клікання на елемент "Doc List File"
+    public void selectDocListFile() {
+        WebElement docListFileCheckboxElement = driver.findElement(docListFileCheckbox);
+        docListFileCheckboxElement.click();}
+
     public void transferFileFromProjectDS() {
         WebElement projectWSElement = driver.findElement(projectDS);
         projectWSElement.click();

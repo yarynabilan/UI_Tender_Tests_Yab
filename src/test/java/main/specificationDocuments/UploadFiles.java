@@ -245,7 +245,6 @@ public class UploadFiles extends ApplicationsNavigationTest {
         tendersPage.switchToNewWindowTest();
         fileUpload.transferFileFromProjectPS();
         Thread.sleep(3000);
-
     }
 
     // TO DO:
