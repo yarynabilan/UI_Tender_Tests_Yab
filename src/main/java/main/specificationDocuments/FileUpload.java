@@ -1,6 +1,8 @@
 package main.specificationDocuments;
 
 import io.qameta.allure.Step;
+import main.BasePage;
+import main.PublicTenderPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -11,7 +13,7 @@ import java.io.File;
 
 import static java.awt.SystemColor.text;
 
-public class FileUpload {
+public class FileUpload   {
 
     private WebDriver driver;
 
@@ -282,57 +284,47 @@ public class FileUpload {
     public void clickFileLinkByXPath() {
         WebElement fileLinkByXPathElement = driver.findElement(fileLinkByXPath);
         fileLinkByXPathElement.click();}
-
+    @Step
     public void transferFileFromProjectWS() {
-        WebElement projectWSElement = driver.findElement(projectWS);
-        projectWSElement.click();
+        driver.findElement(projectWS).click();
         clickSelectAllButton();
         clickTransferButton();
         clickOkButton();
     }
 
-//    }  public void goToProjectWS() {
-//        WebElement projectWSElement = driver.findElement(projectWS);
-//        projectWSElement.click();
-//
     @Step
     public void transferFileFromProjectPS() {
-        WebElement projectWSElement = driver.findElement(projectPS);
-        projectWSElement.click();
-        WebElement documentListElement = driver.findElement(documentList);
-        documentListElement.click();
-        WebElement docListFolderElement = driver.findElement(docListFolder);
-        docListFolderElement.click();
-        WebElement docListFileElement = driver.findElement(docListFileCheckbox);
-        docListFileElement.click();
+        driver.findElement(projectPS).click();
+        driver.findElement(documentList).click();
+        driver.findElement(docListFolder).click();
+        driver.findElement(docListFileCheckbox).click();
         clickTransferButton();
         clickOkButton();
     }
+
     @Step
     public void transferFileFromProjectDS() {
-        WebElement projectDSElement = driver.findElement(projectDS);
-        projectDSElement.click();
-        WebElement distributionListElement = driver.findElement(distibutionList);
-        distributionListElement.click();
+        driver.findElement(projectDS).click();
+        driver.findElement(distibutionList).click();
         clickSelectAllButton();
         clickTransferButton();
         clickOkButton();
-
     }
-    public void goToDocumentList() {
-        WebElement documentListElement = driver.findElement(documentList);
-        documentListElement.click();}
 
-    public void goToDocListFolder() {
-        WebElement docListFolderElement = driver.findElement(docListFolder);
-        docListFolderElement.click();}
-    public void selectDocListFile() {
-        WebElement docListFileCheckboxElement = driver.findElement(docListFileCheckbox);
-        docListFileCheckboxElement.click();}
-
-
-    public void transferFileFromProjectVS() {
-        WebElement projectWSElement = driver.findElement(projectVS);
-        projectWSElement.click();}
+//    public void goToDocumentList() {
+//        WebElement documentListElement = driver.findElement(documentList);
+//        documentListElement.click();}
+//
+//    public void goToDocListFolder() {
+//        WebElement docListFolderElement = driver.findElement(docListFolder);
+//        docListFolderElement.click();}
+//    public void selectDocListFile() {
+//        WebElement docListFileCheckboxElement = driver.findElement(docListFileCheckbox);
+//        docListFileCheckboxElement.click();}
+//
+//
+//    public void transferFileFromProjectVS() {
+//        WebElement projectWSElement = driver.findElement(projectVS);
+//        projectWSElement.click();}
 
 }

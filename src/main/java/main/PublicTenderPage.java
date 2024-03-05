@@ -1,6 +1,7 @@
 package main;
 
 import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.Step;
 import main.tenderInformation.TenderDescription;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -14,6 +15,7 @@ import static org.testng.Assert.assertTrue;
 public class PublicTenderPage extends BasePage {
 
     public TenderDescription tenderInformationPanel;
+
 //    public SubmissionRequirementsTab submissionRequirementsTab;
 private final SelenideElement tenderHeaderType = $(byXpath("//div[@class='header_title' and @id='username']"));
     private By tenderAdminProfile = By.xpath("//td[@class='modulHeading']");
@@ -37,6 +39,7 @@ private final SelenideElement tenderHeaderType = $(byXpath("//div[@class='header
     public PublicTenderPage(WebDriver driver) {
         super(driver);
     }
+
 
     public WebElement tenderHeaderType() {
         return driver.findElement((By) tenderHeaderType);
@@ -70,6 +73,7 @@ private final SelenideElement tenderHeaderType = $(byXpath("//div[@class='header
 
     public void switchToBrowserFrame() {
         driver.switchTo().frame(driver.findElement(browserFrame));
+
 
     }
     }

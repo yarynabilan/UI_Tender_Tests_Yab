@@ -188,9 +188,7 @@ public class UploadFiles extends ApplicationsNavigationTest {
         fileUpload.clickOnPrequalificationTab();
         tendersPage.switchToNewWindowTest();
         fileUpload.clickOnFolderA();
-
         tendersPage.switchToNewWindowTest();
-
         fileUpload.selectFileFromFirstPhase();
         fileUpload.clickTransferButton();
         fileUpload.confirmUpload();
@@ -223,7 +221,7 @@ public class UploadFiles extends ApplicationsNavigationTest {
         Thread.sleep(3000);
     }
          @Test
-    public void transferralUploadProjectPS() throws InterruptedException, AWTException {
+    public void transferralUploadProjectWSPSDS() throws InterruptedException, AWTException {
         TendersPage tendersPage = new TendersPage(driver);
         tendersPage.switchToBrowserFrame();
         PublicTenderPage publicTenderPage = new PublicTenderPage(driver);
