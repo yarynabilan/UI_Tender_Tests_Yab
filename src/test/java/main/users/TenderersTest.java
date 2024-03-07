@@ -72,6 +72,8 @@ public class TenderersTest extends ApplicationsNavigationTest {
 
         allUsers.clickAddUserButton();
         tendersPage.switchToNewWindowTest();
+        Thread.sleep(3000);
+
         tenderers.clickInviteUserLink();
         tendersPage.switchToNewWindowTest();
         allUsers.enterEmail("nadiabilan38@gmail.com");
