@@ -1,5 +1,6 @@
 package main.messages;
 
+import io.qameta.allure.Step;
 import main.specificationDocuments.FileUpload;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -33,7 +34,9 @@ public class Messages {
     private By confirmSendButton = By.xpath("//input[@value='Send']");
     private By exportingMessagesLink = By.xpath("//a[@id='filelink']");
 
-    public WebElement link(){return driver.findElement(exportingMessagesLink);}
+    public WebElement link() {
+        return driver.findElement(exportingMessagesLink);
+    }
 
     public void clickSendMessageButton() {
         driver.findElement(sendMessageButton).click();
@@ -50,6 +53,7 @@ public class Messages {
     public void clickGeneratedReportLink() {
         driver.findElement(generatedReportLink).click();
     }
+
     public void enterSubjectText(String subject) {
         enterText(inputSubjectText, subject);
     }
@@ -62,6 +66,7 @@ public class Messages {
     public void uploadFile(String filePath) {
         enterText(fileInput, filePath);
     }
+
     public void uploadFileToMessage() throws AWTException {
         File uploadFile = new File("src/main/resources/files/MessageFileAttachment.pdf");
         WebElement fileInputElement = driver.findElement(FileUpload.fileInput);
@@ -116,11 +121,11 @@ public class Messages {
             checkbox.click();
         }
     }
+
     private void clickElement(By locator) {
         WebElement element = driver.findElement(locator);
         element.click();
     }
 
-
-    }
+}
 
