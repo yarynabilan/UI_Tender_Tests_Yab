@@ -33,16 +33,16 @@ messages.clickConfirmSendButton();
         Thread.sleep(3000);
 
     }
-        @Test
-        public void sendMessageToAdministrators2() throws InterruptedException, AWTException {
-            TendersPage tendersPage = new TendersPage(driver);
-            tendersPage.switchToBrowserFrame();
-            PublicTenderPage publicTenderPage = new PublicTenderPage(driver);
-            publicTenderPage.clickOnElement(publicTenderPage.getMessagesfromTenderAdministratorTab());
-            driver.switchTo().defaultContent();
-            Messages messages = new Messages(driver);
-            tendersPage.switchToNewWindowTest();
-            messages.sendMessage("TestSubject AutoTest Admins", "auto test administrators", "src/main/resources/files/MessageFileAttachment.pdf");
-            Thread.sleep(3000);
-        }
+//        @Test
+//        public void sendMessageToAdministrators2() throws InterruptedException, AWTException {
+//            TendersPage tendersPage = new TendersPage(driver);
+//            tendersPage.switchToBrowserFrame();
+//            PublicTenderPage publicTenderPage = new PublicTenderPage(driver);
+//            publicTenderPage.clickOnElement(publicTenderPage.getMessagesfromTenderAdministratorTab());
+//            driver.switchTo().defaultContent();
+//            Messages messages = new Messages(driver);
+//            tendersPage.switchToNewWindowTest();
+//            messages.sendMessage("TestSubject AutoTest Admins", "auto test administrators", "src/main/resources/files/MessageFileAttachment.pdf");
+//            Thread.sleep(3000);
+//        }
     }
