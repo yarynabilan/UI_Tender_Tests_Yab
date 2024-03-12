@@ -1,53 +1,55 @@
-package main;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Test;
-import static org.testng.Assert.assertTrue;
-public class BasicTenderNavigation extends OpenTenderTest {
+package main
 
-    private PublicTenderPage PublicTenderPage;
-@BeforeMethod
-public void setUpTestEnvironment() throws InterruptedException {
-}
+import org.testng.Assert
+import org.testng.annotations.BeforeMethod
+import org.testng.annotations.Test
+
+class BasicTenderNavigation : OpenTenderTest() {
+    private val PublicTenderPage: PublicTenderPage? = null
+    @BeforeMethod
+    @Throws(InterruptedException::class)
+    fun setUpTestEnvironment() {
+    }
+
     @Test
-    public void navigationPublicTenderTab() throws InterruptedException {
-        TendersPage tendersPage = new TendersPage(driver);
-        tendersPage.switchToBrowserFrame();
+    @Throws(InterruptedException::class)
+    fun navigationPublicTenderTab() {
+        val tendersPage = TendersPage(driver)
+        tendersPage.switchToBrowserFrame()
 
-        PublicTenderPage publicTenderPage = new PublicTenderPage(driver);
-        publicTenderPage.publicTenderTab().click();
-        assertTrue(publicTenderPage.publicTenderTab().isEnabled());
+        val publicTenderPage = PublicTenderPage(driver)
+        publicTenderPage.publicTenderTab().click()
+        Assert.assertTrue(publicTenderPage.publicTenderTab().isEnabled)
     }
 
     @Test(description = "Navigation to First Tab- Tender Information")
-    public void basicNavigation() throws InterruptedException {
+    @Throws(InterruptedException::class)
+    fun basicNavigation() {
+        val tendersPage = TendersPage(driver)
+        tendersPage.switchToBrowserFrame()
 
-        TendersPage tendersPage = new TendersPage(driver);
-        tendersPage.switchToBrowserFrame();
+        val publicTenderPage = PublicTenderPage(driver)
+        publicTenderPage.tenderInformationTab().click()
 
-        main.PublicTenderPage publicTenderPage = new PublicTenderPage(driver);
-        publicTenderPage.tenderInformationTab().click();
-
-        assertTrue(publicTenderPage.tenderInformationTab().isEnabled());
+        Assert.assertTrue(publicTenderPage.tenderInformationTab().isEnabled)
     }
 
 
-
-    @Test(description = "Navigation through all modules", groups = "navigateModules")
-    public void navigateThoughtMainPanels() throws InterruptedException {
-
-        TendersPage tendersPage = new TendersPage(driver);
-        tendersPage.switchToBrowserFrame();
-        PublicTenderPage publicTenderPage = new PublicTenderPage(driver);
-        publicTenderPage.clickOnElement(publicTenderPage.getTenderInformationTab());
-        publicTenderPage.clickOnElement(publicTenderPage.getSubmissionRequirementsTab());
-        publicTenderPage.clickOnElement(publicTenderPage.getTenderSpecificationDocumentsTab());
-        publicTenderPage.clickOnElement(publicTenderPage.getQuestionsAndAnswersTab());
-        publicTenderPage.clickOnElement(publicTenderPage.getMessagesfromTenderAdministratorTab());
-        publicTenderPage.clickOnElement(publicTenderPage.getUsersTab());
-        publicTenderPage.clickOnElement(publicTenderPage.getLogFilesTab());
-        publicTenderPage.clickOnElement(publicTenderPage.getGuidanceTab());
-        publicTenderPage.clickOnElement(publicTenderPage.getSubmittedTenderOffersTab());
-        publicTenderPage.clickOnElement(publicTenderPage.getTenderResultTab());
-
+    @Test(description = "Navigation through all modules", groups = ["navigateModules"])
+    @Throws(InterruptedException::class)
+    fun navigateThoughtMainPanels() {
+        val tendersPage = TendersPage(driver)
+        tendersPage.switchToBrowserFrame()
+        val publicTenderPage = PublicTenderPage(driver)
+        publicTenderPage.clickOnElement(publicTenderPage.tenderInformationTab)
+        publicTenderPage.clickOnElement(publicTenderPage.submissionRequirementsTab)
+        publicTenderPage.clickOnElement(publicTenderPage.tenderSpecificationDocumentsTab)
+        publicTenderPage.clickOnElement(publicTenderPage.questionsAndAnswersTab)
+        publicTenderPage.clickOnElement(publicTenderPage.messagesfromTenderAdministratorTab)
+        publicTenderPage.clickOnElement(publicTenderPage.usersTab)
+        publicTenderPage.clickOnElement(publicTenderPage.logFilesTab)
+        publicTenderPage.clickOnElement(publicTenderPage.guidanceTab)
+        publicTenderPage.clickOnElement(publicTenderPage.submittedTenderOffersTab)
+        publicTenderPage.clickOnElement(publicTenderPage.tenderResultTab)
     }
 }
