@@ -1,18 +1,15 @@
-package main;
+package main
 
-import org.testng.annotations.Test;
+import org.testng.Assert
+import org.testng.annotations.Test
 
-import static org.testng.Assert.assertEquals;
-import static org.testng.Assert.assertTrue;
-public class ApplicationsNavigationTest extends LoginTest {
-
-
+open class ApplicationsNavigationTest : LoginTest() {
     @Test
-    public void applicationNavigationTest() {
-        MainPage mainPage = new MainPage(driver);
-        mainPage.navigateToApplications().applications().click();
-        ApplicationsPage applicationsPage = new ApplicationsPage(driver);
-        assertTrue(applicationsPage.tenderLink().isDisplayed());
+    fun applicationNavigationTest() {
+        val mainPage = MainPage(driver)
+        mainPage.navigateToApplications().applications().click()
+        val applicationsPage = ApplicationsPage(driver)
+        Assert.assertTrue(applicationsPage.tenderLink().isDisplayed)
     }
 }
 

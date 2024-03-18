@@ -1,34 +1,29 @@
-package main.questionAndAnswers;
+package main.questionAndAnswers
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.By
+import org.openqa.selenium.WebDriver
 
-public class NewQuestions {
-        private WebDriver driver;
-
-        public NewQuestions(WebDriver driver) {
-            this.driver = driver;
-        }
-        private By newQuestionButton = By.xpath("//img[@title='New question']");
-        private By textInputForQuestion = By.xpath("//textarea[@id='question']");
-        private By okButton = By.xpath("//input[@type='button' and @value='OK']\n");
-        private By sendButton = By.xpath("//input[@type='button' and @value='Send']\n");
-    public void clickOnAddNewQuestionButton() {
-        WebElement newQuestionButton = driver.findElement(this.newQuestionButton);
-        newQuestionButton.click();
+class NewQuestions(private val driver: WebDriver) {
+    private val newQuestionButton: By = By.xpath("//img[@title='New question']")
+    private val textInputForQuestion: By = By.xpath("//textarea[@id='question']")
+    private val okButton: By = By.xpath("//input[@type='button' and @value='OK']\n")
+    private val sendButton: By = By.xpath("//input[@type='button' and @value='Send']\n")
+    fun clickOnAddNewQuestionButton() {
+        val newQuestionButton = driver.findElement(this.newQuestionButton)
+        newQuestionButton.click()
     }
 
-    public NewQuestions fillInQuestionText(String test) {
-        WebElement textInputForQuestion = driver.findElement(this.textInputForQuestion);
-        textInputForQuestion.clear();
-        textInputForQuestion.sendKeys(test);
-        return this;
+    fun fillInQuestionText(test: String?): NewQuestions {
+        val textInputForQuestion = driver.findElement(this.textInputForQuestion)
+        textInputForQuestion.clear()
+        textInputForQuestion.sendKeys(test)
+        return this
     }
-    public void confirmQuestionOkSend() {
-        WebElement okButton = driver.findElement(this.okButton);
-        okButton.click();
-        WebElement sendButton = driver.findElement(this.sendButton);
-        sendButton.click();
+
+    fun confirmQuestionOkSend() {
+        val okButton = driver.findElement(this.okButton)
+        okButton.click()
+        val sendButton = driver.findElement(this.sendButton)
+        sendButton.click()
     }
-    }
+}

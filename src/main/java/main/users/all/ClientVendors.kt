@@ -1,62 +1,60 @@
-package main.users.all;
+package main.users.all
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.Select;
-public class ClientVendors {
+import org.openqa.selenium.By
+import org.openqa.selenium.WebDriver
+import org.openqa.selenium.support.ui.Select
 
-    private WebDriver driver;
-    public ClientVendors(WebDriver driver) {
-        this.driver = driver;
-    }
-    private By nameField = By.xpath("//input[@name=\"name\"]");
-    private By emailField = By.xpath("//input[@name=\"email\"]");
-    private By messageField = By.xpath("//textarea[@name=\"message\"]");
-    private By danskDropdown = By.xpath("//select[@name='language']");
-    private By vendorProfile = By.xpath("//td[text()='Client Vendor 1 Test']");
-    private By resendInvitationButton = By.xpath("//input[@type='button' and @value='Send']");
-    private By okButton = By.xpath("//input[@value=\"OK\"]\n");
-    private By closeButton = By.xpath("//input[@type='button' and @value='Close window']");
+class ClientVendors(private val driver: WebDriver) {
+    private val nameField: By = By.xpath("//input[@name=\"name\"]")
+    private val emailField: By = By.xpath("//input[@name=\"email\"]")
+    private val messageField: By = By.xpath("//textarea[@name=\"message\"]")
+    private val danskDropdown: By = By.xpath("//select[@name='language']")
+    private val vendorProfile: By = By.xpath("//td[text()='Client Vendor 1 Test']")
+    private val resendInvitationButton: By = By.xpath("//input[@type='button' and @value='Send']")
+    private val okButton: By = By.xpath("//input[@value=\"OK\"]\n")
+    private val closeButton: By = By.xpath("//input[@type='button' and @value='Close window']")
 
-    public void enterName(String name) {
-        WebElement nameElement = driver.findElement(nameField);
-        nameElement.clear();
-        nameElement.sendKeys(name);
+    fun enterName(name: String?) {
+        val nameElement = driver.findElement(nameField)
+        nameElement.clear()
+        nameElement.sendKeys(name)
     }
 
-    public void enterEmail(String email) {
-        WebElement emailElement = driver.findElement(emailField);
-        emailElement.clear();
-        emailElement.sendKeys(email);
+    fun enterEmail(email: String?) {
+        val emailElement = driver.findElement(emailField)
+        emailElement.clear()
+        emailElement.sendKeys(email)
     }
 
-    public void enterMessage(String message) {
-        WebElement messageElement = driver.findElement(messageField);
-        messageElement.clear();
-        messageElement.sendKeys(message);
+    fun enterMessage(message: String?) {
+        val messageElement = driver.findElement(messageField)
+        messageElement.clear()
+        messageElement.sendKeys(message)
     }
 
-    public void selectDansk() {
-        WebElement danskDropdownElement = driver.findElement(danskDropdown);
-        new Select(danskDropdownElement).selectByVisibleText("Dansk");
-    }
-    public void selectVendorProfile() {
-        WebElement vendorProfileElement = driver.findElement(vendorProfile);
-        vendorProfileElement.click();
+    fun selectDansk() {
+        val danskDropdownElement = driver.findElement(danskDropdown)
+        Select(danskDropdownElement).selectByVisibleText("Dansk")
     }
 
-    public void clickResendInvitationButton() {
-        WebElement resendInvitationButtonElement = driver.findElement(resendInvitationButton);
-        resendInvitationButtonElement.click();
-    }
-    public void clickOkButton() {
-        WebElement okButtonElement = driver.findElement(okButton);
-        okButtonElement.click();
-    } public void clickCloseButton() {
-        WebElement closeButtonElement = driver.findElement(closeButton);
-        closeButtonElement.click();
+    fun selectVendorProfile() {
+        val vendorProfileElement = driver.findElement(vendorProfile)
+        vendorProfileElement.click()
     }
 
+    fun clickResendInvitationButton() {
+        val resendInvitationButtonElement = driver.findElement(resendInvitationButton)
+        resendInvitationButtonElement.click()
+    }
+
+    fun clickOkButton() {
+        val okButtonElement = driver.findElement(okButton)
+        okButtonElement.click()
+    }
+
+    fun clickCloseButton() {
+        val closeButtonElement = driver.findElement(closeButton)
+        closeButtonElement.click()
+    }
 }
 

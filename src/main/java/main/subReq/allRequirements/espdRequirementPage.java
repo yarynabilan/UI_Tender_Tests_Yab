@@ -66,7 +66,7 @@ public class espdRequirementPage {
         okButton.click();
     }
 
-    public static void clickUploadOK() {
+    public void clickUploadOK() {
         WebElement confirmUploadButton = driver.findElement(confirmUpload);
         confirmUploadButton.click();
     }

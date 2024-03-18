@@ -1,46 +1,37 @@
-package main;
+package main
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.By
+import org.openqa.selenium.WebDriver
+import org.openqa.selenium.WebElement
+import org.testng.Assert
 
-import static com.codeborne.selenide.Selenide.$;
-import static org.testng.Assert.assertTrue;
-public class
-MainPage extends BasePage {
-    private By imgLocator = By.xpath("//div[@id = 'companypage-top-user']/p"); // це user TOP Label
+class MainPage(driver: WebDriver?) : BasePage(driver) {
+    private val imgLocator: By = By.xpath("//div[@id = 'companypage-top-user']/p") // це user TOP Label
+
     //   By userTopLabel = By.xpath("///div[@id = 'companypage-top-user']/p");
-    private By signOutLocator = By.xpath("//span[@onclick=\"Company.User.LogOff();\"]");
-    private By applications = By.xpath("//*[@id='tab_applications']");
-    private final static String TITLE = "Main page";
+    private val signOutLocator: By = By.xpath("//span[@onclick=\"Company.User.LogOff();\"]")
+    private val applications: By = By.xpath("//*[@id='tab_applications']")
+    val profileLogoOnTheMainPage: WebElement
+        get() = driver!!.findElement(imgLocator)
 
-    public MainPage(WebDriver driver) {
-
-        super(driver);
+    fun signOut(): WebElement {
+        return driver!!.findElement(signOutLocator)
     }
 
-    public WebElement getProfileLogoOnTheMainPage() {
-        return driver.findElement(imgLocator);
+    fun applications(): WebElement {
+        return driver!!.findElement(applications)
+    }
+    fun goToMainPage(): MainPage {
+        Assert.assertTrue(driver!!.findElement(signOutLocator).isDisplayed)
+        driver!!.findElement(signOutLocator).click()
+        return MainPage(driver)
     }
 
-    public WebElement signOut() {
-        return driver.findElement(signOutLocator);
+    fun navigateToApplications(): MainPage {
+        driver!!.findElement(applications).click()
+        return this
     }
-    public WebElement applications(){
-
-        return driver.findElement(applications);
-}
-
-
-
-    public MainPage goToMainPage() {
-        assertTrue(driver.findElement(signOutLocator).isDisplayed());
-        driver.findElement(signOutLocator).click();
-        return new MainPage(driver);
-    }
-
-    public MainPage navigateToApplications(){
-        driver.findElement(applications).click();
-        return this;
+    companion object {
+        private const val TITLE = "Main page"
     }
 }

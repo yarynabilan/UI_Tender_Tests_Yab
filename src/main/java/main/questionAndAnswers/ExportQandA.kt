@@ -1,83 +1,85 @@
-package main.questionAndAnswers;
+package main.questionAndAnswers
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.By
+import org.openqa.selenium.WebDriver
+import org.openqa.selenium.WebElement
+import org.openqa.selenium.support.ui.Select
 
-public class ExportQandA {
-    private WebDriver driver;
+class ExportQandA(private val driver: WebDriver) {
+    private val exportQuestionButton: By = By.xpath("//img[@title='Export Q&A']")
+    private val fileFormatDropdown: By = By.xpath("//select[@name='fileformat']")
+    private val wordFormatOption: By = By.xpath("//option[@value='word']")
+    private val excelFormatOption: By = By.xpath("//option[@value='excel']")
+    private val sortColumnDropdown: By = By.xpath("//select[@name='column']")
+    private val answerDateOption: By = By.xpath("//option[@value='AnswerDate']")
+    private val questionDateOption: By = By.xpath("//option[@value='CreateDate']")
+    private val sortOrderDropdown: By = By.xpath("//select[@name='direction']")
+    private val oldestFirstOption: By = By.xpath("//option[@value='asc']")
+    private val newestFirstOption: By = By.xpath("//option[@value='desc']")
+    private val qANDaStatusDropdown: By = By.xpath("//select[@name='status']")
+    private val allOption: By = By.xpath("//select[@name='status']/option[text()='All']")
+    private val unansweredOption: By = By.xpath("//select[@name='status']/option[text()='Unanswered questions']")
+    private val draftsOption: By = By.xpath("//select[@name='status']/option[text()='Drafts']")
+    private val publishedOption: By = By.xpath("//select[@name='status']/option[text()='Published answers']")
+    private val okButton: By = By.xpath("//input[@type='submit' and @value='OK']")
+    private val link: By = By.xpath("//a[@id='filelink' and contains(text(), 'QA')]")
 
-    public ExportQandA(WebDriver driver) {
-        this.driver = driver;
-    }
-    private By exportQuestionButton = By.xpath("//img[@title='Export Q&A']");
-    private By fileFormatDropdown = By.xpath("//select[@name='fileformat']");
-    private By wordFormatOption = By.xpath("//option[@value='word']");
-    private By excelFormatOption = By.xpath("//option[@value='excel']");
-    private By sortColumnDropdown = By.xpath("//select[@name='column']");
-    private By answerDateOption = By.xpath("//option[@value='AnswerDate']");
-    private By questionDateOption = By.xpath("//option[@value='CreateDate']");
-    private By sortOrderDropdown = By.xpath("//select[@name='direction']");
-    private By oldestFirstOption = By.xpath("//option[@value='asc']");
-    private By newestFirstOption = By.xpath("//option[@value='desc']");
-    private By qANDaStatusDropdown = By.xpath("//select[@name='status']");
-    private By allOption = By.xpath("//select[@name='status']/option[text()='All']");
-    private By unansweredOption = By.xpath("//select[@name='status']/option[text()='Unanswered questions']");
-    private By draftsOption = By.xpath("//select[@name='status']/option[text()='Drafts']");
-    private By publishedOption = By.xpath("//select[@name='status']/option[text()='Published answers']");
-    private By okButton = By.xpath("//input[@type='submit' and @value='OK']");
-    private By link = By.xpath("//a[@id='filelink' and contains(text(), 'QA')]");
-
-    public WebElement link(){return driver.findElement(link);}
-
-    public void clickExportQA_button() {
-        WebElement exportQuestionButtonElement = driver.findElement(exportQuestionButton);
-        exportQuestionButtonElement.click();
-    }
-    public void selectWordFormat() {
-        WebElement wordFormatOptionElement = driver.findElement(wordFormatOption);
-        wordFormatOptionElement.click();}
-    public void selectAll_QA() {
-        Select qANDaStatusDropdownElement = new Select(driver.findElement(qANDaStatusDropdown));
-        qANDaStatusDropdownElement.selectByVisibleText("All");
-    }
-    public void confirmOK() {
-        WebElement okButtonElement = driver.findElement(okButton);
-        okButtonElement.click();}
-    public void selectExcelFormat() {
-        WebElement excelFormatOptionElement = driver.findElement(excelFormatOption);
-        excelFormatOptionElement.click();}
-
-        public void sortByAnswerDate() {
-            Select sortColumnDropdownElement = new Select(driver.findElement(sortColumnDropdown));
-            sortColumnDropdownElement.selectByValue("AnswerDate");
-        }
-    public void sortByOrderDesc() {
-        Select sortOrderDropdownElement = new Select(driver.findElement(sortOrderDropdown));
-        sortOrderDropdownElement.selectByValue("desc");}
-    public void selectAll() {
-        Select qANDaStatusDropdownElement = new Select(driver.findElement(qANDaStatusDropdown));
-        qANDaStatusDropdownElement.selectByVisibleText("All");
-    }
-    public void selectUnanswered() {
-        Select qANDaStatusDropdownElement = new Select(driver.findElement(qANDaStatusDropdown));
-        qANDaStatusDropdownElement.selectByVisibleText("Unanswered questions");
+    fun link(): WebElement {
+        return driver.findElement(link)
     }
 
-    public void selectDrafts() {
-        Select qANDaStatusDropdownElement = new Select(driver.findElement(qANDaStatusDropdown));
-        qANDaStatusDropdownElement.selectByVisibleText("Drafts");
+    fun clickExportQA_button() {
+        val exportQuestionButtonElement = driver.findElement(exportQuestionButton)
+        exportQuestionButtonElement.click()
     }
 
-    public void selectPublished() {
-        Select qANDaStatusDropdownElement = new Select(driver.findElement(qANDaStatusDropdown));
-        qANDaStatusDropdownElement.selectByVisibleText("Published answers");
+    fun selectWordFormat() {
+        val wordFormatOptionElement = driver.findElement(wordFormatOption)
+        wordFormatOptionElement.click()
     }
 
-//    public boolean getLinkLocator() {
-//        WebElement linkElement = driver.findElement(link);
-//        return linkElement.isDisplayed();
-//    }
+    fun selectAll_QA() {
+        val qANDaStatusDropdownElement = Select(driver.findElement(qANDaStatusDropdown))
+        qANDaStatusDropdownElement.selectByVisibleText("All")
+    }
 
+    fun confirmOK() {
+        val okButtonElement = driver.findElement(okButton)
+        okButtonElement.click()
+    }
+
+    fun selectExcelFormat() {
+        val excelFormatOptionElement = driver.findElement(excelFormatOption)
+        excelFormatOptionElement.click()
+    }
+
+    fun sortByAnswerDate() {
+        val sortColumnDropdownElement = Select(driver.findElement(sortColumnDropdown))
+        sortColumnDropdownElement.selectByValue("AnswerDate")
+    }
+
+    fun sortByOrderDesc() {
+        val sortOrderDropdownElement = Select(driver.findElement(sortOrderDropdown))
+        sortOrderDropdownElement.selectByValue("desc")
+    }
+
+    fun selectAll() {
+        val qANDaStatusDropdownElement = Select(driver.findElement(qANDaStatusDropdown))
+        qANDaStatusDropdownElement.selectByVisibleText("All")
+    }
+
+    fun selectUnanswered() {
+        val qANDaStatusDropdownElement = Select(driver.findElement(qANDaStatusDropdown))
+        qANDaStatusDropdownElement.selectByVisibleText("Unanswered questions")
+    }
+
+    fun selectDrafts() {
+        val qANDaStatusDropdownElement = Select(driver.findElement(qANDaStatusDropdown))
+        qANDaStatusDropdownElement.selectByVisibleText("Drafts")
+    }
+
+    fun selectPublished() {
+        val qANDaStatusDropdownElement = Select(driver.findElement(qANDaStatusDropdown))
+        qANDaStatusDropdownElement.selectByVisibleText("Published answers")
+    }
 }

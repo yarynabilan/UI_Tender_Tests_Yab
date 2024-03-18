@@ -18,10 +18,10 @@ class HomePage : BasePage {
     constructor(driver: WebDriver?, title: String?) : super(driver)
 
     val logo: WebElement
-        get() = driver.findElement(logoLocator)
+        get() = driver!!.findElement(logoLocator)
 
     fun validateErrorMessage(expectedMessage: String?): HomePage {
-        val actualMessage = driver.findElement(errorMessageLabelLocator).text
+        val actualMessage = driver!!.findElement(errorMessageLabelLocator).text
         Assert.assertTrue(actualMessage.contains(expectedMessage!!))
         return this
     }

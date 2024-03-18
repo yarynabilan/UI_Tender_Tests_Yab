@@ -15,9 +15,6 @@ open class BaseTest {
     fun setUp() {
 //        System.setProperty("webdriver.chrome.driver", "/Users/yab/IdeaProjects/MyTestFramework/src/main/resources/drivers/chromedriver");
 //        System.setProperty("webdriver.chrome.driver", "/usr/local/bin/chromedriver");
-        //       System.setProperty("webdriver.chrome.driver", "/Users/yab/Desktop/chromedriver/");
-//        System.setProperty("webdriver.chrome.driver", "/usr/local/Caskroom/chromedriver/121.0.6167.85/chromedriver-mac-x64/chromedriver");
-
         driver = ChromeDriver()
         (driver as ChromeDriver).manage().window().maximize()
         (driver as ChromeDriver).manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS)
@@ -33,11 +30,9 @@ open class BaseTest {
         applicationsPage.tenderLink().click()
         val tendersPage = TendersPage(driver)
         tendersPage.openPublicTender()
-
         val mainWindowHandle = (driver as ChromeDriver).getWindowHandle()
         tendersPage.switchToNewWindow(mainWindowHandle)
     }
-
     @AfterMethod
     fun tearDown() {
         if (driver != null) {

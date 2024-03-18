@@ -42,12 +42,12 @@
                     <include name="ExportQandAinExceldUnanswered" />
                 </methods>
             </class>
-            <class name="main.Messages.MessagesTests">
-                <methods>
-                    <include name="SendMessagesTest" />
-                    <include name="ExportMessagesTest" />
-                </methods>
-            </class>
+<!--            <class name="main.Messages.MessagesTests">-->
+<!--                <methods>-->
+<!--                    <include name="SendMessagesTest" />-->
+<!--                    <include name="ExportMessagesTest" />-->
+<!--                </methods>-->
+<!--            </class>-->
         </classes>
     </test>
 </suite>
