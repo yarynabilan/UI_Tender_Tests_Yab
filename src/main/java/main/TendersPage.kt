@@ -1,89 +1,80 @@
-package main;
+package main
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.By
+import org.openqa.selenium.WebDriver
 
-import java.util.Iterator;
-import java.util.Set;
-
-import static org.testng.Assert.assertTrue;
-
-public class TendersPage extends BasePage {
-
+class TendersPage(driver: WebDriver?) : BasePage(driver) {
     //   List<WebElement> repositoriesList = driver.findElements(By.xpath("//td[text() = 'AutoTest Public Tender']"));
+    private val publicTenderLink: By = By.xpath("//td[text() = 'AutoTest Public Tender']")
 
-    private By publicTenderLink = By.xpath("//td[text() = 'AutoTest Public Tender']");
-//    private By limitedTenderLink = By.xpath("//td[text() = 'Limited Test rib']");
-//    private By limitedTenderLink = By.xpath("//td[text() = 'Limited 110 Sprint Tender']");
-    private By limitedTenderLink = By.xpath("//td[text() = 'Limited 112']");
-    private By browserFrame = By.xpath("//frame[@name='browser']");
-    private By functionsFrame = By.xpath("//frame[@name='functions']");
-    private By navigationFrame = By.xpath("//frame[@name='navigation']");
-    private By directoryFrame = By.xpath("//frame[@name='directory']");
-    private By fileDetailsFrame = By.xpath("//frame[@name='filespec']");
-    private final static String TITLE = "Tenders";
-
-    public TendersPage(WebDriver driver) {
-        super(driver);
+    //    private By limitedTenderLink = By.xpath("//td[text() = 'Limited Test rib']");
+    //    private By limitedTenderLink = By.xpath("//td[text() = 'Limited 110 Sprint Tender']");
+    private val limitedTenderLink: By = By.xpath("//td[text() = 'Limited 112']")
+    private val browserFrame: By = By.xpath("//frame[@name='browser']")
+    private val functionsFrame: By = By.xpath("//frame[@name='functions']")
+    private val navigationFrame: By = By.xpath("//frame[@name='navigation']")
+    private val directoryFrame: By = By.xpath("//frame[@name='directory']")
+    private val fileDetailsFrame: By = By.xpath("//frame[@name='filespec']")
+    fun openPublicTender(): TendersPage {
+        driver!!.findElement(limitedTenderLink).click()
+        return this
     }
 
-    public TendersPage openPublicTender() {
-        driver.findElement(limitedTenderLink).click();
-        return this;
-    }
-    public TendersPage openLimitedTender() {
-        driver.findElement(limitedTenderLink).click();
-        return this;
+    fun openLimitedTender(): TendersPage {
+        driver!!.findElement(limitedTenderLink).click()
+        return this
     }
 
-    public void switchToBrowserFrame() {
-        driver.switchTo().frame(driver.findElement(browserFrame));
+    fun switchToBrowserFrame() {
+        driver!!.switchTo().frame(driver!!.findElement(browserFrame))
     }
 
-    public void switchToFunctionsFrame() {
-        driver.switchTo().frame(driver.findElement(functionsFrame));
+    fun switchToFunctionsFrame() {
+        driver!!.switchTo().frame(driver!!.findElement(functionsFrame))
     }
 
-    public void switchToNavigationFrame() {
-        driver.switchTo().frame(driver.findElement(navigationFrame));
+    fun switchToNavigationFrame() {
+        driver!!.switchTo().frame(driver!!.findElement(navigationFrame))
     }
 
-    public void switchToDirectoryFrame() {
-        driver.switchTo().frame(driver.findElement(directoryFrame));
-    }
-    public void switchToFileDetailsFrame() {driver.switchTo().frame(driver.findElement(fileDetailsFrame));
+    fun switchToDirectoryFrame() {
+        driver!!.switchTo().frame(driver!!.findElement(directoryFrame))
     }
 
-    public void switchToNewWindow() {
-        String mainWindowHandle = driver.getWindowHandle(); // Зберегти ідентифікатор поточного вікна
+    fun switchToFileDetailsFrame() {
+        driver!!.switchTo().frame(driver!!.findElement(fileDetailsFrame))
+    }
+
+    fun switchToNewWindow() {
+        val mainWindowHandle = driver!!.windowHandle // Зберегти ідентифікатор поточного вікна
 
         // Знайти ідентифікатор нового вікна
-        String newWindowHandle = null;
-        Set<String> allWindowHandles = driver.getWindowHandles();
-        for (String windowHandle : allWindowHandles) {
-            if (!windowHandle.equals(mainWindowHandle)) {
-                newWindowHandle = windowHandle;
-                break;
+        var newWindowHandle: String? = null
+        val allWindowHandles = driver!!.windowHandles
+        for (windowHandle in allWindowHandles) {
+            if (windowHandle != mainWindowHandle) {
+                newWindowHandle = windowHandle
+                break
             }
         }
 
-        driver.switchTo().window(newWindowHandle);
+        driver!!.switchTo().window(newWindowHandle)
     }
-        public void switchToPreviousWindow() {
-            Set<String> windowHandles = driver.getWindowHandles();
 
-            // Якщо є більше одного вікна, то можна повернутися до попереднього
-            if (windowHandles.size() > 1) {
-                Iterator<String> iterator = windowHandles.iterator();
-                String currentWindow = iterator.next();
-                String previousWindow = iterator.next();
+    fun switchToPreviousWindow() {
+        val windowHandles = driver!!.windowHandles
 
-                driver.switchTo().window(previousWindow);
-            } else {
-                System.out.println("No previous window");
-            }
+        // Якщо є більше одного вікна, то можна повернутися до попереднього
+        if (windowHandles.size > 1) {
+            val iterator: Iterator<String> = windowHandles.iterator()
+            val currentWindow = iterator.next()
+            val previousWindow = iterator.next()
+
+            driver!!.switchTo().window(previousWindow)
+        } else {
+            println("No previous window")
         }
+    }
 }
 
 

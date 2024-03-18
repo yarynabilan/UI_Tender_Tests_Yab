@@ -1,116 +1,139 @@
-package main.questionAndAnswers;
+package main.questionAndAnswers
 
-import main.subReq.allRequirements.espdRequirementPage;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.By
+import org.openqa.selenium.WebDriver
+import org.openqa.selenium.WebElement
+import org.openqa.selenium.support.ui.Select
+import java.awt.AWTException
+import java.io.File
 
-import java.awt.*;
-import java.io.File;
+class Answers(private val driver: WebDriver) {
+    //    private By questionToAnswer = By.xpath("//div[contains(text(), 'It will be published - 2 Admin')]");
+    private val questionToAnswer: By = By.xpath("//tr[@class='rowNormal']/td[@class='vline' and text()='6']\n")
+    private val answerToDraft: By = By.xpath("//tr[@class='rowNormal']/td[@class='vline' and text()='3']\n")
+    private val unAnsweredQuestionsTab: By = By.xpath("//img[@src='/images/info/large_quanda_questions.png']")
+    private val publishedAnswersTab: By = By.xpath("//img[@src='/images/info/large_quanda_answers.png']\n")
+    private val draftsTab: By = By.xpath("//img[@src='/images/info/large_quanda_drafts.png']")
+    private val answerToPublishButton: By = By.xpath("//div[@class='contentNormalLimited' and contains(text(),'It will be published - 2 Admin')]/following-sibling::div[@class='contentNormal']/input[@type='button' and @value='Answer']")
+    private val answerToDraftButton: By = By.xpath("//input[@type='button' and @onclick='answer(2060)' and @value='Answer']")
+    private val saveAsDraftButton: By = By.xpath("//input[@type='button' and @value='Save as draft']")
+    private val editDraftButton: By = By.xpath("//input[@value='Edit']")
+    private val publishButton: By = By.xpath("//input[@type='button' and @value='Publish']")
+    private val anonymizeLink: By = By.xpath("//div[@id='anonymize_link']")
+    private val fileInput: By = By.xpath("//input[@type='file']")
+    private val inputForUpdatingQuestion: By = By.xpath("//textarea[@id='question']")
+    private val inputForAnswer: By = By.xpath("//textarea[@id='answer']")
 
-public class Answers {
-    private WebDriver driver;
-
-    public Answers (WebDriver driver) {
-        this.driver = driver;
-    }
-//    private By questionToAnswer = By.xpath("//div[contains(text(), 'It will be published - 2 Admin')]");
-    private By questionToAnswer = By.xpath("//tr[@class='rowNormal']/td[@class='vline' and text()='6']\n");
-    private By answerToDraft = By.xpath("//tr[@class='rowNormal']/td[@class='vline' and text()='3']\n");
-    private By unAnsweredQuestionsTab = By.xpath("//img[@src='/images/info/large_quanda_questions.png']");
-    private By publishedAnswersTab = By.xpath("//img[@src='/images/info/large_quanda_answers.png']\n");
-    private By draftsTab = By.xpath("//img[@src='/images/info/large_quanda_drafts.png']");
-    private By answerToPublishButton = By.xpath("//div[@class='contentNormalLimited' and contains(text(),'It will be published - 2 Admin')]/following-sibling::div[@class='contentNormal']/input[@type='button' and @value='Answer']");
-    private By answerToDraftButton = By.xpath("//input[@type='button' and @onclick='answer(2060)' and @value='Answer']");
-    private By saveAsDraftButton = By.xpath("//input[@type='button' and @value='Save as draft']");
-    private By editDraftButton = By.xpath("//input[@value='Edit']");
-    private By publishButton = By.xpath("//input[@type='button' and @value='Publish']");
-    private By anonymizeLink = By.xpath("//div[@id='anonymize_link']");
-    private  By fileInput = By.xpath("//input[@type='file']");
-    private By inputForUpdatingQuestion = By.xpath("//textarea[@id='question']");
-    private By inputForAnswer = By.xpath("//textarea[@id='answer']");
     //private By categoryDropdownLocator = By.xpath("//option[text()='Not categorized']");
-    private By categoryDropdownLocator = By.xpath("//select[@name='category']");
-    private By confirmOKButtonPublishFromDraft = By.xpath("//input[@value='OK']");
-    private By editPublishedAnswerButton = By.xpath("//input[@value='Edit']");
-    private By okButton = By.xpath("//input[@value='OK']");
+    private val categoryDropdownLocator: By = By.xpath("//select[@name='category']")
+    private val confirmOKButtonPublishFromDraft: By = By.xpath("//input[@value='OK']")
+    private val editPublishedAnswerButton: By = By.xpath("//input[@value='Edit']")
+    private val okButton: By = By.xpath("//input[@value='OK']")
 
 
-    public void goToUnAnsweredQuestionsTab() {
-        WebElement unAnsweredQuestionsTab = driver.findElement(this.unAnsweredQuestionsTab);
-        unAnsweredQuestionsTab.click();
-    }  public void clickOKButtonPublishFromDraft() {
-        WebElement confirmOKButtonPublishFromDraft = driver.findElement(this.confirmOKButtonPublishFromDraft);
-        confirmOKButtonPublishFromDraft.click();
+    fun goToUnAnsweredQuestionsTab() {
+        val unAnsweredQuestionsTab = driver.findElement(this.unAnsweredQuestionsTab)
+        unAnsweredQuestionsTab.click()
     }
-    public void goToDraftsTab() {WebElement draftsTab = driver.findElement(this.draftsTab);draftsTab.click();}
-    public void clickEditPublishedAnswerButton() {WebElement editPublishedAnswerButton = driver.findElement(this.editPublishedAnswerButton);editPublishedAnswerButton.click();}
 
-    public void goToPublishedAnswersTab() {WebElement publishedAnswersTab = driver.findElement(this.publishedAnswersTab);publishedAnswersTab.click();}
-    public void selectQuestionToAnswer() {
-        WebElement questionToAnswer = driver.findElement(this.questionToAnswer);
-        questionToAnswer.click();
+    fun clickOKButtonPublishFromDraft() {
+        val confirmOKButtonPublishFromDraft = driver.findElement(this.confirmOKButtonPublishFromDraft)
+        confirmOKButtonPublishFromDraft.click()
     }
-    public void selectQuestionToDraft() {
-        WebElement answerToDraft = driver.findElement(this.answerToDraft);
-        answerToDraft.click();
-    }
-    public void clickAnswerToPublishButton() {
-        WebElement answerToPublishButton = driver.findElement(this.answerToPublishButton);
-        answerToPublishButton.click();
-    } public void clickAnswerToDraftButton() {
-        WebElement answerToDraftButton = driver.findElement(this.answerToDraftButton);
-        answerToDraftButton.click();
-    }
-    public void clickSaveAsDraftButton() {
-        WebElement saveAsDraftButton = driver.findElement(this.saveAsDraftButton);
-        saveAsDraftButton.click();
-    }
-    public void clickPublishButton() {
-        WebElement publishButton = driver.findElement(this.publishButton);
-        publishButton.click();
-    }  public void clickEditDraftButton() {
-        WebElement editDraftButton = driver.findElement(this.editDraftButton);
-        editDraftButton.click();
-    }
-    public void clickAnonymizeLink() {
-        WebElement anonymizeLink = driver.findElement(this.anonymizeLink);
-        anonymizeLink.click();
-    }
-    public WebElement setFileInput() {
-        return driver.findElement(fileInput);
-    }
-    public void uploadFileToAdnswer() throws AWTException {
-        File uploadFile = new File("src/main/resources/files/QandA attachment.pdf");
-        WebElement fileInput = setFileInput();
-        fileInput.sendKeys(uploadFile.getAbsolutePath());
-    }
-    public Answers fillInQuestionText(String test) {
-        WebElement inputForUpdatingQuestion = driver.findElement(this.inputForUpdatingQuestion);
-        inputForUpdatingQuestion.clear();
-        inputForUpdatingQuestion.sendKeys(test);
-            return this;
-        }
-    public Answers writeAnswer(String test) {
-        WebElement inputForAnswer = driver.findElement(this.inputForAnswer);
-        inputForAnswer.clear();
-        inputForAnswer.sendKeys(test);
-        return this;
-    }
-    public void selectCategory(){
-        Select categoryDropdown = new Select(driver.findElement(categoryDropdownLocator));
-        categoryDropdown.selectByVisibleText("Not categorized");
 
+    fun goToDraftsTab() {
+        val draftsTab = driver.findElement(this.draftsTab)
+        draftsTab.click()
     }
-    public void selectCategoryToDeleteIt() {
-        Select categoryDropdown = new Select(driver.findElement(categoryDropdownLocator));
-        categoryDropdown.selectByVisibleText("to Delete");
-    }
-        public void clickOkButton() {
-            driver.findElement(okButton).click();
 
+    fun clickEditPublishedAnswerButton() {
+        val editPublishedAnswerButton = driver.findElement(this.editPublishedAnswerButton)
+        editPublishedAnswerButton.click()
     }
+
+    fun goToPublishedAnswersTab() {
+        val publishedAnswersTab = driver.findElement(this.publishedAnswersTab)
+        publishedAnswersTab.click()
     }
+
+    fun selectQuestionToAnswer() {
+        val questionToAnswer = driver.findElement(this.questionToAnswer)
+        questionToAnswer.click()
+    }
+
+    fun selectQuestionToDraft() {
+        val answerToDraft = driver.findElement(this.answerToDraft)
+        answerToDraft.click()
+    }
+
+    fun clickAnswerToPublishButton() {
+        val answerToPublishButton = driver.findElement(this.answerToPublishButton)
+        answerToPublishButton.click()
+    }
+
+    fun clickAnswerToDraftButton() {
+        val answerToDraftButton = driver.findElement(this.answerToDraftButton)
+        answerToDraftButton.click()
+    }
+
+    fun clickSaveAsDraftButton() {
+        val saveAsDraftButton = driver.findElement(this.saveAsDraftButton)
+        saveAsDraftButton.click()
+    }
+
+    fun clickPublishButton() {
+        val publishButton = driver.findElement(this.publishButton)
+        publishButton.click()
+    }
+
+    fun clickEditDraftButton() {
+        val editDraftButton = driver.findElement(this.editDraftButton)
+        editDraftButton.click()
+    }
+
+    fun clickAnonymizeLink() {
+        val anonymizeLink = driver.findElement(this.anonymizeLink)
+        anonymizeLink.click()
+    }
+
+    fun setFileInput(): WebElement {
+        return driver.findElement(fileInput)
+    }
+
+    @Throws(AWTException::class)
+    fun uploadFileToAdnswer() {
+        val uploadFile = File("src/main/resources/files/QandA attachment.pdf")
+        val fileInput = setFileInput()
+        fileInput.sendKeys(uploadFile.absolutePath)
+    }
+
+    fun fillInQuestionText(test: String?): Answers {
+        val inputForUpdatingQuestion = driver.findElement(this.inputForUpdatingQuestion)
+        inputForUpdatingQuestion.clear()
+        inputForUpdatingQuestion.sendKeys(test)
+        return this
+    }
+
+    fun writeAnswer(test: String?): Answers {
+        val inputForAnswer = driver.findElement(this.inputForAnswer)
+        inputForAnswer.clear()
+        inputForAnswer.sendKeys(test)
+        return this
+    }
+
+    fun selectCategory() {
+        val categoryDropdown = Select(driver.findElement(categoryDropdownLocator))
+        categoryDropdown.selectByVisibleText("Not categorized")
+    }
+
+    fun selectCategoryToDeleteIt() {
+        val categoryDropdown = Select(driver.findElement(categoryDropdownLocator))
+        categoryDropdown.selectByVisibleText("to Delete")
+    }
+
+    fun clickOkButton() {
+        driver.findElement(okButton).click()
+    }
+}
 
 

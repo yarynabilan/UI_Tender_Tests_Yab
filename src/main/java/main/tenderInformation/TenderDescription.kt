@@ -1,149 +1,207 @@
-package main.tenderInformation;
+package main.tenderInformation
 
-import lombok.Getter;
-import main.PublicTenderPage;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import lombok.Getter
+import main.PublicTenderPage
+import org.openqa.selenium.By
+import org.openqa.selenium.WebDriver
+import org.openqa.selenium.WebElement
 
 @Getter
-public class TenderDescription extends PublicTenderPage {
-    private By tenderInformationExtendIcon = By.xpath("//*[@id=\"zpTreetree_tender_root_nodeNode2SignElement\"]/img");
-    private By tenderDescriptionSubTab = By.xpath("//img[contains(@src, '/images/info/large_tender_description.png')]");
-    private By editTenderDescriptionButton = By.xpath("//img[@src='https://testdociaweb.byggeweb.dk/images/buttons/edit_tender_on.png']");
-    private By deadlinesAndConditionsSubTab = By.xpath("//*[@id=\"tender_timelimits_node\"]/span");
-    private By editTenderSettingsButton = By.xpath("//img[@src=\"https://testdociaweb.byggeweb.dk/images/buttons/edit_tender_settings_on.png\" and @title=\"Edit tender settings\"]\n");
-    private By tenderSettingsSubTab = By.xpath("//img[@src=\"/images/info/large_tender_settings.png\"]\n");
-    private By projectNoInput = By.xpath("//input[@class='contentNormal' and @type='TEXT' and @name='pn']");
-    private By contractingAuthorityInput = By.xpath("//input[@name='tenderowner']");
-    private By contractTypeInput = By.xpath("//input[@name='contracttype']");
-    private By descriptionInput = By.xpath("//textarea[@name='description']");
-    private By contactPersonInput = By.xpath("//textarea[@name='contactperson']");
-    private By okButton = By.xpath("//input[@type='button' and @name='x']");
-    private By deadlinesSubTab = By.xpath("//img[@src='/images/info/large_tender_deadlines.png']");
-    private By startDateHoursInput = By.xpath("//td[@class='value']//input[@type='text' and @class='time' and @name='PRI_starttime']");
-    private By submissionDeadlineInput = By.xpath("//td[@class='value']//input[@type='text' and @class='time' and @name='PRI_endtime']");
-    private By deadlineForReceivingQuestionsInput = By.xpath("//td[@class='value']//input[@type='text' and @class='time' and @name='PRI_qatime']");
-    private By saveButton = By.xpath("//button[text()='Save']");
-    private By directoryFrame = By.xpath("//frame[@name='directory']");
-    private By awardCriteria = By.xpath("//select[@name='awardcriteria']");
-    private By bestQualityOption = By.xpath("//option[@value='2' and text()='Best price/quality ratio']");
-    private By tenderType = By.xpath("//select[@name='tendertype']");
-    private By secretTypeOption = By.xpath("//select[@name='tendertype']/option[@value='4' and @data-procedure='7']");
-    private By publicTypeOption = By.xpath("//select[@name='tendertype']/option[@value='1' and @data-procedure='1']");
+class TenderDescription(driver: WebDriver?) : PublicTenderPage(driver) {
+    private val tenderInformationExtendIcon: By = By.xpath("//*[@id=\"zpTreetree_tender_root_nodeNode2SignElement\"]/img")
+    private val tenderDescriptionSubTab: By = By.xpath("//img[contains(@src, '/images/info/large_tender_description.png')]")
+    private val editTenderDescriptionButton: By = By.xpath("//img[@src='https://testdociaweb.byggeweb.dk/images/buttons/edit_tender_on.png']")
+    private val deadlinesAndConditionsSubTab: By = By.xpath("//*[@id=\"tender_timelimits_node\"]/span")
+    private val editTenderSettingsButton: By = By.xpath("//img[@src=\"https://testdociaweb.byggeweb.dk/images/buttons/edit_tender_settings_on.png\" and @title=\"Edit tender settings\"]\n")
 
-    private final static String TITLE = "Tender";
-    public TenderDescription(WebDriver driver) {
-        super(driver);
-    }
+    //        get() = driver!!.findElement(field)
+    private val tenderSettingsSubTab: By = By.xpath("//img[@src=\"/images/info/large_tender_settings.png\"]\n")
 
-    public WebElement getTenderDescriptionSubTabElement() {
-        return driver.findElement(tenderDescriptionSubTab);
-    }
-    public WebElement getDeadlinesSubTab() {
-        return driver.findElement(deadlinesSubTab);
-    }
-    public WebElement getTenderSettingsSubTab() {return driver.findElement(tenderSettingsSubTab);}
-    public WebElement getEditTenderDescriptionButtonElement() { return driver.findElement(editTenderDescriptionButton);}
-    public WebElement getEditTenderSettingsButton() { return driver.findElement(editTenderSettingsButton); }
-    public WebElement projectNoInput(){ return driver.findElement(projectNoInput);}
-    public WebElement descriptionInput(){ return driver.findElement(descriptionInput);}
-    public WebElement contractingAuthorityInput(){ return driver.findElement(contractingAuthorityInput);}
-    public WebElement contractTypeInput(){ return driver.findElement(contractTypeInput);}
-    public WebElement contactPersonInput(){ return driver.findElement(contactPersonInput);}
-    public WebElement okButton(){
-        return driver.findElement(okButton);
-    }
-    public WebElement startDateHoursInput(){return driver.findElement(startDateHoursInput);}
-    public WebElement submissionDeadlineHoursInput(){return driver.findElement(submissionDeadlineInput);}
-    public WebElement deadlineForReceivingQuestionsHoursInput(){return driver.findElement(deadlineForReceivingQuestionsInput);}
-    public WebElement directoryFrame(){return driver.findElement(directoryFrame);}
-    public WebElement awardCriteria(){return driver.findElement(awardCriteria);}
-    public WebElement bestQualityOption(){return driver.findElement(bestQualityOption);}
-    public WebElement tenderType(){return driver.findElement(tenderType);}
-    public WebElement secretTypeOption(){return driver.findElement(secretTypeOption);}
-    public WebElement publicTypeOption(){return driver.findElement(publicTypeOption);}
-    public WebElement saveButton(){return driver.findElement(saveButton);}
+    //        get() = driver!!.findElement(field)
+    private val projectNoInput: By = By.xpath("//input[@class='contentNormal' and @type='TEXT' and @name='pn']")
+    private val contractingAuthorityInput: By = By.xpath("//input[@name='tenderowner']")
+    private val contractTypeInput: By = By.xpath("//input[@name='contracttype']")
+    private val descriptionInput: By = By.xpath("//textarea[@name='description']")
+    private val contactPersonInput: By = By.xpath("//textarea[@name='contactperson']")
+    private val okButton: By = By.xpath("//input[@type='button' and @name='x']")
+    private val deadlinesSubTab: By = By.xpath("//img[@src='/images/info/large_tender_deadlines.png']")
 
-    public void clickOnTenderDescriptionSubTab() {
-        getTenderDescriptionSubTabElement().click();
-    }
-    public void clickOnAwardCriteriaDropdown() {
-        awardCriteria().click();  }
-    public void clickOnTenderTypeDropdown() {
-        tenderType().click();  }
-    public void changeTenderTypeToSecret() {
-        secretTypeOption().click();  }
-    public void changeTenderTypeToPublic() {
-        publicTypeOption().click();  }
+    //        get() = driver!!.findElement(field)
+    private val startDateHoursInput: By = By.xpath("//td[@class='value']//input[@type='text' and @class='time' and @name='PRI_starttime']")
+    private val submissionDeadlineInput: By = By.xpath("//td[@class='value']//input[@type='text' and @class='time' and @name='PRI_endtime']")
+    private val deadlineForReceivingQuestionsInput: By = By.xpath("//td[@class='value']//input[@type='text' and @class='time' and @name='PRI_qatime']")
+    private val saveButton: By = By.xpath("//button[text()='Save']")
+    private val directoryFrame: By = By.xpath("//frame[@name='directory']")
+    private val awardCriteria: By = By.xpath("//select[@name='awardcriteria']")
+    private val bestQualityOption: By = By.xpath("//option[@value='2' and text()='Best price/quality ratio']")
+    private val tenderType: By = By.xpath("//select[@name='tendertype']")
+    private val secretTypeOption: By = By.xpath("//select[@name='tendertype']/option[@value='4' and @data-procedure='7']")
+    private val publicTypeOption: By = By.xpath("//select[@name='tendertype']/option[@value='1' and @data-procedure='1']")
 
-    public void clickOnBestQualityOption() {
-            bestQualityOption().click();
-    }
-    public void clickOnDeadlineSubTab() {
-        getDeadlinesSubTab().click();
+    val tenderDescriptionSubTabElement: WebElement
+        get() = driver!!.findElement(tenderDescriptionSubTab)
+    val editTenderDescriptionButtonElement: WebElement
+        get() = driver!!.findElement(editTenderDescriptionButton)
+
+    fun projectNoInput(): WebElement {
+        return driver!!.findElement(projectNoInput)
     }
 
-    public void clickOnTenderSettingsSubTab() { getTenderSettingsSubTab().click(); }
-    public void clickOnEditTenderSettingsButton() { getEditTenderSettingsButton().click(); }
-
-    public void clickOnEditTenderDescriptionButton() {
-        getEditTenderDescriptionButtonElement().click();
+    fun descriptionInput(): WebElement {
+        return driver!!.findElement(descriptionInput)
     }
 
-    public void clickSaveButton() {
-        WebElement saveButtonElement = driver.findElement(saveButton);
-        saveButtonElement.click();
+    fun contractingAuthorityInput(): WebElement {
+        return driver!!.findElement(contractingAuthorityInput)
     }
 
-    public TenderDescription fillInProjectNo(String test) {
-        WebElement projectNoInput = projectNoInput();
-        projectNoInput.clear();
-        projectNoInput.sendKeys(test);
-        return this;
-    }
-        public TenderDescription fillInDescriptionInput(String descriptionInputText) {
-            WebElement descriptionInput = descriptionInput();
-            descriptionInput.clear();
-            descriptionInput.sendKeys(descriptionInputText);
-            return this;
-    }
-    public TenderDescription fillInContractingAuthorityInput(String ContractingAuthorityFieldTest){
-        WebElement contractingAuthorityInput = projectNoInput();
-        contractingAuthorityInput.clear();
-        contractingAuthorityInput.sendKeys(ContractingAuthorityFieldTest);
-        return this;
-    }  public TenderDescription fillInContractTypeInput(String contractTypeInputFieldTest){
-        WebElement contractTypeInput = contractTypeInput();
-        contractTypeInput.clear();
-        contractTypeInput.sendKeys(contractTypeInputFieldTest);
-        return this;
-    }
-        public TenderDescription fillInContactPersonInput(String contactPersonInputTextTest){
-        WebElement contactPersonInput = contactPersonInput();
-            contactPersonInput.clear();
-            contactPersonInput.sendKeys(contactPersonInputTextTest);
-        return this;
-    }
-    public TenderDescription changeSubmissionDeadline(String newTime) {
-        WebElement inputElementTime = submissionDeadlineHoursInput();
-        inputElementTime.clear();
-        inputElementTime.sendKeys(newTime);
-        return this;
-    }
-    public TenderDescription changeDeadlineForReceivingQuestions(String newTime) {
-        WebElement inputElementTime = deadlineForReceivingQuestionsHoursInput();
-        inputElementTime.clear();
-        inputElementTime.sendKeys(newTime);
-        return this;
-    }
-    public void switchToDirectoryFrame() {
-        driver.switchTo().frame((WebElement) directoryFrame);
+    fun contractTypeInput(): WebElement {
+        return driver!!.findElement(contractTypeInput)
     }
 
-    public void switchToDefaultContent() {
-        driver.switchTo().defaultContent();
+    fun contactPersonInput(): WebElement {
+        return driver!!.findElement(contactPersonInput)
     }
+
+    fun okButton(): WebElement {
+        return driver!!.findElement(okButton)
     }
+
+    fun startDateHoursInput(): WebElement {
+        return driver!!.findElement(startDateHoursInput)
+    }
+
+    fun submissionDeadlineHoursInput(): WebElement {
+        return driver!!.findElement(submissionDeadlineInput)
+    }
+
+    fun deadlineForReceivingQuestionsHoursInput(): WebElement {
+        return driver!!.findElement(deadlineForReceivingQuestionsInput)
+    }
+
+    fun directoryFrame(): WebElement {
+        return driver!!.findElement(directoryFrame)
+    }
+
+    fun awardCriteria(): WebElement {
+        return driver!!.findElement(awardCriteria)
+    }
+
+    fun bestQualityOption(): WebElement {
+        return driver!!.findElement(bestQualityOption)
+    }
+
+    fun tenderType(): WebElement {
+        return driver!!.findElement(tenderType)
+    }
+
+    fun secretTypeOption(): WebElement {
+        return driver!!.findElement(secretTypeOption)
+    }
+
+    fun publicTypeOption(): WebElement {
+        return driver!!.findElement(publicTypeOption)
+    }
+
+    fun clickOnTenderDescriptionSubTab() {
+        tenderDescriptionSubTabElement.click()
+    }
+
+    fun clickOnAwardCriteriaDropdown() {
+        awardCriteria().click()
+    }
+
+    fun clickOnTenderTypeDropdown() {
+        tenderType().click()
+    }
+
+    fun changeTenderTypeToSecret() {
+        secretTypeOption().click()
+    }
+
+    fun changeTenderTypeToPublic() {
+        publicTypeOption().click()
+    }
+
+    fun clickOnBestQualityOption() {
+        bestQualityOption().click()
+    }
+
+    fun clickOnDeadlineSubTab() {
+        driver!!.findElement(deadlinesSubTab).click()
+    }
+
+    fun clickOnTenderSettingsSubTab() {
+        driver!!.findElement(tenderSettingsSubTab).click()
+    }
+
+
+    fun clickOnEditTenderSettingsButton() {
+        driver!!.findElement(editTenderSettingsButton).click()
+    }
+
+    fun clickOnEditTenderDescriptionButton() {
+        editTenderDescriptionButtonElement.click()
+    }
+
+    fun clickSaveButton() {
+        val saveButtonElement = driver!!.findElement(saveButton)
+        saveButtonElement.click()
+    }
+
+    fun fillInProjectNo(test: String?): TenderDescription {
+        val projectNoInput = projectNoInput()
+        projectNoInput.clear()
+        projectNoInput.sendKeys(test)
+        return this
+    }
+
+    fun fillInDescriptionInput(descriptionInputText: String?): TenderDescription {
+        val descriptionInput = descriptionInput()
+        descriptionInput.clear()
+        descriptionInput.sendKeys(descriptionInputText)
+        return this
+    }
+
+    fun fillInContractingAuthorityInput(ContractingAuthorityFieldTest: String?): TenderDescription {
+        val contractingAuthorityInput = projectNoInput()
+        contractingAuthorityInput.clear()
+        contractingAuthorityInput.sendKeys(ContractingAuthorityFieldTest)
+        return this
+    }
+
+    fun fillInContractTypeInput(contractTypeInputFieldTest: String?): TenderDescription {
+        val contractTypeInput = contractTypeInput()
+        contractTypeInput.clear()
+        contractTypeInput.sendKeys(contractTypeInputFieldTest)
+        return this
+    }
+
+    fun fillInContactPersonInput(contactPersonInputTextTest: String?): TenderDescription {
+        val contactPersonInput = contactPersonInput()
+        contactPersonInput.clear()
+        contactPersonInput.sendKeys(contactPersonInputTextTest)
+        return this
+    }
+
+    fun changeSubmissionDeadline(newTime: String?): TenderDescription {
+        val inputElementTime = submissionDeadlineHoursInput()
+        inputElementTime.clear()
+        inputElementTime.sendKeys(newTime)
+        return this
+    }
+
+    fun changeDeadlineForReceivingQuestions(newTime: String?): TenderDescription {
+        val inputElementTime = deadlineForReceivingQuestionsHoursInput()
+        inputElementTime.clear()
+        inputElementTime.sendKeys(newTime)
+        return this
+    }
+
+    fun switchToDirectoryFrame() {
+        driver!!.switchTo().frame(directoryFrame as WebElement)
+    }
+
+}
 
 

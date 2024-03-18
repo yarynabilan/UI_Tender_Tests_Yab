@@ -1,77 +1,95 @@
-package main.tenderInformation;
+package main.tenderInformation
 
-import lombok.Getter;
-import main.PublicTenderPage;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import lombok.Getter
+import org.openqa.selenium.By
+import org.openqa.selenium.WebDriver
+import org.openqa.selenium.WebElement
+
 @Getter
-public class TenderDeadlines {
-    private WebDriver driver;
+class TenderDeadlines(private val driver: WebDriver) {
+    private val startDateInput: By = By.xpath("//input[@type='text' and @class='date hasDatepicker' and @name='PRI_startdate' and @id='PRI_startdate']")
+    private val submissionDeadlineDateInput: By = By.xpath("//input[@type='text' and @class='date hasDatepicker' and @name='PRI_enddate' and @id='PRI_enddate']")
+    private val deadlineForReceivingQuestionsDateInput: By = By.xpath("//input[@type='text' and @class='date hasDatepicker' and @name='PRI_qadate' and @id='PRI_qadate']")
+    private val okButton: By = By.xpath("//input[@type='button' and @name='x']")
+    private val deadlinesSubTab: By = By.xpath("//img[@src='/images/info/large_tender_deadlines.png']")
+    private val startDateHoursInput: By = By.xpath("//td[@class='value']//input[@type='text' and @class='time' and @name='PRI_starttime']")
+    private val submissionDeadlineInput: By = By.xpath("//td[@class='value']//input[@type='text' and @class='time' and @name='PRI_endtime']")
+    private val deadlineForReceivingQuestionsInput: By = By.xpath("//td[@class='value']//input[@type='text' and @class='time' and @name='PRI_qatime']")
+    private val saveButton: By = By.xpath("//button[text()='Save']")
+    private val directoryFrame: By = By.xpath("//frame[@name='directory']")
 
-    private By startDateInput = By.xpath("//input[@type='text' and @class='date hasDatepicker' and @name='PRI_startdate' and @id='PRI_startdate']");
-    private By submissionDeadlineDateInput = By.xpath("//input[@type='text' and @class='date hasDatepicker' and @name='PRI_enddate' and @id='PRI_enddate']");
-    private By deadlineForReceivingQuestionsDateInput= By.xpath("//input[@type='text' and @class='date hasDatepicker' and @name='PRI_qadate' and @id='PRI_qadate']");
-    private By okButton = By.xpath("//input[@type='button' and @name='x']");
-    private By deadlinesSubTab = By.xpath("//img[@src='/images/info/large_tender_deadlines.png']");
-    private By startDateHoursInput = By.xpath("//td[@class='value']//input[@type='text' and @class='time' and @name='PRI_starttime']");
-    private By submissionDeadlineInput = By.xpath("//td[@class='value']//input[@type='text' and @class='time' and @name='PRI_endtime']");
-    private By deadlineForReceivingQuestionsInput = By.xpath("//td[@class='value']//input[@type='text' and @class='time' and @name='PRI_qatime']");
-    private By saveButton = By.xpath("//button[text()='Save']");
-    private By directoryFrame = By.xpath("//frame[@name='directory']");
-
-    private final static String TITLE = "Tender Deadlines";
-
-    public TenderDeadlines(WebDriver driver) {
-        this.driver = driver;
+    fun startDateInput(): WebElement {
+        return driver.findElement(startDateInput)
     }
 
-    public WebElement startDateInput(){return driver.findElement(startDateInput);}
-    public WebElement submissionDeadlineDateInput(){return driver.findElement(submissionDeadlineDateInput);}
-    public WebElement deadlineForReceivingQuestionsDateInput(){return driver.findElement(deadlineForReceivingQuestionsDateInput);}
-    public WebElement startDateHoursInput(){return driver.findElement(startDateHoursInput);}
-    public WebElement submissionDeadlineHoursInput(){return driver.findElement(submissionDeadlineInput);}
-    public WebElement deadlineForReceivingQuestionsHoursInput(){return driver.findElement(deadlineForReceivingQuestionsInput);}
-
-    public void clickSaveButton() {
-        WebElement saveButtonElement = driver.findElement(saveButton);
-        saveButtonElement.click();
-    }
-    public TenderDeadlines changeStartDate (String newDate) {
-        WebElement startDateInput = startDateInput();
-        startDateInput.clear();
-        startDateInput.sendKeys(newDate);
-        return this;
-    }
-    public TenderDeadlines changeSubmissionDeadlineDate (String newSubmissionDate) {
-        WebElement submissionDeadlineDateInput = submissionDeadlineDateInput();
-        submissionDeadlineDateInput.clear();
-        submissionDeadlineDateInput.sendKeys(newSubmissionDate);
-        return this;
-    }
-    public TenderDeadlines changeDateOfReceivingQuestions (String newDateOfReceivingQuestions) {
-        WebElement deadlineForReceivingQuestionsDateInput = deadlineForReceivingQuestionsDateInput();
-        deadlineForReceivingQuestionsDateInput.clear();
-        deadlineForReceivingQuestionsDateInput.sendKeys(newDateOfReceivingQuestions);
-        return this;
+    fun submissionDeadlineDateInput(): WebElement {
+        return driver.findElement(submissionDeadlineDateInput)
     }
 
-    public TenderDeadlines changeSubmissionDeadline(String newTime) {
-        WebElement inputElementTime = submissionDeadlineHoursInput();
-        inputElementTime.clear();
-        inputElementTime.sendKeys(newTime);
-        return this;
+    fun deadlineForReceivingQuestionsDateInput(): WebElement {
+        return driver.findElement(deadlineForReceivingQuestionsDateInput)
     }
-    public TenderDeadlines changeDeadlineForReceivingQuestions(String newTime) {
-        WebElement inputElementTime = deadlineForReceivingQuestionsHoursInput();
-        inputElementTime.clear();
-        inputElementTime.sendKeys(newTime);
-        return this;
-    }public TenderDeadlines changeStartDateHours(String newTime) {
-        WebElement inputElementTime = startDateHoursInput();
-        inputElementTime.clear();
-        inputElementTime.sendKeys(newTime);
-        return this;
 
-}
+    fun startDateHoursInput(): WebElement {
+        return driver.findElement(startDateHoursInput)
+    }
+
+    fun submissionDeadlineHoursInput(): WebElement {
+        return driver.findElement(submissionDeadlineInput)
+    }
+
+    fun deadlineForReceivingQuestionsHoursInput(): WebElement {
+        return driver.findElement(deadlineForReceivingQuestionsInput)
+    }
+
+    fun clickSaveButton() {
+        val saveButtonElement = driver.findElement(saveButton)
+        saveButtonElement.click()
+    }
+
+    fun changeStartDate(newDate: String?): TenderDeadlines {
+        val startDateInput = startDateInput()
+        startDateInput.clear()
+        startDateInput.sendKeys(newDate)
+        return this
+    }
+
+    fun changeSubmissionDeadlineDate(newSubmissionDate: String?): TenderDeadlines {
+        val submissionDeadlineDateInput = submissionDeadlineDateInput()
+        submissionDeadlineDateInput.clear()
+        submissionDeadlineDateInput.sendKeys(newSubmissionDate)
+        return this
+    }
+
+    fun changeDateOfReceivingQuestions(newDateOfReceivingQuestions: String?): TenderDeadlines {
+        val deadlineForReceivingQuestionsDateInput = deadlineForReceivingQuestionsDateInput()
+        deadlineForReceivingQuestionsDateInput.clear()
+        deadlineForReceivingQuestionsDateInput.sendKeys(newDateOfReceivingQuestions)
+        return this
+    }
+
+    fun changeSubmissionDeadline(newTime: String?): TenderDeadlines {
+        val inputElementTime = submissionDeadlineHoursInput()
+        inputElementTime.clear()
+        inputElementTime.sendKeys(newTime)
+        return this
+    }
+
+    fun changeDeadlineForReceivingQuestions(newTime: String?): TenderDeadlines {
+        val inputElementTime = deadlineForReceivingQuestionsHoursInput()
+        inputElementTime.clear()
+        inputElementTime.sendKeys(newTime)
+        return this
+    }
+
+    fun changeStartDateHours(newTime: String?): TenderDeadlines {
+        val inputElementTime = startDateHoursInput()
+        inputElementTime.clear()
+        inputElementTime.sendKeys(newTime)
+        return this
+    }
+
+    companion object {
+        private const val TITLE = "Tender Deadlines"
+    }
 }

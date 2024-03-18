@@ -18,7 +18,7 @@ class AnswersTests : BaseTest() {
         val publicTenderPage = PublicTenderPage(driver)
         publicTenderPage.clickOnElement(publicTenderPage.questionsAndAnswersTab)
         driver!!.switchTo().defaultContent()
-        val answers = Answers(driver)
+        val answers = Answers(driver!!)
         val mainWindowHandle = driver!!.windowHandle
         tendersPage.switchToDirectoryFrame()
         Thread.sleep(3000)
@@ -49,7 +49,7 @@ class AnswersTests : BaseTest() {
         val publicTenderPage = PublicTenderPage(driver)
         publicTenderPage.clickOnElement(publicTenderPage.questionsAndAnswersTab)
         driver!!.switchTo().defaultContent()
-        val answers = Answers(driver)
+        val answers = Answers(driver!!)
         val mainWindowHandle = driver!!.windowHandle
         tendersPage.switchToDirectoryFrame()
         Thread.sleep(3000)
@@ -73,7 +73,7 @@ class AnswersTests : BaseTest() {
         val publicTenderPage = PublicTenderPage(driver)
         publicTenderPage.clickOnElement(publicTenderPage.questionsAndAnswersTab)
         driver!!.switchTo().defaultContent()
-        val answers = Answers(driver)
+        val answers = Answers(driver!!)
         val mainWindowHandle = driver!!.windowHandle
         tendersPage.switchToDirectoryFrame()
         Thread.sleep(3000)
@@ -99,7 +99,7 @@ class AnswersTests : BaseTest() {
         driver!!.switchTo().defaultContent()
         tendersPage.switchToNavigationFrame()
         val categories = Categories(driver!!)
-        val answers = Answers(driver)
+        val answers = Answers(driver!!)
         driver!!.switchTo().defaultContent()
         tendersPage.switchToDirectoryFrame()
         answers.goToPublishedAnswersTab()

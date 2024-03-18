@@ -1,70 +1,76 @@
-package main.subReq;
+package main.subReq
 
-import lombok.Getter;
-import main.PublicTenderPage;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import lombok.Getter
+import main.PublicTenderPage
+import org.openqa.selenium.By
+import org.openqa.selenium.WebDriver
+import org.openqa.selenium.WebElement
 
 @Getter
-public class SubmissionRequirements extends PublicTenderPage {
-    public SubmissionRequirements(WebDriver driver) {
-        super(driver);
+open class SubmissionRequirements(driver: WebDriver?) : PublicTenderPage(driver) {
+
+    private val createSubReqButton: By = By.xpath("//img[@title=\"Register submission requirement\"]")
+    private val editSubReqButton: By = By.xpath("//img[@title=\"Edit submission requirement\"]")
+    private val deleteSubReqButton: By = By.xpath("//img[@title=\"Delete submission requirement\"]")
+    private val dataInputReqLink: By = By.xpath("//span[text()=\"Data input requirement\"]")
+    private val fileUploadReqLink: By = By.xpath("//span[text()=\"File upload requirement\"]")
+    private val edpdReqLink: By = By.xpath("//span[text()=\"European Single Procurement Document (ESPD)\"]")
+    private val copyReqFromPhaseOrRoundLink: By = By.xpath("//span[text()=\"Copy requirements from phase or round\"]")
+    private val copyReqFromAnotherTenderLink: By = By.xpath("//span[text()=\"Copy requirements from another tender\"]")
+    private val okButton: By = By.xpath("//input[@value='OK']")
+    private val confirmDeletion: By = By.xpath("//input[@type='BUTTON' and @value='OK']")
+
+    fun createSubReqButton(): WebElement {
+        return driver!!.findElement(createSubReqButton)
+    }
+    fun dataInputReqLink(): WebElement {
+        return driver!!.findElement(dataInputReqLink)
+    }
+    fun fileUploadReqLink(): WebElement {
+        return driver!!.findElement(fileUploadReqLink)
+    }
+    fun edpdReqLink(): WebElement {
+        return driver!!.findElement(edpdReqLink)
+    }
+    fun copyReqFromPhaseOrRoundLink(): WebElement {
+        return driver!!.findElement(copyReqFromPhaseOrRoundLink)
+    }
+    fun copyReqFromAnotherTenderLink(): WebElement {
+        return driver!!.findElement(copyReqFromAnotherTenderLink)
+    }
+    fun clickOnCreateSubReqButton() {
+        createSubReqButton().click()
+    }
+    fun clickOnDataInputReqLink() {
+        dataInputReqLink().click()
+    }
+    fun clickOnFileUploadReqLink() {
+        fileUploadReqLink().click()
+    }
+    fun clickOnEdpdReqLink() {
+        edpdReqLink().click()
+    }
+    fun clickOnCopyReqFromPhaseOrRoundLink() {
+        copyReqFromPhaseOrRoundLink().click()
+    }
+    fun clickOncopyReqFromAnotherTenderLink() {
+        copyReqFromAnotherTenderLink().click()
     }
 
-    private By createSubReqButton = By.xpath("//img[@title=\"Register submission requirement\"]");
-
-    private By editSubReqButton = By.xpath("//img[@title=\"Edit submission requirement\"]");
-    private By deleteSubReqButton = By.xpath("//img[@title=\"Delete submission requirement\"]");
-
-
-    private By dataInputReqLink = By.xpath("//span[text()=\"Data input requirement\"]");
-    private By fileUploadReqLink = By.xpath("//span[text()=\"File upload requirement\"]");
-    private By edpdReqLink = By.xpath("//span[text()=\"European Single Procurement Document (ESPD)\"]");
-    private By copyReqFromPhaseOrRoundLink = By.xpath("//span[text()=\"Copy requirements from phase or round\"]");
-    private By copyReqFromAnotherTenderLink = By.xpath("//span[text()=\"Copy requirements from another tender\"]");
-    private By okButton = By.xpath("//input[@value='OK']");
-
-
-    private By confirmDeletion = By.xpath("//input[@type='BUTTON' and @value='OK']");
-
-
-    public WebElement createSubReqButton() {return driver.findElement(createSubReqButton);}
-    public WebElement dataInputReqLink() {return driver.findElement(dataInputReqLink);}
-    public WebElement fileUploadReqLink() {return driver.findElement(fileUploadReqLink);}
-    public WebElement edpdReqLink() {return driver.findElement(edpdReqLink);}
-    public WebElement copyReqFromPhaseOrRoundLink() {return driver.findElement(copyReqFromPhaseOrRoundLink);}
-    public WebElement copyReqFromAnotherTenderLink() {return driver.findElement(copyReqFromAnotherTenderLink);}
-
-    public void clickOnCreateSubReqButton() {
-        createSubReqButton().click();
+    fun clickOnEditSubReqButton() {
+        val editSubReqButton = driver!!.findElement(this.editSubReqButton)
+        editSubReqButton.click()
     }
-    public void clickOnDataInputReqLink() {dataInputReqLink().click();}
-    public void clickOnFileUploadReqLink() {
-        fileUploadReqLink().click();
+    fun clickOnDeleteSubReqButton() {
+        val deleteSubReqButton = driver!!.findElement(this.deleteSubReqButton)
+        deleteSubReqButton.click()
     }
-    public void clickOnEdpdReqLink() {edpdReqLink().click();}
-    public void clickOnCopyReqFromPhaseOrRoundLink() {
-        copyReqFromPhaseOrRoundLink().click();
+    fun clickOnOkButton() {
+        val okButton = driver!!.findElement(this.okButton)
+        okButton.click()
     }
-    public void clickOncopyReqFromAnotherTenderLink() {
-        copyReqFromAnotherTenderLink().click();
-    }
-
-
-    public void clickOnEditSubReqButton() {
-        WebElement editSubReqButton = driver.findElement(this.editSubReqButton);
-        editSubReqButton.click();
-    }
-    public void clickOnDeleteSubReqButton() {
-        WebElement deleteSubReqButton = driver.findElement(this.deleteSubReqButton);
-        deleteSubReqButton.click();
-    } public void clickOnOkButton() {
-        WebElement okButton = driver.findElement(this.okButton);
-        okButton.click();
-    }
-    public void confirmDeletion() {
-        WebElement confirmDeletion = driver.findElement(this.confirmDeletion);
-        confirmDeletion.click();
+    fun confirmDeletion() {
+        val confirmDeletion = driver!!.findElement(this.confirmDeletion)
+        confirmDeletion.click()
     }
 }

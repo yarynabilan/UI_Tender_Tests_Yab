@@ -19,7 +19,7 @@ class DeadlineUpdate : ApplicationsNavigationTest() {
         val tenderInformationPanel = TenderDescription(driver)
         tenderInformationPanel.clickOnDeadlineSubTab()
         driver!!.switchTo().defaultContent()
-        val tenderDeadlines = TenderDeadlines(driver)
+        val tenderDeadlines = TenderDeadlines(driver!!)
         tendersPage.switchToDirectoryFrame()
         tenderDeadlines.submissionDeadlineDateInput().clear()
         tenderDeadlines.changeSubmissionDeadlineDate("01.01.2025")
@@ -27,7 +27,6 @@ class DeadlineUpdate : ApplicationsNavigationTest() {
         tenderDeadlines.changeDateOfReceivingQuestions("01.01.2025")
         Thread.sleep(2000)
         tenderDeadlines.clickSaveButton()
-        driver!!.switchTo().defaultContent()
     }
 
     @Test
@@ -46,7 +45,6 @@ class DeadlineUpdate : ApplicationsNavigationTest() {
         tenderInformationPanel.deadlineForReceivingQuestionsHoursInput().clear()
         tenderInformationPanel.changeDeadlineForReceivingQuestions("12:30")
         tenderInformationPanel.clickSaveButton()
-        driver!!.switchTo().defaultContent()
     }
 
     @Test
@@ -61,15 +59,17 @@ class DeadlineUpdate : ApplicationsNavigationTest() {
         val tenderDescription = TenderDescription(driver)
         tenderDescription.clickOnDeadlineSubTab()
         driver!!.switchTo().defaultContent()
-        val tenderDeadlines = TenderDeadlines(driver)
+        val tenderDeadlines = TenderDeadlines(driver!!)
         tendersPage.switchToDirectoryFrame()
         tenderDeadlines.startDateInput().clear()
         tenderDeadlines.changeStartDate("01.01.2024")
         tenderDeadlines.clickSaveButton()
         val expectedText = "01.01.2024"
+        Thread.sleep(3000)
+
         val actualText = tenderDeadlines.startDateInput().getAttribute("value")
         AssertJUnit.assertEquals(expectedText, actualText)
-        driver!!.switchTo().defaultContent()
+
     }
 
     @Test
@@ -84,7 +84,7 @@ class DeadlineUpdate : ApplicationsNavigationTest() {
         val tenderDescription = TenderDescription(driver)
         tenderDescription.clickOnDeadlineSubTab()
         driver!!.switchTo().defaultContent()
-        val tenderDeadlines = TenderDeadlines(driver)
+        val tenderDeadlines = TenderDeadlines(driver!!)
         tendersPage.switchToDirectoryFrame()
         tenderDeadlines.startDateHoursInput().clear()
         tenderDeadlines.changeStartDateHours("09:00")
@@ -107,7 +107,7 @@ class DeadlineUpdate : ApplicationsNavigationTest() {
         val tenderDescription = TenderDescription(driver)
         tenderDescription.clickOnDeadlineSubTab()
         driver!!.switchTo().defaultContent()
-        val tenderDeadlines = TenderDeadlines(driver)
+        val tenderDeadlines = TenderDeadlines(driver!!)
         tendersPage.switchToDirectoryFrame()
         tenderDeadlines.startDateInput().clear()
         tenderDeadlines.changeStartDate("01.01.2020")
@@ -120,6 +120,5 @@ class DeadlineUpdate : ApplicationsNavigationTest() {
         if (alertText == expectedText) {
             alert.accept()
         }
-        driver!!.switchTo().defaultContent()
     }
 }
