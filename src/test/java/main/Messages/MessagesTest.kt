@@ -4,7 +4,6 @@ import main.BaseTest
 import main.PublicTenderPage
 import main.TendersPage
 import main.messages.Messages
-import main.tenderInformation.TenderDescription
 import org.openqa.selenium.support.ui.ExpectedConditions
 import org.openqa.selenium.support.ui.WebDriverWait
 import org.testng.annotations.Test
@@ -83,7 +82,7 @@ class MessagesTest : BaseTest() {
         messages.clickConfirmSendButton()
         Thread.sleep(3000)}
 
-        @Test
+    @Test
     @Throws(InterruptedException::class, AWTException::class)
     fun exportMessages() {
         val tendersPage = TendersPage(driver)
@@ -92,20 +91,12 @@ class MessagesTest : BaseTest() {
         publicTenderPage.clickOnElement(publicTenderPage.messagesfromTenderAdministratorTab)
         driver!!.switchTo().defaultContent()
         val messages = Messages(driver!!)
-        val mainWindowHandle = driver!!.windowHandle
         tendersPage.switchToNavigationFrame()
         messages.clickExportMessagesButton()
         tendersPage.switchToNewWindowTest()
         messages.clickConfirmExportButton()
-            tendersPage.switchToNewWindowTest()
-            Thread.sleep(3000)
-
-            val wait = WebDriverWait(driver!!, 10)
-            val linkElement = wait.until(ExpectedConditions.visibilityOfElementLocated(Messages.Locators.linkLocator))
-            val isDisplayed = linkElement.isDisplayed()
-            assertTrue(isDisplayed)
-
-
-            Thread.sleep(3000)
+        tendersPage.switchToNewWindowTest()
+        val linkElement = WebDriverWait(driver!!, 18).until(ExpectedConditions.visibilityOf(messages.link()))
+        assertTrue(linkElement.isDisplayed())
 }
 }
