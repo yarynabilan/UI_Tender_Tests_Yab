@@ -1,131 +1,141 @@
-package main.messages;
+package main.messages
 
-import io.qameta.allure.Step;
-import main.specificationDocuments.FileUpload;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import main.specificationDocuments.FileUpload
+import org.openqa.selenium.By
+import org.openqa.selenium.WebDriver
+import org.openqa.selenium.WebElement
+import java.awt.AWTException
+import java.io.File
 
-import java.awt.*;
-import java.io.File;
+class Messages(private val driver: WebDriver) {
+    private val sendMessageButton: By = By.xpath("//img[@title='Send message']")
+    private val exportMessagesButton: By = By.xpath("//img[@title='Export messages']")
+    private val confirmExportButton: By = By.xpath("//input[@type='submit' and @value='OK']")
+    private val generatedReportLink: By = By.xpath("//a[@id='filelink']")
+    private val inputSubjectText: By = By.xpath("//input[@name='subject']")
+    private val inputMessageText: By = By.xpath("//textarea[@name='message']")
+    private val fileInput: By = By.xpath("//input[@type='file']")
+    private val administratorsCheckBox: By = By.xpath("//input[@name='adm']")
+    private val tenderersAllCheckBox: By = By.xpath("//input[@name='contracts[]']")
+    private val tenderersAcceptedCheckBox: By = By.xpath("//input[@name='accepted_contracts[]']")
+    private val tenderersRejectedCheckBox: By = By.xpath("//input[@name='rejected_contracts[]']")
+    private val selectAllButton: By = By.xpath("//input[@value='Select all']")
+    private val deselectAllButton: By = By.xpath("//input[@value='Deselect all']")
+    private val individualUsersDropdown: By = By.xpath("//td[contains(@class, 'triangle') and contains(text(), '▶')]")
+    private val individualUserCheckbox: By =
+        By.xpath("//td[contains(., 'Yab test, Byggeweb TEST')]/preceding-sibling::td/input[@type='checkbox']")
+    private val confirmSendButton: By = By.xpath("//input[@value='Send']")
+    private val exportingMessagesLink: By = By.xpath("//a[@id='filelink']")
 
-public class Messages {
-    private WebDriver driver;
-
-    public Messages(WebDriver driver) {
-        this.driver = driver;
+    fun link(): WebElement {
+        return driver.findElement(exportingMessagesLink)
     }
 
-    private By sendMessageButton = By.xpath("//img[@title='Send message']");
-    private By exportMessagesButton = By.xpath("//img[@title='Export messages']");
-    private By confirmExportButton = By.xpath("//input[@type='submit' and @value='OK']");
-    private By generatedReportLink = By.xpath("//a[@id='filelink']");
-    private By inputSubjectText = By.xpath("//input[@name='subject']");
-    private By inputMessageText = By.xpath("//textarea[@name='message']");
-    private By fileInput = By.xpath("//input[@type='file']");
-    private By administratorsCheckBox = By.xpath("//input[@name='adm']");
-    private By tenderersAllCheckBox = By.xpath("//input[@name='contracts[]']");
-    private By tenderersAcceptedCheckBox = By.xpath("//input[@name='accepted_contracts[]']");
-    private By tenderersRejectedCheckBox = By.xpath("//input[@name='rejected_contracts[]']");
-    private By selectAllButton = By.xpath("//input[@value='Select all']");
-    private By deselectAllButton = By.xpath("//input[@value='Deselect all']");
-    private By individualUsersDropdown = By.xpath("//td[contains(@class, 'triangle') and contains(text(), '▶')]");
-    private By individualUserCheckbox = By.xpath("//td[contains(., 'Yab test, Byggeweb TEST')]/preceding-sibling::td/input[@type='checkbox']");
-    private By confirmSendButton = By.xpath("//input[@value='Send']");
-    private By exportingMessagesLink = By.xpath("//a[@id='filelink']");
-
-    public WebElement link() {
-        return driver.findElement(exportingMessagesLink);
+    fun clickSendMessageButton() {
+        driver.findElement(sendMessageButton).click()
     }
 
-    public void clickSendMessageButton() {
-        driver.findElement(sendMessageButton).click();
+    fun clickExportMessagesButton() {
+        driver.findElement(exportMessagesButton).click()
     }
 
-    public void clickExportMessagesButton() {
-        driver.findElement(exportMessagesButton).click();
+    fun clickConfirmExportButton() {
+        driver.findElement(confirmExportButton).click()
     }
 
-    public void clickConfirmExportButton() {
-        driver.findElement(confirmExportButton).click();
+    fun clickGeneratedReportLink() {
+        driver.findElement(generatedReportLink).click()
     }
 
-    public void clickGeneratedReportLink() {
-        driver.findElement(generatedReportLink).click();
+    fun enterSubjectText(subject: String) {
+        enterText(inputSubjectText, subject)
     }
 
-    public void enterSubjectText(String subject) {
-        enterText(inputSubjectText, subject);
+    fun enterMessageText(message: String) {
+        enterText(inputMessageText, message)
     }
 
-    public void enterMessageText(String message) {
-        enterText(inputMessageText, message);
+    @Throws(AWTException::class)
+    fun uploadFileToMessage() {
+        val uploadFile = File("src/main/resources/files/MessageFileAttachment.pdf")
+        val fileInputElement = driver.findElement(FileUpload.fileInput)
+        fileInputElement.sendKeys(uploadFile.absolutePath)
     }
 
-
-    public void uploadFile(String filePath) {
-        enterText(fileInput, filePath);
+    fun checkAdministratorsCheckbox() {
+        checkCheckbox(administratorsCheckBox)
     }
 
-    public void uploadFileToMessage() throws AWTException {
-        File uploadFile = new File("src/main/resources/files/MessageFileAttachment.pdf");
-        WebElement fileInputElement = driver.findElement(FileUpload.fileInput);
-        fileInputElement.sendKeys(uploadFile.getAbsolutePath());
+    fun checkTenderersAllCheckbox() {
+        checkCheckbox(tenderersAllCheckBox)
     }
 
-    public void checkAdministratorsCheckbox() {
-        checkCheckbox(administratorsCheckBox);
+    fun checkTenderersAcceptedCheckbox() {
+        checkCheckbox(tenderersAcceptedCheckBox)
     }
 
-    public void checkTenderersAllCheckbox() {
-        checkCheckbox(tenderersAllCheckBox);
+    fun checkTenderersRejectedCheckbox() {
+        checkCheckbox(tenderersRejectedCheckBox)
     }
 
-    public void checkTenderersAcceptedCheckbox() {
-        checkCheckbox(tenderersAcceptedCheckBox);
+    fun clickSelectAllButton() {
+        clickElement(selectAllButton)
     }
 
-    public void checkTenderersRejectedCheckbox() {
-        checkCheckbox(tenderersRejectedCheckBox);
+    fun clickDeselectAllButton() {
+        clickElement(deselectAllButton)
     }
 
-    public void clickSelectAllButton() {
-        clickElement(selectAllButton);
+    fun clickIndividualUsersDropdown() {
+        clickElement(individualUsersDropdown)
     }
 
-    public void clickDeselectAllButton() {
-        clickElement(deselectAllButton);
+    fun checkIndividualUserCheckbox() {
+        checkCheckbox(individualUserCheckbox)
     }
 
-    public void clickIndividualUsersDropdown() {
-        clickElement(individualUsersDropdown);
+    fun clickConfirmSendButton() {
+        clickElement(confirmSendButton)
     }
 
-    public void checkIndividualUserCheckbox() {
-        checkCheckbox(individualUserCheckbox);
-    }
-
-    public void clickConfirmSendButton() {
-        clickElement(confirmSendButton);
-    }
-
-    private void enterText(By locator, String text) {
-        WebElement element = (WebElement) driver.findElement(locator);
-        element.sendKeys(text);
+    private fun enterText(locator: By, text: String) {
+        val element = driver.findElement(locator) as WebElement
+        element.sendKeys(text)
     }
 
 
-    private void checkCheckbox(By locator) {
-        WebElement checkbox = driver.findElement(locator);
-        if (!checkbox.isSelected()) {
-            checkbox.click();
+    private fun checkCheckbox(locator: By) {
+        val checkbox = driver.findElement(locator)
+        if (!checkbox.isSelected) {
+            checkbox.click()
         }
     }
 
-    private void clickElement(By locator) {
-        WebElement element = driver.findElement(locator);
-        element.click();
+    private fun clickElement(locator: By) {
+        val element = driver.findElement(locator)
+        element.click()
     }
 
+    fun sendMessageToAdministrators(){
+        checkAdministratorsCheckbox()
+        enterSubjectText("TestSubject AutoTest Admins")
+        enterMessageText("auto test administrators")
+        uploadFileToMessage()
+        clickConfirmSendButton()
+    }
+    fun sendMessageToApplicants(){
+        checkTenderersAllCheckbox()
+        enterSubjectText("TestSubject AutoTest Tenderers")
+        enterMessageText("auto test tenderers")
+        uploadFileToMessage()
+        clickConfirmSendButton()
+    }
+    fun sendMessageToAll(){
+        clickSelectAllButton()
+        enterSubjectText("TestSubject AutoTest All")
+        enterMessageText("auto test all")
+        uploadFileToMessage()
+        clickConfirmSendButton()
+    }
 }
 

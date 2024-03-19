@@ -22,7 +22,7 @@ class CopyReqFromPhaseTests : ApplicationsNavigationTest() {
         Thread.sleep(2000)
         submissionRequirements.switchToNewWindowTest()
         submissionRequirements.clickOnCopyReqFromPhaseOrRoundLink()
-        val copyReqFromPhase = CopyReqFromPhase(driver)
+        val copyReqFromPhase = CopyReqFromPhase(driver!!)
         copyReqFromPhase.checkBoxOfFileReqToCopy()
         copyReqFromPhase.fillInCopyReqFromPhaseNameInput("Copied From Round File Upload")
         copyReqFromPhase.clickCopyButton()

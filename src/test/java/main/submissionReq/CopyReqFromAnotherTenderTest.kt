@@ -22,7 +22,7 @@ class CopyReqFromAnotherTenderTest : ApplicationsNavigationTest() {
         Thread.sleep(2000)
         submissionRequirements.switchToNewWindowTest()
         submissionRequirements.clickOncopyReqFromAnotherTenderLink()
-        val copyReqFromAnotherTender = CopyReqFromAnotherTender(driver)
+        val copyReqFromAnotherTender = CopyReqFromAnotherTender(driver!!)
         copyReqFromAnotherTender.selectTenderToCopyReqFrom()
         copyReqFromAnotherTender.checkBoxOfDataReqToCopy()
         copyReqFromAnotherTender.fillIncopyReqFromAnotherTenderNameInput("Copied from Another Tender Test Data InputReq")
