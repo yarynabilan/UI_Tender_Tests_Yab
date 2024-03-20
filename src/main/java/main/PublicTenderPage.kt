@@ -25,7 +25,7 @@ open class PublicTenderPage(driver: WebDriver?) : BasePage(driver) {
     val messagesfromTenderAdministratorTab: By = By.xpath("//*[@id=\"admin_messages_node\"]/span")
     val usersTab: By = By.xpath("//*[@id=\"tender_allusers_node\"]/span")
     val logFilesTab: By = By.xpath("//*[@id=\"tender_log_root_node\"]/span")
-    val guidanceTab: By = By.xpath("//*[@id=\"tender_log_root_node\"]/span")
+    val guidanceTab: By = By.xpath("//td[@id='tender_help_node']/span[text()='Guidance']\n")
     val submittedTenderOffersTab: By = By.xpath("//*[@id=\"tender_submitted_offer_root_node\"]/span")
     val tenderResultTab: By = By.xpath("//*[@id=\"tender_result\"]/span")
     private val browserFrame: By = By.xpath("//frame[@name='browser']\"")

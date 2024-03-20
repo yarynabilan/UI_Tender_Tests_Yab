@@ -7,7 +7,7 @@
     <listeners>
         <listener class-name="io.qameta.allure.testng.AllureTestNg" />
     </listeners>
-    <test name="LogFilesTest">
+    <test name="LogFilesTest_And_Guidance">
 
         <classes>
             <class name="main.LogFiles.LogFilesTest">
@@ -15,6 +15,11 @@
                     <include name="exportCompleteHistory" />
                     <include name="exportAdminsHistory" />
                     <include name="exportApplicantsHistory" />
+                </methods>
+            </class>
+            <class name="main.Guidance.GuidanceTest">
+                <methods>
+                    <include name="goToSupportPage" />
                 </methods>
             </class>
         </classes>
