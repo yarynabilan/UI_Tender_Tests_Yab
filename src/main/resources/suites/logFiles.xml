@@ -1,0 +1,23 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+
+<suite name="logFiles">
+    <parameter name="environment" value="testserver"/>
+    <!--        <parameter name="environment" value="production"/>-->
+    <listeners>
+        <listener class-name="io.qameta.allure.testng.AllureTestNg" />
+    </listeners>
+    <test name="LogFilesTest">
+
+        <classes>
+            <class name="main.LogFiles.LogFilesTest">
+                <methods>
+                    <include name="exportCompleteHistory" />
+                    <include name="exportAdminsHistory" />
+                    <include name="exportApplicantsHistory" />
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
+
