@@ -3,7 +3,7 @@ package main
 import org.openqa.selenium.By
 import org.openqa.selenium.WebDriver
 
-class TendersPage(driver: WebDriver?) : BasePage(driver) {
+public class TendersPage(driver: WebDriver?) : BasePage(driver) {
     //   List<WebElement> repositoriesList = driver.findElements(By.xpath("//td[text() = 'AutoTest Public Tender']"));
     private val publicTenderLink: By = By.xpath("//td[text() = 'AutoTest Public Tender']")
 
@@ -33,11 +33,11 @@ class TendersPage(driver: WebDriver?) : BasePage(driver) {
         driver!!.switchTo().frame(driver!!.findElement(functionsFrame))
     }
 
-    fun switchToNavigationFrame() {
+    public fun switchToNavigationFrame() {
         driver!!.switchTo().frame(driver!!.findElement(navigationFrame))
     }
 
-    fun switchToDirectoryFrame() {
+    public fun switchToDirectoryFrame() {
         driver!!.switchTo().frame(driver!!.findElement(directoryFrame))
     }
 
@@ -45,21 +45,6 @@ class TendersPage(driver: WebDriver?) : BasePage(driver) {
         driver!!.switchTo().frame(driver!!.findElement(fileDetailsFrame))
     }
 
-    fun switchToNewWindow() {
-        val mainWindowHandle = driver!!.windowHandle // Зберегти ідентифікатор поточного вікна
-
-        // Знайти ідентифікатор нового вікна
-        var newWindowHandle: String? = null
-        val allWindowHandles = driver!!.windowHandles
-        for (windowHandle in allWindowHandles) {
-            if (windowHandle != mainWindowHandle) {
-                newWindowHandle = windowHandle
-                break
-            }
-        }
-
-        driver!!.switchTo().window(newWindowHandle)
-    }
 
     fun switchToPreviousWindow() {
         val windowHandles = driver!!.windowHandles

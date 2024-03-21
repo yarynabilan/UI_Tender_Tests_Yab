@@ -34,7 +34,7 @@ abstract class BasePage(@JvmField protected var driver: WebDriver?) {
         driver!!.switchTo().parentFrame()
     }
 
-    fun switchToNewWindowTest() {
+    public fun switchToNewWindowTest() {
         for (winHandle in driver!!.windowHandles) {
             driver!!.switchTo().window(winHandle)
         }

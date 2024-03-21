@@ -2,7 +2,6 @@ package main.Guidance
 
 import main.BaseTest
 import main.LogFiles.Guidance
-import main.LogFiles.LogFilesTab
 import main.PublicTenderPage
 import main.TendersPage
 import org.openqa.selenium.support.ui.ExpectedConditions
