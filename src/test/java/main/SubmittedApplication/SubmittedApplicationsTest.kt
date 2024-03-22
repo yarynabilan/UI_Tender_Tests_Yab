@@ -65,9 +65,43 @@ class SubmittedApplicationsTest : BaseTest() {
         tendersPage.switchToNewWindowTest()
         val zipSubmissionsLinkElement = WebDriverWait(driver!!, 40).until(ExpectedConditions.visibilityOf(submittedApplications.fileLink()))
         assertTrue(zipSubmissionsLinkElement.isDisplayed())
+    }
+    @Test
+    @Throws(InterruptedException::class, AWTException::class)
+    fun downloadSubmittedDataOfTenderer() {
+        val tendersPage = TendersPage(driver)
+        tendersPage.switchToBrowserFrame()
+        val publicTenderPage = PublicTenderPage(driver)
+        publicTenderPage.clickOnElement(publicTenderPage.submittedTenderOffersTab)
+        driver!!.switchTo().defaultContent()
+        val submittedApplications = SubmittedApplications(driver!!)
+        tendersPage.switchToDirectoryFrame()
+        submittedApplications.selectYabTenderer()
+        submittedApplications.downloadSubmittedDataOfTenderer()
+        Thread.sleep(2000)
+    }
+    @Test
+    @Throws(InterruptedException::class, AWTException::class)
+    fun editTendererEvaluation() {
+        val tendersPage = TendersPage(driver)
+        tendersPage.switchToBrowserFrame()
+        val publicTenderPage = PublicTenderPage(driver)
+        publicTenderPage.clickOnElement(publicTenderPage.submittedTenderOffersTab)
+        driver!!.switchTo().defaultContent()
+        val submittedApplications = SubmittedApplications(driver!!)
+        tendersPage.switchToDirectoryFrame()
+        submittedApplications.selectYabTenderer()
+        Thread.sleep(2000)
+        submittedApplications.clickOnEditEvaluation()
+        tendersPage.switchToNewWindowTest()
+        submittedApplications.selectAccepted("Accepted")
+        submittedApplications.enterTextInEvaluationField("test comment 123o")
+        submittedApplications.uploadFile()
+        submittedApplications.clickOnOkButton()
+        Thread.sleep(2000)
+        val alert = driver!!.switchTo().alert()
+        alert.accept()
+        Thread.sleep(2000)
 
-// TODO:
-    //download submitted data of one tenderer
-    // edit evaluation of the tenderer
     }
     }
