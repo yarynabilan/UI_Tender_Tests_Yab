@@ -1,0 +1,22 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="SubmittedApplications" preserve-order="true">
+    <listeners>
+        <listener class-name="io.qameta.allure.testng.AllureTestNg" />
+    </listeners>
+
+    <test name="main.SubmittedApplication.SubmittedApplicationsTest">
+        <classes>
+            <class name="main.SubmittedApplication.SubmittedApplicationsTest">
+                <methods>
+                    <include name="downloadSubmissionsTest" />
+                    <include name="editEvaluationTest" />
+                    <include name="compareSubmittedDataTest" />
+                    <!--            AFTER DEADLINE-->
+
+                    <include name="downloadSubmittedDataOfTenderer" />
+                    <include name="editTendererEvaluation" />
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
