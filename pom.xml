@@ -191,9 +191,9 @@
 <!--                <version>3.0.0-M5</version>-->
 <!--                <configuration>-->
 <!--                    <suiteXmlFiles>-->
-<!--                        <suiteXmlFile>src/test/resources/basic_tender_test.xml</suiteXmlFile>-->
+<!--                        <suiteXmlFile>src/test/resources/1_basic_tender_test.xml</suiteXmlFile>-->
 <!--                        <suiteXmlFile>src/test/resources/requirement_xml/*.xml</suiteXmlFile>-->
-<!--                        <suiteXmlFile>src/test/resources/users.xml</suiteXmlFile>-->
+<!--                        <suiteXmlFile>src/test/resources/4_users.xml</suiteXmlFile>-->
 <!--                    </suiteXmlFiles>-->
 <!--                </configuration>-->
 <!--            </plugin>-->

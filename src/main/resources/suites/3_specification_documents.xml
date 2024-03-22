@@ -6,14 +6,14 @@
     </listeners>
     <test name="Specification Documents">
         <classes>
-<!--            <class name="main.specificationDocuments.FoldersTest">-->
-<!--                <methods>-->
-<!--                    <include name="CreateFolder" />-->
-<!--                    <include name="CreateFolderWithSubFolder" />-->
-<!--                    <include name="CreateEditDeleteFolder" />-->
-<!--                    <include name="CreateFolderWithAlreadyExistingName" />-->
-<!--                </methods>-->
-<!--            </class>-->
+            <class name="main.specificationDocuments.FoldersTest">
+                <methods>
+                    <include name="CreateFolder" />
+                    <include name="CreateFolderWithSubFolder" />
+                    <include name="CreateEditDeleteFolder" />
+                    <include name="CreateFolderWithAlreadyExistingName" />
+                </methods>
+            </class>
 
         <class name="main.specificationDocuments.UploadFiles">
             <methods>
