@@ -17,6 +17,7 @@
                     <include name="editTendererEvaluation" />
                 </methods>
             </class>
+
             <class name="main.Result.ResultTest">
                 <methods>
                     <include name="registerTenderResult" />
