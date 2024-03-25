@@ -22,13 +22,6 @@
                     <include name="goToSupportPage" />
                 </methods>
             </class>
-
-                <class name="main.SubmittedApplication.SubmittedApplications">
-                    <methods>
-                        <include name="downloadSubmittedDataOfTenderer" />
-                        <include name="editTendererEvaluation" />
-                    </methods>
-                </class>
             </classes>
 
     </test>
