@@ -1,4 +1,4 @@
-package main.prequalificationResult
+package main.tenderResult
 import org.openqa.selenium.By
 import org.openqa.selenium.WebDriver
 

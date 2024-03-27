@@ -1,7 +1,9 @@
+package main.Result
+
 import main.BaseTest
 import main.PublicTenderPage
 import main.TendersPage
-import main.prequalificationResult.TenderResult
+import main.tenderResult.TenderResult
 import org.testng.annotations.Test
 import java.io.File
 
