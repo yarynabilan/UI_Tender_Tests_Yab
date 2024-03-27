@@ -5,25 +5,35 @@ import main.PublicTenderPage
 import main.TendersPage
 import org.openqa.selenium.support.ui.ExpectedConditions
 import org.openqa.selenium.support.ui.WebDriverWait
+import org.testng.annotations.BeforeClass
 import org.testng.annotations.Test
 import kotlin.test.assertTrue
 
 class LogFilesTest : BaseTest() {
 
+    @BeforeClass
+    fun prepareData() {
+        driver ?: throw NullPointerException("Driver is not initialized")
+
+        val tendersPage = TendersPage(driver!!)
+        tendersPage.switchToBrowserFrame()
+
+        val publicTenderPage = PublicTenderPage(driver!!)
+        publicTenderPage.clickOnElement(publicTenderPage.logFilesTab)
+
+        driver!!.switchTo().defaultContent()
+        tendersPage.switchToDirectoryFrame()
+    }
+
+
     @Test
     @Throws(InterruptedException::class)
     fun exportCompleteHistory() {
-        val tendersPage = TendersPage(driver)
-        tendersPage.switchToBrowserFrame()
-        val publicTenderPage = PublicTenderPage(driver)
-        publicTenderPage.clickOnElement(publicTenderPage.logFilesTab)
-        driver!!.switchTo().defaultContent()
-        tendersPage.switchToDirectoryFrame()
         val LogFilesTab = LogFilesTab(driver!!)
         LogFilesTab.exportCompleteHistory()
         val linkElement = WebDriverWait(driver!!, 25).until(ExpectedConditions.visibilityOf(LogFilesTab.logFileLinkElement))
         assertTrue(linkElement.isDisplayed())
-}
+    }
 
     @Test
     @Throws(InterruptedException::class)
@@ -39,6 +49,7 @@ class LogFilesTest : BaseTest() {
         val linkElement = WebDriverWait(driver!!, 25).until(ExpectedConditions.visibilityOf(LogFilesTab.logFileLinkElement))
         assertTrue(linkElement.isDisplayed())
     }
+
     @Test
     @Throws(InterruptedException::class)
     fun exportApplicantsHistory() {

@@ -1,10 +1,9 @@
-package main.Result
-
 import main.BaseTest
 import main.PublicTenderPage
 import main.TendersPage
 import main.prequalificationResult.TenderResult
 import org.testng.annotations.Test
+import java.io.File
 
 class ResultTest : BaseTest() {
 
@@ -18,14 +17,12 @@ class ResultTest : BaseTest() {
         driver!!.switchTo().defaultContent()
         tendersPage.switchToNavigationFrame()
         val tenderResult = TenderResult(driver!!)
-        tenderResult.clickOnRegisterResultButton()
+        driver!!.findElement(tenderResult.registerResultButton).click()
         tendersPage.switchToNewWindowTest()
-        tenderResult.clickYabCheckBox()
-        tenderResult.enterComments("YabWinner")
-        tenderResult.uploadFile("src/main/resources/files/Test File.pdf")
-        tenderResult.selectCheckboxForUploadEspd()
+        driver!!.findElement(tenderResult.yabCheckBox).click()
+        driver!!.findElement(tenderResult.commentsField).sendKeys("YabWinner")
+        val absolutePath = File("src/main/resources/files/Test File.pdf").absolutePath
+        driver!!.findElement(tenderResult.attachmentInput).sendKeys(absolutePath)
+        driver!!.findElement(tenderResult.checkboxForUploadEspd).click()
         Thread.sleep(3000)
-
-    }
-    }
-
+    }}
