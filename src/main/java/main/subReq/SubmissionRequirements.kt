@@ -1,5 +1,6 @@
 package main.subReq
 
+import BasePage
 import lombok.Getter
 import main.PublicTenderPage
 import org.openqa.selenium.By
@@ -7,7 +8,7 @@ import org.openqa.selenium.WebDriver
 import org.openqa.selenium.WebElement
 
 @Getter
-open class SubmissionRequirements(driver: WebDriver?) : PublicTenderPage(driver) {
+open class SubmissionRequirements(driver: WebDriver?) : BasePage (driver) {
 
     private val createSubReqButton: By = By.xpath("//img[@title=\"Register submission requirement\"]")
     private val editSubReqButton: By = By.xpath("//img[@title=\"Edit submission requirement\"]")

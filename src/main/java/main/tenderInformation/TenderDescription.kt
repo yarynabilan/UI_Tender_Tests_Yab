@@ -1,5 +1,6 @@
 package main.tenderInformation
 
+import BasePage
 import lombok.Getter
 import main.PublicTenderPage
 import org.openqa.selenium.By
@@ -7,7 +8,7 @@ import org.openqa.selenium.WebDriver
 import org.openqa.selenium.WebElement
 
 @Getter
-class TenderDescription(driver: WebDriver?) : PublicTenderPage(driver) {
+class TenderDescription(driver: WebDriver?) : BasePage(driver) {
     private val tenderInformationExtendIcon: By = By.xpath("//*[@id=\"zpTreetree_tender_root_nodeNode2SignElement\"]/img")
     private val tenderDescriptionSubTab: By = By.xpath("//img[contains(@src, '/images/info/large_tender_description.png')]")
     private val editTenderDescriptionButton: By = By.xpath("//img[@src='https://testdociaweb.byggeweb.dk/images/buttons/edit_tender_on.png']")

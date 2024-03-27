@@ -1,5 +1,6 @@
 package main
 
+import BasePage
 import com.codeborne.selenide.Selectors
 import com.codeborne.selenide.Selenide
 import lombok.Getter
@@ -38,7 +39,7 @@ open class PublicTenderPage(driver: WebDriver?) : BasePage(driver) {
         return driver!!.findElement(tenderAdminProfile)
     }
 
-    override fun switchToNewWindow(mainWindowHandle: String) {
+     override fun switchToNewWindow(mainWindowHandle: String) {
         for (winHandle in driver!!.windowHandles) {
             driver!!.switchTo().window(winHandle)
         }

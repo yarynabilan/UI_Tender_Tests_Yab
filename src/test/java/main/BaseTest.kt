@@ -7,18 +7,15 @@ import org.testng.annotations.BeforeMethod
 import java.util.concurrent.TimeUnit
 
 open class BaseTest {
-    @JvmField
-    protected var driver: WebDriver? = null
+    protected open lateinit var driver: WebDriver
 
     @BeforeMethod
     @Throws(InterruptedException::class)
     fun setUp() {
-//        System.setProperty("webdriver.chrome.driver", "/Users/yab/IdeaProjects/MyTestFramework/src/main/resources/drivers/chromedriver");
-//        System.setProperty("webdriver.chrome.driver", "/usr/local/bin/chromedriver");
         driver = ChromeDriver()
-        (driver as ChromeDriver).manage().window().maximize()
-        (driver as ChromeDriver).manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS)
-        (driver as ChromeDriver).get("https://testdociaweb.byggeweb.dk/controller?cmd=company7.login.form&language=English&extern=1")
+        driver.manage().window().maximize()
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS)
+        driver.get("https://testdociaweb.byggeweb.dk/controller?cmd=company7.login.form&language=English&extern=1")
         val loginPage = LoginPage(driver)
         loginPage.loginSuccessful("ribtestuser@gmail.com", "TestPassword#1")
         Thread.sleep(3000)
@@ -30,13 +27,14 @@ open class BaseTest {
         applicationsPage.tenderLink().click()
         val tendersPage = TendersPage(driver)
         tendersPage.openPublicTender()
-        val mainWindowHandle = (driver as ChromeDriver).getWindowHandle()
+        val mainWindowHandle = driver.getWindowHandle()
         tendersPage.switchToNewWindow(mainWindowHandle)
     }
+
     @AfterMethod
     fun tearDown() {
-        if (driver != null) {
-            driver!!.quit()
+        if (::driver.isInitialized) {
+            driver.quit()
         }
     }
 }
