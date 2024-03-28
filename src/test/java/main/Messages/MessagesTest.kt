@@ -6,55 +6,53 @@ import main.TendersPage
 import main.messages.Messages
 import org.openqa.selenium.support.ui.ExpectedConditions
 import org.openqa.selenium.support.ui.WebDriverWait
+import org.testng.annotations.BeforeMethod
 import org.testng.annotations.Test
-import java.awt.AWTException
 import kotlin.test.assertTrue
 
 class MessagesTest : BaseTest() {
-    private val MessagesTest: MessagesTest? = null
-    @Test
-    @Throws(InterruptedException::class, AWTException::class)
-    fun sendMessageToAdministrators_Applicants_All() {
+    private lateinit var tendersPage: TendersPage
+    private lateinit var publicTenderPage: PublicTenderPage
+    private lateinit var messages: Messages
+
+    @BeforeMethod
+    fun setUpTest() {
+        tendersPage = TendersPage(driver)
+        publicTenderPage = PublicTenderPage(driver)
+        messages = Messages(driver)
         val tendersPage = TendersPage(driver)
         tendersPage.switchToBrowserFrame()
         val publicTenderPage = PublicTenderPage(driver)
         publicTenderPage.clickOnElement(publicTenderPage.messagesfromTenderAdministratorTab)
-        driver!!.switchTo().defaultContent()
-        val messages = Messages(driver!!)
-        val mainWindowHandle = driver!!.windowHandle
+        driver.switchTo().defaultContent()
         tendersPage.switchToNavigationFrame()
+    }
+    @Test
+    fun sendMessageToAdministrators_Applicants_All() {
+        val mainWindowHandle = driver.windowHandle
         messages.clickSendMessageButton()
         tendersPage.switchToNewWindowTest()
         messages.sendMessageToAdministrators()
 
-        driver!!.switchTo().window(mainWindowHandle)
-        driver!!.switchTo().defaultContent()
+        driver.switchTo().window(mainWindowHandle)
+        driver.switchTo().defaultContent()
         tendersPage.switchToNavigationFrame()
         messages.clickSendMessageButton()
         tendersPage.switchToNewWindowTest()
         messages.sendMessageToApplicants()
 
-        driver!!.switchTo().window(mainWindowHandle)
-        driver!!.switchTo().defaultContent()
+        driver.switchTo().window(mainWindowHandle)
+        driver.switchTo().defaultContent()
         tendersPage.switchToNavigationFrame()
         messages.clickSendMessageButton()
         tendersPage.switchToNewWindowTest()
         messages.sendMessageToAll()
-        Thread.sleep(3000)
+        Thread.sleep(3000) }
 
-    }
+
 //separated tests
     @Test
-    @Throws(InterruptedException::class, AWTException::class)
     fun sendMessageToTenderers() {
-        val tendersPage = TendersPage(driver)
-        tendersPage.switchToBrowserFrame()
-        val publicTenderPage = PublicTenderPage(driver)
-        publicTenderPage.clickOnElement(publicTenderPage.messagesfromTenderAdministratorTab)
-        driver!!.switchTo().defaultContent()
-        val messages = Messages(driver!!)
-        val mainWindowHandle = driver!!.windowHandle
-        tendersPage.switchToNavigationFrame()
         messages.clickSendMessageButton()
         tendersPage.switchToNewWindowTest()
         messages.checkTenderersAllCheckbox()
@@ -63,16 +61,7 @@ class MessagesTest : BaseTest() {
         messages.clickConfirmSendButton()
         Thread.sleep(3000)}
     @Test
-    @Throws(InterruptedException::class, AWTException::class)
     fun sendMessageToAll() {
-        val tendersPage = TendersPage(driver)
-        tendersPage.switchToBrowserFrame()
-        val publicTenderPage = PublicTenderPage(driver)
-        publicTenderPage.clickOnElement(publicTenderPage.messagesfromTenderAdministratorTab)
-        driver!!.switchTo().defaultContent()
-        val messages = Messages(driver!!)
-        val mainWindowHandle = driver!!.windowHandle
-        tendersPage.switchToNavigationFrame()
         messages.clickSendMessageButton()
         tendersPage.switchToNewWindowTest()
         messages.clickSelectAllButton()
@@ -81,22 +70,12 @@ class MessagesTest : BaseTest() {
         messages.uploadFileToMessage()
         messages.clickConfirmSendButton()
         Thread.sleep(3000)}
-
     @Test
-    @Throws(InterruptedException::class, AWTException::class)
     fun exportMessages() {
-        val tendersPage = TendersPage(driver)
-        tendersPage.switchToBrowserFrame()
-        val publicTenderPage = PublicTenderPage(driver)
-        publicTenderPage.clickOnElement(publicTenderPage.messagesfromTenderAdministratorTab)
-        driver!!.switchTo().defaultContent()
-        val messages = Messages(driver!!)
-        tendersPage.switchToNavigationFrame()
         messages.clickExportMessagesButton()
         tendersPage.switchToNewWindowTest()
         messages.clickConfirmExportButton()
         tendersPage.switchToNewWindowTest()
-        val linkElement = WebDriverWait(driver!!, 18).until(ExpectedConditions.visibilityOf(messages.link()))
-        assertTrue(linkElement.isDisplayed())
-}
+        val linkElement = WebDriverWait(driver, 25).until(ExpectedConditions.visibilityOf(messages.link()))
+        assertTrue(linkElement.isDisplayed) }
 }

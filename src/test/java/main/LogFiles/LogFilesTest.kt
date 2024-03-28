@@ -1,67 +1,44 @@
 package main.LogFiles
 
+import lombok.Getter
 import main.BaseTest
 import main.PublicTenderPage
 import main.TendersPage
 import org.openqa.selenium.support.ui.ExpectedConditions
 import org.openqa.selenium.support.ui.WebDriverWait
-import org.testng.annotations.BeforeClass
+import org.testng.annotations.BeforeMethod
 import org.testng.annotations.Test
 import kotlin.test.assertTrue
-
+@Getter
 class LogFilesTest : BaseTest() {
 
-    @BeforeClass
-    fun prepareData() {
-        driver ?: throw NullPointerException("Driver is not initialized")
+    private lateinit var tendersPage: TendersPage
+    private lateinit var publicTenderPage: PublicTenderPage
+    private lateinit var logFilesTab: LogFilesTab
 
-        val tendersPage = TendersPage(driver!!)
+    @BeforeMethod
+    fun setUpTest() {
+        tendersPage = TendersPage(driver)
+        publicTenderPage = PublicTenderPage(driver)
+        logFilesTab = LogFilesTab(driver)
         tendersPage.switchToBrowserFrame()
-
-        val publicTenderPage = PublicTenderPage(driver!!)
         publicTenderPage.clickOnElement(publicTenderPage.logFilesTab)
-
-        driver!!.switchTo().defaultContent()
+        driver.switchTo().defaultContent()
         tendersPage.switchToDirectoryFrame()
     }
-
-
     @Test
-    @Throws(InterruptedException::class)
     fun exportCompleteHistory() {
-        val LogFilesTab = LogFilesTab(driver!!)
-        LogFilesTab.exportCompleteHistory()
-        val linkElement = WebDriverWait(driver!!, 25).until(ExpectedConditions.visibilityOf(LogFilesTab.logFileLinkElement))
-        assertTrue(linkElement.isDisplayed())
-    }
-
+        logFilesTab.exportCompleteHistory()
+        val linkElement = WebDriverWait(driver, 25).until(ExpectedConditions.visibilityOf(logFilesTab.logFileLinkElement))
+        assertTrue(linkElement.isDisplayed) }
     @Test
-    @Throws(InterruptedException::class)
     fun exportAdminsHistory() {
-        val tendersPage = TendersPage(driver)
-        tendersPage.switchToBrowserFrame()
-        val publicTenderPage = PublicTenderPage(driver)
-        publicTenderPage.clickOnElement(publicTenderPage.logFilesTab)
-        driver!!.switchTo().defaultContent()
-        tendersPage.switchToDirectoryFrame()
-        val LogFilesTab = LogFilesTab(driver!!)
-        LogFilesTab.exportAdminsHistory()
-        val linkElement = WebDriverWait(driver!!, 25).until(ExpectedConditions.visibilityOf(LogFilesTab.logFileLinkElement))
-        assertTrue(linkElement.isDisplayed())
-    }
-
+        logFilesTab.exportAdminsHistory()
+        val linkElement = WebDriverWait(driver, 25).until(ExpectedConditions.visibilityOf(logFilesTab.logFileLinkElement))
+        assertTrue(linkElement.isDisplayed) }
     @Test
-    @Throws(InterruptedException::class)
     fun exportApplicantsHistory() {
-        val tendersPage = TendersPage(driver)
-        tendersPage.switchToBrowserFrame()
-        val publicTenderPage = PublicTenderPage(driver)
-        publicTenderPage.clickOnElement(publicTenderPage.logFilesTab)
-        driver!!.switchTo().defaultContent()
-        tendersPage.switchToDirectoryFrame()
-        val LogFilesTab = LogFilesTab(driver!!)
-        LogFilesTab.exportApplicantsHistory()
-        val linkElement = WebDriverWait(driver!!, 25).until(ExpectedConditions.visibilityOf(LogFilesTab.logFileLinkElement))
-        assertTrue(linkElement.isDisplayed())
-    }
+        logFilesTab.exportApplicantsHistory()
+        val linkElement = WebDriverWait(driver, 25).until(ExpectedConditions.visibilityOf(logFilesTab.logFileLinkElement))
+        assertTrue(linkElement.isDisplayed) }
 }
