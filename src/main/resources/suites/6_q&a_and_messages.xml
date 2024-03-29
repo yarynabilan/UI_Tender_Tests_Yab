@@ -6,15 +6,15 @@
     </listeners>
     <test name="QandA">
         <classes>
-<!--            <class name="main.QuetionsAndAnswers.AddQuestions">-->
-<!--                <methods>-->
-<!--                    <include name="CreateNewQuestionToPublish" />-->
-<!--                    <include name="CreateNewQuestionToDraft" />-->
-<!--                    <include name="CreateNewQuestionToUnanswer" />-->
+            <class name="main.QuetionsAndAnswers.AddQuestions">
+                <methods>
+                    <include name="CreateNewQuestionToPublish" />
+                    <include name="CreateNewQuestionToDraft" />
+                    <include name="CreateNewQuestionToUnanswer" />
 
 <!--                    <include name="AddQuestions" />-->
-<!--                </methods>-->
-<!--            </class>-->
+                </methods>
+            </class>
 <!--            <class name="main.QuetionsAndAnswers.CategoriesTests">-->
 <!--                <methods>-->
 <!--                    <include name="addNewCategotyforQuestions" />-->
@@ -42,13 +42,13 @@
 <!--                    <include name="ExportQandAinExceldUnanswered" />-->
 <!--                </methods>-->
 <!--            </class>-->
-            <class name="main.Messages.MessagesTest">
-                <methods>
+<!--            <class name="main.Messages.MessagesTest">-->
+<!--                <methods>-->
 <!--                    <include name="sendMessageToAdministrators_Applicants_All" />-->
-                    <include name="sendMessageToTenderers" />
-                    <include name="exportMessages" />
-                </methods>
-            </class>
+<!--                    <include name="sendMessageToTenderers" />-->
+<!--                    <include name="exportMessages" />-->
+<!--                </methods>-->
+<!--            </class>-->
         </classes>
     </test>
 </suite>
