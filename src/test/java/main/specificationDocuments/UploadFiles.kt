@@ -251,7 +251,6 @@ class UploadFiles : ApplicationsNavigationTest() {
 
         driver!!.switchTo().window(mainWindowHandle)
         driver!!.switchTo().defaultContent()
-
         tendersPage.switchToNavigationFrame()
         Thread.sleep(3000)
         fileUpload.clickUploadFileButton()

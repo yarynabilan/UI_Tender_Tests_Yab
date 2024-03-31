@@ -51,7 +51,6 @@ class FileUploadReq(private val driver: WebDriver) {
         okButton().click()
     }
 
-
     fun selectFileUploadReqToDelete() {
         val toDeteleFileUploadReq = driver.findElement(this.toDeteleFileUploadReq)
         toDeteleFileUploadReq.click()

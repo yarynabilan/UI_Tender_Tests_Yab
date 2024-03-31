@@ -25,7 +25,6 @@ class GuidanceTest : BaseTest() {
         driver.switchTo().defaultContent()
         tendersPage.switchToDirectoryFrame()
     }
-
     @Test
     fun goToSupportPage() {
         guidance.clickSupportIcon()

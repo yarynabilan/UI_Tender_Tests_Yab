@@ -20,7 +20,6 @@ class ResultTest : BaseTest() {
         publicTenderPage = PublicTenderPage(driver)
         tenderResult = TenderResult(driver!!)
     }
-
     @Test
     @Throws(InterruptedException::class)
     fun registerTenderResult() {

@@ -64,7 +64,6 @@ class AnswersTests : BaseTest() {
         answers.clickSaveAsDraftButton()
         Thread.sleep(3000)
     }
-
     @Test
     @Throws(InterruptedException::class, AWTException::class)
     fun answerFromDraft() {

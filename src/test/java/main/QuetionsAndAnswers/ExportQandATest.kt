@@ -65,7 +65,6 @@ class ExportQandATest : ApplicationsNavigationTest() {
         val linkElement = WebDriverWait(driver, 45).until(ExpectedConditions.visibilityOf(exportQandA.linkQAElement))
         Assert.assertTrue(linkElement.isDisplayed)
     }
-
     @Test
     fun ExportQandAinExceldPublished() {
         exportQandA.selectExcelFormat()

@@ -15,7 +15,6 @@ class LogFilesTab(private val driver: WebDriver) {
 
     val logFileLinkElement: WebElement
         get() = driver.findElement(logFileLinkLocator)
-
     fun switchToNewWindowTest() {
         for (winHandle in driver!!.windowHandles) {
             driver!!.switchTo().window(winHandle)

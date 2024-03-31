@@ -12,8 +12,6 @@ class FileUploadRequirement : BaseTest() {
     private lateinit var publicTenderPage: PublicTenderPage
     private lateinit var submissionRequirements: SubmissionRequirements
     private lateinit var fileUploadReq: FileUploadReq
-
-
     @BeforeMethod
     fun setUpTest() {
         tendersPage = TendersPage(driver)
