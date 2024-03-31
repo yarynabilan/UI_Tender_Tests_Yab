@@ -24,9 +24,11 @@ class ExportQandA(private val driver: WebDriver) {
     private val okButton: By = By.xpath("//input[@type='submit' and @value='OK']")
     private val link: By = By.xpath("//a[@id='filelink' and contains(text(), 'QA')]")
 
-    fun link(): WebElement {
-        return driver.findElement(link)
-    }
+//    fun link(): WebElement {
+//        return driver.findElement(link)
+//    }
+    val linkQAElement: WebElement
+        get() = driver.findElement(link)
 
     fun clickExportQA_button() {
         val exportQuestionButtonElement = driver.findElement(exportQuestionButton)

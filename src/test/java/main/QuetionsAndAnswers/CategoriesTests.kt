@@ -1,47 +1,61 @@
 package main.QuetionsAndAnswers
 
 import main.ApplicationsNavigationTest
+import main.BaseTest
 import main.PublicTenderPage
 import main.TendersPage
 import main.questionAndAnswers.Answers
 import main.questionAndAnswers.Categories
+import org.testng.annotations.BeforeMethod
 import org.testng.annotations.Test
 
-class CategoriesTests : ApplicationsNavigationTest() {
-    @Test
-    @Throws(InterruptedException::class)
-    fun addNewCategotyforQuestions() {
-        val tendersPage = TendersPage(driver)
+class CategoriesTests : BaseTest() {
+    private lateinit var tendersPage: TendersPage
+    private lateinit var publicTenderPage: PublicTenderPage
+    private lateinit var categories: Categories
+    private lateinit var answers: Answers
+    @BeforeMethod
+    fun setUpTest() {
+        tendersPage = TendersPage(driver)
+        publicTenderPage = PublicTenderPage(driver)
+        categories = Categories(driver)
+        answers = Answers(driver)
         tendersPage.switchToBrowserFrame()
-        val publicTenderPage = PublicTenderPage(driver)
         publicTenderPage.clickOnElement(publicTenderPage.questionsAndAnswersTab)
-        driver!!.switchTo().defaultContent()
+        driver.switchTo().defaultContent()
         tendersPage.switchToNavigationFrame()
-        val categories = Categories(driver!!)
-        val mainWindowHandle = driver!!.windowHandle
+    }
+
+    @Test
+    fun addNewCategoryForQuestions() {
         categories.clickManageCategoriesButton()
         tendersPage.switchToNewWindowTest()
-        categories.enterCategoryName("reTest 1")
+        categories.enterCategoryName("Test 1")
         categories.clickOkButton()
-        driver!!.switchTo().window(mainWindowHandle)
-        tendersPage.switchToNavigationFrame()
         Thread.sleep(3000)
+    }
+
+    @Test
+    fun addCategoryToDelete() {
         categories.clickManageCategoriesButton()
-        Thread.sleep(3000)
         tendersPage.switchToNewWindowTest()
         categories.enterCategoryName("to Delete")
         categories.clickOkButton()
-        driver!!.switchTo().window(mainWindowHandle)
-        tendersPage.switchToNavigationFrame()
         Thread.sleep(3000)
+    }
+
+    @Test
+    fun addCategory2() {
         categories.clickManageCategoriesButton()
         Thread.sleep(3000)
         tendersPage.switchToNewWindowTest()
-        categories.enterCategoryName("Test Categoty 2")
+        categories.enterCategoryName("Test Category 2")
         categories.clickOkButton()
-        driver!!.switchTo().window(mainWindowHandle)
-        tendersPage.switchToNavigationFrame()
         Thread.sleep(3000)
+    }
+
+    @Test
+    fun addCategoryTooChange() {
         categories.clickManageCategoriesButton()
         Thread.sleep(3000)
         tendersPage.switchToNewWindowTest()
@@ -50,55 +64,30 @@ class CategoriesTests : ApplicationsNavigationTest() {
     }
 
     @Test
-    @Throws(InterruptedException::class)
     fun deleteCategory() {
-        val tendersPage = TendersPage(driver)
-        tendersPage.switchToBrowserFrame()
-        val publicTenderPage = PublicTenderPage(driver)
-        publicTenderPage.clickOnElement(publicTenderPage.questionsAndAnswersTab)
-        driver!!.switchTo().defaultContent()
-        tendersPage.switchToNavigationFrame()
-        val categories = Categories(driver!!)
         categories.clickManageCategoriesButton()
         tendersPage.switchToNewWindowTest()
         categories.selectCategoryToDelete()
         categories.clickDelete()
-        val alert = driver!!.switchTo().alert()
+        val alert = driver.switchTo().alert()
         alert.accept()
         Thread.sleep(3000)
     }
 
     @Test
-    @Throws(InterruptedException::class)
     fun deleteCategoryInUse() {
-        val tendersPage = TendersPage(driver)
-        tendersPage.switchToBrowserFrame()
-        val publicTenderPage = PublicTenderPage(driver)
-        publicTenderPage.clickOnElement(publicTenderPage.questionsAndAnswersTab)
-        driver!!.switchTo().defaultContent()
-        tendersPage.switchToNavigationFrame()
-        val categories = Categories(driver!!)
         categories.clickManageCategoriesButton()
         tendersPage.switchToNewWindowTest()
         categories.selectCategoryInUse()
         categories.clickDelete()
-        val alert = driver!!.switchTo().alert()
+        val alert = driver.switchTo().alert()
         alert.accept()
         Thread.sleep(3000)
     }
 
     @Test
-    @Throws(InterruptedException::class)
     fun editCategoryNameInPublishedAnswers() {
-        val tendersPage = TendersPage(driver)
-        tendersPage.switchToBrowserFrame()
-        val publicTenderPage = PublicTenderPage(driver)
-        publicTenderPage.clickOnElement(publicTenderPage.questionsAndAnswersTab)
-        driver!!.switchTo().defaultContent()
-        tendersPage.switchToNavigationFrame()
-        val categories = Categories(driver!!)
-        val answers = Answers(driver!!)
-        driver!!.switchTo().defaultContent()
+        driver.switchTo().defaultContent()
         tendersPage.switchToDirectoryFrame()
         answers.goToPublishedAnswersTab()
         Thread.sleep(3000)
@@ -111,17 +100,8 @@ class CategoriesTests : ApplicationsNavigationTest() {
     }
 
     @Test
-    @Throws(InterruptedException::class)
     fun deleteCategoryWithPublishedAnswers() {
-        val tendersPage = TendersPage(driver)
-        tendersPage.switchToBrowserFrame()
-        val publicTenderPage = PublicTenderPage(driver)
-        publicTenderPage.clickOnElement(publicTenderPage.questionsAndAnswersTab)
-        driver!!.switchTo().defaultContent()
-        tendersPage.switchToNavigationFrame()
-        val categories = Categories(driver!!)
-        val answers = Answers(driver!!)
-        driver!!.switchTo().defaultContent()
+        driver.switchTo().defaultContent()
         tendersPage.switchToDirectoryFrame()
         answers.goToPublishedAnswersTab()
         Thread.sleep(3000)
@@ -129,30 +109,24 @@ class CategoriesTests : ApplicationsNavigationTest() {
         categories.clickEditCategoryButton()
         tendersPage.switchToNewWindowTest()
         categories.clickDelete()
-        val alert = driver!!.switchTo().alert()
+        val alert = driver.switchTo().alert()
         alert.accept()
         Thread.sleep(3000)
     }
 
     @Test
-    @Throws(InterruptedException::class)
     fun changeCategoryForPublishedAnswers() {
-        val tendersPage = TendersPage(driver)
-        tendersPage.switchToBrowserFrame()
-        val publicTenderPage = PublicTenderPage(driver)
-        publicTenderPage.clickOnElement(publicTenderPage.questionsAndAnswersTab)
-        driver!!.switchTo().defaultContent()
-        tendersPage.switchToNavigationFrame()
-        val categories = Categories(driver!!)
-        val answers = Answers(driver!!)
-        driver!!.switchTo().defaultContent()
+        driver.switchTo().defaultContent()
         tendersPage.switchToDirectoryFrame()
         answers.goToPublishedAnswersTab()
         Thread.sleep(3000)
         answers.selectQuestionToAnswer()
+
         categories.clickChangeCategoryButton()
         tendersPage.switchToNewWindowTest()
         categories.changeCategoryForPublishedAnswer()
         categories.clickOkButton()
     }
+
 }
+//TODO review all test, some buttons are not working
