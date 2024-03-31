@@ -1,28 +1,35 @@
 package main.submissionReq
-
-import main.ApplicationsNavigationTest
+import main.BaseTest
 import main.PublicTenderPage
 import main.TendersPage
 import main.subReq.SubmissionRequirements
 import main.subReq.allRequirements.DataInputReq
+import org.testng.annotations.BeforeMethod
 import org.testng.annotations.Test
 
-class DataInputRequirement : ApplicationsNavigationTest() {
+    class DataInputRequirement : BaseTest() {
+        private lateinit var tendersPage: TendersPage
+        private lateinit var publicTenderPage: PublicTenderPage
+        private lateinit var submissionRequirements: SubmissionRequirements
+        private lateinit var dataInputReq: DataInputReq
+        @BeforeMethod
+        fun setUpTest() {
+            tendersPage = TendersPage(driver)
+            tendersPage.switchToBrowserFrame()
+            publicTenderPage = PublicTenderPage(driver)
+            publicTenderPage.clickOnElement(publicTenderPage.submissionRequirementsTab)
+            driver!!.switchTo().defaultContent()
+            tendersPage.switchToNavigationFrame()
+            submissionRequirements = SubmissionRequirements(driver)
+            dataInputReq = DataInputReq(driver)
+    }
+
     @Test
-    @Throws(InterruptedException::class)
     fun CreateDataInputRequirement() {
-        val tendersPage = TendersPage(driver)
-        tendersPage.switchToBrowserFrame()
-        val publicTenderPage = PublicTenderPage(driver)
-        publicTenderPage.clickOnElement(publicTenderPage.submissionRequirementsTab)
-        driver!!.switchTo().defaultContent()
-        tendersPage.switchToNavigationFrame()
-        val submissionRequirements = SubmissionRequirements(driver)
         submissionRequirements.clickOnCreateSubReqButton()
         Thread.sleep(3000)
         submissionRequirements.switchToNewWindowTest()
         submissionRequirements.clickOnDataInputReqLink()
-        val dataInputReq = DataInputReq(driver)
         dataInputReq.dataInputNameFiled().clear()
         dataInputReq.fillInNameOfDataInputReq("Data Input Requirement test")
         dataInputReq.fillInDescriptionFiled("test description")
@@ -69,20 +76,11 @@ class DataInputRequirement : ApplicationsNavigationTest() {
     }
 
     @Test
-    @Throws(InterruptedException::class)
     fun CreateDataInputRequirementToDelete() {
-        val tendersPage = TendersPage(driver)
-        tendersPage.switchToBrowserFrame()
-        val publicTenderPage = PublicTenderPage(driver)
-        publicTenderPage.clickOnElement(publicTenderPage.submissionRequirementsTab)
-        driver!!.switchTo().defaultContent()
-        tendersPage.switchToNavigationFrame()
-        val submissionRequirements = SubmissionRequirements(driver)
         submissionRequirements.clickOnCreateSubReqButton()
         Thread.sleep(3000)
         submissionRequirements.switchToNewWindowTest()
         submissionRequirements.clickOnDataInputReqLink()
-        val dataInputReq = DataInputReq(driver)
         dataInputReq.dataInputNameFiled().clear()
         dataInputReq.fillInNameOfDataInputReq("Data Input Requirement To Delete Test")
         dataInputReq.fillInDescriptionFiled("test description - to delete")
@@ -129,16 +127,7 @@ class DataInputRequirement : ApplicationsNavigationTest() {
     }
 
     @Test
-    @Throws(InterruptedException::class)
     fun DeleteDatainputReq() {
-        val tendersPage = TendersPage(driver)
-        tendersPage.switchToBrowserFrame()
-        val publicTenderPage = PublicTenderPage(driver)
-        publicTenderPage.clickOnElement(publicTenderPage.submissionRequirementsTab)
-        driver!!.switchTo().defaultContent()
-        tendersPage.switchToNavigationFrame()
-        val submissionRequirements = SubmissionRequirements(driver)
-        val dataInputReq = DataInputReq(driver)
         driver!!.switchTo().defaultContent()
         tendersPage.switchToDirectoryFrame()
         dataInputReq.selectDataReqToDelete()
