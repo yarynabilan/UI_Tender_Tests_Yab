@@ -22,7 +22,7 @@ class ExportQandA(private val driver: WebDriver) {
     private val draftsOption: By = By.xpath("//select[@name='status']/option[text()='Drafts']")
     private val publishedOption: By = By.xpath("//select[@name='status']/option[text()='Published answers']")
     private val okButton: By = By.xpath("//input[@type='submit' and @value='OK']")
-    private val link: By = By.xpath("//a[@id='filelink' and contains(text(), 'QA')]")
+    private val link: By = By.xpath("//a[@id='filelink']")
 
 //    fun link(): WebElement {
 //        return driver.findElement(link)
