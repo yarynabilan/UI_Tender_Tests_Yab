@@ -1,21 +1,28 @@
 package main.specificationDocuments
 
 import main.ApplicationsNavigationTest
+import main.BaseTest
 import main.PublicTenderPage
 import main.TendersPage
+import org.testng.annotations.BeforeMethod
 import org.testng.annotations.Test
 
-class FoldersTest : ApplicationsNavigationTest() {
-    @Test
-    @Throws(InterruptedException::class)
-    fun CreateFolder() {
-        val tendersPage = TendersPage(driver)
+class FoldersTest : BaseTest() {
+    private lateinit var tendersPage: TendersPage
+    private lateinit var publicTenderPage: PublicTenderPage
+    private lateinit var folders: Folders
+    @BeforeMethod
+    fun setUpTest() {
+        tendersPage = TendersPage(driver)
         tendersPage.switchToBrowserFrame()
-        val publicTenderPage = PublicTenderPage(driver)
+        publicTenderPage = PublicTenderPage(driver)
         publicTenderPage.clickOnElement(publicTenderPage.tenderSpecificationDocumentsTab)
+        folders = Folders(driver)
+    }
+    @Test
+    fun CreateFolder() {
         driver!!.switchTo().defaultContent()
         tendersPage.switchToNavigationFrame()
-        val folders = Folders(driver!!)
         Thread.sleep(3000)
         folders.clickOnCreateFolderButton()
         Thread.sleep(3000)
@@ -26,15 +33,9 @@ class FoldersTest : ApplicationsNavigationTest() {
     }
 
     @Test
-    @Throws(InterruptedException::class)
     fun CreateFolderWithSubFolder() {
-        val tendersPage = TendersPage(driver)
-        tendersPage.switchToBrowserFrame()
-        val publicTenderPage = PublicTenderPage(driver)
-        publicTenderPage.clickOnElement(publicTenderPage.tenderSpecificationDocumentsTab)
         driver!!.switchTo().defaultContent()
         tendersPage.switchToNavigationFrame()
-        val folders = Folders(driver!!)
         val mainWindowHandle = driver!!.windowHandle
         Thread.sleep(3000)
         folders.clickOnCreateFolderButton()
@@ -55,21 +56,15 @@ class FoldersTest : ApplicationsNavigationTest() {
     }
 
     @Test
-    @Throws(InterruptedException::class)
     fun CreateEditDeleteFolder() {
-        val tendersPage = TendersPage(driver)
-        tendersPage.switchToBrowserFrame()
-        val publicTenderPage = PublicTenderPage(driver)
-        publicTenderPage.clickOnElement(publicTenderPage.tenderSpecificationDocumentsTab)
         driver!!.switchTo().defaultContent()
         tendersPage.switchToNavigationFrame()
-        val folders = Folders(driver!!)
         val mainWindowHandle = driver!!.windowHandle
         Thread.sleep(3000)
         folders.clickOnCreateFolderButton()
         Thread.sleep(3000)
         tendersPage.switchToNewWindowTest()
-        folders.fillInFolderName("ToRenameAndDelete")
+        folders.fillInFolderName("ToRenameAndDeleteh")
         folders.clickOnOkButton()
         Thread.sleep(3000)
         driver!!.switchTo().window(mainWindowHandle)
@@ -94,15 +89,9 @@ class FoldersTest : ApplicationsNavigationTest() {
     }
 
     @Test
-    @Throws(InterruptedException::class)
     fun CreateFolderWithAlreadyExistingName() {
-        val tendersPage = TendersPage(driver)
-        tendersPage.switchToBrowserFrame()
-        val publicTenderPage = PublicTenderPage(driver)
-        publicTenderPage.clickOnElement(publicTenderPage.tenderSpecificationDocumentsTab)
         driver!!.switchTo().defaultContent()
         tendersPage.switchToNavigationFrame()
-        val folders = Folders(driver!!)
         Thread.sleep(3000)
         folders.clickOnCreateFolderButton()
         Thread.sleep(3000)
@@ -113,4 +102,5 @@ class FoldersTest : ApplicationsNavigationTest() {
         tendersPage.switchToNewWindowTest()
         folders.validateErrorMessage("Error! The folder name is already in use. Please choose a different name.")
     }
+//    TODO: DeleteFolders With files/Without Files
 }

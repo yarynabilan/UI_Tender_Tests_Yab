@@ -1,25 +1,35 @@
 package main.users
 
 import main.ApplicationsNavigationTest
+import main.BaseTest
 import main.PublicTenderPage
 import main.TendersPage
 import main.users.all.Administrators
+import org.testng.annotations.BeforeMethod
 import org.testng.annotations.Test
 
-class AdministratorsTest : ApplicationsNavigationTest() {
-    @Test
-    @Throws(InterruptedException::class, NullPointerException::class)
-    fun AddTenderAdministrator() {
-        val tendersPage = TendersPage(driver)
+class AdministratorsTest : BaseTest() {
+    private lateinit var tendersPage: TendersPage
+    private lateinit var publicTenderPage: PublicTenderPage
+    private lateinit var allUsers: AllUsers
+    private lateinit var administrators: Administrators
+
+    @BeforeMethod
+     fun setUpTest() {
+        tendersPage = TendersPage(driver)
+        publicTenderPage = PublicTenderPage(driver)
+        allUsers = AllUsers(driver)
+        administrators = Administrators(driver)
         tendersPage.switchToBrowserFrame()
-        val publicTenderPage = PublicTenderPage(driver)
         publicTenderPage.clickOnElement(publicTenderPage.usersTab)
         driver!!.switchTo().defaultContent()
         tendersPage.switchToDirectoryFrame()
-        val allUsers = AllUsers(driver)
         allUsers.clickAdmTab()
-        val administrators = Administrators(driver!!)
         driver!!.switchTo().defaultContent()
+    }
+    @Test
+    @Throws(InterruptedException::class, NullPointerException::class)
+    fun AddTenderAdministrator() {
         tendersPage.switchToNavigationFrame()
         allUsers.clickAddUserButton()
         tendersPage.switchToNewWindowTest()
@@ -34,16 +44,6 @@ class AdministratorsTest : ApplicationsNavigationTest() {
     @Test
     @Throws(InterruptedException::class, NullPointerException::class)
     fun AddDocCoordinatorTest() {
-        val tendersPage = TendersPage(driver)
-        tendersPage.switchToBrowserFrame()
-        val publicTenderPage = PublicTenderPage(driver)
-        publicTenderPage.clickOnElement(publicTenderPage.usersTab)
-        driver!!.switchTo().defaultContent()
-        tendersPage.switchToDirectoryFrame()
-        val allUsers = AllUsers(driver)
-        allUsers.clickAdmTab()
-        val administrators = Administrators(driver!!)
-        driver!!.switchTo().defaultContent()
         tendersPage.switchToNavigationFrame()
         allUsers.clickAddUserButton()
         tendersPage.switchToNewWindowTest()
@@ -58,16 +58,6 @@ class AdministratorsTest : ApplicationsNavigationTest() {
     @Test
     @Throws(InterruptedException::class, NullPointerException::class)
     fun AddObserverTest() {
-        val tendersPage = TendersPage(driver)
-        tendersPage.switchToBrowserFrame()
-        val publicTenderPage = PublicTenderPage(driver)
-        publicTenderPage.clickOnElement(publicTenderPage.usersTab)
-        driver!!.switchTo().defaultContent()
-        tendersPage.switchToDirectoryFrame()
-        val allUsers = AllUsers(driver)
-        allUsers.clickAdmTab()
-        val administrators = Administrators(driver!!)
-        driver!!.switchTo().defaultContent()
         tendersPage.switchToNavigationFrame()
         allUsers.clickAddUserButton()
         tendersPage.switchToNewWindowTest()
@@ -82,16 +72,6 @@ class AdministratorsTest : ApplicationsNavigationTest() {
     @Test
     @Throws(InterruptedException::class, NullPointerException::class)
     fun AddObserverTest2() {
-        val tendersPage = TendersPage(driver)
-        tendersPage.switchToBrowserFrame()
-        val publicTenderPage = PublicTenderPage(driver)
-        publicTenderPage.clickOnElement(publicTenderPage.usersTab)
-        driver!!.switchTo().defaultContent()
-        tendersPage.switchToDirectoryFrame()
-        val allUsers = AllUsers(driver)
-        allUsers.clickAdmTab()
-        val administrators = Administrators(driver!!)
-        driver!!.switchTo().defaultContent()
         tendersPage.switchToNavigationFrame()
         allUsers.clickAddUserButton()
         tendersPage.switchToNewWindowTest()
@@ -106,16 +86,6 @@ class AdministratorsTest : ApplicationsNavigationTest() {
     @Test
     @Throws(InterruptedException::class)
     fun UpdateProfile() {
-        val tendersPage = TendersPage(driver)
-        tendersPage.switchToBrowserFrame()
-        val publicTenderPage = PublicTenderPage(driver)
-        publicTenderPage.clickOnElement(publicTenderPage.usersTab)
-        driver!!.switchTo().defaultContent()
-        tendersPage.switchToDirectoryFrame()
-        val allUsers = AllUsers(driver)
-        allUsers.clickAdmTab()
-        val administrators = Administrators(driver!!)
-        driver!!.switchTo().defaultContent()
         tendersPage.switchToDirectoryFrame()
         administrators.clickOnUserToUpdateProfile()
         tendersPage.switchToNewWindowTest()

@@ -317,11 +317,12 @@ class FileUpload internal constructor(private val driver: WebDriver) {
         uploadDateOptionElement.click()
     }
 
-    fun clickFileLinkByXPath() {
-        val fileLinkByXPathElement = driver.findElement(fileLinkByXPath)
-        fileLinkByXPathElement.click()
-    }
-
+//    fun clickFileLinkByXPath() {
+//        val fileLinkByXPathElement = driver.findElement(fileLinkByXPath)
+//        fileLinkByXPathElement.click()
+//    }
+    val fileLinkElement: WebElement
+        get() = driver.findElement(fileLinkByXPath)
     @Step
     fun transferFileFromProjectWS() {
         driver.findElement(projectWS).click()
