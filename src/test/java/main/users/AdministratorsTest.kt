@@ -1,6 +1,5 @@
 package main.users
 
-import main.ApplicationsNavigationTest
 import main.BaseTest
 import main.PublicTenderPage
 import main.TendersPage
@@ -21,7 +20,7 @@ class AdministratorsTest : BaseTest() {
         allUsers = AllUsers(driver)
         administrators = Administrators(driver)
         tendersPage.switchToBrowserFrame()
-        publicTenderPage.clickOnElement(publicTenderPage.usersTab)
+        publicTenderPage.usersTab?.click()
         driver!!.switchTo().defaultContent()
         tendersPage.switchToDirectoryFrame()
         allUsers.clickAdmTab()

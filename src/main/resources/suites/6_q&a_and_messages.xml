@@ -15,40 +15,41 @@
 <!--                    <include name="AddQuestions" />-->
                 </methods>
             </class>
-<!--            <class name="main.QuetionsAndAnswers.CategoriesTests">-->
-<!--                <methods>-->
-<!--                    <include name="addNewCategotyforQuestions" />-->
-<!--                    <include name="addAnddeleteCategory" />-->
-<!--                    <include name="deleteCategory" />-->
-<!--                    <include name="deleteCategoryInUse" />-->
-<!--                    <include name="editCategoryNameInPublishedAnswers" />-->
-<!--                    <include name="deleteCategoryWithPublishedAnswers" />-->
-<!--                    <include name="changeCategoryForPublishedAnswers" />-->
-<!--                </methods>-->
-<!--            </class>-->
-<!--            <class name="main.QuetionsAndAnswers.AnswersTests">-->
-<!--                <methods>-->
-<!--                    <include name="publishAnswer" />-->
-<!--                    <include name="makeDraft" />-->
-<!--                    <include name="answerFromDraft" />-->
-<!--                    <include name="editPublishedAnswer" />-->
-<!--                </methods>-->
-<!--            </class>-->
-<!--            <class name="main.QuetionsAndAnswers.ExportQandATest">-->
-<!--                <methods>-->
-<!--                    <include name="ExportQandAinWordAll" />-->
-<!--                    <include name="ExportQandAinExceldAll" />-->
-<!--                    <include name="ExportQandAinExceldDrafts" />-->
-<!--                    <include name="ExportQandAinExceldUnanswered" />-->
-<!--                </methods>-->
-<!--            </class>-->
-<!--            <class name="main.Messages.MessagesTest">-->
-<!--                <methods>-->
-<!--                    <include name="sendMessageToAdministrators_Applicants_All" />-->
-<!--                    <include name="sendMessageToTenderers" />-->
-<!--                    <include name="exportMessages" />-->
-<!--                </methods>-->
-<!--            </class>-->
+            <class name="main.QuetionsAndAnswers.CategoriesTests">
+                <methods>
+                    <include name="addNewCategotyforQuestions" />
+                    <include name="addAnddeleteCategory" />
+                    <include name="deleteCategory" />
+                    <include name="deleteCategoryInUse" />
+                    <include name="editCategoryNameInPublishedAnswers" />
+                    <include name="deleteCategoryWithPublishedAnswers" />
+                    <include name="changeCategoryForPublishedAnswers" />
+                </methods>
+            </class>
+
+            <class name="main.QuetionsAndAnswers.AnswersTests">
+                <methods>
+                    <include name="publishAnswer" />
+                    <include name="makeDraft" />
+                    <include name="answerFromDraft" />
+                    <include name="editPublishedAnswer" />
+                </methods>
+            </class>
+            <class name="main.QuetionsAndAnswers.ExportQandATest">
+                <methods>
+                    <include name="ExportQandAinWordAll" />
+                    <include name="ExportQandAinExceldAll" />
+                    <include name="ExportQandAinExceldDrafts" />
+                    <include name="ExportQandAinExceldUnanswered" />
+                </methods>
+            </class>
+            <class name="main.Messages.MessagesTest">
+                <methods>
+                    <include name="sendMessageToAdministrators_Applicants_All" />
+                    <include name="sendMessageToTenderers" />
+                    <include name="exportMessages" />
+                </methods>
+            </class>
         </classes>
     </test>
 </suite>

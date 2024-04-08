@@ -15,7 +15,7 @@ class TenderersTest : ApplicationsNavigationTest() {
         val tendersPage = TendersPage(driver)
         tendersPage.switchToBrowserFrame()
         val publicTenderPage = PublicTenderPage(driver)
-        publicTenderPage.clickOnElement(publicTenderPage.usersTab)
+        publicTenderPage.usersTab?.click()
         driver!!.switchTo().defaultContent()
         tendersPage.switchToDirectoryFrame()
 
@@ -58,7 +58,7 @@ class TenderersTest : ApplicationsNavigationTest() {
         val tendersPage = TendersPage(driver)
         tendersPage.switchToBrowserFrame()
         val publicTenderPage = PublicTenderPage(driver)
-        publicTenderPage.clickOnElement(publicTenderPage.usersTab)
+        publicTenderPage.usersTab?.click()
         driver!!.switchTo().defaultContent()
         tendersPage.switchToDirectoryFrame()
 

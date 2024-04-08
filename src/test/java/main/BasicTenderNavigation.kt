@@ -1,55 +1,45 @@
-package main
-
+import main.OpenTenderTest
+import main.PublicTenderPage
+import main.TendersPage
 import org.testng.Assert
 import org.testng.annotations.BeforeMethod
 import org.testng.annotations.Test
+import org.openqa.selenium.By
+import com.codeborne.selenide.SelenideElement
 
 class BasicTenderNavigation : OpenTenderTest() {
-    private val PublicTenderPage: PublicTenderPage? = null
-    @BeforeMethod
-    @Throws(InterruptedException::class)
-    fun setUpTestEnvironment() {
-    }
+    private lateinit var publicTenderPage: PublicTenderPage
 
-    @Test
-    @Throws(InterruptedException::class)
-    fun navigationPublicTenderTab() {
+    @BeforeMethod
+    fun setUpTest() {
         val tendersPage = TendersPage(driver)
         tendersPage.switchToBrowserFrame()
+        publicTenderPage = PublicTenderPage(driver)
+    }
 
-        val publicTenderPage = PublicTenderPage(driver)
+    @Test(description = "Navigation Public Tender Tab")
+    fun navigationPublicTenderTab() {
         publicTenderPage.publicTenderTab().click()
         Assert.assertTrue(publicTenderPage.publicTenderTab().isEnabled)
     }
 
     @Test(description = "Navigation to First Tab- Tender Information")
-    @Throws(InterruptedException::class)
     fun basicNavigation() {
-        val tendersPage = TendersPage(driver)
-        tendersPage.switchToBrowserFrame()
-
-        val publicTenderPage = PublicTenderPage(driver)
-        publicTenderPage.tenderInformationTab().click()
-
-        Assert.assertTrue(publicTenderPage.tenderInformationTab().isEnabled)
+        publicTenderPage.tenderInformationTab?.click()
+        publicTenderPage.tenderInformationTab?.let { Assert.assertTrue(it.isEnabled) }
     }
 
-
     @Test(description = "Navigation through all modules", groups = ["navigateModules"])
-    @Throws(InterruptedException::class)
     fun navigateThoughtMainPanels() {
-        val tendersPage = TendersPage(driver)
-        tendersPage.switchToBrowserFrame()
-        val publicTenderPage = PublicTenderPage(driver)
-        publicTenderPage.clickOnElement(publicTenderPage.tenderInformationTab)
-        publicTenderPage.clickOnElement(publicTenderPage.submissionRequirementsTab)
-        publicTenderPage.clickOnElement(publicTenderPage.tenderSpecificationDocumentsTab)
-        publicTenderPage.clickOnElement(publicTenderPage.questionsAndAnswersTab)
-        publicTenderPage.clickOnElement(publicTenderPage.messagesfromTenderAdministratorTab)
-        publicTenderPage.clickOnElement(publicTenderPage.usersTab)
-        publicTenderPage.clickOnElement(publicTenderPage.logFilesTab)
-        publicTenderPage.clickOnElement(publicTenderPage.guidanceTab)
-        publicTenderPage.clickOnElement(publicTenderPage.submittedTenderOffersTab)
-        publicTenderPage.clickOnElement(publicTenderPage.tenderResultTab)
+        publicTenderPage.tenderInformationTab?.click()
+        publicTenderPage.submissionRequirementsTab?.click()
+        publicTenderPage.tenderSpecificationDocumentsTab?.click()
+        publicTenderPage.questionsAndAnswersTab?.click()
+        publicTenderPage.messagesfromTenderAdministratorTab?.click()
+        publicTenderPage.usersTab?.click()
+        publicTenderPage.logFilesTab?.click()
+        publicTenderPage.guidanceTab?.click()
+        publicTenderPage.submittedTenderOffersTab?.click()
+        publicTenderPage.tenderResultTab?.click()
     }
 }

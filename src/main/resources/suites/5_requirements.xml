@@ -6,24 +6,24 @@
     </listeners>
     <test name="Create Tender Requirements">
         <classes>
-<!--            <class name="main.submissionReq.DataInputRequirement">-->
-<!--                <methods>-->
-<!--                    <include name="CreateDataInputRequirement" />-->
-<!--                    <include name="CreateDataInputRequirementToDelete" />-->
-<!--                    <include name="DeleteDatainputReq" />-->
-<!--                </methods>-->
-<!--            </class>-->
+            <class name="main.submissionReq.DataInputRequirement">
+                <methods>
+                    <include name="CreateDataInputRequirement" />
+                    <include name="CreateDataInputRequirementToDelete" />
+                    <include name="DeleteDatainputReq" />
+                </methods>
+            </class>
 
-<!--            <class name="main.submissionReq.EspdRequirementTests">-->
-<!--                <methods>-->
-<!--                    <include name="CreateEspdRequirement" />-->
-<!--                </methods>-->
-<!--            </class>-->
+            <class name="main.submissionReq.EspdRequirementTests">
+                <methods>
+                    <include name="CreateEspdRequirement" />
+                </methods>
+            </class>
 
             <class name="main.submissionReq.FileUploadRequirement">
                 <methods>
-<!--                    <include name="CreateFileUploadRequirement" />-->
-<!--                    <include name="CreateToDeleteFileUploadRequirement" />-->
+                    <include name="CreateFileUploadRequirement" />
+                    <include name="CreateToDeleteFileUploadRequirement" />
                     <include name="EditFileUploadRequirement" />
                     <include name="DeleteFileUploadRequirement" />
                 </methods>

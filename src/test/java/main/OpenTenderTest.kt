@@ -4,7 +4,7 @@ import org.testng.Assert
 import org.testng.annotations.Test
 
 open class OpenTenderTest : ApplicationsNavigationTest() {
-    protected override var tendersPage: TendersPage? = null
+    override var tendersPage: TendersPage? = null
 
     @Test
     @Throws(InterruptedException::class)

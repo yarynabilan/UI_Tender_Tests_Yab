@@ -12,7 +12,7 @@
                     <include name="UpdateTenderDescriptionProjectNo" />
                     <include name="UpdateContractingAuthority" />
 <!--                    <include name="UpdateContractType" />-->
-                    <include name="UpdateContactPersonData" />
+<!--                    <include name="UpdateContactPersonData" />-->
 <!--                    <include name="UpdateAwardCriteria" />-->
 <!--                    <include name="UpdateTenderType" />-->
                 </methods>
@@ -28,7 +28,7 @@
 
             <class name="main.tenderInformation.TenderSettingsUpdate">
                 <methods>
-                    <include name="UpdateSubcontractorsSettings" />
+<!--                    <include name="UpdateSubcontractorsSettings" />-->
 <!--                    <include name="selectSupplementaryFilesAcceptedTest" />-->
 <!--                    <include name="selectSupplementaryFilesNotAcceptedTest" />-->
 <!--                    <include name="UpdateSecuritySettings" />-->

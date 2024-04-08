@@ -1,6 +1,7 @@
 package main.subReq
 
 import BasePage
+//import PublicTenderPage
 import lombok.Getter
 import main.PublicTenderPage
 import org.openqa.selenium.By
@@ -23,6 +24,9 @@ open class SubmissionRequirements(driver: WebDriver?) : BasePage (driver) {
 
     fun createSubReqButton(): WebElement {
         return driver!!.findElement(createSubReqButton)
+    }
+    fun getPublicTenderPage(): PublicTenderPage {
+        return PublicTenderPage(driver)
     }
     fun dataInputReqLink(): WebElement {
         return driver!!.findElement(dataInputReqLink)

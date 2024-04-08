@@ -1,12 +1,12 @@
 package main
-
 import org.testng.Assert
+import org.testng.annotations.BeforeMethod
 import org.testng.annotations.Test
 
 open class LoginTest : BaseTest() {
     protected open var tendersPage: TendersPage? = null
 
-    //@BeforeMethod(enabled = false) // щоб вимкнути метод setUp() в цьому класі
+    @BeforeMethod(enabled = false) // щоб вимкнути метод setUp() в цьому класі
     @Test
     fun checkLogoOnTheLoginPage() {
         val loginPage = LoginPage(driver)

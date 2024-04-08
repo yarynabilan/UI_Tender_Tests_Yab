@@ -2,7 +2,6 @@ package main.tenderInformation
 
 import BasePage
 import lombok.Getter
-import main.PublicTenderPage
 import org.openqa.selenium.By
 import org.openqa.selenium.WebDriver
 import org.openqa.selenium.WebElement
