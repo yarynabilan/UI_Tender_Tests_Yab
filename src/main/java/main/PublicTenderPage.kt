@@ -17,7 +17,7 @@ open class PublicTenderPage(driver: WebDriver?) : BasePage(driver) {
     private val tenderHeaderType = Selenide.`$`(Selectors.byXpath("//div[@class='header_title' and @id='username']"))
     private val tenderAdminProfile: By = By.xpath("//td[@class='modulHeading']")
     private val publicTenderTab: By = By.xpath("//span[@style='font-size: 12px;; white-space: nowrap;']")
-    val tenderInformationTab:WebElement? = driver?.findElement(By.xpath("//*[@id=\"tender_information_node\"]/span"))
+     val tenderInformationTab:WebElement? = driver?.findElement(By.xpath("//*[@id=\"tender_information_node\"]/span"))
 
     //    private By tenderDescriptionSubTab = By.xpath("//img[@src='/images/info/large_tender_description.png']");
     val submissionRequirementsTab: WebElement? = driver?.`findElement`(By.xpath("//*[@id=\"tender_requirements_node\"]/span"))

@@ -2,7 +2,6 @@ package main.tenderInformation
 import main.BaseTest
 import main.PublicTenderPage
 import main.TendersPage
-import main.users.all.Administrators
 import org.testng.annotations.BeforeMethod
 import org.testng.annotations.Test
 
