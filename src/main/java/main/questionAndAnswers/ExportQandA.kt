@@ -6,10 +6,10 @@ import org.openqa.selenium.WebElement
 import org.openqa.selenium.support.ui.Select
 
 class ExportQandA(private val driver: WebDriver) {
-    private val exportQuestionButton: By = By.xpath("//img[@title='Export Q&A']")
+    val exportQuestionButton: By = By.xpath("//img[@title='Export Q&A']")
     private val fileFormatDropdown: By = By.xpath("//select[@name='fileformat']")
-    private val wordFormatOption: By = By.xpath("//option[@value='word']")
-    private val excelFormatOption: By = By.xpath("//option[@value='excel']")
+    val wordFormatOption: By = By.xpath("//option[@value='word']")
+    val excelFormatOption: By = By.xpath("//option[@value='excel']")
     private val sortColumnDropdown: By = By.xpath("//select[@name='column']")
     private val answerDateOption: By = By.xpath("//option[@value='AnswerDate']")
     private val questionDateOption: By = By.xpath("//option[@value='CreateDate']")
@@ -21,7 +21,7 @@ class ExportQandA(private val driver: WebDriver) {
     private val unansweredOption: By = By.xpath("//select[@name='status']/option[text()='Unanswered questions']")
     private val draftsOption: By = By.xpath("//select[@name='status']/option[text()='Drafts']")
     private val publishedOption: By = By.xpath("//select[@name='status']/option[text()='Published answers']")
-    private val okButton: By = By.xpath("//input[@type='submit' and @value='OK']")
+    val okButton: By = By.xpath("//input[@type='submit' and @value='OK']")
     private val link: By = By.xpath("//a[@id='filelink']")
 
 //    fun link(): WebElement {
@@ -30,29 +30,9 @@ class ExportQandA(private val driver: WebDriver) {
     val linkQAElement: WebElement
         get() = driver.findElement(link)
 
-    fun clickExportQA_button() {
-        val exportQuestionButtonElement = driver.findElement(exportQuestionButton)
-        exportQuestionButtonElement.click()
-    }
-
-    fun selectWordFormat() {
-        val wordFormatOptionElement = driver.findElement(wordFormatOption)
-        wordFormatOptionElement.click()
-    }
-
     fun selectAll_QA() {
         val qANDaStatusDropdownElement = Select(driver.findElement(qANDaStatusDropdown))
         qANDaStatusDropdownElement.selectByVisibleText("All")
-    }
-
-    fun confirmOK() {
-        val okButtonElement = driver.findElement(okButton)
-        okButtonElement.click()
-    }
-
-    fun selectExcelFormat() {
-        val excelFormatOptionElement = driver.findElement(excelFormatOption)
-        excelFormatOptionElement.click()
     }
 
     fun sortByAnswerDate() {
@@ -64,7 +44,6 @@ class ExportQandA(private val driver: WebDriver) {
         val sortOrderDropdownElement = Select(driver.findElement(sortOrderDropdown))
         sortOrderDropdownElement.selectByValue("desc")
     }
-
     fun selectAll() {
         val qANDaStatusDropdownElement = Select(driver.findElement(qANDaStatusDropdown))
         qANDaStatusDropdownElement.selectByVisibleText("All")

@@ -1,7 +1,6 @@
 package main.Messages
 
 import main.ApplicationsNavigationTest
-import main.BaseTest
 import main.PublicTenderPage
 import main.TendersPage
 import main.messages.Messages

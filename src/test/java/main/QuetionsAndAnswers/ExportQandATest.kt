@@ -23,45 +23,45 @@ class ExportQandATest : ApplicationsNavigationTest() {
         driver.switchTo().defaultContent()
         tendersPage.switchToNavigationFrame()
         exportQandA = ExportQandA(driver)
-        exportQandA.clickExportQA_button()
+        driver.findElement(exportQandA.exportQuestionButton).click()
         tendersPage.switchToNewWindowTest() }
 
     @Test
     fun ExportQandAinWordAll() {
-        exportQandA.selectWordFormat()
+        driver.findElement(exportQandA.wordFormatOption).click()
         exportQandA.selectAll_QA()
-        exportQandA.confirmOK()
+        driver.findElement(exportQandA.okButton).click()
         val linkElement = WebDriverWait(driver, 45).until(ExpectedConditions.visibilityOf(exportQandA.linkQAElement))
         assertTrue(linkElement.isDisplayed) }
 
     @Test
     fun ExportQandAinExceldAll() {
-        exportQandA.selectExcelFormat()
+        driver.findElement(exportQandA.excelFormatOption).click()
         exportQandA.selectAll_QA()
-        exportQandA.confirmOK()
+        driver.findElement(exportQandA.okButton).click()
         val linkElement = WebDriverWait(driver, 45).until(ExpectedConditions.visibilityOf(exportQandA.linkQAElement))
         assertTrue(linkElement.isDisplayed) }
 
     @Test
     fun ExportQandAinExceldDrafts() {
-        exportQandA.selectExcelFormat()
+        driver.findElement(exportQandA.excelFormatOption).click()
         exportQandA.selectDrafts()
-        exportQandA.confirmOK()
+        driver.findElement(exportQandA.okButton).click()
         val linkElement = WebDriverWait(driver, 45).until(ExpectedConditions.visibilityOf(exportQandA.linkQAElement))
         assertTrue(linkElement.isDisplayed) }
     @Test
     fun ExportQandAinExceldUnanswered() {
-        exportQandA.selectExcelFormat()
+        driver.findElement(exportQandA.excelFormatOption).click()
         exportQandA.selectUnanswered()
-        exportQandA.confirmOK()
+        driver.findElement(exportQandA.okButton).click()
         val linkElement = WebDriverWait(driver, 45).until(ExpectedConditions.visibilityOf(exportQandA.linkQAElement))
         assertTrue(linkElement.isDisplayed) }
 
     @Test
     fun ExportQandAinExceldPublished() {
-        exportQandA.selectExcelFormat()
+        driver.findElement(exportQandA.excelFormatOption).click()
         exportQandA.selectPublished()
-        exportQandA.confirmOK()
+        driver.findElement(exportQandA.okButton).click()
         val linkElement = WebDriverWait(driver, 45).until(ExpectedConditions.visibilityOf(exportQandA.linkQAElement))
         assertTrue(linkElement.isDisplayed) }
 }
