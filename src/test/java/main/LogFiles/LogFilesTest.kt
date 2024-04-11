@@ -2,7 +2,6 @@ package main.LogFiles
 
 import lombok.Getter
 import main.ApplicationsNavigationTest
-import main.BaseTest
 import main.PublicTenderPage
 import main.TendersPage
 import org.openqa.selenium.support.ui.ExpectedConditions

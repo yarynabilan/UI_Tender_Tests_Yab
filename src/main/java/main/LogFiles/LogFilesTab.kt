@@ -22,48 +22,31 @@ class LogFilesTab(private val driver: WebDriver) {
     fun switchToNavigationFrame() {
         driver!!.switchTo().frame(driver!!.findElement(navigationFrame))
     }
-    fun clickOnExportLogButton() {
-        val exportLogButtonElement: WebElement = driver.findElement(exportLogButtonLocator)
-        exportLogButtonElement.click()
-    }
-
-    fun clickOnOkButton() {
-        val okButtonElement: WebElement = driver.findElement(okButtonLocator)
-        okButtonElement.click()
-    }
-
-    fun clickOnLogFileLink() {
-        val logFileLinkElement: WebElement = driver.findElement(logFileLinkLocator)
-        logFileLinkElement.click()
-    }
 
     fun exportCompleteHistory() {
-        val completeHistoryTabElement = driver.findElement(completeHistoryTab)
-        completeHistoryTabElement.click()
-        driver!!.switchTo().defaultContent()
+        driver.findElement(completeHistoryTab).click()
+        driver.switchTo().defaultContent()
         switchToNavigationFrame()
-        clickOnExportLogButton()
+        driver.findElement(exportLogButtonLocator).click()
         switchToNewWindowTest()
-        clickOnOkButton()
+        driver.findElement(okButtonLocator).click()
     }
 
     fun exportAdminsHistory() {
-        val adminsHistoryElement = driver.findElement(adminsHistory)
-        adminsHistoryElement.click()
-        driver!!.switchTo().defaultContent()
+        driver.findElement(adminsHistory).click()
+        driver.switchTo().defaultContent()
         switchToNavigationFrame()
-        clickOnExportLogButton()
+        driver.findElement(exportLogButtonLocator).click()
         switchToNewWindowTest()
-        clickOnOkButton()
+        driver.findElement(okButtonLocator).click()
     }
     fun exportApplicantsHistory() {
-        val appliacntsHistoryElement = driver.findElement(applicantsHistory)
-        appliacntsHistoryElement.click()
-        driver!!.switchTo().defaultContent()
+        driver.findElement(applicantsHistory).click()
+        driver.switchTo().defaultContent()
         switchToNavigationFrame()
-        clickOnExportLogButton()
+        driver.findElement(exportLogButtonLocator).click()
         switchToNewWindowTest()
-        clickOnOkButton()
+        driver.findElement(okButtonLocator).click()
 
     }
 }
