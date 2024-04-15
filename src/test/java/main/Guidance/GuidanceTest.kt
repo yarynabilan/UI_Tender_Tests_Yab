@@ -29,9 +29,8 @@ class GuidanceTest : BaseTest() {
 
     @Test
     fun goToSupportPage() {
-        guidance.clickSupportIcon()
+        driver.findElement(guidance.supportIcon).click()
         tendersPage.switchToNewWindowTest()
-        val tenderSupportTitle = WebDriverWait(driver, 25).until(ExpectedConditions.visibilityOf(guidance.tenderSupportTitleElement))
-        assertTrue(tenderSupportTitle.isDisplayed)
+        assertTrue(WebDriverWait(driver, 25).until(ExpectedConditions.visibilityOfElementLocated(guidance.tenderSupportTitle)).isDisplayed())
     }
 }

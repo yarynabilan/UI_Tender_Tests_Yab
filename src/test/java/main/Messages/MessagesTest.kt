@@ -49,6 +49,16 @@ class MessagesTest :  ApplicationsNavigationTest() {
         driver.findElement(messages.confirmSendButton).click()
         Thread.sleep(3000)}
     @Test
+    fun sendMessageToAdmins() {
+        driver.findElement(messages.sendMessageButton).click()
+        tendersPage?.switchToNewWindowTest()
+        driver.findElement(messages.administratorsCheckBox).click()
+        messages.enterSubjectText("TestSubject AutoTest Adm")
+        messages.enterMessageText("auto test Admins")
+        messages.uploadFileToMessage()
+        driver.findElement(messages.confirmSendButton).click()
+        Thread.sleep(3000)}
+    @Test
     fun exportMessages() {
         driver.findElement(messages.exportMessagesButton).click()
         tendersPage?.switchToNewWindowTest()

@@ -1,5 +1,6 @@
 package main.QuetionsAndAnswers
 
+import main.ApplicationsNavigationTest
 import main.BaseTest
 import main.PublicTenderPage
 import main.TendersPage
@@ -8,66 +9,67 @@ import main.questionAndAnswers.Categories
 import org.testng.annotations.BeforeMethod
 import org.testng.annotations.Test
 
-class CategoriesTests : BaseTest() {
-    private lateinit var tendersPage: TendersPage
+class CategoriesTests : ApplicationsNavigationTest() {
+    override  var tendersPage: TendersPage? = null
     private lateinit var publicTenderPage: PublicTenderPage
     private lateinit var categories: Categories
     private lateinit var answers: Answers
     @BeforeMethod
     fun setUpTest() {
         tendersPage = TendersPage(driver)
+        tendersPage!!.switchToBrowserFrame()
+
         publicTenderPage = PublicTenderPage(driver)
         categories = Categories(driver)
         answers = Answers(driver)
-        tendersPage.switchToBrowserFrame()
         publicTenderPage.questionsAndAnswersTab?.click()
         driver.switchTo().defaultContent()
-        tendersPage.switchToNavigationFrame()
+        tendersPage!!.switchToNavigationFrame()
     }
 
     @Test
     fun addNewCategoryForQuestions() {
-        categories.clickManageCategoriesButton()
-        tendersPage.switchToNewWindowTest()
+        driver.findElement(categories.manageCategoriesButton).click()
+        tendersPage?.switchToNewWindowTest()
         categories.enterCategoryName("Test 1")
-        categories.clickOkButton()
+        driver.findElement(categories.okButton).click()
         Thread.sleep(3000)
     }
 
     @Test
     fun addCategoryToDelete() {
-        categories.clickManageCategoriesButton()
-        tendersPage.switchToNewWindowTest()
+        driver.findElement(categories.manageCategoriesButton).click()
+        tendersPage?.switchToNewWindowTest()
         categories.enterCategoryName("to Delete")
-        categories.clickOkButton()
+        driver.findElement(categories.okButton).click()
         Thread.sleep(3000)
     }
 
     @Test
     fun addCategory2() {
-        categories.clickManageCategoriesButton()
+        driver.findElement(categories.manageCategoriesButton).click()
         Thread.sleep(3000)
-        tendersPage.switchToNewWindowTest()
+        tendersPage?.switchToNewWindowTest()
         categories.enterCategoryName("Test Category 2")
-        categories.clickOkButton()
+        driver.findElement(categories.okButton).click()
         Thread.sleep(3000)
     }
 
     @Test
     fun addCategoryTooChange() {
-        categories.clickManageCategoriesButton()
+        driver.findElement(categories.manageCategoriesButton).click()
         Thread.sleep(3000)
-        tendersPage.switchToNewWindowTest()
+        tendersPage?.switchToNewWindowTest()
         categories.enterCategoryName("category TO Change")
-        categories.clickOkButton()
+        driver.findElement(categories.okButton).click()
     }
 
     @Test
     fun deleteCategory() {
-        categories.clickManageCategoriesButton()
-        tendersPage.switchToNewWindowTest()
+        driver.findElement(categories.manageCategoriesButton).click()
+        tendersPage?.switchToNewWindowTest()
         categories.selectCategoryToDelete()
-        categories.clickDelete()
+        driver.findElement(categories.deleteCategoryButton).click()
         val alert = driver.switchTo().alert()
         alert.accept()
         Thread.sleep(3000)
@@ -75,10 +77,10 @@ class CategoriesTests : BaseTest() {
 
     @Test
     fun deleteCategoryInUse() {
-        categories.clickManageCategoriesButton()
-        tendersPage.switchToNewWindowTest()
+        driver.findElement(categories.manageCategoriesButton).click()
+        tendersPage?.switchToNewWindowTest()
         categories.selectCategoryInUse()
-        categories.clickDelete()
+        driver.findElement(categories.deleteCategoryButton).click()
         val alert = driver.switchTo().alert()
         alert.accept()
         Thread.sleep(3000)
@@ -87,27 +89,27 @@ class CategoriesTests : BaseTest() {
     @Test
     fun editCategoryNameInPublishedAnswers() {
         driver.switchTo().defaultContent()
-        tendersPage.switchToDirectoryFrame()
+        tendersPage?.switchToDirectoryFrame()
         answers.goToPublishedAnswersTab()
         Thread.sleep(3000)
         answers.selectQuestionToAnswer()
-        categories.clickEditCategoryButton()
-        tendersPage.switchToNewWindowTest()
+        driver.findElement(categories.editCategoryButton).click()
+        tendersPage?.switchToNewWindowTest()
         categories.enterCategoryName("edited category name")
-        categories.clickOkButton()
+        driver.findElement(categories.okButton).click()
         Thread.sleep(3000)
     }
 
     @Test
     fun deleteCategoryWithPublishedAnswers() {
         driver.switchTo().defaultContent()
-        tendersPage.switchToDirectoryFrame()
+        tendersPage?.switchToDirectoryFrame()
         answers.goToPublishedAnswersTab()
         Thread.sleep(3000)
         answers.selectQuestionToAnswer()
-        categories.clickEditCategoryButton()
-        tendersPage.switchToNewWindowTest()
-        categories.clickDelete()
+        driver.findElement(categories.editCategoryButton).click()
+        tendersPage?.switchToNewWindowTest()
+        driver.findElement(categories.deleteCategoryButton).click()
         val alert = driver.switchTo().alert()
         alert.accept()
         Thread.sleep(3000)
@@ -116,15 +118,15 @@ class CategoriesTests : BaseTest() {
     @Test
     fun changeCategoryForPublishedAnswers() {
         driver.switchTo().defaultContent()
-        tendersPage.switchToDirectoryFrame()
+        tendersPage?.switchToDirectoryFrame()
         answers.goToPublishedAnswersTab()
         Thread.sleep(3000)
         answers.selectQuestionToAnswer()
 
-        categories.clickChangeCategoryButton()
-        tendersPage.switchToNewWindowTest()
+        driver.findElement(categories.changeCategoryButton).click()
+        tendersPage?.switchToNewWindowTest()
         categories.changeCategoryForPublishedAnswer()
-        categories.clickOkButton()
+        driver.findElement(categories.okButton).click()
     }
 
 }

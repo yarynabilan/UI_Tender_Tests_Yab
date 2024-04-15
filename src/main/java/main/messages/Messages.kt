@@ -15,7 +15,7 @@ class Messages(private val driver: WebDriver) {
     private val inputSubjectText: By = By.xpath("//input[@name='subject']")
     private val inputMessageText: By = By.xpath("//textarea[@name='message']")
     private val fileInput: By = By.xpath("//input[@type='file']")
-    private val administratorsCheckBox: By = By.xpath("//input[@name='adm']")
+    val administratorsCheckBox: By = By.xpath("//input[@name='adm']")
     private val tenderersAllCheckBox: By = By.xpath("//input[@name='contracts[]']")
     private val tenderersAcceptedCheckBox: By = By.xpath("//input[@name='accepted_contracts[]']")
     private val tenderersRejectedCheckBox: By = By.xpath("//input[@name='rejected_contracts[]']")
@@ -46,25 +46,11 @@ class Messages(private val driver: WebDriver) {
         fileInputElement.sendKeys(uploadFile.absolutePath)
     }
 
-    fun checkAdministratorsCheckbox() {
-        checkCheckbox(administratorsCheckBox)
-    }
 
     fun checkTenderersAllCheckbox() {
         checkCheckbox(tenderersAllCheckBox)
     }
 
-    fun checkTenderersAcceptedCheckbox() {
-        checkCheckbox(tenderersAcceptedCheckBox)
-    }
-
-    fun checkTenderersRejectedCheckbox() {
-        checkCheckbox(tenderersRejectedCheckBox)
-    }
-
-    fun checkIndividualUserCheckbox() {
-        checkCheckbox(individualUserCheckbox)
-    }
 
     private fun enterText(locator: By, text: String) {
         val element = driver.findElement(locator) as WebElement
@@ -76,29 +62,5 @@ class Messages(private val driver: WebDriver) {
         if (!checkbox.isSelected) {
             checkbox.click()
         }
-    }
-
-    fun sendMessageToAdministrators() {
-        checkAdministratorsCheckbox()
-        enterSubjectText("TestSubject AutoTest Admins")
-        enterMessageText("auto test administrators")
-        uploadFileToMessage()
-        driver.findElement(confirmSendButton).click()
-    }
-
-    fun sendMessageToApplicants() {
-        checkTenderersAllCheckbox()
-        enterSubjectText("TestSubject AutoTest Tenderers")
-        enterMessageText("auto test tenderers")
-        uploadFileToMessage()
-        driver.findElement(confirmSendButton).click()
-    }
-
-    fun sendMessageToAll() {
-        driver.findElement(selectAllButton).click()
-        enterSubjectText("TestSubject AutoTest All")
-        enterMessageText("auto test all")
-        uploadFileToMessage()
-        driver.findElement(confirmSendButton).click()
     }
 }

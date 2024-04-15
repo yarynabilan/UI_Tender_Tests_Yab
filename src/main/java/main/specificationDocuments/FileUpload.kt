@@ -67,10 +67,6 @@ class FileUpload internal constructor(private val driver: WebDriver) {
         fileFromWSElement.click()
     }
 
-    fun clickUploadFileButton() {
-        val uploadFileElement = driver.findElement(uploadFileButton)
-        uploadFileElement.click()
-    }
 
     fun clickSelectAllButton() {
         val selectAllElement = driver.findElement(selectAllButton)
@@ -85,20 +81,16 @@ class FileUpload internal constructor(private val driver: WebDriver) {
         return driver.findElement(myFoldersTab)
     }
 
-    fun clickEnhancedUploadTab() {
-        val enhancedUploadElement = driver.findElement(enhancedUploadTab)
-        enhancedUploadElement.click()
-    }
 
     fun clickStandardUploadTab() {
         val standartUploadTablement = driver.findElement(standartUploadTab)
         standartUploadTablement.click()
     }
 
-    fun clickTransferralUploadTab() {
-        val transferralUploadTabElement = driver.findElement(transferralUploadTab)
-        transferralUploadTabElement.click()
-    }
+//    fun clickTransferralUploadTab() {
+//        val transferralUploadTabElement = driver.findElement(transferralUploadTab)
+//        transferralUploadTabElement.click()
+//    }
 
     fun inputDestinationFolder(folderName: String?) {
         val destinationFolderElement = driver.findElement(inputForDestinationFolder)
