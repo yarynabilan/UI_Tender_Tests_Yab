@@ -1,20 +1,22 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
-
 <suite name="basic_tender_test">
     <parameter name="environment" value="testserver"/>
-<!--        <parameter name="environment" value="production"/>-->
-    <listeners>
-    <listener class-name="io.qameta.allure.testng.AllureTestNg" />
-</listeners>
-        <test name="BasicTenderNavigationTest">
+    <parameter name="username" value="ribtestuser@gmail.com"/>
+    <parameter name="password" value="TestPassword#1"/>
 
-    <classes>
-        <class name="main.ApplicationsNavigationTest">
-            <methods>
-                <include name="navigateThoughtMainPanels" />
-            </methods>
-        </class>
-    </classes>
-</test>
+
+    <listeners>
+        <listener class-name="io.qameta.allure.testng.AllureTestNg" />
+    </listeners>
+
+    <test name="BasicTenderNavigationTest">
+        <classes>
+            <class name="main.ApplicationsNavigationTest">
+                <methods>
+                    <include name="navigateThoughtMainPanels" />
+                </methods>
+            </class>
+        </classes>
+    </test>
 </suite>

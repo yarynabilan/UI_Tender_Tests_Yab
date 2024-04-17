@@ -5,6 +5,11 @@
         <listener class-name="io.qameta.allure.testng.AllureTestNg" />
     </listeners>
     <test name="Update Tender Settings">
+
+        <parameter name="environment" value="testserver"/>
+        <parameter name="username" value="ribtestuser@gmail.com"/>
+        <parameter name="password" value="TestPassword#1"/>
+
         <classes>
             <class name="main.tenderInformation.TenderInformationUpdate">
                 <methods>

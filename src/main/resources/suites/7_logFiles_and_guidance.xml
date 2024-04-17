@@ -1,12 +1,17 @@
-<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
 <suite name="logFiles">
     <parameter name="environment" value="testserver"/>
-    <!--        <parameter name="environment" value="production"/>-->
+    <parameter name="username" value="ribtestuser@gmail.com"/>
+    <parameter name="password" value="TestPassword#1"/>
+
+
     <listeners>
         <listener class-name="io.qameta.allure.testng.AllureTestNg" />
     </listeners>
+
+
     <test name="LogFilesTest_And_Guidance">
 
         <classes>

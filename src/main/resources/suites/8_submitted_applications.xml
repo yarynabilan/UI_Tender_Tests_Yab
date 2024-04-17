@@ -4,6 +4,10 @@
         <listener class-name="io.qameta.allure.testng.AllureTestNg" />
     </listeners>
 
+    <parameter name="environment" value="testserver"/>
+    <parameter name="username" value="ribtestuser@gmail.com"/>
+    <parameter name="password" value="TestPassword#1"/>
+
     <test name="main.SubmittedApplication.SubmittedApplicationsTest">
         <classes>
             <class name="main.SubmittedApplication.SubmittedApplicationsTest">

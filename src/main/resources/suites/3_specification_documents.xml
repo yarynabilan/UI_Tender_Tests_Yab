@@ -5,32 +5,37 @@
         <listener class-name="io.qameta.allure.testng.AllureTestNg" />
     </listeners>
     <test name="Specification Documents">
+
+        <parameter name="environment" value="testserver"/>
+        <parameter name="username" value="ribtestuser@gmail.com"/>
+        <parameter name="password" value="TestPassword#1"/>
+
         <classes>
-<!--            <class name="main.specificationDocuments.FoldersTest">-->
-<!--                <methods>-->
-<!--                    <include name="CreateFolder" />-->
-<!--                    <include name="CreateFolderWithSubFolder" />-->
-<!--                    <include name="CreateEditDeleteFolder" />-->
-<!--                    <include name="CreateFolderWithAlreadyExistingName" />-->
-<!--                </methods>-->
-<!--            </class>-->
+            <class name="main.specificationDocuments.FoldersTest">
+                <methods>
+                    <include name="CreateFolder" />
+                    <include name="CreateFolderWithSubFolder" />
+                    <include name="CreateEditDeleteFolder" />
+                    <include name="CreateFolderWithAlreadyExistingName" />
+                </methods>
+            </class>
 
         <class name="main.specificationDocuments.UploadFiles">
             <methods>
-<!--                <include name="createFolderAndUploadFileToDelete" />-->
-<!--                <include name="CreateFolderWithAlreadyExistingName" />-->
-<!--                <include name="UploadFileToExistingFolder" />-->
-<!--                <include name="standardUploadOFSecondFileVersion" />-->
-<!--                <include name="transferralUploadMyFolder" />-->
-<!--                <include name="transferralUploadSharedFolder" />-->
-<!--                <include name="transferralUploadFromFirstPhase" />-->
-<!--                <include name="transferralUploadProjectWSPSDS" />-->
-<!--                <include name="downloadFile" />-->
-<!--                <include name="previewFile" />-->
-<!--                <include name="openFile" />-->
-<!--                <include name="compareTwoFilesVersion" />-->
-<!--                <include name="updateFileMetadataField" />-->
-<!--                <include name="downloadAllTenderFiles" />-->
+                <include name="createFolderAndUploadFileToDelete" />
+                <include name="CreateFolderWithAlreadyExistingName" />
+                <include name="UploadFileToExistingFolder" />
+                <include name="standardUploadOFSecondFileVersion" />
+                <include name="transferralUploadMyFolder" />
+                <include name="transferralUploadSharedFolder" />
+                <include name="transferralUploadFromFirstPhase" />
+                <include name="transferralUploadProjectWSPSDS" />
+                <include name="downloadFile" />
+                <include name="previewFile" />
+                <include name="openFile" />
+                <include name="compareTwoFilesVersion" />
+                <include name="updateFileMetadataField" />
+                <include name="downloadAllTenderFiles" />
                 <include name="sendAllTenderFileToEmail" />
                 <include name="downloadFileListInExcel" />
             </methods>
