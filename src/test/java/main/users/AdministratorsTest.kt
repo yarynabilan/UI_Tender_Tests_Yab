@@ -16,10 +16,10 @@ class AdministratorsTest : BaseTest() {
     @BeforeMethod
      fun setUpTest() {
         tendersPage = TendersPage(driver)
+        tendersPage.switchToBrowserFrame()
         publicTenderPage = PublicTenderPage(driver)
         allUsers = AllUsers(driver)
         administrators = Administrators(driver)
-        tendersPage.switchToBrowserFrame()
         publicTenderPage.usersTab?.click()
         driver!!.switchTo().defaultContent()
         tendersPage.switchToDirectoryFrame()

@@ -10,7 +10,7 @@
         <test name="BasicTenderNavigationTest">
 
     <classes>
-        <class name="main.BasicTenderNavigation">
+        <class name="main.ApplicationsNavigationTest">
             <methods>
                 <include name="navigateThoughtMainPanels" />
             </methods>

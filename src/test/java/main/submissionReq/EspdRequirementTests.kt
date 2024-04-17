@@ -4,7 +4,6 @@ import main.ApplicationsNavigationTest
 import main.PublicTenderPage
 import main.TendersPage
 import main.subReq.SubmissionRequirements
-import main.subReq.allRequirements.DataInputReq
 import main.subReq.allRequirements.espdRequirementPage
 import org.testng.annotations.BeforeMethod
 import org.testng.annotations.Test
@@ -15,14 +14,14 @@ class EspdRequirementTests : ApplicationsNavigationTest() {
 
     override  var tendersPage: TendersPage? = null
     private lateinit var publicTenderPage: PublicTenderPage
+    private lateinit var espdRequirementPage: espdRequirementPage
     private lateinit var submissionRequirements: SubmissionRequirements
-    private lateinit var dataInputReq: DataInputReq
 
     @BeforeMethod
     fun setUpTest() {
         tendersPage = TendersPage(driver)
-        publicTenderPage = PublicTenderPage(driver)
         tendersPage!!.switchToBrowserFrame()
+        publicTenderPage = PublicTenderPage(driver)
         publicTenderPage.submissionRequirementsTab?.click()
         driver!!.switchTo().defaultContent()
         tendersPage!!.switchToNavigationFrame()

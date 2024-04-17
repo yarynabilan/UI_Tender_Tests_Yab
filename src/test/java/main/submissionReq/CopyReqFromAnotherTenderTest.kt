@@ -12,23 +12,24 @@ class CopyReqFromAnotherTenderTest : BaseTest() {
 
     private lateinit var tendersPage: TendersPage
     private lateinit var publicTenderPage: PublicTenderPage
-    private lateinit var submissionRequirements: SubmissionRequirements
+    private var submissionRequirements: SubmissionRequirements? = null
     private lateinit var copyReqFromAnotherTender: CopyReqFromAnotherTender
 
     @BeforeMethod
     fun setUpTest() {
         tendersPage = TendersPage(driver)
+        tendersPage.switchToBrowserFrame()
         publicTenderPage= PublicTenderPage(driver)
         submissionRequirements = SubmissionRequirements(driver)
         copyReqFromAnotherTender = CopyReqFromAnotherTender(driver)
-        tendersPage.switchToBrowserFrame()
         publicTenderPage.submissionRequirementsTab?.click()
         driver!!.switchTo().defaultContent()
         tendersPage.switchToNavigationFrame()
-        submissionRequirements.clickOnCreateSubReqButton()
+        submissionRequirements = SubmissionRequirements(driver)
+        submissionRequirements!!.clickOnCreateSubReqButton()
         Thread.sleep(2000)
-        submissionRequirements.switchToNewWindowTest()
-        submissionRequirements.clickOncopyReqFromAnotherTenderLink()
+        submissionRequirements!!.switchToNewWindowTest()
+        submissionRequirements!!.clickOncopyReqFromAnotherTenderLink()
     }
     @Test
     @Throws(InterruptedException::class)

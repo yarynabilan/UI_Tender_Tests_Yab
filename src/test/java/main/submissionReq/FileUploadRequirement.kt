@@ -8,20 +8,20 @@ import org.testng.annotations.BeforeMethod
 import org.testng.annotations.Test
 
 class FileUploadRequirement : BaseTest() {
-    private lateinit var tendersPage: TendersPage
+    var tendersPage: TendersPage? = null
     private lateinit var publicTenderPage: PublicTenderPage
     private lateinit var submissionRequirements: SubmissionRequirements
     private lateinit var fileUploadReq: FileUploadReq
     @BeforeMethod
     fun setUpTest() {
         tendersPage = TendersPage(driver)
+        tendersPage!!.switchToBrowserFrame()
         publicTenderPage = PublicTenderPage(driver)
         fileUploadReq = FileUploadReq(driver)
         submissionRequirements = SubmissionRequirements(driver)
-        tendersPage.switchToBrowserFrame()
         publicTenderPage.submissionRequirementsTab?.click()
         driver.switchTo().defaultContent()
-        tendersPage.switchToNavigationFrame()}
+        tendersPage!!.switchToNavigationFrame()}
     @Test
     fun CreateFileUploadRequirement() {
         submissionRequirements.clickOnCreateSubReqButton()
@@ -49,10 +49,10 @@ class FileUploadRequirement : BaseTest() {
     @Test
     fun EditFileUploadRequirement() {
         driver.switchTo().defaultContent()
-        tendersPage.switchToDirectoryFrame()
+        tendersPage?.switchToDirectoryFrame()
         fileUploadReq.selectFileUpload()
         driver.switchTo().defaultContent()
-        tendersPage.switchToNavigationFrame()
+        tendersPage?.switchToNavigationFrame()
         submissionRequirements.clickOnEditSubReqButton()
         submissionRequirements.switchToNewWindowTest()
         fileUploadReq.selectCheckboxDoc()
@@ -68,10 +68,10 @@ class FileUploadRequirement : BaseTest() {
     @Test
     fun DeleteFileUploadRequirement() {
         driver.switchTo().defaultContent()
-        tendersPage.switchToDirectoryFrame()
+        tendersPage?.switchToDirectoryFrame()
         fileUploadReq.selectFileUploadReqToDelete()
         driver.switchTo().defaultContent()
-        tendersPage.switchToNavigationFrame()
+        tendersPage?.switchToNavigationFrame()
         submissionRequirements.clickOnDeleteSubReqButton()
         submissionRequirements.switchToNewWindowTest()
         submissionRequirements.confirmDeletion()

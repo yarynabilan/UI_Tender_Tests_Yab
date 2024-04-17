@@ -29,7 +29,7 @@
             <class name="main.tenderInformation.TenderSettingsUpdate">
                 <methods>
 <!--                    <include name="UpdateSubcontractorsSettings" />-->
-<!--                    <include name="selectSupplementaryFilesAcceptedTest" />-->
+                    <include name="selectSupplementaryFilesAcceptedTest" />
 <!--                    <include name="selectSupplementaryFilesNotAcceptedTest" />-->
 <!--                    <include name="UpdateSecuritySettings" />-->
 <!--                    <include name="UpdateOpeningAndPublicationSettings" />-->

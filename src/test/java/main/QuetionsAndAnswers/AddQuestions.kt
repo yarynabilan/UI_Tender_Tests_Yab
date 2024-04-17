@@ -16,9 +16,10 @@ class AddQuestions : BaseTest() {
     @BeforeMethod
     fun setUpTest() {
         tendersPage = TendersPage(driver)
+        tendersPage.switchToBrowserFrame()
+
         publicTenderPage = PublicTenderPage(driver)
         newQuestions = NewQuestions(driver)
-        tendersPage.switchToBrowserFrame()
         publicTenderPage.questionsAndAnswersTab?.click()
         driver.switchTo().defaultContent()
         tendersPage.switchToNavigationFrame()

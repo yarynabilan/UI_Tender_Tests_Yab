@@ -6,7 +6,7 @@ import org.openqa.selenium.WebDriver
 
 public class TendersPage(driver: WebDriver?) : BasePage(driver) {
     private val publicTenderLink: By = By.xpath("//td[text() = 'AutoTest Public Tender']")
-    private val limitedTenderLink: By = By.xpath("//td[text() = 'Limited 113']")
+    private val limitedTenderLink: By = By.xpath("//td[text() = 'Limited 114']")
     private val browserFrame: By = By.xpath("//frame[@name='browser']")
     private val functionsFrame: By = By.xpath("//frame[@name='functions']")
     private val navigationFrame: By = By.xpath("//frame[@name='navigation']")
