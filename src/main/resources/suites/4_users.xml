@@ -10,16 +10,16 @@
         <parameter name="password" value="TestPassword#1"/>
 
         <classes>
-<!--                        <class name="main.users.AdministratorsTest">-->
-<!--                            <methods>-->
-<!--                                <include name="AddTenderAdministrator" />-->
-<!--                                <include name="AddDocCoordinatorTest" />-->
-<!--                                <include name="AddObserverTest" />-->
-<!--                                <include name="AddObserverTest2" />-->
-<!--                                <include name="UpdateProfile" />-->
-<!--                               <include name="UpdateProfile - написати тест до add user через previously invited users" />-->
-<!--                            </methods>-->
-<!--                        </class>-->
+                        <class name="main.users.AdministratorsTest">
+                            <methods>
+                                <include name="AddTenderAdministrator" />
+                                <include name="AddDocCoordinatorTest" />
+                                <include name="AddObserverTest" />
+                                <include name="AddObserverTest2" />
+                                <include name="UpdateProfile" />
+                               <include name="UpdateProfile - написати тест до add user через previously invited users" />
+                            </methods>
+                        </class>
 
                         <class name="main.users.ClientVendorTest">
                             <methods>

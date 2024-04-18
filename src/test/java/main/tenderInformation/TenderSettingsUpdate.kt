@@ -44,7 +44,7 @@ class TenderSettingsUpdate : ApplicationsNavigationTest() {
     @Test
     @Throws(InterruptedException::class)
     fun selectSupplementaryFilesAcceptedTest() {
-        val tenderSettings = TenderSettings(driver!!)
+        val tenderSettings = TenderSettings(driver)
         tenderSettings.selectSupplementaryFilesAccepted()
         tenderDescription.okButton().click() }
 

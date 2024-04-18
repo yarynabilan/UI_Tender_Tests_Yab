@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver
 import org.openqa.selenium.chrome.ChromeDriver
 import org.testng.annotations.AfterMethod
 import org.testng.annotations.BeforeMethod
+import org.testng.annotations.Optional
 import java.util.concurrent.TimeUnit
 
 open class BaseTest {
@@ -13,9 +14,10 @@ open class BaseTest {
     private lateinit var password: String
     @BeforeMethod
     @Parameters("username", "password")
-    fun setUp(username: String, password: String) {
-        this.username = username
-        this.password = password
+    fun setUp(@Optional username: String?, @Optional password: String?) {
+        this.username = username ?: "ribtestuser@gmail.com"
+        this.password = password ?: "TestPassword#1"
+
 
 
         driver = ChromeDriver()

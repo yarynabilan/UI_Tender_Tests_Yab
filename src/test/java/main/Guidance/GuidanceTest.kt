@@ -1,6 +1,4 @@
 package main.Guidance
-
-import main.ApplicationsNavigationTest
 import main.BaseTest
 import main.LogFiles.Guidance
 import main.PublicTenderPage

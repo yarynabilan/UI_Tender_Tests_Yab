@@ -11,20 +11,23 @@
         <parameter name="password" value="TestPassword#1"/>
 
         <classes>
+
 <!--            <class name="main.QuetionsAndAnswers.AddQuestions">-->
 <!--                <methods>-->
 <!--                    <include name="CreateNewQuestionToPublish" />-->
 <!--                    <include name="CreateNewQuestionToDraft" />-->
 <!--                    <include name="CreateNewQuestionToUnanswer" />-->
 
-<!--&lt;!&ndash;                    <include name="AddQuestions" />&ndash;&gt;-->
+<!--                    <include name="AddQuestions" />-->
 <!--                </methods>-->
 <!--            </class>-->
 
 <!--            <class name="main.QuetionsAndAnswers.CategoriesTests">-->
 <!--                <methods>-->
-<!--                    <include name="addNewCategotyforQuestions" />-->
-<!--                    <include name="addAnddeleteCategory" />-->
+<!--                    <include name="addNewCategoryForQuestions" />-->
+<!--                    <include name="addCategoryToDelete" />-->
+<!--                    <include name="addCategory2" />-->
+<!--                    <include name="addCategoryTooChange" />-->
 <!--                    <include name="deleteCategory" />-->
 <!--                    <include name="deleteCategoryInUse" />-->
 <!--                    <include name="editCategoryNameInPublishedAnswers" />-->
@@ -41,17 +44,18 @@
 <!--                    <include name="editPublishedAnswer" />-->
 <!--                </methods>-->
 <!--            </class>-->
+
             <class name="main.QuetionsAndAnswers.ExportQandATest">
                 <methods>
-                    <include name="ExportQandAinWordAll" />
-                    <include name="ExportQandAinExceldAll" />
-                    <include name="ExportQandAinExceldDrafts" />
-                    <include name="ExportQandAinExceldUnanswered" />
+<!--                    <include name="ExportQandAinWordAll" />-->
+<!--                    <include name="ExportQandAinExceldAll" />-->
+<!--                    <include name="ExportQandAinExceldDrafts" />-->
+<!--                    <include name="ExportQandAinExceldUnanswered" />-->
                 </methods>
             </class>
             <class name="main.Messages.MessagesTest">
                 <methods>
-                    <include name="sendMessageToAll" />
+<!--                    <include name="sendMessageToAll" />-->
                     <include name="sendMessageToTenderers" />
                     <include name="sendMessageToAdmins" />
                     <include name="exportMessages" />

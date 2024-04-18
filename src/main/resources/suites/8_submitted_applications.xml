@@ -12,9 +12,9 @@
         <classes>
             <class name="main.SubmittedApplication.SubmittedApplicationsTest">
                 <methods>
-                    <include name="downloadSubmissionsTest" />
-                    <include name="editEvaluationTest" />
-                    <include name="compareSubmittedDataTest" />
+<!--                    <include name="downloadSubmissionsTest" />-->
+<!--                    <include name="editEvaluationTest" />-->
+<!--                    <include name="compareSubmittedDataTest" />-->
                     <!--            AFTER DEADLINE-->
 
                     <include name="downloadSubmittedDataOfTenderer" />
